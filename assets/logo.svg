@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="235 48 730 564" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient (Preserved for reference) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f5f3"/>
+      <stop offset="55%" stop-color="#eaeae8"/>
+      <stop offset="75%" stop-color="#dfdfe0"/>
+      <stop offset="100%" stop-color="#d2d3d5"/>
+    </linearGradient>
+
+    <!-- Diagonal Light Overlay -->
+    <linearGradient id="lightBeam" x1="0%" y1="0%" x2="100%" y2="85%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="62%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="66%" stop-color="#000000" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <!-- Metallic Gold Gradient (Primary) -->
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8c6220"/>
+      <stop offset="22%" stop-color="#b88936"/>
+      <stop offset="45%" stop-color="#e5c168"/>
+      <stop offset="65%" stop-color="#fff1b0"/>
+      <stop offset="82%" stop-color="#d4a74a"/>
+      <stop offset="100%" stop-color="#9a6f25"/>
+    </linearGradient>
+
+    <!-- Metallic Gold Gradient for Text Stroke -->
+    <linearGradient id="goldStrokeText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3d88c"/>
+      <stop offset="30%" stop-color="#c69842"/>
+      <stop offset="55%" stop-color="#fae5a3"/>
+      <stop offset="80%" stop-color="#a57628"/>
+      <stop offset="100%" stop-color="#e0b861"/>
+    </linearGradient>
+
+    <!-- Left Leaf Gradient (Teal / Emerald) -->
+    <linearGradient id="leftLeafGrad" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#76c8a8"/>
+      <stop offset="25%" stop-color="#48a988"/>
+      <stop offset="60%" stop-color="#1d785f"/>
+      <stop offset="100%" stop-color="#0e4b3c"/>
+    </linearGradient>
+
+    <!-- Left Leaf Highlight -->
+    <radialGradient id="leftLeafGlow" cx="45%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#a8f0d4" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#1d785f" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Back Middle Leaf Gradient -->
+    <linearGradient id="midLeafGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#9ad4bc"/>
+      <stop offset="45%" stop-color="#6eb498"/>
+      <stop offset="85%" stop-color="#3c8269"/>
+      <stop offset="100%" stop-color="#255947"/>
+    </linearGradient>
+
+    <!-- Right Leaf Gradient (Emerald to Gold) -->
+    <linearGradient id="rightLeafGrad" x1="10%" y1="85%" x2="90%" y2="15%">
+      <stop offset="0%" stop-color="#105941"/>
+      <stop offset="30%" stop-color="#228b5d"/>
+      <stop offset="55%" stop-color="#45b57aa0"/>
+      <stop offset="55%" stop-color="#4fb878"/>
+      <stop offset="80%" stop-color="#b9be6b"/>
+      <stop offset="100%" stop-color="#d4af53"/>
+    </linearGradient>
+
+    <!-- Right Leaf Inner Gold Sheen -->
+    <radialGradient id="rightLeafGlow" cx="60%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#fff4b8" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#5cd68d" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#105941" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Diamond Gem Gradients -->
+    <linearGradient id="gemBase" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c87a19"/>
+      <stop offset="40%" stop-color="#f3a833"/>
+      <stop offset="75%" stop-color="#ffd966"/>
+      <stop offset="100%" stop-color="#fffbe6"/>
+    </linearGradient>
+
+    <linearGradient id="gemFacetTL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe699"/>
+      <stop offset="100%" stop-color="#f5b038"/>
+    </linearGradient>
+
+    <linearGradient id="gemFacetTR" x1="20%" y1="20%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#fff0b3"/>
+      <stop offset="100%" stop-color="#f5b841"/>
+    </linearGradient>
+
+    <linearGradient id="gemFacetBL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e08b21"/>
+      <stop offset="100%" stop-color="#a85c0d"/>
+    </linearGradient>
+
+    <linearGradient id="gemFacetBR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7b334"/>
+      <stop offset="100%" stop-color="#c47114"/>
+    </linearGradient>
+
+    <radialGradient id="gemFlare" cx="65%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#fff6cc" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffd966" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- "Agri" Navy Blue Gradient -->
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3566"/>
+      <stop offset="45%" stop-color="#122247"/>
+      <stop offset="100%" stop-color="#09132b"/>
+    </linearGradient>
+
+    <!-- "smart" Emerald Green Gradient -->
+    <linearGradient id="greenTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#48a860"/>
+      <stop offset="45%" stop-color="#277b3d"/>
+      <stop offset="100%" stop-color="#175227"/>
+    </linearGradient>
+
+    <!-- Subtitle Green Gradient -->
+    <linearGradient id="subTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3c8d50"/>
+      <stop offset="50%" stop-color="#216334"/>
+      <stop offset="100%" stop-color="#123d1e"/>
+    </linearGradient>
+
+    <!-- Bottom Bar Gradient -->
+    <linearGradient id="barGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0a2e1c"/>
+      <stop offset="28%" stop-color="#1a5e3a"/>
+      <stop offset="52%" stop-color="#2ec474"/>
+      <stop offset="75%" stop-color="#9ed162"/>
+      <stop offset="92%" stop-color="#f7d868"/>
+      <stop offset="100%" stop-color="#d49b35"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filter for 3D Depth -->
+    <filter id="dropShadow" x="-15%" y="-15%" width="140%" height="145%">
+      <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+
+    <filter id="softShadow" x="-15%" y="-15%" width="135%" height="140%">
+      <feDropShadow dx="2" dy="5" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== LOGO ICON / EMBLEM ==================== -->
+  <g filter="url(#dropShadow)" transform="translate(0, 10)">
+
+    <!-- 1. Top Diamond / Sun Gem -->
+    <g transform="translate(600, 95)">
+      <!-- Outer Golden Frame of Gem -->
+      <path d="M 0,-36 C 6,-36 36,-6 36,0 C 36,6 6,36 0,36 C -6,36 -36,6 -36,0 C -36,-6 -6,-36 0,-36 Z"
+            fill="url(#goldGrad)" stroke="#8c6220" stroke-width="1"/>
+      <!-- Inner Gem Base -->
+      <path d="M 0,-31 C 5,-31 31,-5 31,0 C 31,5 5,31 0,31 C -5,31 -31,5 -31,0 C -31,-5 -5,-31 0,-31 Z"
+            fill="url(#gemBase)"/>
+      <!-- Gem Facets -->
+      <polygon points="0,-30 -30,0 0,0" fill="url(#gemFacetTL)" opacity="0.85"/>
+      <polygon points="0,-30 30,0 0,0" fill="url(#gemFacetTR)" opacity="0.95"/>
+      <polygon points="-30,0 0,30 0,0" fill="url(#gemFacetBL)" opacity="0.85"/>
+      <polygon points="30,0 0,30 0,0" fill="url(#gemFacetBR)" opacity="0.9"/>
+      <!-- Inner Diamond Cut -->
+      <polygon points="0,-16 16,0 0,16 -16,0" fill="url(#gemBase)" opacity="0.7" stroke="#fff3c4" stroke-width="0.8"/>
+      <!-- Facet Lines -->
+      <line x1="-22" y1="-8" x2="22" y2="8" stroke="#fff9d6" stroke-width="0.9" opacity="0.6"/>
+      <line x1="-8" y1="22" x2="8" y2="-22" stroke="#fff9d6" stroke-width="0.9" opacity="0.6"/>
+      <!-- Starburst Highlight -->
+      <circle cx="9" cy="-7" r="18" fill="url(#gemFlare)"/>
+    </g>
+
+    <!-- 2. Middle-Left Back Leaf -->
+    <g>
+      <path d="M 594,225
+               C 596,178 574,132 536,102
+               C 522,132 520,164 532,192
+               C 548,205 574,218 594,225 Z"
+            fill="url(#midLeafGrad)" stroke="url(#goldGrad)" stroke-width="4" stroke-linejoin="round"/>
+      <!-- Subtle central vein on back leaf -->
+      <path d="M 538,106 C 556,142 574,178 590,218"
+            fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+    </g>
+
+    <!-- 3. Golden Outer Cradle Arcs (Left & Right) -->
+    <!-- Left Cradle Arc -->
+    <path d="M 505,252
+             C 514,296 546,326 584,335"
+          fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linecap="round"/>
+    <!-- Right Cradle Arc -->
+    <path d="M 702,210
+             C 706,274 666,322 616,335"
+          fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- 4. Left Main Leaf -->
+    <g>
+      <path d="M 596,304
+               C 542,300 492,262 483,198
+               C 479,174 483,152 487,140
+               C 535,164 576,192 590,236
+               C 597,258 598,282 596,304 Z"
+            fill="url(#leftLeafGrad)" stroke="url(#goldGrad)" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M 596,304
+               C 542,300 492,262 483,198
+               C 479,174 483,152 487,140
+               C 535,164 576,192 590,236
+               C 597,258 598,282 596,304 Z"
+            fill="url(#leftLeafGlow)"/>
+      <!-- Left Leaf Side Veins -->
+      <path d="M 526,198 C 510,198 498,195 488,190" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 548,222 C 526,225 508,222 493,216" fill="none" stroke="url(#goldGrad)" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M 542,214 C 546,198 545,184 542,174" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 568,248 C 546,253 524,251 508,244" fill="none" stroke="url(#goldGrad)" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M 564,242 C 570,224 570,208 566,196" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 584,274 C 566,280 546,279 532,274" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- 5. Right Main Leaf -->
+    <g>
+      <path d="M 605,274
+               C 602,212 624,154 674,108
+               C 688,96 701,86 708,82
+               C 722,135 718,194 686,232
+               C 664,256 636,268 605,274 Z"
+            fill="url(#rightLeafGrad)" stroke="url(#goldGrad)" stroke-width="5.5" stroke-linejoin="round"/>
+      <path d="M 605,274
+               C 602,212 624,154 674,108
+               C 688,96 701,86 708,82
+               C 722,135 718,194 686,232
+               C 664,256 636,268 605,274 Z"
+            fill="url(#rightLeafGlow)"/>
+      <!-- Right Leaf Side Veins -->
+      <path d="M 676,144 C 688,142 699,138 708,132" fill="none" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M 656,174 C 676,174 694,168 708,158" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 662,165 C 657,148 658,135 662,124" fill="none" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M 636,208 C 662,206 684,199 701,188" fill="none" stroke="url(#goldGrad)" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M 642,198 C 634,178 634,162 638,148" fill="none" stroke="url(#goldGrad)" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M 618,242 C 646,240 668,233 684,222" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 622,232 C 615,212 615,194 620,180" fill="none" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round"/>
+    </g>
+
+    <!-- 6. Main Stems Extending from Bottom Ring into Leaves -->
+    <!-- Left Stem / Midrib -->
+    <path d="M 594,322
+             C 596,294 584,262 554,228
+             C 530,200 506,174 492,152"
+          fill="none" stroke="url(#goldGrad)" stroke-width="5.5" stroke-linecap="round"/>
+    <!-- Right Stem / Midrib -->
+    <path d="M 604,322
+             C 602,282 614,242 642,196
+             C 664,160 686,124 704,90"
+          fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- 7. Bottom Center Golden Node Ring -->
+    <circle cx="600" cy="336" r="16" fill="none" stroke="url(#goldGrad)" stroke-width="7.5"/>
+    <circle cx="600" cy="336" r="10" fill="#d8d6d2" opacity="0.35"/>
+  </g>
+
+  <!-- ==================== MAIN TITLE: Agrismart ==================== -->
+  <g filter="url(#dropShadow)">
+    <!-- 3D Extrusion / Dark Gold Back Layer for Depth -->
+    <text x="600" y="485"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="136"
+          font-weight="800"
+          letter-spacing="1"
+          fill="#593d10"
+          stroke="#593d10"
+          stroke-width="10"
+          stroke-linejoin="round"
+          transform="translate(2, 4)">
+      <tspan>Agri</tspan><tspan>smart</tspan>
+    </text>
+
+    <!-- Gold Metallic Rim Layer -->
+    <text x="600" y="485"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="136"
+          font-weight="800"
+          letter-spacing="1"
+          fill="none"
+          stroke="url(#goldStrokeText)"
+          stroke-width="10"
+          stroke-linejoin="round">
+      <tspan>Agri</tspan><tspan>smart</tspan>
+    </text>
+
+    <!-- Inner Colored Fill Layer ("Agri" in Navy, "smart" in Emerald) -->
+    <text x="600" y="485"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="136"
+          font-weight="800"
+          letter-spacing="1">
+      <tspan fill="url(#navyGrad)">Agri</tspan><tspan fill="url(#greenTextGrad)">smart</tspan>
+    </text>
+
+    <!-- Fine Inner Gold Highlight Stroke -->
+    <text x="600" y="485"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="136"
+          font-weight="800"
+          letter-spacing="1"
+          fill="none"
+          stroke="url(#goldGrad)"
+          stroke-width="2.2"
+          stroke-linejoin="round">
+      <tspan>Agri</tspan><tspan>smart</tspan>
+    </text>
+  </g>
+
+  <!-- ==================== SUBTITLE: BOTANICAL LIVING & SMART CARE ==================== -->
+  <g filter="url(#softShadow)">
+    <!-- Gold Outline Back -->
+    <text x="600" y="560"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Cinzel', 'Segoe UI', Arial, sans-serif"
+          font-size="38"
+          font-weight="800"
+          letter-spacing="2.8"
+          fill="url(#subTextGrad)"
+          stroke="url(#goldStrokeText)"
+          stroke-width="2"
+          stroke-linejoin="round">
+      BOTANICAL LIVING &amp; SMART CARE
+    </text>
+    <!-- Crisp Inner Fill -->
+    <text x="600" y="560"
+          text-anchor="middle"
+          font-family="'Montserrat', 'Poppins', 'Cinzel', 'Segoe UI', Arial, sans-serif"
+          font-size="38"
+          font-weight="800"
+          letter-spacing="2.8"
+          fill="url(#subTextGrad)">
+      BOTANICAL LIVING &amp; SMART CARE
+    </text>
+  </g>
+
+  <!-- ==================== BOTTOM ACCENT BAR & DOT ==================== -->
+  <g filter="url(#softShadow)">
+    <!-- Main Pill Bar -->
+    <rect x="400" y="588" width="376" height="16" rx="8" ry="8"
+          fill="url(#barGrad)"
+          stroke="url(#goldGrad)"
+          stroke-width="3"/>
+    <!-- Glossy Top Highlight on Bar -->
+    <rect x="406" y="590.5" width="364" height="4" rx="2" ry="2"
+          fill="#ffffff" opacity="0.35"/>
+    <!-- Glowing Spot near Right End of Bar -->
+    <ellipse cx="730" cy="591" rx="22" ry="4" fill="#fffbe0" opacity="0.7"/>
+    <ellipse cx="600" cy="596" rx="35" ry="5" fill="#6bffac" opacity="0.35"/>
+
+    <!-- Small Golden Dot on the Right -->
+    <circle cx="796" cy="596" r="7.5"
+            fill="url(#goldGrad)"
+            stroke="#8c6220"
+            stroke-width="1.5"/>
+    <circle cx="794" cy="594" r="2.5" fill="#ffffff" opacity="0.8"/>
+  </g>
+</svg>

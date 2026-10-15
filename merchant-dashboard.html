@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agrismart - Merchant &amp; Nursery Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/merchant-dashboard.css" />
+</head>
+
+<body data-requires-auth="true">
+  <!-- Shared SVG Sprite from index.html -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </symbol>
+
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </symbol>
+
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </symbol>
+
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </symbol>
+
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </symbol>
+
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" />
+    </symbol>
+  </svg>
+
+  <!-- Distinct Merchant Top Strip -->
+  <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
+    <div class="merchant-top-strip__inner">
+      <div class="merchant-top-strip__badge">
+        <span class="merchant-pulse-dot"></span>
+        <span>🏪 Agrismart Nursery Portal · <span id="topStripStoreName">Al-Rawabi Botanical Nursery</span></span>
+      </div>
+      <div class="merchant-top-strip__actions">
+        <a href="merchant-store.html">👁️ Public Storefront</a>
+        <a href="shop.html">🛒 Consumer Shop</a>
+      </div>
+    </div>
+  </aside>
+
+  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION (Source of Truth: index.html) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="merchant-dashboard.html" class="nav__logo logo-container" aria-label="Agrismart Merchant Hub">
+        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+        <span class="nav-merchant-tag">Nursery Hub</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="merchant-dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="merchant-profile.html">Store Profile</a></li>
+        <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
+        <li><a href="merchant-analytics.html">Analytics</a></li>
+        <li><a href="merchant-store.html">Public Store</a></li>
+        <li><a href="merchant-contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="lang-en" type="button">EN</button>
+          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
+          <svg id="themeIconLight" class="hidden-icon">
+            <use href="#icon-sun"></use>
+          </svg>
+          <svg id="themeIconDark">
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+        <!-- Merchant Profile / User Icon -->
+        <a href="merchant-account.html" id="loginPageButton" class="btn-icon" aria-label="Merchant Profile" title="Merchant Profile" data-auth-control>
+          <svg>
+            <use href="#icon-user"></use>
+          </svg>
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Merchant Layout -->
+  <main class="merchant-main">
+    <div class="merchant-container">
+
+      <!-- ── Top Hero / Store Identity Bar ── -->
+      <section class="merchant-hero">
+        <div class="merchant-identity">
+          <div class="merchant-avatar" id="storeHeroInitial">R</div>
+          <div class="merchant-meta">
+            <div class="merchant-title-row">
+              <h1 class="merchant-title" id="storeHeroName">Al-Rawabi Botanical Nursery</h1>
+              <span class="merchant-badge">✓ Verified Nursery</span>
+            </div>
+            <div class="merchant-chips">
+              <span class="merchant-chip">📍 <span id="storeHeroCity">Amman, Jordan</span></span>
+              <span class="merchant-chip">📞 <span id="storeHeroPhone">+962 7 9811 2233</span></span>
+              <span class="merchant-chip">🌿 Retail &amp; Wholesale</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="merchant-actions">
+          <button class="btn-merchant btn-merchant--primary" id="openAddProductBtn" type="button">
+            + Add Plant / Product
+          </button>
+          <a class="btn-merchant btn-merchant--outline" href="merchant-profile.html" title="Edit Store Profile &amp; Map Location">
+            🗺️ Store &amp; Map
+          </a>
+          <a class="btn-merchant btn-merchant--outline" href="my-account.html" title="Switch to Customer Profile">
+            👤 Customer View
+          </a>
+        </div>
+      </section>
+
+      <!-- ── KPI Stat Cards ── -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Listed Plants &amp; Items</span>
+            <span class="kpi-value" id="kpiTotalProducts">4</span>
+            <span class="kpi-sub">Active in Agrismart Store</span>
+          </div>
+          <div class="kpi-icon-wrap">🪴</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Active Orders</span>
+            <span class="kpi-value" id="kpiActiveOrders">3</span>
+            <span class="kpi-sub">In preparation &amp; transit</span>
+          </div>
+          <div class="kpi-icon-wrap">📦</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Total Sales Volume</span>
+            <span class="kpi-value" id="kpiTotalRevenue">$368.50</span>
+            <span class="kpi-sub">This month fulfillment</span>
+          </div>
+          <div class="kpi-icon-wrap">💵</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Quality &amp; Vitality</span>
+            <span class="kpi-value">4.9 ★</span>
+            <span class="kpi-sub">98% customer satisfaction</span>
+          </div>
+          <div class="kpi-icon-wrap">🌟</div>
+        </div>
+      </section>
+
+      <!-- ── Dashboard Navigation Tabs ── -->
+      <nav class="merchant-tabs-bar" aria-label="Merchant Dashboard Tabs">
+        <button class="merchant-tab-btn is-active" data-tab="inventory" type="button">
+          🌿 Inventory &amp; Plants
+          <span class="merchant-tab-badge" id="badgeInventoryCount">4</span>
+        </button>
+        <button class="merchant-tab-btn" data-tab="orders" type="button">
+          📦 Incoming Customer Orders
+          <span class="merchant-tab-badge" id="badgeOrdersCount">3</span>
+        </button>
+        <button class="merchant-tab-btn" data-tab="wholesale" type="button">
+          🚜 B2B Wholesale Sourcing
+        </button>
+      </nav>
+
+      <!-- ══════════════ TAB 1: INVENTORY & PRODUCTS ══════════════ -->
+      <section class="merchant-panel is-active" id="panel-inventory">
+        <!-- Toolbar Filters -->
+        <div class="panel-toolbar">
+          <div class="panel-toolbar-start">
+            <div class="toolbar-search">
+              <span class="toolbar-search-icon">🔍</span>
+              <input type="text" id="productSearchInput" placeholder="Search plants by name or botanical spec..." />
+            </div>
+
+            <select class="toolbar-filter-select" id="productCategoryFilter" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+              <option value="indoor">Indoor Plants</option>
+              <option value="outdoor">Outdoor Plants</option>
+              <option value="pots">Pots &amp; Accessories</option>
+              <option value="seeds">Seeds &amp; Nutrition</option>
+            </select>
+
+            <select class="toolbar-filter-select" id="productStockFilter" aria-label="Filter by stock status">
+              <option value="all">All Stock Statuses</option>
+              <option value="in-stock">In Stock</option>
+              <option value="out-of-stock">Out of Stock</option>
+            </select>
+          </div>
+
+          <button class="btn-merchant btn-merchant--primary" onclick="document.getElementById('openAddProductBtn').click()" type="button">
+            + Add Plant
+          </button>
+        </div>
+
+        <!-- Products Table Card -->
+        <div class="table-card">
+          <div class="table-responsive">
+            <table class="merchant-table">
+              <thead>
+                <tr>
+                  <th>Specimen &amp; Name</th>
+                  <th>Category</th>
+                  <th>Retail Price</th>
+                  <th>Wholesale Price</th>
+                  <th>Stock Count</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Dynamically rendered by merchant-dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════ TAB 2: INCOMING ORDERS ══════════════ -->
+      <section class="merchant-panel" id="panel-orders">
+        <!-- Orders Toolbar -->
+        <div class="panel-toolbar">
+          <div class="panel-toolbar-start">
+            <select class="toolbar-filter-select" id="orderStatusFilter" aria-label="Filter orders">
+              <option value="all">All Orders</option>
+              <option value="new">New / Unprocessed</option>
+              <option value="packing">In Preparation (Packing)</option>
+              <option value="transit">With Courier (In Transit)</option>
+              <option value="delivered">Delivered</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Orders Table Card -->
+        <div class="table-card">
+          <div class="table-responsive">
+            <table class="merchant-table">
+              <thead>
+                <tr>
+                  <th>Order ID &amp; Date</th>
+                  <th>Customer &amp; Phone</th>
+                  <th>Items Ordered</th>
+                  <th>Destination</th>
+                  <th>Total Amount</th>
+                  <th>Order Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Dynamically rendered by merchant-dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════ TAB 3: B2B WHOLESALE SOURCING ══════════════ -->
+      <section class="merchant-panel" id="panel-wholesale">
+        <div class="panel-toolbar">
+          <div>
+            <h3 style="margin:0 0 0.25rem; font-size:1.15rem; font-weight:700;">Direct Nursery Wholesale Supplies</h3>
+            <p style="margin:0; font-size:0.88rem; color:var(--m-text-muted);">
+              Bulk peat moss, propagation equipment, and fertilizers at tier-1 horticultural wholesale prices.
+            </p>
+          </div>
+        </div>
+
+        <div class="wholesale-grid">
+          <!-- Item 1 -->
+          <article class="wholesale-card">
+            <img class="wholesale-card__img" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=500&auto=format&fit=crop&q=80" alt="Bulk Peat Moss">
+            <div class="wholesale-card__body">
+              <span class="category-tag">Soil &amp; Substrates</span>
+              <h4 class="wholesale-card__title">Sphagnum Peat Moss (250L Professional Bale)</h4>
+              <p style="font-size:0.85rem; color:var(--m-text-muted);">pH buffered, sterilized Canadian sphagnum for commercial potting mixes.</p>
+              <div class="wholesale-card__pricing">
+                <span class="wholesale-price">$34.00</span>
+                <span class="wholesale-moq">/ bale · MOQ 2 bales</span>
+              </div>
+              <button class="btn-merchant btn-merchant--primary btn-order-wholesale" data-item="Sphagnum Peat Moss 250L" type="button">
+                Order Wholesale Batch
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="wholesale-card">
+            <img class="wholesale-card__img" src="https://images.unsplash.com/photo-1592417817098-8f3d6910609f?w=500&auto=format&fit=crop&q=80" alt="Propagation Trays">
+            <div class="wholesale-card__body">
+              <span class="category-tag">Propagation</span>
+              <h4 class="wholesale-card__title">Commercial Propagation Trays (104 Cells · Pack of 20)</h4>
+              <p style="font-size:0.85rem; color:var(--m-text-muted);">Heavy-duty UV-stabilized seedling plug trays with root drainage channels.</p>
+              <div class="wholesale-card__pricing">
+                <span class="wholesale-price">$22.00</span>
+                <span class="wholesale-moq">/ pack of 20</span>
+              </div>
+              <button class="btn-merchant btn-merchant--primary btn-order-wholesale" data-item="Propagation Trays 104-Cell" type="button">
+                Order Wholesale Batch
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="wholesale-card">
+            <img class="wholesale-card__img" src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=500&auto=format&fit=crop&q=80" alt="Slow Release Fertilizer">
+            <div class="wholesale-card__body">
+              <span class="category-tag">Nutrition</span>
+              <h4 class="wholesale-card__title">Slow-Release Micro-Nutrient Fertilizer (25kg Drum)</h4>
+              <p style="font-size:0.85rem; color:var(--m-text-muted);">6-month controlled release 18-9-10 + micronutrients for healthy nursery stock.</p>
+              <div class="wholesale-card__pricing">
+                <span class="wholesale-price">$58.00</span>
+                <span class="wholesale-moq">/ 25kg drum</span>
+              </div>
+              <button class="btn-merchant btn-merchant--primary btn-order-wholesale" data-item="Osmocote Fertilizer 25kg" type="button">
+                Order Wholesale Batch
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="wholesale-card">
+            <img class="wholesale-card__img" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&auto=format&fit=crop&q=80" alt="Terracotta Assortment">
+            <div class="wholesale-card__body">
+              <span class="category-tag">Planters</span>
+              <h4 class="wholesale-card__title">Clay Cylinder Pots Master Crate (24 Units Assorted)</h4>
+              <p style="font-size:0.85rem; color:var(--m-text-muted);">Natural porous red clay pots with matching saucers (8 Small, 10 Medium, 6 Large).</p>
+              <div class="wholesale-card__pricing">
+                <span class="wholesale-price">$88.00</span>
+                <span class="wholesale-moq">/ crate of 24</span>
+              </div>
+              <button class="btn-merchant btn-merchant--primary btn-order-wholesale" data-item="Terracotta Crate 24pcs" type="button">
+                Order Wholesale Batch
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── Modal: Add New Plant / Product ── -->
+  <div class="modal-overlay" id="addProductModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">🌿 List a New Plant or Product</h3>
+        <button class="modal-close" id="closeAddProductBtn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="addProductForm">
+        <div class="modal-body">
+          <div class="form-group-merchant">
+            <label for="newProductName">Plant / Product Common Name *</label>
+            <input type="text" id="newProductName" placeholder="e.g. Fiddle Leaf Fig, Jasmine Sambac" required>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="newProductBotanical">Botanical / Scientific Specimen Name</label>
+            <input type="text" id="newProductBotanical" placeholder="e.g. Ficus lyrata">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group-merchant">
+              <label for="newProductCategory">Category *</label>
+              <select id="newProductCategory" required>
+                <option value="indoor">Indoor Plants</option>
+                <option value="outdoor">Outdoor Plants</option>
+                <option value="pots">Pots &amp; Planters</option>
+                <option value="seeds">Seeds &amp; Fertilizer</option>
+              </select>
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="newProductStock">Initial Stock Quantity *</label>
+              <input type="number" id="newProductStock" min="1" max="1000" value="10" required>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group-merchant">
+              <label for="newProductPrice">Retail Price ($) *</label>
+              <input type="number" id="newProductPrice" step="0.5" min="1" value="28.00" required>
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="newProductWholesale">Wholesale Price ($) *</label>
+              <input type="number" id="newProductWholesale" step="0.5" min="1" value="20.00" required>
+            </div>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="newProductTraits">Care &amp; Light Traits</label>
+            <input type="text" id="newProductTraits" placeholder="e.g. Bright Indirect · 1x/week · Air Purifying" value="Bright Indirect · 1x/week">
+          </div>
+
+          <div class="form-group-merchant">
+            <label>Choose Preset Photo or Provide Image URL</label>
+            <div class="preset-image-grid" style="margin-bottom:0.5rem;">
+              <img class="preset-thumb is-selected" src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=500&auto=format&fit=crop&q=80" alt="Preset 1">
+              <img class="preset-thumb" src="https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=500&auto=format&fit=crop&q=80" alt="Preset 2">
+              <img class="preset-thumb" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&auto=format&fit=crop&q=80" alt="Preset 3">
+              <img class="preset-thumb" src="https://images.unsplash.com/photo-1545241047-6083a3684587?w=500&auto=format&fit=crop&q=80" alt="Preset 4">
+              <img class="preset-thumb" src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=500&auto=format&fit=crop&q=80" alt="Preset 5">
+            </div>
+            <input type="url" id="newProductImage" value="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=500&auto=format&fit=crop&q=80" placeholder="https://..." required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="cancelAddProductBtn" type="button">Cancel</button>
+          <button class="btn-merchant btn-merchant--primary" type="submit">Publish to Catalog</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Modal: Edit Plant / Product ── -->
+  <div class="modal-overlay" id="editProductModal" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="editModalTitle">✏️ Edit Botanical Specimen</h3>
+        <button class="modal-close" id="closeEditProductBtn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="editProductForm">
+        <input type="hidden" id="editProductId">
+        <div class="modal-body">
+          <div class="form-group-merchant">
+            <label for="editProductName">Plant / Product Common Name *</label>
+            <input type="text" id="editProductName" required>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="editProductNameAr">اسم النبتة / المنتج (بالعربية)</label>
+            <input type="text" id="editProductNameAr" dir="rtl" placeholder="مثال: شتلة بونساي زيتون">
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="editProductBotanical">Botanical / Scientific Specimen Name</label>
+            <input type="text" id="editProductBotanical" placeholder="e.g. Ficus lyrata">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group-merchant">
+              <label for="editProductCategory">Category *</label>
+              <select id="editProductCategory" required>
+                <option value="indoor">Indoor Plants</option>
+                <option value="outdoor">Outdoor Plants</option>
+                <option value="pots">Pots &amp; Planters</option>
+                <option value="seeds">Seeds &amp; Fertilizer</option>
+              </select>
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="editProductStock">Stock Quantity *</label>
+              <input type="number" id="editProductStock" min="0" max="10000" required>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem;">
+            <div class="form-group-merchant">
+              <label for="editProductPrice">Retail Price ($) *</label>
+              <input type="number" id="editProductPrice" step="0.5" min="0.5" required>
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="editProductSalePrice">Sale Price ($) <small>(Optional)</small></label>
+              <input type="number" id="editProductSalePrice" step="0.5" min="0" placeholder="e.g. 24.00">
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="editProductWholesale">Wholesale ($) *</label>
+              <input type="number" id="editProductWholesale" step="0.5" min="0.5" required>
+            </div>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="editProductTraits">Care &amp; Light Traits</label>
+            <input type="text" id="editProductTraits" placeholder="e.g. Bright Indirect · 1x/week · Air Purifying">
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="editProductImage">Image URL *</label>
+            <input type="url" id="editProductImage" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="cancelEditProductBtn" type="button">Cancel</button>
+          <button class="btn-merchant btn-merchant--primary" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Modal: Courier & Vehicle Dispatch Assignment ── -->
+  <div class="modal-overlay" id="dispatchCourierModal" role="dialog" aria-modal="true" aria-labelledby="dispatchModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="dispatchModalTitle">🚚 Assign Courier &amp; Vehicle Dispatch</h3>
+        <button class="modal-close" id="closeDispatchBtn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="dispatchCourierForm">
+        <input type="hidden" id="dispatchOrderId">
+        <div class="modal-body">
+          <div style="background:var(--m-primary-light); padding:1rem; border-radius:10px; border:1px solid rgba(16,185,81,0.2); font-size:0.9rem;">
+            <span>Order Reference: <strong id="dispatchOrderRef">#AG-M801</strong></span> ·
+            <span>Destination: <strong id="dispatchOrderDest">Amman - Abdoun</strong></span>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="courierProvider">Select Logistics Partner / Vehicle *</label>
+            <select id="courierProvider" required>
+              <option value="Agrismart Climate Van-01">Agrismart Climate Van-01 (Automated Temperature Control)</option>
+              <option value="Nursery Private Express Driver">Nursery In-House Driver (Al-Rawabi Delivery)</option>
+              <option value="Careem Box Green Express">Careem Box / Quick Local Courier</option>
+              <option value="Aramex Botanical Freight">Aramex / Long-Distance Freight</option>
+            </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group-merchant">
+              <label for="courierDriverName">Driver / Courier Name *</label>
+              <input type="text" id="courierDriverName" value="Mahmoud Al-Zubi" required>
+            </div>
+
+            <div class="form-group-merchant">
+              <label for="courierDriverPhone">Driver Mobile Hotline *</label>
+              <input type="tel" id="courierDriverPhone" value="+962 7 9822 4410" required>
+            </div>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="courierTrackingCode">Live Tracking Waybill / Tracking Code</label>
+            <input type="text" id="courierTrackingCode" value="JO-EXP-99214">
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="courierCareNotes">Botanical Transit Instructions</label>
+            <textarea id="courierCareNotes" rows="2">Keep upright in cargo bed. Shield from direct midday sun. Deliver within 3 hours.</textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="cancelDispatchBtn" type="button">Cancel</button>
+          <button class="btn-merchant btn-merchant--primary" type="submit">Dispatch with Courier 🚚</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Modal: Interactive Wholesale B2B Sourcing ── -->
+  <div class="modal-overlay" id="wholesaleOrderModal" role="dialog" aria-modal="true" aria-labelledby="wholesaleModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="wholesaleModalTitle">🚜 Direct B2B Wholesale Procurement</h3>
+        <button class="modal-close" id="closeWholesaleBtn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="wholesaleOrderForm">
+        <input type="hidden" id="wsItemTitle">
+        <input type="hidden" id="wsUnitPrice">
+        <div class="modal-body">
+          <div style="display:flex; align-items:center; gap:1rem; background:var(--m-surface-alt); padding:1rem; border-radius:12px; border:1px solid var(--m-border);">
+            <img id="wsItemImg" src="" alt="Wholesale Item" style="width:72px; height:72px; border-radius:10px; object-fit:cover;">
+            <div>
+              <h4 id="wsItemName" style="margin:0 0 0.25rem; font-size:1.05rem;">Product Title</h4>
+              <span id="wsPriceDisplay" style="color:var(--m-primary-dark); font-weight:700;">$0.00</span>
+              <span id="wsMoqText" style="color:var(--m-text-muted); font-size:0.85rem; margin-inline-start:0.5rem;"></span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group-merchant">
+              <label for="wsOrderQuantity">Batch Quantity *</label>
+              <input type="number" id="wsOrderQuantity" min="2" value="2" required>
+            </div>
+
+            <div class="form-group-merchant">
+              <label>Calculated Total Cost</label>
+              <div id="wsTotalCostDisplay" style="font-size:1.35rem; font-weight:800; color:var(--m-primary-dark); padding:0.5rem 0;">$68.00</div>
+            </div>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="wsDeliveryAddress">Greenhouse Unloading Destination</label>
+            <input type="text" id="wsDeliveryAddress" value="Wasfi Al-Tal St, Gardens, Amman (Greenhouse Bay #2)" required>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="wsPaymentMethod">Settlement Method</label>
+            <select id="wsPaymentMethod">
+              <option value="wallet">Deduct from Agrismart Nursery Wallet Balance</option>
+              <option value="cliq">Direct CliQ Transfer on Arrival</option>
+              <option value="cod">Cash on Greenhouse Delivery (COD)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="cancelWholesaleBtn" type="button">Cancel</button>
+          <button class="btn-merchant btn-merchant--primary" type="submit">Confirm Wholesale Order 🚜</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Modal: Cancel / Reject Order ── -->
+  <div class="modal-overlay" id="cancelOrderModal" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle">
+    <div class="modal-dialog" style="max-width:500px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cancelModalTitle">❌ Cancel Customer Order</h3>
+        <button class="modal-close" id="closeCancelOrderBtn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="cancelOrderForm">
+        <input type="hidden" id="cancelTargetOrderId">
+        <div class="modal-body">
+          <p style="margin:0; font-size:0.92rem; color:var(--m-text-muted);">
+            Are you sure you want to cancel order <strong id="cancelOrderDisplayId"></strong>? The customer will be notified and any prepaid funds will be refunded.
+          </p>
+
+          <div class="form-group-merchant">
+            <label for="cancelReason">Reason for Cancellation *</label>
+            <select id="cancelReason" required>
+              <option value="damaged">Specimen damaged or unhealthy for dispatch</option>
+              <option value="out_of_stock">Botanical stock depleted / not available</option>
+              <option value="out_of_range">Customer address out of delivery coverage</option>
+              <option value="customer_requested">Customer requested cancellation</option>
+              <option value="weather">Severe weather / frost caution</option>
+            </select>
+          </div>
+
+          <div class="form-group-merchant">
+            <label for="cancelNotes">Internal Nursery Notes</label>
+            <textarea id="cancelNotes" rows="2" placeholder="Optional notes for your records..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="abortCancelBtn" type="button">Back</button>
+          <button class="btn-merchant btn-merchant--danger" type="submit" style="background:#dc2626; color:#fff; border-color:#dc2626;">Confirm Cancellation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo flex items-center">
+            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+          </div>
+          <div class="footer__desc">
+            Empowering plant growers, verified nurseries, and botanical enthusiasts nationwide.
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Merchant Hub</div>
+          <ul class="footer__links">
+            <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
+            <li><a href="shop.html">Public Marketplace</a></li>
+            <li><a href="nearby-stores.html">Nearby Greenhouses</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Support &amp; Logistics</div>
+          <ul class="footer__links">
+            <li><a href="track-order.html">Track Shipments</a></li>
+            <li><a href="merchant-contact.html">Merchant Support</a></li>
+            <li><a href="about.html">About Agrismart</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Headquarters</div>
+          <ul class="footer__links">
+            <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
+            <li><span>📞 +962 7 9811 2233</span></li>
+            <li><a href="mailto:wholesale@agrismart.com">✉️ wholesale@agrismart.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Exact sequence as requested in AGENTS.md -->
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/merchant-dashboard.js"></script>
+</body>
+
+</html>

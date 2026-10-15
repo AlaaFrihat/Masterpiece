@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Overview | Agrismart Admin</title>
+  <link rel="icon" href="assets/logo.svg">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page" data-admin-page="true">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-brand">
+      <img src="assets/logo.svg" alt="Agrismart">
+      <div>
+        <strong>ADMIN CONSOLE</strong>
+      </div>
+    </div>
+    <a class="live-store" href="index.html">▣ <span>View Live Store</span><b>↗</b></a>
+    <p class="side-label">OPERATIONS</p>
+    <nav class="admin-nav">
+      <button class="active" data-section="overview">▦ <span>Overview</span></button>
+      <button data-section="orders">▣ <span>Orders &amp; Fulfillment</span><i>12</i></button>
+      <button data-section="inventory">♧ <span>Products &amp; Inventory</span></button>
+      <button data-section="categories">⊞ <span>Categories &amp; Rooms</span></button>
+      <button data-section="customers">▤ <span>Customers &amp; Reviews</span></button>
+      <button data-section="analytics">⌁ <span>Analytics &amp; Revenue</span></button>
+      <button data-section="settings">⚙ <span>Settings</span></button>
+    </nav>
+    <div class="wiki-card">
+      <strong>▣ Plant Care Wiki</strong>
+      <p>Nursery manuals, seasonal care logs, and propagation guides.</p>
+      <a href="ai-assistant.html">Explore docs →</a>
+    </div>
+    <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+      <div class="admin-search">
+        ⌕<input id="adminSearch" placeholder="Search orders, plants, SKU, customers…">
+      </div>
+      <div class="range-switch">
+        <button>Today</button>
+        <button class="selected">Last 7 Days</button>
+        <button>This Month</button>
+      </div>
+      <div class="top-actions">
+        <span class="online"><b></b> Online · Receiving Orders</span>
+        <button class="lang active">EN</button>
+        <button class="lang">AR</button>
+        <button class="notify" aria-label="Notifications">♧<i></i></button>
+        <button class="admin-profile" id="profileButton">
+          <span class="avatar">SA</span>
+          <span>
+            <strong id="adminName">Sarah Alaa</strong>
+            <small>Operations Lead</small>
+          </span>
+          <b>⌄</b>
+        </button>
+        <button class="logout-button" data-admin-logout>Log out</button>
+      </div>
+    </header>
+
+    <main class="admin-content">
+      <section class="admin-section" data-panel="overview">
+        <section class="welcome-banner">
+          <div>
+            <span class="banner-pill">● NURSERY HUB · ACTIVE GROWTH CYCLE</span>
+            <h1>Welcome back, Sarah <span>👋</span></h1>
+            <p>Here is what's blooming with your plant store today. <strong>18 orders</strong> need moss hydration packaging before 2:00 PM courier pickup.</p>
+          </div>
+          <div class="banner-actions">
+            <button class="light-action" id="addPlantButton">⊕ Add New Plant</button>
+            <button class="ghost-action" id="exportButton">⇩ Export Report</button>
+            <button class="dispatch-action">▣ Quick Dispatch</button>
+          </div>
+        </section>
+
+        <section class="metric-grid">
+          <article class="metric">
+            <div>
+              <small>Total Gross Sales</small>
+              <strong>$48,920.50</strong>
+            </div>
+            <span class="metric-icon mint">▣</span>
+            <footer>
+              <b>↗ +18.4%</b>
+              <small>vs. last month</small>
+              <svg viewBox="0 0 100 30">
+                <path d="M0 24 Q20 28 35 15 T70 12 T100 4"/>
+              </svg>
+            </footer>
+          </article>
+
+          <article class="metric">
+            <div>
+              <small>Active Plant Orders</small>
+              <strong>142</strong>
+            </div>
+            <span class="metric-icon blue">▤</span>
+            <footer>
+              <b class="amber">● 18 awaiting packaging</b>
+              <small>12 in transit</small>
+            </footer>
+          </article>
+
+          <article class="metric">
+            <div>
+              <small>Botanical Inventory</small>
+              <strong>1,840 <em>pots</em></strong>
+            </div>
+            <span class="metric-icon blue">♧</span>
+            <footer>
+              <small>6 Room Categories</small>
+              <b>94% Healthy</b>
+            </footer>
+            <div class="health-bar"><i></i></div>
+          </article>
+
+          <article class="metric">
+            <div>
+              <small>Customer Experience</small>
+              <strong>4.9 <em>/ 5.0</em></strong>
+            </div>
+            <span class="metric-icon gold">★</span>
+            <footer>
+              <b class="stars">★★★★★</b>
+              <small>520 reviews this month</small>
+            </footer>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <div class="main-column">
+            <article class="panel sales-panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Sales &amp; Seasonal Nursery Growth</h2>
+                  <p>Live tracking of nursery variety shipments and revenue volume</p>
+                </div>
+                <div class="tabs">
+                  <button class="active">Revenue</button>
+                  <button>Specimens Sold</button>
+                  <button>By Season</button>
+                </div>
+              </div>
+              <div class="legend">
+                <span>● Indoor Foliage (46%)</span>
+                <span>● Tropicals (24%)</span>
+                <span>● Succulents &amp; Cacti (18%)</span>
+                <span>● Air Purifying (12%)</span>
+              </div>
+              <div class="chart">
+                <svg viewBox="0 0 700 230" preserveAspectRatio="none">
+                  <path class="gridlines" d="M0 50H700M0 110H700M0 170H700"/>
+                  <path class="area" d="M0 202 C45 190 70 145 120 155 S175 180 230 135 S285 100 330 125 S390 150 430 120 S470 65 520 75 S600 55 700 28 V230H0Z"/>
+                  <path class="line" d="M0 202 C45 190 70 145 120 155 S175 180 230 135 S285 100 330 125 S390 150 430 120 S470 65 520 75 S600 55 700 28"/>
+                  <path class="target" d="M0 218 C120 190 210 180 300 155 S500 130 700 65"/>
+                </svg>
+                <span class="peak">● Today Peak: $3,480.00</span>
+                <div class="chart-labels">
+                  <span>01 Sep</span>
+                  <span>07 Sep</span>
+                  <span>14 Sep</span>
+                  <span>21 Sep</span>
+                  <span>28 Sep</span>
+                  <span>Today</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel shipments-panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Recent Plant Shipments <span class="live-badge">Live Feed</span></h2>
+                  <p>Dispatched specimens and nursery packaging statuses</p>
+                </div>
+                <div class="table-tools">
+                  <button>☷ All Destinations</button>
+                  <button>↻</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Specimen &amp; Pot</th>
+                      <th>Location</th>
+                      <th>Amount</th>
+                      <th>Care &amp; Packaging</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="shipmentRows"></tbody>
+                </table>
+              </div>
+              <div class="table-foot">
+                <span>Showing 4 of 142 daily plant dispatches</span>
+                <div>
+                  <button>Prev</button>
+                  <button class="current">1</button>
+                  <button>2</button>
+                  <button>3</button>
+                  <button>Next</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="right-column">
+            <article class="panel alerts-panel">
+              <div class="panel-head">
+                <h2>Nursery Stock Alerts</h2>
+                <span class="alert-count">3 Action Items</span>
+              </div>
+              <p>Botanical inventory requiring greenhouse re-potting or vendor reorder.</p>
+              <div class="alert-list">
+                <div>
+                  <b class="alert-icon red">!</b>
+                  <span>
+                    <strong>Variegated Monstera Albo</strong>
+                    <small>Greenhouse Bay 3 · High Demand</small>
+                  </span>
+                  <em>2 Left<br><small>Restock</small></em>
+                </div>
+                <div>
+                  <b class="alert-icon amber">◐</b>
+                  <span>
+                    <strong>ZZ Raven (Zamioculcas)</strong>
+                    <small>Watering schedule due today</small>
+                  </span>
+                  <em>4 Left<br><small>Log Mist</small></em>
+                </div>
+                <div>
+                  <b class="alert-icon green">▣</b>
+                  <span>
+                    <strong>Peace Lily (Spathiphyllum)</strong>
+                    <small>Order PO-9482 placed (40 pots)</small>
+                  </span>
+                  <em>In Transit<br><small>Tomorrow</small></em>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel categories-panel">
+              <div class="panel-head">
+                <h2>Top Categories by Room</h2>
+                <a href="#">View All →</a>
+              </div>
+              <p>Sales performance across designated living areas</p>
+              <div class="category">
+                <span>▣ Indoor Living Room <b>42%</b></span>
+                <i><em style="width:42%"></em></i>
+              </div>
+              <div class="category">
+                <span>⚑ Workspace &amp; Study <b>28%</b></span>
+                <i><em style="width:28%"></em></i>
+              </div>
+              <div class="category">
+                <span>▣ Bedroom (Low-Light) <b>18%</b></span>
+                <i><em style="width:18%"></em></i>
+              </div>
+              <div class="category">
+                <span>♧ Bathroom (Tropicals) <b>12%</b></span>
+                <i><em style="width:12%"></em></i>
+              </div>
+            </article>
+
+            <article class="panel feedback-panel">
+              <div class="panel-head">
+                <h2>Recent Feedback <span>●</span></h2>
+                <small>Verified Buyers</small>
+              </div>
+              <div class="feedback">
+                <strong>Kristin Watson <span>★★★★★</span></strong>
+                <p>“I am very satisfied with Agrismart’s plant delivery service. The packaging was moss-hydrated, perfectly protected, and the foliage arrived without a single bruised leaf!”</p>
+                <small>#UnboxingVerified <b>22 mins ago</b></small>
+              </div>
+              <button class="manage-reviews">Manage Customer Reviews (520) →</button>
+            </article>
+          </aside>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="adminToast" role="status"></div>
+
+  <div class="modal" id="plantModal" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="closePlantModal">×</button>
+      <h2>Add a new plant</h2>
+      <p>Use this quick action to prepare a new catalogue entry.</p>
+      <label>
+        Plant name
+        <input id="newPlantName" placeholder="e.g. Monstera Deliciosa">
+      </label>
+      <label>
+        Price
+        <input id="newPlantPrice" type="number" placeholder="25.00">
+      </label>
+      <button class="admin-primary" id="savePlant">Save plant</button>
+    </div>
+  </div>
+
+  <script src="js/language.js"></script>
+  <script src="js/admin-auth.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

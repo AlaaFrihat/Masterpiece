@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review order items and delivery milestones."><title>Order Status | Agrismart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/header.css"><link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/track-order.css">
+</head>
+<body class="track-page" data-requires-auth="true">
+<svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true">
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </symbol>
+
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </symbol>
+
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </symbol>
+
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </symbol>
+
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </symbol>
+
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1" />
+      <circle cx="20" cy="21" r="1" />
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+    </symbol>
+    <symbol id="icon-google" viewBox="0 0 24 24">
+      <path
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+        fill="#4285F4"></path>
+      <path
+        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+        fill="#34A853"></path>
+      <path
+        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+        fill="#FBBC05"></path>
+      <path
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+        fill="#EA4335"></path>
+    </symbol>
+
+    <symbol id="icon-apple" viewBox="0 0 24 24">
+      <path
+        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.96 2.81 1.03.08 2.07-.52 2.71-1.27z"
+        fill="currentColor"></path>
+    </symbol>
+  </svg>
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home">
+        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Plants</a></li>
+        <li><a href="stores.html">Nurseries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="lang-en" type="button">EN</button>
+          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="btn-icon theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg id="themeIconLight" class="hidden-icon">
+            <use href="#icon-sun"></use>
+          </svg>
+          <svg id="themeIconDark">
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+        <!-- Login / User -->
+        <a href="./login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control>
+          <svg>
+            <use href="#icon-user"></use>
+          </svg>
+        </a>
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+<main>
+  <section class="track-title-band"><div class="track-shell"><p class="track-eyebrow">DELIVERY UPDATES</p><h1>Track Your Order</h1><nav class="track-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="track-order.html">Track Your Order</a><span>/</span><span aria-current="page">Order Status</span></nav></div></section>
+  <section class="track-shell tracking-main">
+    <div class="tracking-heading"><div><p class="track-kicker">ORDER STATUS</p><h2>Order <span id="trackingOrderId">—</span></h2></div><div class="tracking-estimate"><span>Estimated delivery</span><strong id="trackingDelivery">—</strong></div></div>
+    <section class="tracking-timeline-card" aria-label="Order delivery progress" hidden><ol class="tracking-timeline" id="trackingTimeline">
+      <li data-step="placed"><span class="tracking-step-icon">✓</span><strong>Order Placed</strong><small id="placedDate">—</small></li>
+      <li data-step="accepted"><span class="tracking-step-icon">✓</span><strong>Accepted</strong><small id="acceptedDate">—</small></li>
+      <li data-step="processing"><span class="tracking-step-icon">✿</span><strong>In Progress</strong><small>Preparing order</small></li>
+      <li data-step="transit"><span class="tracking-step-icon">↗</span><strong>On The Way</strong><small>Delivery updates pending</small></li>
+      <li data-step="delivered"><span class="tracking-step-icon">⌂</span><strong>Delivered</strong><small id="deliveredDate">Expected</small></li>
+    </ol><p id="trackingNotice" class="tracking-notice" role="status"></p></section>
+    <section class="tracking-products-card" hidden><div class="tracking-products-heading"><h2>Products in this order</h2><span id="trackingItemCount">0 items</span></div><div id="trackingItems"></div><div class="tracking-summary"><div><span>Payment method</span><strong id="trackingPayment">—</strong></div><div><span>Order total</span><strong class="tracking-total" id="trackingTotal">—</strong></div></div></section>
+    <div class="tracking-actions"><a class="track-primary-button" href="track-order.html">Track another order</a><a class="track-secondary-button" href="my-account.html">Back to My Orders</a></div>
+    <p class="tracking-local-note">Tracking uses the order record saved in this browser. Live courier location and carrier updates are not connected yet.</p>
+  </section>
+</main>
+  <footer class="footer" id="contact">
+    <div class="container"><div class="footer__grid">
+      <div><div class="footer__logo"><img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img"></div><div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div><div class="footer__socials"><a href="#" class="footer__social" aria-label="Facebook">📘</a><a href="#" class="footer__social" aria-label="Instagram">📸</a><a href="#" class="footer__social" aria-label="Twitter">🐦</a></div></div>
+      <div><div class="footer__heading">Shop</div><ul class="footer__links"><li><a href="shop.html">Plants</a></li><li><a href="pots-accessories.html">Pots &amp; Accessories</a></li><li><a href="seeds.html">Seeds &amp; Fertilizers</a></li></ul></div>
+      <div><div class="footer__heading">Customer Service</div><ul class="footer__links"><li><a href="my-account.html">My Account</a></li><li><a href="track-order.html">Track My Order</a></li><li><a href="contact.html">Contact Support</a></li></ul></div>
+      <div><div class="footer__heading">Contact</div><ul class="footer__links"><li><a href="tel:+962776135123">+962 77 613 5123</a></li><li>Amman, Jordan</li><li><a href="mailto:alaafrihat52@gmail.com">alaafrihat52@gmail.com</a></li></ul></div>
+    </div><div class="footer__bottom"><span>© 2025 Agrismart. All rights reserved.</span><div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></div>
+  </footer>
+  <script src="js/auth.js"></script><script src="js/theme.js"></script><script src="js/language.js"></script><script src="js/header.js"></script><script src="js/order-tracking.js"></script>
+</body>
+</html>

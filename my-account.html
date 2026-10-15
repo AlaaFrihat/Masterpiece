@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agrismart - My Account</title>
+<!-- Google Fonts: Inter & Playfair Display / Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf3',
+              100: '#d1fae1',
+              500: '#10b951',
+              600: '#00a63e',
+              700: '#028532',
+              800: '#036526',
+              dark: '#1e293b'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/my-account.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/app-promo.css" />
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white" data-requires-auth="true">
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Plants</a></li>
+      <li><a href="stores.html">Nurseries</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
+      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
+      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<!-- BEGIN: BreadcrumbHero -->
+<section class="w-full subtle-botanical-bg py-10 border-b border-gray-100 text-center relative overflow-hidden" data-purpose="breadcrumb-banner">
+  <div class="max-w-4xl mx-auto px-4 relative z-10">
+    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 tracking-tight mb-2">My Account</h1>
+    <nav class="text-xs sm:text-sm font-medium text-gray-600 space-x-2"><a href="index.html">Home</a><span class="text-gray-400">/</span><span class="text-[#00a63e] font-semibold">My Account</span></nav>
+  </div>
+</section>
+<!-- END: BreadcrumbHero -->
+<!-- BEGIN: MainAccountLayout -->
+<main class="account-main max-w-7xl mx-auto px-4 sm:px-8 py-10">
+  <div class="account-layout grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+    <aside class="account-sidebar md:col-span-3 space-y-3" aria-label="Account sections">
+      <button class="account-tab is-active" type="button" data-account-tab="profile">Personal Information</button>
+      <button class="account-tab" type="button" data-account-tab="orders">My Orders</button>
+      <button class="account-tab" type="button" data-account-tab="address">Manage Address</button>
+      <button class="account-tab" type="button" data-account-tab="payment">Payment Methods</button>
+      <button class="account-tab" type="button" data-account-tab="password">Password Manager</button>
+      <button class="account-tab account-tab--logout" type="button" data-account-logout>Logout</button>
+    </aside>
+    <section class="account-content md:col-span-9 bg-white px-2 sm:px-6" aria-live="polite">
+      <div class="account-panel" data-account-panel="profile">
+        <div class="account-avatar-wrap">
+          <img class="account-avatar" id="accountAvatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi42DgbKFKqBRwz2SqYuIxTH7UK80KHXzYC2vgVIoGzN9Kx5ZkTQr-Jf6rOwk4JkLhqPFVV5cO0YnigKZ3hugQUHzXGJCz3VGpQWYaF3UWGoEKtYgNXLC7Rkd4NoI8yYVjrjIzDskk-cPiqFNSogaUAV5BSsqMTQGoQZX6d-070xAt2RzAkTX5Ho2eE913Ol4--cju0l_Ye9A32eli8mFjH2RQkrBGEIzsVA1HlHSwTs4weY2Gh3lg" alt="Account profile" />
+          <button class="account-avatar-edit" id="accountAvatarEdit" type="button" aria-label="Edit Profile Avatar" title="Edit Profile Avatar">✎</button>
+          <input id="accountAvatarFile" type="file" accept="image/*" hidden />
+        </div>
+        <h2 class="account-panel-title">Personal Information</h2>
+        <form id="accountProfileForm" class="account-form">
+          <div class="account-fields-grid">
+            <label>First Name*<input id="accountFirstName" name="firstName" type="text" autocomplete="given-name" required /></label>
+            <label>Last Name*<input id="accountLastName" name="lastName" type="text" autocomplete="family-name" required /></label>
+            <label class="account-field-full">Email*<input id="accountEmail" name="email" type="email" autocomplete="email" readonly /></label>
+            <label class="account-field-full">Phone Number<input id="accountPhone" name="phone" type="tel" autocomplete="tel" placeholder="+962 7X XXX XXXX" /></label>
+            <label class="account-field-full">Gender<select id="accountGender" name="gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select></label>
+          </div>
+          <button class="account-primary-button" type="submit">Update Changes</button>
+          <p class="account-status" id="profileStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="account-panel" data-account-panel="orders" hidden>
+        <div class="account-orders-toolbar">
+          <h2 class="account-panel-title"><span>Orders</span> (<span id="accountOrderCount">0</span>)</h2><a class="account-order-action is-secondary" href="track-order.html">Track an order</a>
+          <label class="account-sort-label"><span>Sort by:</span><select id="accountOrderSort" aria-label="Sort Orders"><option value="newest">Newest First</option><option value="oldest">Oldest First</option><option value="total-high">Highest Total</option><option value="total-low">Lowest Total</option></select></label>
+        </div>
+        <div id="accountOrderDetails"></div>
+      </div>
+      <div class="account-panel" data-account-panel="address" hidden>
+        <h2 class="account-panel-title">Manage Address</h2>
+        <div class="account-address-list" id="accountAddressList" aria-live="polite"></div>
+        <section class="account-address-editor">
+          <h3 class="account-address-editor-title" id="addressEditorTitle">Add New Address</h3>
+          <form id="accountAddressForm" class="account-form">
+            <input id="accountAddressId" type="hidden" />
+            <div class="account-fields-grid">
+              <label>First Name*<input id="addressFirstName" name="firstName" autocomplete="given-name" required /></label>
+              <label>Last Name*<input id="addressLastName" name="lastName" autocomplete="family-name" required /></label>
+              <label class="account-field-full">Company Name (Optional)<input id="addressCompany" name="company" autocomplete="organization" /></label>
+              <label class="account-field-full">Country*<select id="addressCountry" name="country" autocomplete="country-name" required><option value="">Select Country</option><option>Jordan</option><option>United States</option><option>United Arab Emirates</option><option>Saudi Arabia</option><option>Qatar</option><option>Kuwait</option><option>Egypt</option><option>Other</option></select></label>
+              <label class="account-field-full">Street Address*<input id="addressStreet" name="street" autocomplete="street-address" placeholder="Enter Street Address" required /></label>
+              <label class="account-field-full">City*<input id="addressCity" name="city" autocomplete="address-level2" placeholder="Enter City" required /></label>
+              <label>State / Province*<input id="addressState" name="state" autocomplete="address-level1" placeholder="Enter State" required /></label>
+              <label>Zip Code*<input id="addressZip" name="zip" autocomplete="postal-code" placeholder="Enter Zip Code" required /></label>
+              <label class="account-field-full">Phone Number*<input id="addressPhone" name="phone" type="tel" autocomplete="tel" placeholder="Enter Phone Number" required /></label>
+              <label class="account-field-full">Email Address*<input id="addressEmail" name="email" type="email" autocomplete="email" required /></label>
+            </div>
+            <div class="account-address-form-actions">
+              <button class="account-primary-button" id="saveAddressButton" type="submit">Add Address</button>
+              <button class="account-address-cancel" id="cancelAddressEdit" type="button" hidden>Cancel</button>
+            </div>
+            <p class="account-status" id="addressStatus" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+      <div class="account-panel" data-account-panel="payment" hidden>
+        <h2 class="account-panel-title">Payment Methods</h2>
+        <div class="account-payment-methods" id="accountPaymentMethods" aria-live="polite"></div>
+        <form class="account-payment-form" id="accountPaymentForm" autocomplete="on">
+          <div class="account-payment-form-heading">
+            <span class="account-payment-radio" aria-hidden="true"></span>
+            <svg class="account-payment-card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="15" height="13" rx="2"></rect><path d="M7 9h7M7 13h3"></path><path d="M18 9h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-1"></path></svg>
+            <h3 data-i18n="Add New Credit/Debit Card">Add New Credit/Debit Card</h3>
+          </div>
+          <div class="account-fields-grid">
+            <label class="account-field-full">Card Holder Name*<input id="paymentCardName" name="cc-name" autocomplete="cc-name" placeholder="Ex. John Doe" required /></label>
+            <label class="account-field-full">Card Number*<input id="paymentCardNumber" name="cc-number" inputmode="numeric" autocomplete="cc-number" placeholder="Enter Card Number" minlength="12" maxlength="23" required /></label>
+            <label>Expiry Date*<input id="paymentCardExpiry" name="cc-exp" autocomplete="cc-exp" inputmode="numeric" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])/?([0-9]{2}|[0-9]{4})" required /></label>
+            <label>CCV*<input id="paymentCardCvv" name="cc-csc" autocomplete="cc-csc" type="password" inputmode="numeric" placeholder="123" minlength="3" maxlength="4" required /></label>
+          </div>
+          <label class="account-payment-save"><input id="paymentCardSave" type="checkbox" checked /><span class="account-payment-check" aria-hidden="true">✓</span><span>Save card for future payments</span></label>
+          <button class="account-primary-button" type="submit">Add Card</button>
+          <p class="account-status" id="paymentStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="account-panel" data-account-panel="password" hidden>
+        <h2 class="account-panel-title">Password Manager</h2>
+        <form id="accountPasswordForm" class="account-form account-password-form">
+          <label>Current Password<input id="currentPassword" type="password" autocomplete="current-password" placeholder="Enter Password" required /></label>
+          <label>New Password<input id="newPassword" type="password" autocomplete="new-password" placeholder="Enter Password" minlength="8" required /></label>
+          <label>Confirm New Password<input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Enter Password" minlength="8" required /></label>
+          <button class="account-primary-button" type="submit">Change Password</button>
+          <p class="account-status" id="passwordStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+<!-- END: MainAccountLayout -->
+<!-- BEGIN: WhyChooseSection -->
+<section class="max-w-7xl mx-auto px-4 sm:px-8 py-16" data-purpose="features-section">
+<div class="text-center mb-10">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+        Why choose <span class="text-[#00a63e]">Agrismart?</span>
+</h2>
+</div>
+<!-- 4 Cards Grid -->
+<div id="featuresGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-auto scroll-smooth">
+<!-- Feature 1: Fast Shipping -->
+<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
+<img alt="Free Shipping" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8AayiJBM62DpQkwlWONuUFqy-j7QMlADkmBm08yzbvbiqrhjjzv_1bMv5MPaefXL5SicQJRt4jJ-2Q6LjWdzTbbs8ZCIOljlaqAL4RcgoLQPqfipLN0bE1MNp7ygc8NWfRxe29XNYERkmudHs-wBQ_BqrTYiFreCxbv1kxt20YfbdeY1_B_OpB6usLitzsCj3sqGJ9GMERND7Bbsup9LUuY14sA06nLssXRWWdd0bzq8jrNcTtJY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<h3 class="text-base font-bold leading-tight">Free Shipping &amp; Delivery Fast</h3>
+<p class="text-xs text-gray-200 leading-snug">Super Fast Delivery, Items Arrive Without Delay!</p>
+<div class="pt-2">
+<a href="shop.html" class="inline-block px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
+              Shop Now
+            </a>
+</div>
+</div>
+</article>
+<!-- Feature 2: Discounts -->
+<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
+<img alt="Exclusive Discounts" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVqAPPJDG4UDrGeZ_88CzCbYKVu_oaf_w94NEco_UTzB2x8eGwaXbCe27-fyH65vpV1ouRrTf2Q1QZ_7CMTHhEfDgHGxtzVfKARdNDoglo0gNMj8vX1snd3ge3KLxKyd8PAX8j3mTr0VKCMrpQzzHoYUpboSIhHD7hXbHvkZ9aUtXTKNYVbdTTbHH7_Dc3Uuqpi0IbZGKjso2m3rJJcM9LHUgDkhZK_IERQ2KtxwDu803URQMACjMl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<h3 class="text-base font-bold leading-tight">Exclusive Discounts Await</h3>
+<p class="text-xs text-gray-200 leading-snug">Unlock Special Offers Just for You!</p>
+<div class="pt-2">
+<a href="shop.html" class="inline-block px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
+              Claim Your Discount
+            </a>
+</div>
+</div>
+</article>
+<!-- Feature 3: Quality Assurance -->
+<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
+<img alt="Quality Assurance" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwSThkuCAwfsVacMF7pAPiUyTC1rMckx6lEcCQvBJGTt5V5XATulruYmns0IDeUAc_t5yd4T0StiSUeNd5SKO__LwsAnMJ9qO6qTqjvB3Cp5EjVVuyQWT9qcHczvQ9iGYRY3AcL8j0EUO-yFyeKhkS2uSoaTGRf12luNfN3-Gv8YiniPySQjCcX-l32E2CkWRPbq4ZQZHCYWWzH3G3x3UJ0B-GF6zqe0jrURI5Cc7reNVaYmO8_LoH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<h3 class="text-base font-bold leading-tight">Quality Assurance Guaranteed</h3>
+<p class="text-xs text-gray-200 leading-snug">Satisfaction Guaranteed on Every Purchase!</p>
+<div class="pt-2">
+<a href="shop.html" class="inline-block px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
+              Browse Our Collection
+            </a>
+</div>
+</div>
+</article>
+<!-- Feature 4: 24/7 Support -->
+<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
+<img alt="Customer Support" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD45Dfmrplvon_pT1dXPKH7Bp9Lb6TJjtA1ztkQXyPIbjq3GHPcGzRFSUkgjEYyXntW-XmbpzOutcAqn5dnn2qNOeSElCmVAVhvm5la1lZn35LerM4I1r-XGBdw5t6d62MWVIyYWmMPoQOxl4c_xjezCpy-CJKXvPsY0BvaB6Or_Z0h9J96laXaAb4nBuyx65bvlXH2tGnuAECtq7hylD0SPcw7TAD9QIL_I2JpjJIsGRdkzypC9h_k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<h3 class="text-base font-bold leading-tight">24/7 Customer Support</h3>
+<p class="text-xs text-gray-200 leading-snug">We're Here to Help You Anytime, Day or Night!</p>
+<div class="pt-2">
+<a href="contact.html" class="inline-block px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
+              Contact Us Anytime
+            </a>
+</div>
+</div>
+</article>
+</div>
+<!-- Navigation arrows below cards -->
+<div class="flex justify-end items-center space-x-2 mt-4 pr-1">
+<button id="featuresPrevBtn" aria-label="Previous slide" class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button id="featuresNextBtn" aria-label="Next slide" class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</section>
+<!-- END: WhyChooseSection -->
+
+
+
+<!-- BEGIN: NewsletterTropicalBanner -->
+<section class="max-w-7xl mx-auto px-4 sm:px-8 py-8" data-purpose="newsletter-section">
+<div class="relative rounded-3xl overflow-hidden min-h-[300px] flex items-center p-8 sm:p-14 shadow-xl">
+<!-- Background Image using https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ -->
+<img alt="Tropical foliage rainforest backdrop" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ"/>
+<div class="absolute inset-0 bg-black/40"></div>
+<!-- Content -->
+<div class="relative z-10 max-w-xl text-white space-y-3">
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-wide leading-tight">
+          Bring The Serenity Of Nature Into Your Home.
+        </h2>
+<p class="text-xs sm:text-sm text-gray-200">
+          Discover The Perfect Plants To Transform Your Living Space.
+        </p>
+<!-- Newsletter Input Pill -->
+<form id="checkoutNewsletterForm" class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md">
+<input class="w-full px-4 py-2.5 rounded-full bg-black/50 text-white placeholder-gray-300 border border-white/30 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#00a63e] backdrop-blur-sm" placeholder="Enter Email For Subcribe New Product" required="" type="email"/>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white text-gray-900 font-semibold text-xs sm:text-sm hover:bg-gray-100 transition shadow-sm" type="submit">
+            Submit
+          </button>
+</form>
+</div>
+</div>
+</section>
+<!-- END: NewsletterTropicalBanner -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo flex items-center">
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+        </div>
+        <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+          <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Shop</div>
+        <ul class="footer__links">
+          <li><a href="#">Indoor Plants</a></li>
+          <li><a href="#">Outdoor Plants</a></li>
+          <li><a href="#">Succulents</a></li>
+          <li><a href="#">Flowering Plants</a></li>
+          <li><a href="#">Bonsai Trees</a></li>
+          <li><a href="pots-accessories.html">Plant Pots</a></li>
+          <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Help</div>
+        <ul class="footer__links">
+          <li><a href="track-order.html">Track My Order</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns &amp; Refunds</a></li>
+          <li><a href="#">Plant Care FAQs</a></li>
+          <li><a href="contact.html">Contact Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <ul class="footer__links">
+          <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+          <li><a href="#">📞 +962776135123</a></li>
+          <li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li>
+          <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2025 Agrismart. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="js/cart.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/my-account.js"></script>
+  <script src="js/app-promo.js"></script>
+</body></html>

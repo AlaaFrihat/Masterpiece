@@ -1,0 +1,44 @@
+.order-success-hero { border-bottom: 1px solid #edf1ed; }
+.order-success-icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; background: #03ab1f; color: #fff; font-size: 1.6rem; font-weight: 800; box-shadow: 0 6px 18px rgba(3,171,31,.2); }
+.order-meta-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; gap: 1.25rem; border-radius: 14px; background: #f5b018; padding: 1.1rem 1.4rem; color: #172016; }
+.order-meta-label { display: block; color: rgba(78,51,0,.75); font-size: .66rem; font-weight: 700; }
+.order-meta-value { display: block; margin-top: .25rem; font-size: .8rem; font-weight: 800; overflow-wrap: anywhere; }
+.order-receipt { border: 1px solid rgba(3,171,31,.09); border-radius: 14px; background: #fff; padding: clamp(1rem, 3vw, 1.8rem); box-shadow: 0 2px 8px -2px rgba(35,64,39,.05); }
+.order-table-head, .order-cost-row, .order-total-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.order-table-head { padding-bottom: .7rem; border-bottom: 1px solid #e8ede9; color: #78847b; font-size: .68rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.order-item-row { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 68px; padding: .65rem 0; border-bottom: 1px solid #edf1ee; }
+.order-item-info { display: flex; min-width: 0; align-items: center; gap: .7rem; }
+.order-item-image { width: 46px; height: 46px; flex: 0 0 auto; border: 1px solid #e9eee9; border-radius: 9px; background: #f7faf7; object-fit: cover; }
+.order-item-name { overflow: hidden; color: #233127; font-size: .8rem; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.order-item-meta { margin-top: .22rem; color: #849087; font-size: .65rem; }
+.order-item-price { flex: 0 0 auto; color: #26352b; font-size: .78rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.order-costs { max-width: 440px; margin-inline-start: auto; padding-top: .8rem; color: #69766d; font-size: .78rem; }
+.order-cost-row { padding: .35rem 0; }
+.order-total-row { margin-top: .55rem; padding-top: .8rem; border-top: 1px solid #e3e9e4; color: #1e2b22; font-size: 1rem; font-weight: 800; }
+.order-prototype-note { margin-top: 1rem; border: 1px solid #f2d78e; border-radius: 10px; background: #fff9e9; padding: .8rem 1rem; color: #70561a; font-size: .72rem; line-height: 1.6; }
+.order-invoice-button { display: inline-flex; min-height: 40px; align-items: center; justify-content: center; gap: .45rem; border: 0; border-radius: 8px; background: #03ab1f; padding: .6rem 1rem; color: #fff; font-size: .72rem; font-weight: 800; transition: background .18s ease, transform .18s ease; }
+.order-invoice-button:hover { transform: translateY(-1px); background: #008518; }
+.order-empty-state { padding: 1rem 0; color: #7d8980; font-size: .85rem; text-align: center; }
+.order-meta-strip[hidden], .order-receipt[hidden], .order-prototype-note[hidden] { display: none !important; }
+html[data-theme="dark"] .order-success-hero { border-color: #304036; }
+html[data-theme="dark"] .order-receipt { border-color: #34443a; background: #1b2720; }
+html[data-theme="dark"] .order-table-head,
+html[data-theme="dark"] .order-item-row,
+html[data-theme="dark"] .order-total-row { border-color: #34443a; }
+html[data-theme="dark"] .order-item-name,
+html[data-theme="dark"] .order-item-price,
+html[data-theme="dark"] .order-total-row { color: #e7efe9; }
+html[data-theme="dark"] .order-prototype-note { border-color: #695823; background: #302915; color: #f2dfa1; }
+html[dir="rtl"] .order-success-hero { direction: rtl; }
+html[dir="rtl"] .order-table-head,
+html[dir="rtl"] .order-item-row,
+html[dir="rtl"] .order-cost-row,
+html[dir="rtl"] .order-total-row { direction: rtl; }
+@media (max-width: 720px) { .order-meta-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .order-meta-strip { gap: .9rem; padding: 1rem; } .order-meta-value { font-size: .72rem; } }
+@media print {
+  body * { visibility: hidden !important; }
+  .order-receipt, .order-receipt * { visibility: visible !important; }
+  .order-receipt { position: absolute; inset: 0; width: 100%; border: 0; box-shadow: none; }
+  .order-invoice-button, .order-prototype-note { display: none !important; }
+}

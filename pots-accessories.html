@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop pots and accessories for your plants at Agrismart.">
+  <title>Pots &amp; Accessories | Agrismart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/pots-accessories.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Plants</a></li>
+      <li><a href="stores.html">Nurseries</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
+      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
+      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb mb-3"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item"><a href="shop.html">Shop</a></li><li class="breadcrumb-item active" aria-current="page">Pots &amp; Accessories</li></ol></nav>
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3">
+          <div><p class="eyebrow mb-2">GROW WITH STYLE</p><h1 class="mb-2">Pots &amp; Accessories</h1><p class="hero-copy mb-0">Thoughtful details for happier plants and greener spaces.</p></div>
+          <div class="sort-control"><label for="sortProducts" class="form-label">Sort by</label><select class="form-select" id="sortProducts"><option value="featured">Best Selling</option><option value="price-asc">Price: Low to High</option><option value="newest">Newest</option></select></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Departments Hub Navigation -->
+    <nav class="shop-departments-bar" aria-label="Shop departments">
+      <div class="shop-departments-bar__inner">
+        <span class="shop-departments-bar__label">Shop Department:</span>
+        <div class="shop-departments-bar__tabs">
+          <a href="shop.html" class="shop-dept-pill">
+            <span class="shop-dept-pill__icon">🌿</span>
+            <span>Plants</span>
+          </a>
+          <a href="pots-accessories.html" class="shop-dept-pill active" aria-current="page">
+            <span class="shop-dept-pill__icon">🪴</span>
+            <span>Pots &amp; Accessories</span>
+          </a>
+          <a href="seeds.html" class="shop-dept-pill">
+            <span class="shop-dept-pill__icon">🌱</span>
+            <span>Seeds &amp; Fertilizers</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container catalog-section py-4 py-lg-5" aria-label="Pots and accessories catalog">
+      <div class="row g-4">
+        <aside class="col-lg-3">
+          <button class="btn filter-toggle d-lg-none w-100 mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersPanel" aria-controls="filtersPanel">☷ &nbsp; Filters</button>
+          <div class="offcanvas-lg offcanvas-start filters-panel" tabindex="-1" id="filtersPanel" aria-labelledby="filtersTitle">
+            <div class="offcanvas-header d-lg-none"><h2 class="offcanvas-title" id="filtersTitle">Filters</h2><button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#filtersPanel" aria-label="Close"></button></div>
+            <div class="offcanvas-body d-block">
+              <div class="filter-heading"><h2 id="filtersTitleDesktop">Filter Products</h2><button type="button" class="clear-filters" id="clearFilters">Clear all</button></div>
+              <fieldset class="filter-group"><legend>Categories</legend>
+                <label class="check-row"><input class="form-check-input category-filter" type="checkbox" value="ceramic"><span>Ceramic Pots</span></label>
+                <label class="check-row"><input class="form-check-input category-filter" type="checkbox" value="plastic"><span>Plastic Pots</span></label>
+                <label class="check-row"><input class="form-check-input category-filter" type="checkbox" value="stands"><span>Plant Stands</span></label>
+                <label class="check-row"><input class="form-check-input category-filter" type="checkbox" value="care"><span>Care Tools</span></label>
+              </fieldset>
+              <fieldset class="filter-group"><legend>Price range</legend>
+                <div class="price-inputs"><label class="visually-hidden" for="minPrice">Minimum price</label><div class="input-group"><span class="input-group-text">$</span><input class="form-control" type="number" id="minPrice" min="0" value="0"></div><span class="price-separator">to</span><label class="visually-hidden" for="maxPrice">Maximum price</label><div class="input-group"><span class="input-group-text">$</span><input class="form-control" type="number" id="maxPrice" min="0" value="100"></div></div>
+              </fieldset>
+              <fieldset class="filter-group"><legend>Color</legend>
+                <label class="check-row"><input class="form-check-input color-filter" type="checkbox" value="white"><span class="color-dot white"></span><span>White</span></label>
+                <label class="check-row"><input class="form-check-input color-filter" type="checkbox" value="terracotta"><span class="color-dot terracotta"></span><span>Terracotta</span></label>
+                <label class="check-row"><input class="form-check-input color-filter" type="checkbox" value="green"><span class="color-dot green"></span><span>Green</span></label>
+                <label class="check-row"><input class="form-check-input color-filter" type="checkbox" value="black"><span class="color-dot black"></span><span>Black</span></label>
+              </fieldset>
+            </div>
+          </div>
+        </aside>
+
+        <div class="col-lg-9">
+          <div class="catalog-toolbar"><p class="mb-0"><strong id="resultCount">12</strong> products</p><p class="mb-0 text-muted">Find the perfect finishing touch for your plants.</p></div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3 g-xl-4" id="productGrid">
+            <div class="col product-column" data-category="ceramic" data-color="white" data-price="24.50" data-rank="1" data-newest="6"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1599067900192-1e0ecf2ce134?auto=format&fit=crop&w=1000&q=85" alt="Matte white ceramic planter" loading="lazy" decoding="async" class="product-image"><span class="product-badge">Bestseller</span><button class="wishlist-button" type="button" aria-label="Add Ceramic Planter to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>Ceramic Planter</h3><div class="product-price"><span>$24.50</span></div><button class="btn add-cart-button" type="button" data-product-name="Ceramic Planter">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="plastic" data-color="green" data-price="12.00" data-rank="2" data-newest="5"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1545239705-1564e58b9e4a?auto=format&fit=crop&w=1000&q=85" alt="Green indoor planter with fresh foliage" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Green Plastic Planter to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Plastic Pots</p><h3>Green Plastic Planter</h3><div class="product-price"><span>$12.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Green Plastic Planter">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="stands" data-color="black" data-price="39.00" data-rank="3" data-newest="4"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1696926040621-1770c18cdfab?auto=format&fit=crop&w=1000&q=85" alt="Potted plant displayed on a metal plant stand" loading="lazy" decoding="async" class="product-image"><span class="product-badge">Popular</span><button class="wishlist-button" type="button" aria-label="Add Metal Plant Stand to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Plant Stands</p><h3>Metal Plant Stand</h3><div class="product-price"><span>$39.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Metal Plant Stand">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="care" data-color="green" data-price="8.50" data-rank="4" data-newest="3"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1559059961-dd5b124d1dc5?auto=format&fit=crop&w=1000&q=85" alt="Assorted garden tools arranged against a light wall" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Plant Care Tool Set to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Care Tools</p><h3>Plant Care Tool Set</h3><div class="product-price"><span>$8.50</span></div><button class="btn add-cart-button" type="button" data-product-name="Plant Care Tool Set">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="terracotta" data-price="18.00" data-rank="5" data-newest="2"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1773736620892-52694acc18b0?auto=format&fit=crop&w=1000&q=85" alt="Classic terracotta plant pot" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Terracotta Pot to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>Classic Terracotta Pot</h3><div class="product-price"><span class="sale-price">$14.00</span><del>$18.00</del><span class="sale-label">22% off</span></div><button class="btn add-cart-button" type="button" data-product-name="Classic Terracotta Pot">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="stands" data-color="white" data-price="32.00" data-rank="6" data-newest="1"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1714507767653-bacd7af67d15?auto=format&fit=crop&w=1000&q=85" alt="Potted plant displayed on a wooden stand" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Wooden Plant Stand to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Plant Stands</p><h3>Wooden Plant Stand</h3><div class="product-price"><span>$32.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Wooden Plant Stand">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="white" data-price="29.00" data-rank="7" data-newest="12"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1776801849397-61a9bc9d5c56?auto=format&fit=crop&w=1000&q=85" alt="Ceramic planter with lush indoor plant" loading="lazy" decoding="async" class="product-image"><span class="product-badge">New</span><button class="wishlist-button" type="button" aria-label="Add Modern Ceramic Cachepot to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>Modern Ceramic Cachepot</h3><div class="product-price"><span>$29.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Modern Ceramic Cachepot">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="terracotta" data-price="21.00" data-rank="8" data-newest="11"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1777576968636-efa4ed929c9a?auto=format&fit=crop&w=1000&q=85" alt="Terracotta planter with flowering greenery" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Garden Bloom Terracotta Pot to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>Garden Bloom Terracotta Pot</h3><div class="product-price"><span>$21.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Garden Bloom Terracotta Pot">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="white" data-price="9.50" data-rank="9" data-newest="10"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1563751900017-50bc0a4db390?auto=format&fit=crop&w=1000&q=85" alt="Green plant in a white ceramic pot" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add White Ceramic Planter to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>White Ceramic Planter</h3><div class="product-price"><span>$9.50</span></div><button class="btn add-cart-button" type="button" data-product-name="White Ceramic Planter">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="white" data-price="34.00" data-rank="10" data-newest="9"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1714507767656-2fb307e1b03d?auto=format&fit=crop&w=1000&q=85" alt="Green houseplant in a white tabletop planter" loading="lazy" decoding="async" class="product-image"><span class="product-badge">New</span><button class="wishlist-button" type="button" aria-label="Add White Tabletop Planter to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>White Tabletop Planter</h3><div class="product-price"><span>$34.00</span></div><button class="btn add-cart-button" type="button" data-product-name="White Tabletop Planter">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="care" data-color="green" data-price="16.00" data-rank="11" data-newest="8"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1783149173467-74e30fc23434?auto=format&fit=crop&w=1000&q=85" alt="Watering can and plant mister for plant care" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Garden Care Kit to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Care Tools</p><h3>Garden Care Kit</h3><div class="product-price"><span>$16.00</span></div><button class="btn add-cart-button" type="button" data-product-name="Garden Care Kit">Add to Cart</button></div></article></div>
+            <div class="col product-column" data-category="ceramic" data-color="white" data-price="13.50" data-rank="12" data-newest="7"><article class="product-card h-100"><div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1517024785852-498ab0c02de5?auto=format&fit=crop&w=1000&q=85" alt="Small green plant in a patterned ceramic planter" loading="lazy" decoding="async" class="product-image"><button class="wishlist-button" type="button" aria-label="Add Patterned Ceramic Planter to wishlist" aria-pressed="false">♡</button></div><div class="product-info"><p class="product-category">Ceramic Pots</p><h3>Patterned Ceramic Planter</h3><div class="product-price"><span>$13.50</span></div><button class="btn add-cart-button" type="button" data-product-name="Patterned Ceramic Planter">Add to Cart</button></div></article></div>
+          </div>
+          <div class="empty-state d-none" id="emptyState">No products match these filters. Try changing your selections.</div>
+          <nav class="mt-4" aria-label="Product pagination"><ul class="pagination justify-content-center"><li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li><li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><a class="page-link" href="#">Next</a></li></ul></nav>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div><div class="footer__logo flex items-center"><img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img"></div><div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div><div class="footer__socials"><a href="#" class="footer__social" aria-label="Facebook">📘</a><a href="#" class="footer__social" aria-label="Instagram">📸</a><a href="#" class="footer__social" aria-label="Twitter">🐦</a><a href="#" class="footer__social" aria-label="Pinterest">📌</a></div></div>
+        <div><div class="footer__heading">Shop</div><ul class="footer__links"><li><a href="shop.html">Indoor Plants</a></li><li><a href="shop.html">Outdoor Plants</a></li><li><a href="shop.html">Succulents</a></li><li><a href="shop.html">Flowering Plants</a></li><li><a href="shop.html">Bonsai Trees</a></li><li><a href="pots-accessories.html">Plant Pots</a></li><li><a href="seeds.html">Seeds &amp; Fertilizers</a></li></ul></div>
+        <div><div class="footer__heading">Help</div><ul class="footer__links"><li><a href="my-account.html">My Account</a></li><li><a href="track-order.html">Track My Order</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="contact.html">Contact Support</a></li></ul></div>
+        <div><div class="footer__heading">Contact</div><ul class="footer__links"><li><a href="#">📍 Amman, Jordan</a></li><li><a href="tel:+962776135123">📞 +962776135123</a></li><li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li><li><a href="#">⏰ Everyday from 10:00 AM to 09:00 PM</a></li></ul></div>
+      </div>
+      <div class="footer__bottom"><span>&copy; 2025 Agrismart. All rights reserved.</span><div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div></div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/pots-accessories.js"></script>
+</body>
+</html>

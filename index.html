@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Agrismart - Plant E-Commerce </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/app-promo.css" />
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true">
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </symbol>
+
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </symbol>
+
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </symbol>
+
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </symbol>
+
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </symbol>
+
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" />
+    </symbol>
+    <symbol id="icon-google" viewBox="0 0 24 24">
+      <path
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+        fill="#4285F4"></path>
+      <path
+        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+        fill="#34A853"></path>
+      <path
+        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+        fill="#FBBC05"></path>
+      <path
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+        fill="#EA4335"></path>
+    </symbol>
+
+    <symbol id="icon-apple" viewBox="0 0 24 24">
+      <path
+        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.96 2.81 1.03.08 2.07-.52 2.71-1.27z"
+        fill="currentColor"></path>
+    </symbol>
+  </svg>
+
+
+  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home">
+        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Plants</a></li>
+        <li><a href="stores.html">Nurseries</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="lang-en" type="button">EN</button>
+          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
+          <svg id="themeIconLight" class="hidden-icon">
+            <use href="#icon-sun"></use>
+          </svg>
+          <svg id="themeIconDark">
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+        <!-- Login / User -->
+        <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control>
+          <svg>
+            <use href="#icon-user"></use>
+          </svg>
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<HERO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+  <section class="hero" id="heroSection">
+    <div class="hero__ambient-glow hero__ambient-glow--1"></div>
+    <div class="hero__ambient-glow hero__ambient-glow--2"></div>
+    <div class="container">
+      <div class="hero__inner">
+        <!-- Text -->
+        <div class="hero__content fade-in">
+          <div class="hero__tag">
+            <span class="dot"></span>
+            <span>New Arrivals Just Dropped</span>
+            <span class="hero__tag-sparkle">✨</span>
+          </div>
+          <h1 class="hero__title">
+            Grow Your Own<br>
+            <span class="accent">Little Paradise</span>
+          </h1>
+          <p class="hero__desc">
+            From living rooms to workspaces, make every corner bloom with life. Discover carefully nurtured plants
+            tailored for any environment with intelligent plant-care support.
+          </p>
+          <div class="hero__cta">
+            <a href="shop.html" class="btn btn-primary hero__btn-main">
+              <span>Shop Now</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#categories" class="btn btn-outline hero__btn-sec">
+              <span>Explore Categories</span>
+            </a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat-item">
+              <div class="hero__stat-num">500+</div>
+              <div class="hero__stat-lbl">Plant Species</div>
+            </div>
+            <div class="hero__stat-item">
+              <div class="hero__stat-num">12K+</div>
+              <div class="hero__stat-lbl">Happy Customers</div>
+            </div>
+            <div class="hero__stat-item">
+              <div class="hero__stat-num">4.9 ★</div>
+              <div class="hero__stat-lbl">Average Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!------------- Image Anchor with 3D Tilt ------------------>
+        <div class="hero__image-wrapper fade-in">
+          <div class="hero__image" id="heroPlantCard">
+            <div class="hero__image-placeholder">
+              <img src="assets/hero-plant-2.png" alt="Peace Lily plant in white pot" class="hero-plant-img">
+            </div>
+            <div class="hero__floating">
+              <span class="discount-num">30%</span>
+              <span class="discount-lbl">OFF</span>
+            </div>
+            <div class="hero__badge">
+              <div class="hero__badge-icon">🪴</div>
+              <div>
+                <div class="hero__badge-txt">Best Seller</div>
+                <div class="hero__badge-val">Desert Rose Cactus</div>
+              </div>
+            </div>
+            <div class="hero__glass-pill">
+              <span class="pill-dot"></span>
+              <span>100% Organic & Healthy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< CATEGORIES BAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <div class="categories-bar" id="categories">
+    <div class="container">
+      <div class="categories-bar__inner">
+        <div class="cat-pill active" onclick="filterProducts('all')"><span class="emoji">🌿</span> All Plants</div>
+        <div class="cat-pill" onclick="filterProducts('indoor')"><span class="emoji">🪴</span> Indoor</div>
+        <div class="cat-pill" onclick="filterProducts('outdoor')"><span class="emoji">🌲</span> Outdoor</div>
+        <div class="cat-pill" onclick="filterProducts('succulent')"><span class="emoji">🌵</span> Succulents</div>
+        <div class="cat-pill" onclick="filterProducts('tropical')"><span class="emoji">🌴</span> Tropical</div>
+        <div class="cat-pill" onclick="filterProducts('flowering')"><span class="emoji">🌸</span> Flowering</div>
+        <div class="cat-pill" onclick="filterProducts('herb')"><span class="emoji">🌿</span> Herbs</div>
+        <div class="cat-pill" onclick="filterProducts('bonsai')"><span class="emoji">🌳</span> Bonsai</div>
+        <a class="cat-pill cat-pill--link" href="pots-accessories.html"><span class="emoji">🪴</span> Pots &amp; Accessories</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCTS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <span class="section-label">Our Collection</span>
+          <h2 class="section-title">Featured <span>Plants</span></h2>
+          <p class="section-subtitle">Handpicked plants for every space and lifestyle</p>
+        </div>
+        <a href="#" class="view-all">View All +</a>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Cards generated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< FEATURED BANNERS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="featured-banner fade-in">
+        <div class="banner-card banner-card--dark">
+          <div>
+            <div class="banner-card__label">Limited Offer</div>
+            <div class="banner-card__title">Premium Tropical<br>Plant Collection</div>
+            <a href="shop.html" class="btn btn-outline-white banner-card__btn">Shop Now</a>
+          </div>
+          <div class="banner-card__emoji">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz6KcPW6_0HBBvqNFXXfoVzTDMJhS6n26TStQKnMxslWUBVSxwkWM2KcwACvYT6OBJuZG4LnLYTrnSjWdIXEQhlVStXkKW_bZIv-ML90rpipb6Ec_SyS2r4rHkln11-NJZGAvteErBtNI7YWlnjXBxwjlYxK-WPEHCgIr9I8U-7WFmsxpG3NDIrzzLcssYvORuPvvTBhWHWp4NjQK47y8IiUTDRwsnbq5tL3tqwKk"
+              alt="Discount Banner" class="banner-img-cover">
+          </div>
+        </div>
+        <div class="banner-card banner-card--light">
+          <div>
+            <div class="banner-card__label">New Arrivals</div>
+            <div class="banner-card__title">Beautiful Flowering<br>Indoor Plants</div>
+            <a href="shop.html" class="btn btn-primary banner-card__btn">Explore</a>
+          </div>
+          <div class="banner-card__emoji">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTzc1rlXksLjhftcqPqbBikhZKomdzvh3DstYNv7A2bXVzx-iXH4gkd0jCly2vXziO3rm8q4DQDHSgatst1kPbk9x4YbX5jO8rFbSCbXQWF81GANMTp5IjSkikpwi6cElG6LRNK8otrasQTXABPtq_UzZGcPyolvcUyHpYrBqftdVLolf9SkWcsGtXEWxnQgJe6KO7NzoUKFYu2WK6dMN1Uf2n24OVDB6FydR7LXg"
+              alt="Happy Customer" class="banner-img-contain">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MORE PRODUCTS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <span class="section-label">Best Sellers</span>
+          <h2 class="section-title">Top Rated <span>Picks</span></h2>
+        </div>
+        <a href="#" class="view-all">View All &rarr;</a>
+      </div>
+      <div class="product-grid" id="productGrid2"></div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< WHY CHOOSE US <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section bg-white" id="about">
+    <div class="container">
+      <div class="section-header fade-in flex-center-text">
+        <div>
+          <span class="section-label">Why Agrismart</span>
+          <h2 class="section-title">Everything You Need for a <span>Greener Life</span></h2>
+          <p class="section-subtitle">From seed to delivery ” we take care of everything</p>
+        </div>
+      </div>
+      <div class="features-grid fade-in">
+        <div class="feature-card">
+          <div class="feature-card__icon">🚚</div>
+          <div class="feature-card__title">Free Delivery</div>
+          <div class="feature-card__desc">Free shipping on all orders over $49. Fast and reliable nationwide delivery.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🌿</div>
+          <div class="feature-card__title">100% Healthy Plants</div>
+          <div class="feature-card__desc">Every plant is carefully inspected by our horticultural experts before
+            shipping.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔄</div>
+          <div class="feature-card__title">30-Day Guarantee</div>
+          <div class="feature-card__desc">Not happy with your plant? We'll replace it for free within 30 days.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">💬</div>
+          <div class="feature-card__title">Expert Support</div>
+          <div class="feature-card__desc">Our plant care specialists are available 24/7 to help your plants thrive.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TESTIMONIALS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in flex-center-text">
+        <div>
+          <span class="section-label">Happy Customers</span>
+          <h2 class="section-title">What Our <span>Plant Lovers</span> Say</h2>
+        </div>
+      </div>
+      <div class="testimonials-grid fade-in">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__text">"I am very satisfied with My Plant's service. The delivery was fast and
+            safe, and the variety of houseplants was impressive. I will definitely come back to buy more plants for my
+            home! 🌿"</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjnrNWtGWS8yUcYx3GbhzwYJkAJsWWhMMy415R1UESn_OxTJ2zkixeHfqZvLhyGGe5cNahFnVg-veehaB5jERvnv7IacmAnFLwbWjbDE37U9TCtbgA0oTMWl_wD-1L1oldwRV6TTneMwvz_gpbEj6sMSywz9RkHcylHzrE1jvaZvmL230MJowTYZM439dL2e5aH7KMWXK3x6B8y8fwH-eJVR8uem_zdHEF1kuRvdY"
+                alt="Kristin Watson">
+            </div>
+            <div>
+              <div class="testimonial-card__name">Kristin Watson</div>
+              <div class="testimonial-card__role">Happy Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__text">"Incredible selection and the care guides that come with each plant are so
+            helpful. My office has never looked greener!"</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjnrNWtGWS8yUcYx3GbhzwYJkAJsWWhMMy415R1UESn_OxTJ2zkixeHfqZvLhyGGe5cNahFnVg-veehaB5jERvnv7IacmAnFLwbWjbDE37U9TCtbgA0oTMWl_wD-1L1oldwRV6TTneMwvz_gpbEj6sMSywz9RkHcylHzrE1jvaZvmL230MJowTYZM439dL2e5aH7KMWXK3x6B8y8fwH-eJVR8uem_zdHEF1kuRvdY"
+                alt="James Smith">
+            </div>
+            <div>
+              <div class="testimonial-card__name">Marcus Chen</div>
+              <div class="testimonial-card__role">Interior Designer &middot; San Francisco</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__text">"The 30-day guarantee is real â€” they replaced my plant no questions
+            asked.
+            Absolutely brilliant customer service!"</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3xH29GF16siGt6OA0GmRjrUYsM7BeK7BwnDP1mfkFkoxSyCSrfQNbsUi7Lks_tMqrOEY4gSSzpiz1musKcmMRA4Wv2SechamDsPjrYVfy3zLDZxDsPxZ7rtWbAux411okiKv3kYRzsqT27_P4Dso57K0flqFERa4WkwNk3QpVDco9WkU7uiKJBmwJ5aUP_PGfxIp2P87ft_doN1zSgAXM00hN7NzYrs3vE7CAGHyXxcbgGugSstys"
+                alt="Emma Roberts">
+            </div>
+            <div>
+              <div class="testimonial-card__name">Emma Roberts</div>
+              <div class="testimonial-card__role">Home Gardener Â· Chicago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< NEWSLETTER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section py-custom">
+    <div class="container fade-in">
+      <div class="newsletter">
+        <div>
+          <div class="newsletter__title">🌱 Get Plant Care Tips & Deals</div>
+          <div class="newsletter__sub">Join 12,000+ plant lovers. Unsubscribe anytime.</div>
+        </div>
+        <form class="newsletter__form" onsubmit="subscribeNewsletter(event)">
+          <input class="newsletter__input" type="email" placeholder="Enter your email address" required />
+          <button type="submit" class="newsletter__submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< BLOG <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <section class="section pt-0" id="blog">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <span class="section-label">Plant Tips</span>
+          <h2 class="section-title">From Our <span>Green Blog</span></h2>
+        </div>
+        <a href="#" class="view-all">Read All </a>
+      </div>
+      <div class="blog-grid fade-in">
+        <div class="blog-card">
+          <div class="blog-card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIEWASaasAKZxm3coFIh9Fc3EOehZ5b_o567XSQJNjjjCyyTJj5l_frs8aueMddYGrj6lUXueDdDoaVQ1gXZpQBKiZjKwQ2Io_jkOfUE2XBM-kOeiJKXXlr2dZtNU4PTlMEoTHP5f1_6JSOL0rQ3LCS3ZQmDveW105_qJswNE6-TyFsQgQWDZUfY6d5qktfrW7nO1qXbHSQnzpEXoXbHAMyF2g-sRru9rV9J-0fdg"
+              alt="Blog 1">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Care Guide</div>
+            <div class="blog-card__title">10 Easy-Care Indoor Plants Perfect for Beginners</div>
+            <div class="blog-card__meta">June 12, 2025 &middot; 5 min read</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_wonQfl_lp7d_BtaFocGs7fPqi1TA59R7xPspxgWpMXWl__5FAEYgq55jPTE02apNOPkaJ4_3TbkkTagDD2Iyji2zxu_vAlfW8CbB3ADxnuaPj3hLXer9ADtl-7hfMjaDjo53ZqNI4Ur-s34bVvlcSYLtG_QvJg8dgQ1v8x1aJW6OaJsd5dJ7p0DFo55PtuD4sCiQ5wPNZs2yqHV47mc4DY-5lGH5feTG5Yppwq8"
+              alt="Blog 2">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Watering Tips</div>
+            <div class="blog-card__title">How Often Should You Water Your Succulents?</div>
+            <div class="blog-card__meta">May 28, 2025 &middot; 4 min read</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcvz3lKDXfPNxs_g3e8DR2AhitnYXExsTVSaZt6It6O3D1AT2xhJ2-TiPJSb7Js6z1bihVp4DOlrPeZN51XMKb3HOmNgIWW4F-Hm-WmrKxLmwyVovfJQdvYVIwYa-MxWbEEbJmZANFZ0qCMknb2ZwztDFWFByZFCcKLefOkui4RjrCUNujBn-mipd6Po44KXp-mIzWy_UX9O7NtXU8F_8yLNqAOHnZQ0xUmToXGnM"
+              alt="Blog 3">
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Lighting</div>
+            <div class="blog-card__title">Finding the Perfect Spot: Light Requirements for Every Plant</div>
+            <div class="blog-card__meta">May 15, 2025 Â· 6 min read</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo flex items-center">
+            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+          </div>
+          <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country.
+            Every plant, a story.</div>
+          <div class="footer__socials">
+            <a href="#" class="footer__social">📘</a>
+            <a href="#" class="footer__social">📸</a>
+            <a href="#" class="footer__social">🐦</a>
+            <a href="#" class="footer__social">📌</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Shop</div>
+          <ul class="footer__links">
+            <li><a href="#">Indoor Plants</a></li>
+            <li><a href="#">Outdoor Plants</a></li>
+            <li><a href="#">Succulents</a></li>
+            <li><a href="#">Flowering Plants</a></li>
+            <li><a href="#">Bonsai Trees</a></li>
+            <li><a href="pots-accessories.html">Plant Pots</a></li>
+            <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Help</div>
+          <ul class="footer__links">
+            <li><a href="track-order.html">Track My Order</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Plant Care FAQs</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <ul class="footer__links">
+            <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+            <li><a href="#">📞 +962776135123</a></li>
+            <li><a href="#">✉️ alaafrihat52@gmail.com</a></li>
+            <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2025 Agrismart. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+          <a href="admin-login.html">Admin Console</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< CART SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-sidebar__header">
+      <div class="cart-sidebar__title"><svg class="lucide-cart-animated" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"/></svg> My Cart</div>
+      <div class="cart-sidebar__close" onclick="closeCart()">✕</div>
+    </div>
+    <div class="cart-sidebar__body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty__icon">🪴</div>
+        <div class="cart-empty__text">Your cart is empty.<br>Start adding some beautiful plants!</div>
+      </div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-sidebar__footer cart-footer-hidden" id="cartFooter">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <a href="cart.html" class="btn btn-primary checkout-btn">Proceed to Checkout <span aria-hidden="true">→</span></a>
+      <a href="cart.html" class="cart-sidebar__view">View full cart</a>
+    </div>
+  </div>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< WISHLIST SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <div class="cart-overlay" id="wishOverlay" onclick="closeWish()"></div>
+  <div class="cart-sidebar" id="wishSidebar">
+    <div class="cart-sidebar__header">
+      <div class="cart-sidebar__title">❤️ My Wishlist</div>
+      <div class="cart-sidebar__close" onclick="closeWish()">✕</div>
+    </div>
+    <div class="cart-sidebar__body" id="wishBody">
+      <div class="cart-empty" id="wishEmpty">
+        <div class="cart-empty__icon">❤️</div>
+        <div class="cart-empty__text">Your wishlist is empty.<br>Start adding some beautiful plants!</div>
+      </div>
+      <div id="wishItems"></div>
+    </div>
+  </div>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< SCROLL TO TOP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</div>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< TOAST CONTAINER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<< JAVASCRIPT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+  <script src="js/cart.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/header.js"></script>
+
+  <script src="js/app-promo.js"></script>
+  <script src="js/scroll-vine.js"
+          data-color="#09AD2A"
+          data-accent="#E6BD54"
+          data-side="auto"
+          data-start="#heroSection"
+          data-end="#contact"
+          data-anchors="section"
+          data-edge="24"
+          data-width="3"
+          data-z-index="3"></script>
+</body>
+
+</html>

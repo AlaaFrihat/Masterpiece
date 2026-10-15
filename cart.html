@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#00873a" />
+  <title>Shopping Cart - Agrismart</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/app-promo.css" />
+</head>
+<body class="min-h-screen bg-[#fcfdfd] text-slate-800 antialiased" data-requires-auth="true">
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Plants</a></li>
+      <li><a href="stores.html">Nurseries</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
+      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
+      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+  <section class="cart-title-band">
+    <div class="mx-auto max-w-7xl px-4 py-9 text-center sm:px-6">
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Shopping Cart</h1>
+      <p class="mt-2 text-xs font-medium text-slate-500 sm:text-sm"><a href="index.html" class="hover:text-green-700">Home</a><span class="mx-2">/</span><span class="text-green-700">Shopping Cart</span></p>
+    </div>
+  </section>
+
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-12">
+    <section class="cart-layout grid grid-cols-1 items-start gap-7 lg:grid-cols-12" aria-label="Your shopping cart">
+      <div class="lg:col-span-8">
+        <div class="cart-panel overflow-hidden rounded-xl border border-slate-100 bg-white">
+          <div class="cart-table-head grid grid-cols-12 items-center gap-2 px-4 py-3 text-xs font-semibold text-white sm:px-6">
+            <span class="col-span-6 sm:col-span-5">Product</span>
+            <span class="hidden text-center sm:col-span-2 sm:block">Price</span>
+            <span class="col-span-3 text-center sm:col-span-3">Quantity</span>
+            <span class="col-span-3 text-right sm:col-span-2">Subtotal</span>
+          </div>
+          <div id="cartItems" aria-live="polite"></div>
+          <div id="cartEmpty" class="hidden px-6 py-14 text-center">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-3xl">🪴</div>
+            <h2 class="text-lg font-semibold text-slate-900">Your cart is empty</h2>
+            <p class="mt-1 text-sm text-slate-500">Explore our plants and find something lovely for your home.</p>
+            <a href="shop.html" class="mt-5 inline-flex rounded-lg bg-[#00873a] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-800">Continue Shopping</a>
+          </div>
+        </div>
+        <div class="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <form id="couponForm" class="flex flex-wrap items-center gap-2" novalidate>
+            <label class="sr-only" for="couponCode">Coupon code</label>
+            <input id="couponCode" class="w-44 rounded-full border-slate-200 px-4 py-2 text-xs focus:border-green-600 focus:ring-green-600" type="text" placeholder="Coupon code" autocomplete="off" />
+            <button class="rounded-full bg-[#00873a] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-green-800" type="submit">Apply Coupon</button>
+          </form>
+          <button id="clearCart" class="text-left text-xs font-semibold text-green-700 hover:underline sm:text-right" type="button">Clear Shopping Cart</button>
+        </div>
+        <p id="cartMessage" class="mt-2 min-h-5 text-xs" role="status" aria-live="polite"></p>
+      </div>
+
+      <aside class="lg:col-span-4" aria-label="Order summary">
+        <div class="cart-panel rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
+          <h2 class="mb-5 text-base font-bold text-slate-900">Order Summary</h2>
+          <dl class="space-y-3 border-b border-slate-100 pb-5 text-xs text-slate-500">
+            <div class="flex justify-between gap-3"><dt>Items</dt><dd id="summaryCount" class="font-semibold text-slate-800">0</dd></div>
+            <div class="flex justify-between gap-3"><dt>Subtotal</dt><dd id="summarySubtotal" class="font-semibold text-slate-800">$0.00</dd></div>
+            <div class="flex justify-between gap-3"><dt>Shipping</dt><dd class="font-semibold text-slate-800">Free</dd></div>
+            <div class="flex justify-between gap-3"><dt>Taxes</dt><dd class="font-semibold text-slate-800">Calculated at checkout</dd></div>
+            <div id="discountRow" class="hidden justify-between gap-3 text-green-700"><dt>Coupon discount</dt><dd id="summaryDiscount" class="font-semibold">−$0.00</dd></div>
+          </dl>
+          <div class="flex items-center justify-between py-4 text-sm font-bold text-slate-900"><span>Total</span><span id="summaryTotal" class="text-base">$0.00</span></div>
+          <button id="checkoutButton" class="w-full rounded-lg bg-[#00873a] px-4 py-3.5 text-xs font-bold text-white shadow-sm transition hover:bg-green-800 disabled:cursor-not-allowed disabled:opacity-50" type="button">Proceed to Checkout</button>
+          <p class="mt-3 text-center text-[11px] text-slate-400">Secure checkout · Free shipping</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="mt-14 sm:mt-20" aria-labelledby="recommendations-title">
+      <div class="mb-6 text-center">
+        <p class="text-xs font-semibold tracking-wider text-slate-400">Our Other Products</p>
+        <h2 id="recommendations-title" class="mt-1 text-2xl font-bold text-slate-900">Explore Our <span class="text-[#00873a]">Plants</span></h2>
+      </div>
+      <div id="recommendedProducts" class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"></div>
+    </section>
+
+<!-- BEGIN: WhyChooseAgrismartSection -->
+<!-- 4 Feature photo cards with dark overlay & action buttons -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+<div class="text-center mb-8">
+<h2 class="text-2xl font-bold text-slate-900">Why choose <span class="text-[#00873a]">Agrismart?</span></h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Feature Card 1 -->
+<div class="relative rounded-2xl overflow-hidden h-72 group shadow-sm">
+<img alt="Free Shipping" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6nYHUcIesbpgzENiMHzoueM6xl2Yx14pzH2yJQPUtLmT-A-sezOvEyRbHic3yceUtyyG4vg8pAUzgLUzqIkAGeIVLBLCE-6ehJ1aJqyHsZSdeDx7Krwn0P062935E7CFaWLBHtpsTm7CHd9N6ht5Zu_QVq-5Iy-AqyBJVHsV6ZuQEBeHGVal2k8W_cLXMIog4-E45UEq06rVu7qou88GlqHDTnOFVg9ntkPsDe66HlTz1QjRiyhD7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-5 text-white">
+<h3 class="font-bold text-sm leading-snug">Free Shipping &amp; Delivery Fast</h3>
+<p class="text-[11px] text-gray-200 mt-1 mb-4 leading-normal">Super Fast Delivery, Items Arrive Without Delay!</p>
+<a href="shop.html" class="bg-white text-slate-900 text-[11px] font-semibold py-1.5 px-4 rounded-full w-max hover:bg-gray-100 transition">Shop Now</a>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="relative rounded-2xl overflow-hidden h-72 group shadow-sm">
+<img alt="Exclusive Discounts" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdA-E0BEMXPE16pUbXquxWP3FSObjkR25wD0rlkga2x4MsVECnbtw5SiZD6yyZRc3MzLLa9BYcLFzXpfZ-fPAO-RM0K6WIRfvlYhDl0_fg3jesBsBAWmTKk96KfZDBAVYdKwRna2Rf5QJPhPiXsvXLyR8QSuiiNbq2KLVzCa2Dkdh98ITucW0mPD31AN4FpVT-mq37sidStpk9YT2cnZDlDHjOqamqIUT188QNye4yfmSnu28qaDJ2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-5 text-white">
+<h3 class="font-bold text-sm leading-snug">Exclusive Discounts Await</h3>
+<p class="text-[11px] text-gray-200 mt-1 mb-4 leading-normal">Unlock Special Offers Just for You!</p>
+<a href="shop.html" class="bg-white text-slate-900 text-[11px] font-semibold py-1.5 px-4 rounded-full w-max hover:bg-gray-100 transition">Claim Your Discount</a>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="relative rounded-2xl overflow-hidden h-72 group shadow-sm">
+<img alt="Quality Assurance" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6RiFrrnTa4X-ijUmus6E7jTfMH0MB5O_oG3Uj8xGQIO92mFcQU0C5cfuUvIDyVBTCfCiTM2LqnzTKvguoCupP7x4SdJoGP3AA9fxTlRpLR3baL_Gk0QkX9uyvGTG-Ao86_0W_e943kvisRwYRJ2Zrh2qsOU5F3HwjkLGxPz5kXEosGRs7d18CN76Byex8A-DD11zTkmZanRiKDod30J6pNz802PW3ZM0_UYuFD16sDss8ovr0k2xw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-5 text-white">
+<h3 class="font-bold text-sm leading-snug">Quality Assurance Guaranteed</h3>
+<p class="text-[11px] text-gray-200 mt-1 mb-4 leading-normal">Satisfaction Guaranteed on Every Purchase!</p>
+<a href="shop.html" class="bg-white text-slate-900 text-[11px] font-semibold py-1.5 px-4 rounded-full w-max hover:bg-gray-100 transition">Browse Our Collection</a>
+</div>
+</div>
+<!-- Feature Card 4 -->
+<div class="relative rounded-2xl overflow-hidden h-72 group shadow-sm">
+<img alt="24/7 Support" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCACePVJUy9RdtLYZ6VRaQ3OPKveGQoNU1nxTOQY7rsQ_NW7A_r80mfC9go1qtNJl_QGt5v_0d_tFMNA2P6IEsA64AKEMO0P_2AGEmyyqFFrzRUBwgI3M7H-TGtjMLUCRmgeJ4X8UdPfvJQMIOWrCUAk4SW-BTl-w2Ym7IFWP83bnRr-uUgsUJipLew9qW1y-043ObssbfyL5s2L3yF8S-cp6twT_2xDSG1JzygehE5ESdpwzow1kiO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-5 text-white">
+<h3 class="font-bold text-sm leading-snug">24/7 Customer Support</h3>
+<p class="text-[11px] text-gray-200 mt-1 mb-4 leading-normal">We're Here to Help You Anytime, Day or Night!</p>
+<a href="shop.html" class="bg-white text-slate-900 text-[11px] font-semibold py-1.5 px-4 rounded-full w-max hover:bg-gray-100 transition">Contact Us Anytime</a>
+</div>
+</div>
+</div>
+<!-- Navigation Arrows -->
+<div class="flex items-center justify-end space-x-2 mt-4">
+<a href="shop.html" class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-400 text-xs">‹</a>
+<a href="shop.html" class="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-400 text-xs">›</a>
+</div>
+</section>
+<!-- END: WhyChooseAgrismartSection -->
+
+<!-- BEGIN: InstagramGallerySection -->
+<!-- Collage Photo Grid -->
+<section class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+<div class="text-center mb-8">
+<p class="text-xs font-semibold text-slate-400 tracking-wider">Follow Us</p>
+<h2 class="text-2xl font-bold text-slate-900 mt-1">Follow Us On <span class="text-[#00873a]">Instagram</span></h2>
+</div>
+<div class="cart-instagram-grid grid grid-cols-12 gap-3.5 h-[340px]">
+<!-- Left Column: Two stacked images -->
+<div class="col-span-12 sm:col-span-3 flex flex-col gap-3.5 h-full">
+<div class="h-1/2 rounded-2xl overflow-hidden shadow-xs">
+<img alt="Plant collection in window" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKK9NDClvE8KP0eYHQyyrq7pZJS2nGMyBPbrNtX5aesnGeRI9xiG-Z-KXv6creefEQwHK9qAyWvlcvep_HDVA2n9qkmOE3ujN0VXgf6qVzcp8_WOcIgzrZ7B_0Ir4y1Puy_JvPGlGsBQBI11gfab0lyaKwa-Q3-tHwXxPWvdK9HcuJQjgvC-DfBTvrFKbTc5XW3GYmMF7dPYu7ETZl0ugRbYlX0V5laZ4mVrdayXrr_AgAJXSuLoqq"/>
+</div>
+<div class="h-1/2 rounded-2xl overflow-hidden shadow-xs">
+<img alt="Hands repotting plant" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdnFHikGBSjEpHXTL-Neq9h2zQdVuvInXWX2UmyNL8goOisjmYPvWDZxtp1wEGkhRJL_Xn-9GbK6TcbKL73HVFpdxiX_J_UTF1FxrDVFbHpsLSVLE7KG5D-bY_6fNahPBXK3ibLiDsP-N3JfjEb98Fvs7qx6-OE9pIjKWBkkmtONEQA57NFsZmiLf4qHUWaH9ZmdVvBFfk-soyYMi94tRAY1Uj90iVq7UkLcXIElIo3h-Czyk52o3v"/>
+</div>
+</div>
+<!-- Second Column: Portrait man with smartphone -->
+<div class="col-span-12 sm:col-span-3 h-full rounded-2xl overflow-hidden shadow-xs">
+<img alt="Person looking at phone" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARO0C0sGSf2lqsWsZaS7Hjvm83o3Eoo9q59MqsIdour2dRjxfiSzRaHZLvv8b-1XgTq9IJWXtETMcczBn8hEw_PfLBxBqtte8tBDhdTcsGjgCJ_YHg3waAML8CSetb2AESnjiuaBRkrxMqxIq3loOxB19F4zj3kGIapK2oFqpUhC-NHsUTMj8BHHEIfaRfmChwnEAS_LW6AaePXd8nMlWxKofAHN6u9peSRxoFyizqN2SIYgTAsPz_"/>
+</div>
+<!-- Third Column: Girl in nursery -->
+<div class="col-span-12 sm:col-span-3 h-full rounded-2xl overflow-hidden shadow-xs">
+<img alt="Girl in greenhouse nursery" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4avkE2KDHRqD6JlaLlEtW5Kb8oXBs9QUQy5E_dbcfW9at2mG3v6yTQwh5qnK2vFXJ33W0Ge8_A-UMRp2gSccVJXPncp3CQacMLnoDAtiEvN-zJyo8ax1cKxse2qeT5IPMwhjzZ99KaYhAXCq7M1nP-VzGp9djt1LvRgK9T4Mf1Ljd5nGJn-NWgYYJ8c018pLXKdTTmS9BAxPOsQn8OehQWdrXDvuj3ZqcrhRu82ZvOe2unqS-e6qI"/>
+</div>
+<!-- Fourth Column: 1 top wide, 2 bottom small -->
+<div class="col-span-12 sm:col-span-3 flex flex-col gap-3.5 h-full">
+<div class="h-1/2 rounded-2xl overflow-hidden shadow-xs">
+<img alt="Woman on balcony" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYI4oDy_WTNxEJJl4yDjAzm8RUCCgKS60eTndN-HO9_NvuFF5oq6RcMeuCxOvY41twkMxyKzyoOJIyHndLr3wq4_vfAiAsKcOF2UvzuzapNUeYDhfhVj4TnVUR00yPXKDNIfm-0ztxK2zfVLKck0xgNQcn5an3rfiw_sUANMbnWZqnDXUCieLBa0oNY_Od6cp2lUAZ5NcD5C4Wt_bNpGVkuIhmDIeEc6GKK9F3gS-J19H4wrJk8ZuE"/>
+</div>
+<div class="h-1/2 grid grid-cols-2 gap-3.5">
+<div class="rounded-2xl overflow-hidden shadow-xs">
+<img alt="Smiling man" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4lPJ9R4anry9sONFQxGrdaIVJm_E6iZFoRWPVXJ2ODnjuH4OiUErwV90UpxE6y9dW-iA5clq7y9QaWRJQ9npWfYgN2G_U8baibvozgkXh9usl54bi2A9TLMjzXLbc-6dqPqBvbvniamE-X587ydhlTkxJHj_uTAjS1nhKDyiV4_Yurcmw1iVcWrDbpAJnIglgiD61CT2THsbF8iOYTGAafrLsVZHanq25Pk8duIeaQNaU4GCbFB0Y"/>
+</div>
+<div class="rounded-2xl overflow-hidden shadow-xs">
+<img alt="Holding pot with soil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOL7n90hCFNHwo3lMXxNFDeQX1u_GvSL1JhZ2CsdjDlpiYq9AmTcnwhaH-HJAccWVNodRgVI_af3137XfsA3h8Ao_0J1ll8mxJuQLRPExYyIfxOSR2PZduz2TbuvgnQOKEhq-qlZ--_bGpS2WkiomkECuwEUqNo1l7E0QEOSfaPU6Fg70BuBUz-eNn21HID7jTePmJ3VunEPaJSLXR_Di11boTklqLNaPvUHAtEV95pWkU5hHNX3nd"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: InstagramGallerySection -->
+
+<section class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-12" aria-labelledby="faq-title">
+  <div class="overflow-hidden rounded-2xl lg:col-span-5"><img class="h-72 w-full object-cover sm:h-96" alt="Friends talking about plants at home" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvQ0vhdDGukg6-8L7ZXC5nx9SSS4BV-EHcK_ESgxG3QoIF4Hz86gqv8OOq2ugBPxowzWYGbCyop_2PUCFsz1mXJ0-5bdmqMTDS57E0ys3T9HTZX71LgWIAZRaF_TzkuO-WOceN2DkzBwavt2KedgCAAvWEMUirL1FXf1wwZTdYq0IB1UALnKE6tJ8ULxEUftEnt_8eyaGaZnG7-uX_9BFwTChY_YT49po-Dgv8Gls1SBhOB9fpR968" /></div>
+  <div class="lg:col-span-7">
+    <h2 id="faq-title" class="text-xl font-bold text-slate-900 sm:text-2xl">Questions About Agrismart</h2>
+    <p class="mt-1 text-xs text-slate-500">Helpful answers for your next order.</p>
+    <div class="mt-4 space-y-2">
+      <details class="cart-faq"><summary>Where can I get complete information about a plant?</summary><p>Open the product details page for plant descriptions and care information.</p></details>
+      <details class="cart-faq"><summary>Where can I track my order?</summary><p>Order tracking will be available once order processing is connected to the store.</p></details>
+      <details class="cart-faq"><summary>How can I get promotions?</summary><p>Check the offers shown in the store and enter an available coupon at checkout.</p></details>
+      <details class="cart-faq"><summary>What is your return policy?</summary><p>Return handling will be provided with the store's order service.</p></details>
+      <details class="cart-faq"><summary>How do I contact customer support?</summary><p>Use the contact information in the footer to reach the Agrismart team.</p></details>
+      <details class="cart-faq"><summary>What payment methods do you accept?</summary><p>Payment options will be shown when checkout is connected.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEGIN: NewsletterBannerSection -->
+<!-- Dark lush foliage newsletter banner -->
+<section class="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+<div class="relative rounded-3xl overflow-hidden min-h-[220px] flex items-center px-8 sm:px-14 py-8 shadow-md">
+<!-- Background Image -->
+<img alt="Lush foliage background" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVJHu7HeGd3N4QFEU5ggBZxbRHR7ezQatZT1Sm_e_8HaH9Co1B9LUE2hNi4_cWfwi55bSYKoQUKJSDTamIp7Isw40lhFsYSXXGqG1blGh0-VsyujJ3HVXg8A9hWl5f1Zspxi19QMXYab0znIjHtvoZ9rdsq71RZMWs4wbJalQeDNgxYA1IYA4wpxpF5UOcubJGmikK4zFsJkXWmmI32_Mhh-VHSh1C5J2TdXS27uH8G4ulZpusPFqU"/>
+<div class="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+<!-- Content Overlay -->
+<div class="relative z-10 max-w-xl text-white">
+<h2 class="text-xl sm:text-2xl font-bold tracking-tight">Bring The Serenity Of Nature<br/>Into Your Home.</h2>
+<p class="text-xs text-gray-300 mt-2 mb-5">Discover The Perfect Plants To Transform Your Living Space.</p>
+<!-- Form pill -->
+<form class="flex items-center space-x-2 max-w-md" id="newsletterForm">
+<input class="rounded-full bg-slate-900/80 border border-slate-700 px-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-[#00873a] w-full" id="newsletterEmail" placeholder="Enter email for plant updates" type="email" required/>
+<button class="bg-white text-slate-900 text-xs font-bold px-6 py-2 rounded-full hover:bg-gray-100 transition shrink-0" type="submit">Submit</button>
+</form>
+</div>
+</div>
+</section>
+<!-- END: NewsletterBannerSection -->
+  </main>
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo flex items-center">
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+        </div>
+        <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+          <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Shop</div>
+        <ul class="footer__links">
+          <li><a href="#">Indoor Plants</a></li>
+          <li><a href="#">Outdoor Plants</a></li>
+          <li><a href="#">Succulents</a></li>
+          <li><a href="#">Flowering Plants</a></li>
+          <li><a href="#">Bonsai Trees</a></li>
+          <li><a href="pots-accessories.html">Plant Pots</a></li>
+          <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Help</div>
+        <ul class="footer__links">
+          <li><a href="track-order.html">Track My Order</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns &amp; Refunds</a></li>
+          <li><a href="#">Plant Care FAQs</a></li>
+          <li><a href="contact.html">Contact Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <ul class="footer__links">
+          <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+          <li><a href="#">📞 +962776135123</a></li>
+          <li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li>
+          <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2025 Agrismart. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  <div id="cartToast" class="cart-toast" role="status" aria-live="polite"></div>
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/seed-thumbnail.js"></script>
+  <script src="js/cart-page.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/app-promo.js"></script>
+</body>
+</html>

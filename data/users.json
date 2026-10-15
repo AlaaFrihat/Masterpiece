@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Agrismart Demo",
+    "email": "demo@agrismart.com",
+    "passwordHash": "588c55f3ce2b8569b153c5abbf13f9f74308b88a20017cc699b835cc93195d16",
+    "accountType": "personal"
+  },
+  {
+    "name": "Al-Rawabi Botanical Nursery",
+    "email": "trader@agrismart.com",
+    "passwordHash": "9946f05fee680fce966e41def648a94967505b624b40ace6ccf58c0688cca89e",
+    "accountType": "business",
+    "business": {
+      "name": "Al-Rawabi Botanical Nursery",
+      "type": "Plant nursery",
+      "phone": "+962 7 9811 2233",
+      "country": "Jordan",
+      "city": "Amman",
+      "address": "Wasfi Al-Tal St, Al-Gardens, Amman",
+      "contactEmail": "rawabi.nursery@agrismart.com",
+      "salesModel": "Retail and wholesale",
+      "locations": "2–5 locations",
+      "serviceArea": "Amman, Zarqa, Salt",
+      "registrationNumber": "JO-REG-88291",
+      "taxNumber": "TAX-99214-JO",
+      "website": "https://rawabi-plants.jo",
+      "yearsInBusiness": "4–7 years",
+      "monthlyWholesaleOrders": "21–50 orders",
+      "productCategories": [
+        "plants",
+        "seeds-fertilizers",
+        "pots-accessories"
+      ],
+      "notes": "Specializing in certified Mediterranean specimens, rare aroids, and organic plant nutrition."
+    }
+  },
+  {
+    "name": "Sarah Alaa",
+    "email": "admin@agrismart.com",
+    "passwordHash": "3eb3fe66b31e3b4d10fa70b5cad49c7112294af6ae4e476a1c405155d45aa121",
+    "accountType": "admin",
+    "role": "admin"
+  }
+]

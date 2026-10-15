@@ -1,0 +1,46 @@
+body {
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #26352b;
+  background: #fff;
+}
+
+.subtle-botanical-bg {
+  background-color: #fbfdfc;
+  background-image: radial-gradient(#d1fae5 .75px, transparent .75px), radial-gradient(#e2e8f0 .75px, #fbfdfc .75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+[data-purpose="billing-form"],
+[data-purpose="order-summary"] {
+  border-color: rgba(3, 171, 31, .11);
+  box-shadow: 0 2px 8px -2px rgba(35, 64, 39, .06), 0 1px 4px -1px rgba(3, 171, 31, .05);
+}
+
+[data-purpose="order-summary"] { z-index: 1; }
+#checkoutForm input:focus,
+#checkoutForm select:focus { outline: none; box-shadow: 0 0 0 2px rgba(3, 171, 31, .16); }
+#checkoutForm input[type="radio"] { accent-color: #00873a; }
+#checkoutForm [data-alternate-address] { animation: checkoutReveal .2s ease-out; }
+#placeOrderButton:disabled { cursor: not-allowed; opacity: .55; box-shadow: none; }
+
+@keyframes checkoutReveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html[data-theme="dark"] body { background: #111914; color: #e7efe9; }
+html[data-theme="dark"] .subtle-botanical-bg {
+  background-color: #151f18;
+  background-image: radial-gradient(rgba(135, 190, 151, .11) .75px, transparent .75px), radial-gradient(rgba(135, 190, 151, .11) .75px, #151f18 .75px);
+}
+html[dir="rtl"] #checkoutForm input[type="tel"],
+html[dir="rtl"] #checkoutForm input[type="email"],
+html[dir="rtl"] #checkoutForm input[name="zipCode"] { direction: ltr; text-align: left; }
+html[dir="rtl"] #checkoutForm label > span { margin-left: 0; margin-right: .5rem; }
+html[dir="rtl"] #checkoutForm [data-checkout-address-options] .flex { column-gap: 1.5rem; }
+
+@media (max-width: 1023px) {
+  [data-purpose="order-summary"] { position: static; }
+}

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agrismart - Merchant Wallet &amp; Payouts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/merchant-dashboard.css" />
+</head>
+
+<body data-requires-auth="true">
+  <!-- Shared SVG Sprite from index.html -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" /></symbol>
+  </svg>
+
+  <!-- Distinct Merchant Top Strip -->
+  <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
+    <div class="merchant-top-strip__inner">
+      <div class="merchant-top-strip__badge">
+        <span class="merchant-pulse-dot"></span>
+        <span>🏪 Agrismart Nursery Portal · <span id="topStripStoreName">Al-Rawabi Botanical Nursery</span></span>
+      </div>
+      <div class="merchant-top-strip__actions">
+        <a href="merchant-store.html">👁️ Public Storefront</a>
+        <a href="shop.html">🛒 Consumer Shop</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation (Source of truth: index.html with merchant active state) -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="merchant-dashboard.html" class="nav__logo logo-container" aria-label="Agrismart Merchant Hub">
+        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+        <span class="nav-merchant-tag">Nursery Hub</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="merchant-dashboard.html">Dashboard</a></li>
+        <li><a href="merchant-profile.html">Store Profile</a></li>
+        <li><a href="merchant-wallet.html" class="active">Wallet &amp; Payouts</a></li>
+        <li><a href="merchant-analytics.html">Analytics</a></li>
+        <li><a href="merchant-store.html">Public Store</a></li>
+        <li><a href="merchant-contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="lang-en" type="button">EN</button>
+          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+        </div>
+        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
+          <svg id="themeIconLight" class="hidden-icon"><use href="#icon-sun"></use></svg>
+          <svg id="themeIconDark"><use href="#icon-moon"></use></svg>
+        </button>
+        <a href="merchant-account.html" id="loginPageButton" class="btn-icon" aria-label="Merchant Profile" title="Merchant Profile" data-auth-control>
+          <svg><use href="#icon-user"></use></svg>
+        </a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Wallet Body -->
+  <main class="merchant-main">
+    <div class="merchant-container">
+
+      <!-- Breadcrumb Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h1 style="margin:0 0 0.25rem; font-size:1.75rem; font-weight:800; color:var(--m-text);">
+            💳 Nursery Wallet &amp; Payouts
+          </h1>
+          <p style="margin:0; font-size:0.92rem; color:var(--m-text-muted);">
+            Manage your sales proceeds, CliQ payout transfers, and automated commission invoices.
+          </p>
+        </div>
+        <button class="btn-merchant btn-merchant--primary" id="openWithdrawModalBtn" type="button">
+          💸 Request Payout Transfer
+        </button>
+      </div>
+
+      <!-- Financial KPI Cards -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Available for Payout</span>
+            <span class="kpi-value" id="walletAvailableBalance" style="color:var(--m-primary-dark);">$1,240.00</span>
+            <span class="kpi-sub">Cleared and ready to withdraw</span>
+          </div>
+          <div class="kpi-icon-wrap">💰</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Pending Clearance</span>
+            <span class="kpi-value">$320.00</span>
+            <span class="kpi-sub">Releases upon order delivery</span>
+          </div>
+          <div class="kpi-icon-wrap">⏳</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">Agrismart Fee Rate</span>
+            <span class="kpi-value">5.0%</span>
+            <span class="kpi-sub">Verified Nursery tier benefit</span>
+          </div>
+          <div class="kpi-icon-wrap">🏷️</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-info">
+            <span class="kpi-title">All-Time Dispatched</span>
+            <span class="kpi-value">$6,890.00</span>
+            <span class="kpi-sub">Total fulfilled orders</span>
+          </div>
+          <div class="kpi-icon-wrap">📈</div>
+        </div>
+      </section>
+
+      <!-- Platform Commission & Net Payout Transparency Card -->
+      <section class="table-card" style="padding:1.75rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; border-bottom:1px solid var(--m-border); padding-bottom:1.25rem; margin-bottom:1.25rem;">
+          <div>
+            <h3 style="margin:0 0 0.25rem; font-size:1.15rem; font-weight:700;">🌱 Commission &amp; Net Earnings Transparency</h3>
+            <p style="margin:0; font-size:0.88rem; color:var(--m-text-muted);">
+              Clear horticultural settlement without hidden deductions. Jordan Central Bank CliQ transfers are 100% subsidized by Agrismart.
+            </p>
+          </div>
+          <button type="button" class="btn-merchant btn-merchant--primary" id="openTaxStatementModalBtn">
+            📄 Generate Official Tax Statement
+          </button>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; text-align:center;">
+          <div style="background:var(--m-surface-alt); padding:1.2rem; border-radius:12px; border:1px solid var(--m-border);">
+            <span style="font-size:0.82rem; color:var(--m-text-muted); font-weight:600; display:block; margin-bottom:0.25rem;">GROSS FULFILLED SALES</span>
+            <strong style="font-size:1.35rem; color:var(--m-text);">$1,240.00</strong>
+            <span style="font-size:0.75rem; color:#10b951; display:block; margin-top:0.2rem;">100% of order totals</span>
+          </div>
+          <div style="background:var(--m-surface-alt); padding:1.2rem; border-radius:12px; border:1px solid var(--m-border);">
+            <span style="font-size:0.82rem; color:var(--m-text-muted); font-weight:600; display:block; margin-bottom:0.25rem;">AGRISMART PLATFORM FEE (5%)</span>
+            <strong style="font-size:1.35rem; color:#ef4444;">-$62.00</strong>
+            <span style="font-size:0.75rem; color:var(--m-text-muted); display:block; margin-top:0.2rem;">Verified nursery partner rate</span>
+          </div>
+          <div style="background:var(--m-surface-alt); padding:1.2rem; border-radius:12px; border:1px solid var(--m-border);">
+            <span style="font-size:0.82rem; color:var(--m-text-muted); font-weight:600; display:block; margin-bottom:0.25rem;">CLIQ BANK TRANSFER FEE (0%)</span>
+            <strong style="font-size:1.35rem; color:#10b951;">$0.00</strong>
+            <span style="font-size:0.75rem; color:#10b951; display:block; margin-top:0.2rem;">Subsidized instant settlement</span>
+          </div>
+          <div style="background:rgba(16,185,81,0.08); padding:1.2rem; border-radius:12px; border:1px solid #10b951;">
+            <span style="font-size:0.82rem; color:#047857; font-weight:700; display:block; margin-bottom:0.25rem;">NET AVAILABLE PAYOUT</span>
+            <strong style="font-size:1.35rem; color:#047857;">$1,178.00</strong>
+            <span style="font-size:0.75rem; color:#10b951; display:block; margin-top:0.2rem;">Direct to RAWABI-PLANTS CliQ</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payout Method & Bank Details Card -->
+      <section class="table-card" style="padding:1.75rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; border-bottom:1px solid var(--m-border); padding-bottom:1.25rem; margin-bottom:1.25rem;">
+          <div>
+            <h3 style="margin:0 0 0.25rem; font-size:1.15rem; font-weight:700;">🏦 Receiving Payout Account</h3>
+            <p style="margin:0; font-size:0.88rem; color:var(--m-text-muted);">
+              Instant transfers in Jordan are settled via CliQ or direct RTGS bank deposit.
+            </p>
+          </div>
+          <span class="stock-badge is-instock">✓ Instant CliQ Verified</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem; font-size:0.92rem;">
+          <div>
+            <span style="display:block; color:var(--m-text-muted); font-size:0.8rem; font-weight:600;">PAYOUT METHOD</span>
+            <strong style="font-size:1rem;">CliQ Instant Transfer (Jordan)</strong>
+          </div>
+          <div>
+            <span style="display:block; color:var(--m-text-muted); font-size:0.8rem; font-weight:600;">CLIQ ALIAS / MOBILE</span>
+            <strong style="font-size:1rem; font-family:monospace;">RAWABI-PLANTS</strong>
+          </div>
+          <div>
+            <span style="display:block; color:var(--m-text-muted); font-size:0.8rem; font-weight:600;">BENEFICIARY BANK</span>
+            <strong style="font-size:1rem;">Arab Bank · Amman Gardens Branch</strong>
+          </div>
+          <div>
+            <span style="display:block; color:var(--m-text-muted); font-size:0.8rem; font-weight:600;">IBAN</span>
+            <strong style="font-size:0.92rem; font-family:monospace;">JO89 ARAB 0000 0000 1234 5678 9012</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payout & Transaction History -->
+      <section class="table-card">
+        <div class="panel-toolbar" style="border:none; border-bottom:1px solid var(--m-border); border-radius:0;">
+          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Payout Transactions &amp; Invoices</h3>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn-merchant btn-merchant--outline" id="exportWalletCsvBtn" type="button">
+              📥 Export Statement (CSV)
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="merchant-table">
+            <thead>
+              <tr>
+                <th>Reference #</th>
+                <th>Date &amp; Time</th>
+                <th>Transaction Type</th>
+                <th>Gross Volume</th>
+                <th>Fee (8%)</th>
+                <th>Net Credited / Paid</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="walletTransactionsBody">
+              <tr>
+                <td><strong>#PO-7182</strong></td>
+                <td>Today, 10:45 AM</td>
+                <td>Direct CliQ Withdrawal</td>
+                <td>$450.00</td>
+                <td>$0.00</td>
+                <td><strong style="color:var(--m-primary-dark);">$450.00</strong></td>
+                <td><span class="stock-badge is-instock">Completed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-9024</strong></td>
+                <td>Yesterday, 04:12 PM</td>
+                <td>Customer Order Fulfillment (#AG-9024)</td>
+                <td>$86.50</td>
+                <td>-$6.92</td>
+                <td><strong>$79.58</strong></td>
+                <td><span class="stock-badge is-instock">Cleared</span></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-9025</strong></td>
+                <td>2 days ago</td>
+                <td>Customer Order Fulfillment (#AG-9025)</td>
+                <td>$45.00</td>
+                <td>-$3.60</td>
+                <td><strong>$41.40</strong></td>
+                <td><span class="stock-badge is-instock">Cleared</span></td>
+              </tr>
+              <tr>
+                <td><strong>#PO-7180</strong></td>
+                <td>Last Week</td>
+                <td>Weekly Automatic Settlement</td>
+                <td>$890.00</td>
+                <td>$0.00</td>
+                <td><strong style="color:var(--m-primary-dark);">$890.00</strong></td>
+                <td><span class="stock-badge is-instock">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modal: Request Withdrawal -->
+  <div class="modal-overlay" id="withdrawModal" role="dialog" aria-modal="true" aria-labelledby="withdrawTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="withdrawTitle">💸 Request Payout Transfer</h3>
+        <button class="modal-close" id="closeWithdrawModalBtn" type="button">✕</button>
+      </div>
+      <form id="withdrawForm">
+        <div class="modal-body">
+          <div class="form-group-merchant">
+            <label for="withdrawAmount">Withdrawal Amount ($)</label>
+            <input type="number" id="withdrawAmount" min="20" max="1240" step="10" value="300" required>
+            <small style="color:var(--m-text-muted);">Available balance: $1,240.00 (Minimum withdrawal: $20.00)</small>
+          </div>
+          <div class="form-group-merchant">
+            <label for="withdrawMethod">Transfer Destination</label>
+            <select id="withdrawMethod" required>
+              <option selected>CliQ Instant Transfer (Alias: RAWABI-PLANTS)</option>
+              <option>Direct Bank Wire (Arab Bank - JO89 ARAB...)</option>
+              <option>Cash Pickup at Agrismart Logistics Center (Amman)</option>
+            </select>
+          </div>
+          <div class="form-group-merchant">
+            <label for="withdrawNote">Reference Note (Optional)</label>
+            <input type="text" id="withdrawNote" placeholder="e.g. Nursery Bi-weekly Wages">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-merchant btn-merchant--outline" id="cancelWithdrawBtn" type="button">Cancel</button>
+          <button class="btn-merchant btn-merchant--primary" type="submit">Execute Transfer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Official Monthly Tax & Financial Settlement Statement -->
+  <div class="modal-overlay" id="taxStatementModal" role="dialog" aria-modal="true" aria-labelledby="taxStatementTitle">
+    <div class="modal-dialog" style="max-width:720px; width:92%;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="taxStatementTitle">📄 Official Financial &amp; Tax Settlement Statement</h3>
+        <button class="modal-close" id="closeTaxStatementModalBtn" type="button">✕</button>
+      </div>
+      <div class="modal-body" id="taxStatementPrintArea" style="background:var(--m-surface); color:var(--m-text); padding:1.75rem; border-radius:8px;">
+        <!-- Official Letterhead -->
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #047857; padding-bottom:1.25rem; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h2 style="margin:0 0 0.25rem; font-size:1.3rem; color:var(--m-primary-dark); font-weight:800;">AGRISMART BOTANICAL TECHNOLOGIES</h2>
+            <p style="margin:0; font-size:0.85rem; color:var(--m-text-muted);">Merchant Settlement &amp; Tax Invoicing Registry · Amman, Jordan</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="display:inline-block; background:rgba(16,185,81,0.15); border:1px solid #10b951; color:#10b951; font-weight:700; font-size:0.8rem; padding:4px 10px; border-radius:999px;">OFFICIAL SETTLEMENT</span>
+            <div style="font-size:0.85rem; color:var(--m-text-muted); margin-top:0.35rem;">Ref: <strong>TAX-STMT-2026-05</strong></div>
+          </div>
+        </div>
+
+        <!-- Nursery Legal Info -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; font-size:0.9rem; background:var(--m-surface-alt); padding:1rem; border-radius:8px; border:1px solid var(--m-border);">
+          <div>
+            <div style="color:var(--m-text-muted); font-size:0.8rem;">BENEFICIARY NURSERY:</div>
+            <strong style="font-size:1rem; color:var(--m-text);">Al-Rawabi Botanical Nursery</strong>
+            <div style="font-size:0.85rem; color:var(--m-text-muted); margin-top:2px;">Wasfi Al-Tal St, Gardens, Amman</div>
+          </div>
+          <div>
+            <div style="font-size:0.85rem; color:var(--m-text);"><strong>CR Reg:</strong> JO-REG-88291</div>
+            <div style="font-size:0.85rem; color:var(--m-text);"><strong>Tax ID:</strong> TAX-99214-JO</div>
+            <div style="font-size:0.85rem; color:var(--m-text);"><strong>Statement Cycle:</strong> May 1 – May 31, 2026</div>
+          </div>
+        </div>
+
+        <!-- Financial Breakdown Table -->
+        <table style="width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:0.88rem;">
+          <thead>
+            <tr style="background:var(--m-surface-alt); border-bottom:2px solid var(--m-border); text-align:left;">
+              <th style="padding:8px 12px; color:var(--m-text);">Description / Category</th>
+              <th style="padding:8px 12px; text-align:right; color:var(--m-text);">Orders</th>
+              <th style="padding:8px 12px; text-align:right; color:var(--m-text);">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--m-border);">
+              <td style="padding:8px 12px;">Foliage &amp; Exotic Plants Fulfilled</td>
+              <td style="padding:8px 12px; text-align:right;">18</td>
+              <td style="padding:8px 12px; text-align:right; font-weight:600;">$780.00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--m-border);">
+              <td style="padding:8px 12px;">Mediterranean Bonsai &amp; Outdoor Trees</td>
+              <td style="padding:8px 12px; text-align:right;">4</td>
+              <td style="padding:8px 12px; text-align:right; font-weight:600;">$320.00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--m-border);">
+              <td style="padding:8px 12px;">Artisan Pots &amp; Substrates</td>
+              <td style="padding:8px 12px; text-align:right;">11</td>
+              <td style="padding:8px 12px; text-align:right; font-weight:600;">$140.00</td>
+            </tr>
+            <tr style="border-bottom:2px solid var(--m-border); background:var(--m-surface-alt);">
+              <td style="padding:10px 12px; font-weight:700;">Gross Merchant Fulfillment Total</td>
+              <td style="padding:10px 12px; text-align:right; font-weight:700;">33</td>
+              <td style="padding:10px 12px; text-align:right; font-weight:800; color:var(--m-primary-dark);">$1,240.00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--m-border); color:#ef4444;">
+              <td style="padding:8px 12px;">Agrismart Platform Service Commission (5%)</td>
+              <td style="padding:8px 12px; text-align:right;">-</td>
+              <td style="padding:8px 12px; text-align:right; font-weight:600;">-$62.00</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--m-border); color:#10b951;">
+              <td style="padding:8px 12px;">Jordan Central Bank CliQ Transfer Fee (Subsidized)</td>
+              <td style="padding:8px 12px; text-align:right;">-</td>
+              <td style="padding:8px 12px; text-align:right; font-weight:600;">$0.00</td>
+            </tr>
+            <tr style="background:rgba(16,185,81,0.1); border-top:2px solid #10b951;">
+              <td style="padding:12px; font-weight:800; font-size:1.02rem; color:var(--m-primary-dark);">NET PAYABLE TO NURSERY</td>
+              <td style="padding:12px; text-align:right; font-weight:700; color:var(--m-primary-dark);">-</td>
+              <td style="padding:12px; text-align:right; font-weight:900; font-size:1.2rem; color:var(--m-primary-dark);">$1,178.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Official Seal Stamp -->
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px dashed var(--m-border); padding-top:1rem; font-size:0.82rem; color:var(--m-text-muted);">
+          <div>
+            <div>Issued by: Agrismart Financial Operations</div>
+            <div>Settlement Method: CliQ Instant (RAWABI-PLANTS)</div>
+          </div>
+          <div style="border:2px solid #10b951; color:#10b951; padding:4px 12px; border-radius:6px; font-weight:800; text-transform:uppercase; letter-spacing:1px; transform:rotate(-3deg);">
+            ✓ Electronic Seal Verified
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-merchant btn-merchant--outline" id="closeTaxModalFooterBtn" type="button">Close</button>
+        <button class="btn-merchant btn-merchant--primary" id="printTaxStatementBtn" type="button">🖨️ Print Tax Statement</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo flex items-center"><img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" /></div>
+          <div class="footer__desc">Botanical commerce, nursery operations, and reliable plant freight.</div>
+        </div>
+        <div>
+          <div class="footer__heading">Merchant Links</div>
+          <ul class="footer__links">
+            <li><a href="merchant-dashboard.html">Dashboard</a></li>
+            <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
+            <li><a href="merchant-analytics.html">Analytics</a></li>
+            <li><a href="merchant-store.html">Nursery Storefront</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Support</div>
+          <ul class="footer__links">
+            <li><a href="merchant-contact.html">Support Desk</a></li>
+            <li><a href="track-order.html">Courier Tracking</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Merchant Finance</div>
+          <ul class="footer__links">
+            <li><span>📞 +962 7 9811 2233</span></li>
+            <li><span>✉️ finance@agrismart.com</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/header.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Withdraw Modal
+      const modal = document.getElementById('withdrawModal');
+      const openBtn = document.getElementById('openWithdrawModalBtn');
+      const closeBtn = document.getElementById('closeWithdrawModalBtn');
+      const cancelBtn = document.getElementById('cancelWithdrawBtn');
+      const form = document.getElementById('withdrawForm');
+      const balEl = document.getElementById('walletAvailableBalance');
+      let balance = 1240.00;
+
+      openBtn?.addEventListener('click', () => modal?.classList.add('is-open'));
+      const closeModal = () => modal?.classList.remove('is-open');
+      closeBtn?.addEventListener('click', closeModal);
+      cancelBtn?.addEventListener('click', closeModal);
+
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const amt = parseFloat(document.getElementById('withdrawAmount').value) || 0;
+        if (amt > balance) {
+          alert('Amount exceeds available balance.');
+          return;
+        }
+        balance -= amt;
+        if (balEl) balEl.textContent = `$${balance.toFixed(2)}`;
+        const tbody = document.getElementById('walletTransactionsBody');
+        if (tbody) {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><strong>#PO-${Math.floor(7200 + Math.random() * 50)}</strong></td>
+            <td>Just now</td>
+            <td>Direct CliQ Withdrawal</td>
+            <td>$${amt.toFixed(2)}</td>
+            <td>$0.00</td>
+            <td><strong style="color:var(--m-primary-dark);">$${amt.toFixed(2)}</strong></td>
+            <td><span class="stock-badge is-instock">Processing</span></td>
+          `;
+          tbody.prepend(row);
+        }
+        closeModal();
+        alert(`✓ Payout transfer of $${amt.toFixed(2)} has been queued via CliQ.`);
+      });
+
+      // 2. Official Tax Statement Modal
+      const taxModal = document.getElementById('taxStatementModal');
+      const openTaxBtn = document.getElementById('openTaxStatementModalBtn');
+      const closeTaxBtn = document.getElementById('closeTaxStatementModalBtn');
+      const closeTaxFooterBtn = document.getElementById('closeTaxModalFooterBtn');
+      const printTaxBtn = document.getElementById('printTaxStatementBtn');
+
+      const closeTaxModal = () => taxModal?.classList.remove('is-open');
+      openTaxBtn?.addEventListener('click', () => taxModal?.classList.add('is-open'));
+      closeTaxBtn?.addEventListener('click', closeTaxModal);
+      closeTaxFooterBtn?.addEventListener('click', closeTaxModal);
+      printTaxBtn?.addEventListener('click', () => window.print());
+
+      // 3. Export CSV
+      document.getElementById('exportWalletCsvBtn')?.addEventListener('click', () => {
+        const csv = "Reference,Date,Type,Gross,Fee,Net,Status\n#PO-7182,Today,Direct CliQ Withdrawal,450.00,0.00,450.00,Completed\n#ORD-9024,Yesterday,Customer Order Fulfillment,86.50,-4.33,82.17,Cleared\n#ORD-9025,2 days ago,Customer Order Fulfillment,45.00,-2.25,42.75,Cleared";
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'agrismart-payout-statement.csv';
+        a.click();
+      });
+    });
+  </script>
+</body>
+</html>

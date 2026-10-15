@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin sign in | Agrismart</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-login-page" style="position:relative;">
+  <div style="position:absolute;top:20px;right:20px;display:flex;gap:6px;" class="top-actions"><button class="lang active">EN</button><button class="lang">AR</button></div>
+  <main class="admin-login-shell">
+    <section class="admin-login-visual"><img src="assets/logo.svg" alt="Agrismart"><span class="admin-eyebrow">AGRISMART ADMIN CONSOLE</span><h1>Grow the business<br><em>behind every garden.</em></h1><p>Operations, inventory and customer care in one calm workspace.</p><div class="admin-orb" aria-hidden="true">✿</div></section>
+    <section class="admin-login-card"><a class="admin-back" href="index.html">← View live store</a><div class="admin-mark">✿</div><h2>Welcome back</h2><p class="admin-muted">Sign in to manage the Agrismart experience.</p><form id="adminLoginForm" novalidate><label>Email address<input name="email" type="email" value="admin@agrismart.com" autocomplete="username" required></label><label>Password<input name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required></label><p id="adminLoginError" class="admin-error" hidden>That admin email or password is not correct.</p><button class="admin-primary" type="submit">Sign in to dashboard <span>→</span></button></form><p class="admin-demo-note">Demo access: <strong>admin@agrismart.com</strong> · <strong>Admin123!</strong></p></section>
+  </main><script src="js/language.js"></script><script src="js/admin-auth.js"></script>
+</body></html>

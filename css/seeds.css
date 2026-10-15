@@ -1,0 +1,41 @@
+.seeds-hero { background-image: radial-gradient(circle at 85% 14%, rgba(8,139,55,.12) 0, transparent 28%), linear-gradient(120deg,#f8fbf8,#fff); }
+.seeds-hero h1 { max-width: 720px; }
+.seed-image-wrap { display: grid; place-items: center; min-height: 270px; aspect-ratio: 4 / 3; background: radial-gradient(ellipse at 50% 78%,rgba(36,62,43,.10),transparent 48%),#f1f5ef; }
+.fertilizer-image-wrap { display:grid; place-items:center; min-height:270px; aspect-ratio:4 / 3; overflow:hidden; background:radial-gradient(ellipse at 50% 82%,rgba(36,62,43,.14),transparent 46%),linear-gradient(145deg,#f8faf6,#edf3ed); }
+.fertilizer-product-image { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+.product-card:hover .fertilizer-product-image { transform:scale(1.035); }
+.fertilizer-description { min-height:34px; margin:0 0 9px; color:#738176; font-size:.72rem; line-height:1.45; }
+.seed-packet { position: relative; display: flex; width: 57%; min-width: 150px; max-width: 190px; height: 82%; max-height: 240px; flex-direction: column; align-items: center; justify-content: space-between; overflow: hidden; padding: 13px 12px 11px; border: 1px solid rgba(30,55,37,.18); border-radius: 5px 5px 14px 14px; background: linear-gradient(135deg,rgba(255,255,255,.55),transparent 40%),var(--packet-bg,#fffdf1); box-shadow: 0 13px 24px rgba(34,49,35,.18),inset 0 0 0 5px rgba(255,255,255,.3); text-align: center; transform: rotate(-2deg); transition: transform .25s ease,box-shadow .25s ease; }
+.seed-packet::before { position: absolute; top: 0; right: 0; left: 0; height: 8px; background: var(--packet-accent,#3f814c); content: ""; }
+.product-card:hover .seed-packet { transform: rotate(0) translateY(-3px); box-shadow: 0 18px 28px rgba(34,49,35,.2),inset 0 0 0 5px rgba(255,255,255,.3); }
+.packet-brand { align-self: stretch; padding-top: 2px; color: #253a2d; font-size: .58rem; font-weight: 800; letter-spacing: .09em; }
+.packet-brand b { color: var(--packet-accent,#3f814c); }
+.seed-packet svg { width: 72%; height: 57%; overflow: visible; fill: none; stroke: #39754a; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+.seed-packet svg .fruit { fill: var(--packet-accent,#c95345); stroke: var(--packet-accent,#c95345); }
+.seed-packet svg .flower-center { fill: #d99c2b; stroke: #a26f18; }
+.seed-packet svg .petals { stroke: #d28c35; stroke-width: 4; }
+.seed-packet svg .leaf-detail { stroke: #dce8cc; stroke-width: 1.8; }
+.seed-packet svg .seed-dots { stroke: #f4d074; stroke-width: 3; }
+.seed-packet > strong { color: #21352a; font-family: Georgia,serif; font-size: clamp(.95rem,1.3vw,1.2rem); line-height: 1.05; }
+.seed-packet > small { color: #5e6b5f; font-size: .52rem; font-weight: 700; letter-spacing: .08em; }
+.packet-tomato { --packet-bg:#fff4ed; --packet-accent:#c65745; }
+.packet-basil { --packet-bg:#eff4e7; --packet-accent:#56814e; }
+.packet-sunflower { --packet-bg:#fff6d9; --packet-accent:#dfaa35; }
+.packet-pepper { --packet-bg:#edf4e8; --packet-accent:#66834b; }
+.packet-coriander { --packet-bg:#f5f0e4; --packet-accent:#a6814b; }
+.packet-zinnia { --packet-bg:#fbeced; --packet-accent:#c65774; }
+.packet-spinach { --packet-bg:#edf4ec; --packet-accent:#427a52; }
+.packet-strawberry { --packet-bg:#fff0ed; --packet-accent:#c94c4c; }
+.packet-mint { --packet-bg:#e8f3ef; --packet-accent:#4d967a; }
+.packet-marigold { --packet-bg:#fff2df; --packet-accent:#e18d28; }
+.packet-lettuce { --packet-bg:#eff3df; --packet-accent:#89a64b; }
+.packet-lemon { --packet-bg:#fff8d7; --packet-accent:#c3a82f; }
+.seed-image-wrap .product-badge { z-index: 1; }
+.empty-state { text-wrap: balance; }
+html[data-theme="dark"] .seeds-hero { background-image: radial-gradient(circle at 85% 14%,rgba(20,180,75,.12) 0,transparent 28%),linear-gradient(120deg,#151f18,#1b2720); }
+html[data-theme="dark"] .seed-image-wrap { background: radial-gradient(ellipse at 50% 78%,rgba(0,0,0,.3),transparent 48%),#202d25; }
+html[data-theme="dark"] .fertilizer-image-wrap { background:radial-gradient(ellipse at 50% 82%,rgba(0,0,0,.35),transparent 46%),linear-gradient(145deg,#222f25,#1c2820); }
+html[data-theme="dark"] .fertilizer-description { color:#aebcaf; }
+html[data-theme="dark"] .seed-packet { border-color:rgba(255,255,255,.35); box-shadow:0 13px 24px rgba(0,0,0,.32),inset 0 0 0 5px rgba(255,255,255,.28); }
+@media(max-width:575.98px) { .seed-image-wrap { min-height:250px; } .seed-packet { width:52%; max-height:220px; } }
+@media(prefers-reduced-motion:reduce) { .seed-packet,.product-card { transition:none; } }
