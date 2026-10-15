@@ -1,140 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agrismart - Animated Cart Icon Preview</title>
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 40px 20px;
-      background: #f4f7f4;
-      color: #17251b;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .preview-box {
-      max-width: 600px;
-      width: 100%;
-      background: #fff;
-      padding: 32px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      text-align: center;
-    }
-    h1 {
-      margin-top: 0;
-      color: #078b3c;
-      font-size: 1.6rem;
-    }
-    p {
-      color: #65746a;
-      line-height: 1.6;
-    }
-    .icon-stage {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 36px 0;
-      padding: 24px;
-      background: #fbfdfb;
-      border-radius: 16px;
-      border: 1px dashed #c9dfcf;
-    }
-    .icon-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-    .icon-wrap {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: #eaf5ed;
-      color: #128c3b;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .icon-wrap:hover {
-      background: #daf0df;
-    }
-    .icon-wrap.dark-theme {
-      background: #18241c;
-      color: #63d487;
-    }
-    .icon-wrap.dark-theme:hover {
-      background: #223528;
-    }
-    .btn-test {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 99px;
-      background: #078b3c;
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(7,139,60,0.3);
-      transition: transform 0.15s, background 0.2s;
-    }
-    .btn-test:hover {
-      background: #067231;
-      transform: translateY(-2px);
-    }
-  </style>
-</head>
-<body>
-  <div class="preview-box">
-    <h1>Lucide Animated Cart Icon</h1>
-    <p>تم تحويل أنيميشن React / Framer Motion إلى CSS متوافق 100% مع كافة المتصفحات، ويعمل عند مرور الفأرة (Hover) وعند إضافة منتج إلى السلة!</p>
-    
-    <div class="icon-stage">
-      <div class="icon-card">
-        <div class="icon-wrap" id="lightCart" title="Hover me!">
-          <svg class="lucide-cart-animated" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"/>
-          </svg>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agrismart - Animated Cart Icon Preview</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+        background: #f4f7f4;
+        color: #17251b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .preview-box {
+        max-width: 600px;
+        width: 100%;
+        background: #fff;
+        padding: 32px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        text-align: center;
+      }
+      h1 {
+        margin-top: 0;
+        color: #078b3c;
+        font-size: 1.6rem;
+      }
+      p {
+        color: #65746a;
+        line-height: 1.6;
+      }
+      .icon-stage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 36px 0;
+        padding: 24px;
+        background: #fbfdfb;
+        border-radius: 16px;
+        border: 1px dashed #c9dfcf;
+      }
+      .icon-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .icon-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #eaf5ed;
+        color: #128c3b;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .icon-wrap:hover {
+        background: #daf0df;
+      }
+      .icon-wrap.dark-theme {
+        background: #18241c;
+        color: #63d487;
+      }
+      .icon-wrap.dark-theme:hover {
+        background: #223528;
+      }
+      .btn-test {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 99px;
+        background: #078b3c;
+        color: white;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(7, 139, 60, 0.3);
+        transition:
+          transform 0.15s,
+          background 0.2s;
+      }
+      .btn-test:hover {
+        background: #067231;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-box">
+      <h1>Lucide Animated Cart Icon</h1>
+      <p>
+        تم تحويل أنيميشن React / Framer Motion إلى CSS متوافق 100% مع كافة
+        المتصفحات، ويعمل عند مرور الفأرة (Hover) وعند إضافة منتج إلى السلة!
+      </p>
+
+      <div class="icon-stage">
+        <div class="icon-card">
+          <div class="icon-wrap" id="lightCart" title="Hover me!">
+            <svg
+              class="lucide-cart-animated"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+              />
+            </svg>
+          </div>
+          <small>Light Theme</small>
         </div>
-        <small>Light Theme</small>
+
+        <div class="icon-card">
+          <div class="icon-wrap dark-theme" id="darkCart" title="Hover me!">
+            <svg
+              class="lucide-cart-animated"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+              />
+            </svg>
+          </div>
+          <small>Dark Theme</small>
+        </div>
+
+        <div class="icon-card">
+          <button
+            class="floating-shop-toggle"
+            type="button"
+            style="position: static"
+            title="Hover floating toggle!"
+          >
+            <svg
+              class="floating-shop-toggle__bag lucide-cart-animated"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+              />
+            </svg>
+          </button>
+          <small>الزر العائم (Floating Button)</small>
+        </div>
       </div>
 
-      <div class="icon-card">
-        <div class="icon-wrap dark-theme" id="darkCart" title="Hover me!">
-          <svg class="lucide-cart-animated" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"/>
-          </svg>
-        </div>
-        <small>Dark Theme</small>
-      </div>
-
-      <div class="icon-card">
-        <button class="floating-shop-toggle" type="button" style="position:static;" title="Hover floating toggle!">
-          <svg class="floating-shop-toggle__bag lucide-cart-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"/></svg>
-        </button>
-        <small>الزر العائم (Floating Button)</small>
-      </div>
+      <button class="btn-test" onclick="testTrigger()">
+        محاكاة إضافة إلى السلة (Trigger Animation)
+      </button>
     </div>
 
-    <button class="btn-test" onclick="testTrigger()">محاكاة إضافة إلى السلة (Trigger Animation)</button>
-  </div>
-
-  <script>
-    function testTrigger() {
-      document.querySelectorAll('.lucide-cart-animated').forEach(svg => {
-        svg.classList.remove('is-animating');
-        void svg.offsetWidth;
-        svg.classList.add('is-animating');
-        setTimeout(() => svg.classList.remove('is-animating'), 600);
-      });
-    }
-  </script>
-</body>
+    <script>
+      function testTrigger() {
+        document.querySelectorAll(".lucide-cart-animated").forEach((svg) => {
+          svg.classList.remove("is-animating");
+          void svg.offsetWidth;
+          svg.classList.add("is-animating");
+          setTimeout(() => svg.classList.remove("is-animating"), 600);
+        });
+      }
+    </script>
+  </body>
 </html>

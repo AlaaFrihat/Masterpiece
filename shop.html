@@ -1,793 +1,1412 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Agrismart - Plants Catalog</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/app-promo.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Agrismart - Plants Catalog</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- External CSS -->
-  <link rel="stylesheet" href="css/shop.css">
-  <link rel="stylesheet" href="css/footer.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/app-promo.css" />
-</head>
-
-<body>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TOP UTILITY BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <nav class="nav" aria-label="Main navigation">
-  <div class="container nav__inner">
-    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html" class="active" aria-current="page">Plants</a></li>
-      <li><a href="stores.html">Nurseries</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
-      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
-      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
-      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MAIN NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• BREADCRUMB HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section class="breadcrumb-hero botanical-bg">
-    <div class="breadcrumb-hero__content">
-      <h1 class="breadcrumb-hero__title">Plants</h1>
-      <nav class="breadcrumb-nav">
-        <span>Home</span>
-        <span class="breadcrumb-nav__sep">/</span>
-        <span class="breadcrumb-nav__current">Plants</span>
-      </nav>
-    </div>
-  </section>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SHOP CATALOG â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <!-- Shop Departments Hub Navigation -->
-  <nav class="shop-departments-bar" aria-label="Shop departments">
-    <div class="shop-departments-bar__inner">
-      <span class="shop-departments-bar__label">Shop Department:</span>
-      <div class="shop-departments-bar__tabs">
-        <a href="shop.html" class="shop-dept-pill active" aria-current="page">
-          <span class="shop-dept-pill__icon">🌿</span>
-          <span>Plants</span>
-        </a>
-        <a href="pots-accessories.html" class="shop-dept-pill">
-          <span class="shop-dept-pill__icon">🪴</span>
-          <span>Pots &amp; Accessories</span>
-        </a>
-        <a href="seeds.html" class="shop-dept-pill">
-          <span class="shop-dept-pill__icon">🌱</span>
-          <span>Seeds &amp; Fertilizers</span>
-        </a>
+  <body>
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TOP UTILITY BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav__inner">
+        <a
+          href="index.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Home"
+          ><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img"
+        /></a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="shop.html" class="active" aria-current="page">Plants</a>
+          </li>
+          <li><a href="stores.html">Nurseries</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN</button
+            ><button class="lang-btn" id="lang-ar" type="button">
+              العربية
+            </button>
+          </div>
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="assets/header-icons.svg#icon-sun"></use></svg
+            ><svg id="themeIconDark">
+              <use href="assets/header-icons.svg#icon-moon"></use>
+            </svg>
+          </button>
+          <a
+            href="login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+            ><svg><use href="assets/header-icons.svg#icon-user"></use></svg
+          ></a>
+          <button
+            class="hamburger"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="shop-main">
-    <div class="shop-layout">
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MAIN NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 
-      <!-- â”€â”€â”€ Filter Sidebar â”€â”€â”€ -->
-      <aside class="filter-sidebar">
-        <div class="filter-sidebar__inner">
-          <div class="filter-sidebar__heading"><h2 class="filter-sidebar__title">Filter Options</h2><button class="shop-filter-clear" type="button" id="clearShopFilters">Clear all</button></div>
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• BREADCRUMB HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="breadcrumb-hero botanical-bg">
+      <div class="breadcrumb-hero__content">
+        <h1 class="breadcrumb-hero__title">Plants</h1>
+        <nav class="breadcrumb-nav">
+          <span>Home</span>
+          <span class="breadcrumb-nav__sep">/</span>
+          <span class="breadcrumb-nav__current">Plants</span>
+        </nav>
+      </div>
+    </section>
 
-          <!-- Category -->
-          <div class="filter-group">
-            <h3 class="filter-group__title">Category</h3>
-            <div class="filter-group__list">
-              <label class="filter-label filter-label--between">
-                <div class="filter-label__inner">
-                  <input checked type="checkbox" class="filter-checkbox category-filter" value="indoor" />
-                  <span class="filter-label__text--active">Indoor Plants</span>
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SHOP CATALOG â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <!-- Shop Departments Hub Navigation -->
+    <nav class="shop-departments-bar" aria-label="Shop departments">
+      <div class="shop-departments-bar__inner">
+        <span class="shop-departments-bar__label">Shop Department:</span>
+        <div class="shop-departments-bar__tabs">
+          <a href="shop.html" class="shop-dept-pill active" aria-current="page">
+            <span class="shop-dept-pill__icon">🌿</span>
+            <span>Plants</span>
+          </a>
+          <a href="pots-accessories.html" class="shop-dept-pill">
+            <span class="shop-dept-pill__icon">🪴</span>
+            <span>Pots &amp; Accessories</span>
+          </a>
+          <a href="seeds.html" class="shop-dept-pill">
+            <span class="shop-dept-pill__icon">🌱</span>
+            <span>Seeds &amp; Fertilizers</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="shop-main">
+      <div class="shop-layout">
+        <!-- â”€â”€â”€ Filter Sidebar â”€â”€â”€ -->
+        <aside class="filter-sidebar">
+          <div class="filter-sidebar__inner">
+            <div class="filter-sidebar__heading">
+              <h2 class="filter-sidebar__title">Filter Options</h2>
+              <button
+                class="shop-filter-clear"
+                type="button"
+                id="clearShopFilters"
+              >
+                Clear all
+              </button>
+            </div>
+
+            <!-- Category -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Category</h3>
+              <div class="filter-group__list">
+                <label class="filter-label filter-label--between">
+                  <div class="filter-label__inner">
+                    <input
+                      checked
+                      type="checkbox"
+                      class="filter-checkbox category-filter"
+                      value="indoor"
+                    />
+                    <span class="filter-label__text--active"
+                      >Indoor Plants</span
+                    >
+                  </div>
+                  <span class="filter-indicator"></span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox category-filter"
+                    value="outdoor"
+                  />
+                  <span>Outdoor Plants</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox category-filter"
+                    value="bedroom"
+                  />
+                  <span>Bedroom Plants</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox category-filter"
+                    value="workspace"
+                  />
+                  <span>Workspace Plants</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox category-filter"
+                    value="bathroom"
+                  />
+                  <span>Bathroom Plants</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Price</h3>
+              <div class="price-range__labels">
+                <output id="shopMinPriceLabel">$0.00</output
+                ><output id="shopMaxPriceLabel">$75.00</output>
+              </div>
+              <div
+                class="price-range__control"
+                aria-label="Filter products by price"
+              >
+                <div class="price-range__track">
+                  <div class="price-range__fill" id="shopPriceFill"></div>
                 </div>
-                <span class="filter-indicator"></span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox category-filter" value="outdoor" />
-                <span>Outdoor Plants</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox category-filter" value="bedroom" />
-                <span>Bedroom Plants</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox category-filter" value="workspace" />
-                <span>Workspace Plants</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox category-filter" value="bathroom" />
-                <span>Bathroom Plants</span>
-              </label>
+                <input
+                  class="price-range__input"
+                  id="shopMinPrice"
+                  type="range"
+                  min="0"
+                  max="75"
+                  value="0"
+                  step="0.5"
+                  aria-label="Minimum price"
+                />
+                <input
+                  class="price-range__input"
+                  id="shopMaxPrice"
+                  type="range"
+                  min="0"
+                  max="75"
+                  value="75"
+                  step="0.5"
+                  aria-label="Maximum price"
+                />
+              </div>
+            </div>
+
+            <!-- Review -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Review</h3>
+              <div class="filter-group__list">
+                <label class="review-stars">
+                  <input
+                    type="checkbox"
+                    class="review-stars__checkbox"
+                    value="5"
+                    aria-label="Filter by 5 stars or higher"
+                  />
+                  <div class="review-stars__icons">
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                  </div>
+                  <span class="review-stars__label">5 Stars</span>
+                </label>
+                <label class="review-stars">
+                  <input
+                    type="checkbox"
+                    class="review-stars__checkbox"
+                    value="4"
+                    aria-label="Filter by 4 stars or higher"
+                  />
+                  <div class="review-stars__icons">
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                  </div>
+                  <span class="review-stars__label">4 Stars</span>
+                </label>
+                <label class="review-stars">
+                  <input
+                    type="checkbox"
+                    class="review-stars__checkbox"
+                    value="3"
+                    aria-label="Filter by 3 stars or higher"
+                  />
+                  <div class="review-stars__icons">
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                  </div>
+                  <span class="review-stars__label">3 Stars</span>
+                </label>
+                <label class="review-stars">
+                  <input
+                    type="checkbox"
+                    class="review-stars__checkbox"
+                    value="2"
+                    aria-label="Filter by 2 stars or higher"
+                  />
+                  <div class="review-stars__icons">
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                  </div>
+                  <span class="review-stars__label">2 Stars</span>
+                </label>
+                <label class="review-stars">
+                  <input
+                    type="checkbox"
+                    class="review-stars__checkbox"
+                    value="1"
+                    aria-label="Filter by 1 star or higher"
+                  />
+                  <div class="review-stars__icons">
+                    <i class="star-filled" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                    <i class="star-empty" data-lucide="star"></i>
+                  </div>
+                  <span class="review-stars__label">1 Star</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Pot Size -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Pot Size</h3>
+              <div class="filter-group__list">
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox pot-size-filter"
+                    value="small"
+                  />
+                  <span>Small</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox pot-size-filter"
+                    value="medium"
+                  />
+                  <span>Medium</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox pot-size-filter"
+                    value="large"
+                  />
+                  <span>Large</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Availability -->
+            <div class="filter-group">
+              <h3 class="filter-group__title">Availability</h3>
+              <div class="filter-group__list">
+                <label class="filter-label">
+                  <input
+                    checked
+                    type="checkbox"
+                    class="filter-checkbox availability-filter"
+                    value="in-stock"
+                  />
+                  <span>In Stock</span>
+                </label>
+                <label class="filter-label">
+                  <input
+                    type="checkbox"
+                    class="filter-checkbox availability-filter"
+                    value="out-of-stock"
+                  />
+                  <span>Out of Stock</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- â”€â”€â”€ Product Catalog â”€â”€â”€ -->
+        <section class="catalog">
+          <!-- Sort Bar -->
+          <div class="sort-bar">
+            <div>
+              <span id="shopResultCount" aria-live="polite"
+                >Showing 12 results</span
+              >
+              <div class="sort-bar__filter" id="shopActiveFilters">
+                <span class="sort-bar__filter-label">Active Filter:</span>
+              </div>
+            </div>
+            <div class="sort-bar__controls">
+              <span class="sort-bar__controls-label">Sort by:</span>
+              <div class="sort-bar__select-wrap">
+                <select class="sort-bar__select" id="shopSort">
+                  <option value="default">Default Sorting</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Customer Rating</option>
+                </select>
+                <i class="sort-bar__select-icon" data-lucide="chevron-down"></i>
+              </div>
             </div>
           </div>
 
-          <!-- Price Range -->
-          <div class="filter-group">
-            <h3 class="filter-group__title">Price</h3>
-            <div class="price-range__labels"><output id="shopMinPriceLabel">$0.00</output><output id="shopMaxPriceLabel">$75.00</output></div>
-            <div class="price-range__control" aria-label="Filter products by price">
-              <div class="price-range__track"><div class="price-range__fill" id="shopPriceFill"></div></div>
-              <input class="price-range__input" id="shopMinPrice" type="range" min="0" max="75" value="0" step="0.5" aria-label="Minimum price">
-              <input class="price-range__input" id="shopMaxPrice" type="range" min="0" max="75" value="75" step="0.5" aria-label="Maximum price">
+          <!-- Product Grid -->
+          <div class="product-grid">
+            <!-- Card 1: Fiddle Leaf Fig -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Fiddle Leaf Fig"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_L4cTO3ar9Qc7G98PzFmzbuGdY6qTgulnq3k7CDjmFsmgD_DaJIe6dNINqe8vDZ-G0qfc0pJdxNny4bkz0E4HaF7lk5yIdZQs9NojIEQ9swpJF6dzpp5ctCQmpO6CkByYxiThWF_1BBnXFAtayAh4RS9y5v5QF3pJkrZ7uZSHmm_nBUUrGUT96GCSh58kqHau4NJZlxoiZrCkQHvh28Kas-_XPbfJLAiglezWvBU"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Fiddle Leaf Fig</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.9</span><span>(155)</span
+                ><span>Â·</span><span>520 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">20%</span>
+                <span class="shop-card__price">$28.99</span>
+                <span class="shop-card__old-price">$35.99</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Peace Lily -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Peace Lily"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiCLRIwpBaf_oISx8JvwjGS7rsX8bbq3oGKo8bdAVZ4HECVQtpqfyFy85E1C-HOSUoJYcuZZV5_dIH4TNjDapNax6yUsM5xsUqJRI0u1rIfK9yfveeA1ITl8_-RTq2OxQIvN2EXrkMpm-szPvji1eUfprAZ6mNbb7JJZo0d9u1ncJd3SXEYYOGeLNoS6U5GDcIxtEG59PZ5SdWH8njLIRcWLP0IRgR9SfBQ1Qpr4o"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Peace Lily</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.6</span><span>(78)</span
+                ><span>Â·</span><span>280 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">25%</span>
+                <span class="shop-card__price">$18.50</span>
+                <span class="shop-card__old-price">$24.50</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Monstera Deliciosa -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Monstera Deliciosa"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPrqRJnPE-vWiyezGmEus-FJNFeh_i3YPmHkJyLgFe_JdatXW4ZVJQqIoXblsfSxx6PlDpQGmVZqQkPtES8nAUHNaMCRaDfxPjucvWW5pvcp8WaMPneTFUH66M9LuaGdsRrInbMS3ZwPOK_weL2S57aiAEy7hhrBkK7d0UM512QQ2xoMSnqoj4H_gaAU0NWzXYv3EVqtw77x6mB4a0U3aCCbvpTwRFp9jaMP4bOwI"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Monstera Deliciosa</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.9</span><span>(275)</span
+                ><span>Â·</span><span>450 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">30%</span>
+                <span class="shop-card__price">$25.99</span>
+                <span class="shop-card__old-price">$36.99</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Snake Plant -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Snake Plant"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXARjf0gVPNC3kU-dNNyitZsSwFE7cRhw9nNsf6oYq4zRl76DCai_5R86v_aQqsNBN3hrYMVt66QFzoAEBuaEWJP-QVXHPTAItuuk-GInXfIcVZL_UwbAi7djHZKLB4_MMmEgzCf-CTGzXrSDGbv8HUbzamORDbTueRoXuZZqOi8GYQcLJN_1vRRVh_d_go-ZBjP4lB0WzV6dLea0LPjqEFiCh5VK_qWiR1cKgkE"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Snake Plant</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.8</span><span>(92)</span
+                ><span>Â·</span><span>400 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__price">$22.50</span>
+              </div>
+            </div>
+
+            <!-- Card 5: ZZ Plant -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="ZZ Plant"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQO_VZuU8JeP2Bt1xnA4bChtzC7yJFh8-g_cK0cVQDv3-H7QefXz9cCfwX2gvehi_4N1C5eYlYVvjq9IsQsBWJeV2UsM15Im_LZLtZ1ylYGRD1fUGjS5DWtWRpW8pCHveLVayVWgI5K8K8QlbgEuXGiTQtpEb8sLqfIajY_eaxccJd2bCUTwRUgwhV9zHGdVMmUij5axqj-sVbff2qS-W5PBb_U_nHTES_5wpWHVg"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">ZZ Plant</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.7</span><span>(95)</span
+                ><span>Â·</span><span>350 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__price">$24.00</span>
+              </div>
+            </div>
+
+            <!-- Card 6: Spider Plant -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Spider Plant"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdSaXdq9RUMt9Hk-R16fHUq_JLYN8QpvLlAYubwD-1e65fJ8hhKNSHcaSndOGVv_C9flReALihHWmtFi8shg2G8fz7KDZh4NC--e23Bbd3C7Icl85TmTQKmZA5aZ6WCykwXvHdzmmloi_9jfCI9c3B5lxx8bOM8pNHd9F3K1M9dsrCAq5IysVNbV9tXpbAl07R30uGsL7T2_SueDnoSFjvvSVwzYGSTQl2L2qpdJQ"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Spider Plant</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.7</span><span>(89)</span
+                ><span>Â·</span><span>180 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">10%</span>
+                <span class="shop-card__price">$15.00</span>
+                <span class="shop-card__old-price">$16.50</span>
+              </div>
+            </div>
+
+            <!-- Card 7: Orchid -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Outdoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Orchid"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBySK5Q-oF3az7zbKOctwBcqlHimnN7_aiejXbUSkvZH71RwyHr-iR1F0E61Ize1nZ5vuQHvaI67D1kNIXO22voRaJz9Vf5hDW_Q0bNwuaKCyQxs-9FjhlJoEa6oH1aAiePePDt3nqu9Vmm49QIn6k19QXJisUvlWpMU27_Xu4OZkeYSSJDMMKkuptUZoa3jLXsYOQQXrrHjJkoLlcIo9ZKLSnBFdXvLY2fqg75vhY"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Orchid</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.6</span><span>(82)</span
+                ><span>Â·</span><span>221 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$27.00</span>
+                <span class="shop-card__old-price">$52.00</span>
+              </div>
+            </div>
+
+            <!-- Card 8: Lavender -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Outdoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Lavender"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-ntAOudQrJAEeTVCsla1Z7ZvGZoeVZzrC2Kkm_phLJ1WPW5_OuFllEaV1vY0QjDQJrkUH50566jgsbkvwsV8zZEMpgL6BFxzfDU3M7Hh1TQyjveluReiBhAw1bW4WEcdejnbnDfPA5kleCodNWPTvNZPhJN6DJqoNCoxugSL5GATMdmiKs3ga5XzrBHlThWCg-uazVFGIxSglfGj29Ye3DG-mfmDzsChVI78TQs"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Lavender</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.8</span><span>(105)</span
+                ><span>Â·</span><span>300 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$15.00</span>
+                <span class="shop-card__old-price">$28.00</span>
+              </div>
+            </div>
+
+            <!-- Card 9: Hibiscus -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Outdoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Hibiscus"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6Ds3hZS1nbn_CAeuo6HaVGhcvCN8NYxD5JczhpgkFQnuKLIf-supK78M-Kbx0wY7irtW0_Bx3EY16Hai9kDzuDzzwR_hHAsl8bPe53FFyuN3HdKfSMNPW7EbhJoXmzLvL79gFo51htpRshIEbLwM7O9rGIu2aAr3pKsmt9ybMU4lq4wggU2cn_Pi6a75SBhcRPWQQyUvjbJwX2EOUzkVvOAzVv_VtWn5qNMJjJ8"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Hibiscus</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.7</span><span>(80)</span
+                ><span>Â·</span><span>180 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$35.00</span>
+                <span class="shop-card__old-price">$70.00</span>
+              </div>
+            </div>
+
+            <!-- Card 10: Bamboo -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Bamboo"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnlJjXzGnyWV7y5yJpVvAZSJ4L61xIvEacM1kzT1V7i_3nyDERZqQHTTYzqt11w9XDr4TPZnif8TrHdISq6cFo6HFMmzv4g27XQPyut32kNHreAx5WZ290TsdazBBwet8MqxSDTbR1we84I7Gk-w7Z5-4a3fuACThpZOQAmWvi95L5cRjGrNYIACt7kq_s7_xXiO00r_qto6EIQ7JnOyyO0wKdadt-L4_hdmcveAk"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Bamboo</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.5</span><span>(83)</span
+                ><span>Â·</span><span>150 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$22.00</span>
+                <span class="shop-card__old-price">$25.00</span>
+              </div>
+            </div>
+
+            <!-- Card 11: Succulent -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Succulent"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4mzwnEvBxW3vyF1PqaAONl64aQcQ98wiUaQqC08u2QOyqzo9tAoX0oJqRAspXRxMIbURQ6CGrNS0d3RHp6qF6Jw3HqtxbMOdhS_t5QKrm4-oKF4w2wggkAXvO8SrNxEv3oC2wiv1jurdNqDrrIzdQxpZhxuYo4wuz0bTGoVk_ieV-d1UR-qtD_49kHtlX7bS2HatH5OpNgCKAs1KlDwVJOvoEb7kFyCC__HLeIyo"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Succulent</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.7</span><span>(120)</span
+                ><span>Â·</span><span>200 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$12.00</span>
+                <span class="shop-card__old-price">$24.00</span>
+              </div>
+            </div>
+
+            <!-- Card 12: Ficus -->
+            <div
+              class="shop-card"
+              onclick="window.location.href = 'product.html'"
+              style="cursor: pointer"
+            >
+              <div class="shop-card__img-wrap">
+                <span class="shop-card__tag">Indoor</span>
+                <button class="shop-card__wish">
+                  <i data-lucide="heart"></i>
+                </button>
+                <img
+                  class="shop-card__img"
+                  alt="Ficus"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeLhNO2FVtqCFcAfWnakmoNM_QEZhXITZRiAbHoUYHT3LkCYsr5aUdO8-nqZ3VvnILKXxJmAADWxsl1i_-wdXXqC0tCr9shaSUt6xoAvKy-cTc6R51xG10azjyMmiEl4FKk9jI4XPX49WyMRt0e92puoE5bsETgJcAl_lspSAGWkYo22Bj_tB9hWd9d-WyN7LVqnto4SWJhgFG9U4GUimhyccxla5BXN5aSA3G2WQ"
+                />
+              </div>
+              <div class="shop-card__header">
+                <h4 class="shop-card__name">Ficus</h4>
+              </div>
+              <div class="shop-card__meta">
+                <i class="shop-card__star" data-lucide="star"></i>
+                <span class="shop-card__rating">4.7</span><span>(76)</span
+                ><span>Â·</span><span>150 sold</span>
+              </div>
+              <div class="shop-card__footer">
+                <span class="shop-card__discount">50%</span>
+                <span class="shop-card__price">$30.00</span>
+                <span class="shop-card__old-price">$33.00</span>
+              </div>
             </div>
           </div>
+          <p class="shop-empty-state" id="shopEmptyState" hidden>
+            No plants match these filters. Try changing your selections.
+          </p>
 
-          <!-- Review -->
-          <div class="filter-group">
-            <h3 class="filter-group__title">Review</h3>
-            <div class="filter-group__list">
-              <label class="review-stars">
-                <input type="checkbox" class="review-stars__checkbox" value="5" aria-label="Filter by 5 stars or higher" />
-                <div class="review-stars__icons">
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                </div>
-                <span class="review-stars__label">5 Stars</span>
-              </label>
-              <label class="review-stars">
-                <input type="checkbox" class="review-stars__checkbox" value="4" aria-label="Filter by 4 stars or higher" />
-                <div class="review-stars__icons">
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                </div>
-                <span class="review-stars__label">4 Stars</span>
-              </label>
-              <label class="review-stars">
-                <input type="checkbox" class="review-stars__checkbox" value="3" aria-label="Filter by 3 stars or higher" />
-                <div class="review-stars__icons">
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                </div>
-                <span class="review-stars__label">3 Stars</span>
-              </label>
-              <label class="review-stars">
-                <input type="checkbox" class="review-stars__checkbox" value="2" aria-label="Filter by 2 stars or higher" />
-                <div class="review-stars__icons">
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                </div>
-                <span class="review-stars__label">2 Stars</span>
-              </label>
-              <label class="review-stars">
-                <input type="checkbox" class="review-stars__checkbox" value="1" aria-label="Filter by 1 star or higher" />
-                <div class="review-stars__icons">
-                  <i class="star-filled" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                  <i class="star-empty" data-lucide="star"></i>
-                </div>
-                <span class="review-stars__label">1 Star</span>
-              </label>
-            </div>
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="pagination__btn">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="pagination__btn pagination__btn--active">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <span class="pagination__dots">...</span>
+            <button class="pagination__btn">9</button>
+            <button class="pagination__btn">
+              <i data-lucide="chevron-right"></i>
+            </button>
           </div>
+        </section>
+      </div>
+    </main>
 
-          <!-- Pot Size -->
-          <div class="filter-group">
-            <h3 class="filter-group__title">Pot Size</h3>
-            <div class="filter-group__list">
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox pot-size-filter" value="small" />
-                <span>Small</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox pot-size-filter" value="medium" />
-                <span>Medium</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox pot-size-filter" value="large" />
-                <span>Large</span>
-              </label>
-            </div>
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TESTIMONIALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="testimonials-section">
+      <div class="testimonials-section__inner">
+        <h2 class="section-title--serif">
+          Testimonial From <span class="accent">Customers</span>
+        </h2>
+        <div class="testimonial-frame">
+          <div class="testimonial-frame__img">
+            <img
+              alt="Plant Living Room Setup"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0bIYadZMK9Ywoy5VcK7S3Jqfl7Q0Nl4qzjPqpJqwMwUP63MdGpDPIwNqEJKMxwNWD6-DNyJec6hu74639vdqvVx8aRpCMOYzZf2nhpZAdShrsmi7jw2xdhJL5O1gH3ND7WoDTxLUpojaqGRIM8bWh7tsrk03qhXlKtALfMoO-Pbd3oi7YdZAz3QYI4mT-501qNcxJa32l9YgUTqF6XAvVngpXFhfDtxcNVYmJ88"
+            />
           </div>
-
-          <!-- Availability -->
-          <div class="filter-group">
-            <h3 class="filter-group__title">Availability</h3>
-            <div class="filter-group__list">
-              <label class="filter-label">
-                <input checked type="checkbox" class="filter-checkbox availability-filter" value="in-stock" />
-                <span>In Stock</span>
-              </label>
-              <label class="filter-label">
-                <input type="checkbox" class="filter-checkbox availability-filter" value="out-of-stock" />
-                <span>Out of Stock</span>
-              </label>
+          <div class="testimonial-frame__content">
+            <div>
+              <div class="testimonial-frame__quote">"</div>
+              <p class="testimonial-frame__text">
+                "I am very satisfied with My Plant's service. The delivery was
+                fast and safe, and the variety of houseplants was impressive. I
+                will definitely come back to buy more plants for my home! 🌿"
+              </p>
+            </div>
+            <div class="testimonial-frame__footer">
+              <div class="testimonial-frame__author">
+                <img
+                  alt="Kristin Watson"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFWXpYGMeRTD_AYJ3ICG9wcQbGOj3_9PcwuMv2zm6d_ZTudt3SqfVwxmktKl5Cldeu5xORZGOHIEEarHRVJlzKJszufZvGn20ppApIAYQM3ddvIDVoITJFPxcZ09tfO9NKNcd20BA3jnBVrw_rvMkmcKAkhjCx4bciV-JaBLKsTF4YMvwQzYIyHbnDUa5fgZHE1sCfcqbHi5NR84Li5qzbBe-2W4yBmtRVQD_q5hA"
+                />
+                <span class="testimonial-frame__author-name"
+                  >Kristin Watson</span
+                >
+              </div>
+              <div class="testimonial-frame__nav">
+                <button class="nav-circle-btn">
+                  <i data-lucide="arrow-left"></i>
+                </button>
+                <button class="nav-circle-btn">
+                  <i data-lucide="arrow-right"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </aside>
+      </div>
+    </section>
 
-      <!-- â”€â”€â”€ Product Catalog â”€â”€â”€ -->
-      <section class="catalog">
-        <!-- Sort Bar -->
-        <div class="sort-bar">
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VALUE PROPOSITION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="value-section">
+      <div class="container-shop">
+        <h2 class="section-title--serif">
+          Why choose <span class="accent">Agrismart?</span>
+        </h2>
+        <div class="value-grid">
+          <div class="value-card">
+            <img
+              class="value-card__img"
+              alt="Free Shipping"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Fw3AgG4DU6K5ceFLma4pFo_tm_3I_aOUBIEOKGT8Q6sQmzbGJ36Sdj339tuntm2uTTCfqyi_Ay-2kGq6P6xl24F5o1jpTkCnKEHDyXtg4h7kLHHdtjP72T8HwG0GKQulkuL6wvBh6sffw3mn62axDPks_g_IusnukKELY4xj-BWbELSnz17e3J3zTYCJvfvoXvhAZRVRxo0-TqotG-bnmD3y5jPr2HJGRVXBeiA"
+            />
+            <div class="value-card__overlay">
+              <h3 class="value-card__title">
+                Free Shipping &amp; Delivery Fast
+              </h3>
+              <p class="value-card__desc">
+                Super Fast Delivery, Items Arrive Without Delay!
+              </p>
+              <button class="value-card__btn">Shop Now</button>
+            </div>
+          </div>
+          <div class="value-card">
+            <img
+              class="value-card__img"
+              alt="Exclusive Discounts"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKII_mGVJHWh8yAykAOIFTYjur7SgiljVq0djSWwOVJq8cCQzpGHam2lwlo0sl28xTbcImKsKgkRResHn0gRbnwPs1xOEFD_2b1LBmhGCeUJ898oRn6osJAZQQVHDJ6VpNCY5PjFGvuJjFuLn3GTZQCREqzcgqn2Pqa1Mkz59lH3TsmSvtYWHvPTXiS6mDL6oNWK8_xG5_s2uaeSK6G9SHH43MoaSj_Nqg6GTWfU0"
+            />
+            <div class="value-card__overlay">
+              <h3 class="value-card__title">Exclusive Discounts Await</h3>
+              <p class="value-card__desc">
+                Unlock Special Offers Just for You!
+              </p>
+              <button class="value-card__btn">Claim Your Discount</button>
+            </div>
+          </div>
+          <div class="value-card">
+            <img
+              class="value-card__img"
+              alt="Quality Assurance"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQISWYK4LcTXIHF6mM0dwtYNO68pWwQyD56VQUzE-ctMYvvtRKWgDu3rPG6eTQYuS4rWem7jmkkIsZtiwbhHP6iAzFbcJYmE30KaRam3iP6oaibxJP-eDKoS77awXFpxNK49zmYtzg7FCMsUTH6FODPrgzA9Gue5jSIQV8SQesaw4JCqw75WSHx7yEyPNFppaQvBj6RD9eB3G5WX7EMUtDgWo0JcnZeH8BPEmnzM"
+            />
+            <div class="value-card__overlay">
+              <h3 class="value-card__title">Quality Assurance Guaranteed</h3>
+              <p class="value-card__desc">
+                Satisfaction Guaranteed on Every Purchase!
+              </p>
+              <button class="value-card__btn">Browse Our Collection</button>
+            </div>
+          </div>
+          <div class="value-card">
+            <img
+              class="value-card__img"
+              alt="24/7 Customer Support"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsNi7b33erD6o5NM7JEis59K2Rs7hGrf223vJzsq4d26GK4BI-8YSlUfhjYnZ4VAktXO5eKkwft6yTvIQlcVG2Q8w0Z1I-cV2ntjTUpJHKvFGbSV3It6o3-PU9OEwpyd2DQ0kH8Wl_t0KnHjjGN2uIEZ-SbLTI71sQzchLYVdkbRv7_MYprmCfkDqU5yq2kxTwXeufA94_Ch-Irk0AYR_J9bDxbnJchCDhcvlWdsg"
+            />
+            <div class="value-card__overlay">
+              <h3 class="value-card__title">24/7 Customer Support</h3>
+              <p class="value-card__desc">
+                We're Here to Help You Anytime, Day or Night!
+              </p>
+              <button class="value-card__btn">Contact Us Anytime</button>
+            </div>
+          </div>
+        </div>
+        <div class="value-nav">
+          <button class="nav-circle-btn">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <button class="nav-circle-btn">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• INSTAGRAM MOSAIC â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="instagram-section">
+      <div class="container-shop instagram-section__inner">
+        <span class="instagram-section__label">Follow Us</span>
+        <h2 class="instagram-section__title">
+          Follow Us On <span class="accent">Instagram</span>
+        </h2>
+        <div class="mosaic-grid">
+          <!-- Col 1 -->
+          <div class="mosaic-col">
+            <div class="mosaic-img mosaic-img--sm">
+              <img
+                alt="Plant Nursery"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKoMMGSmFWAlN42S59qKE9EPzCcTZet1TEtqicjRTeJ2MC46hK6GVj2TNhoJcJljRDN1gAV1OomxUd7grMp9K1t_uNs1X-SkxYq2TXQNiHfd76hJ-_0TSG6K6LSvcc8eCQKm-nIlwqkcY4Ep4e-c_J4vKX-mzplmG2lT17g_ZNyMZJoz7ZRWFnCWA8a5qKMXYm88Pwom20KzwjkRI5NXFpjjwaq5gqFDMM7nQJJCc"
+              />
+            </div>
+            <div class="mosaic-img mosaic-img--sm">
+              <img
+                alt="Plant Care Soil"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMjmTSVMDCdcG2SsJEwnTEpLDSK7stwKobK8ELhzViVoqAmLTlXnWbAxLpJnHFpzte8Ytx4DT1zTSE5P-vOhO2uBlLeg3Qd6DRU3MTsXBrd0Qd_f9oaeaz5sQ0xec95vyPXVOjGjbaID1yzt96jg12SuYi9eICtE2Oin7faDF0_gh83sds2LkP5qPbq1jnDW7-57NT3DQnMBVFMO3ZhFn7Zk_UvfUPfpnxqzWcyI"
+              />
+            </div>
+          </div>
+          <!-- Col 2 -->
+          <div class="mosaic-img mosaic-img--tall">
+            <img
+              alt="Man with Smartphone and Plant"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXKWcS1MZGxNI2_cQYUsuiPHFsrGaQK1WyQf7pMqKSFjgQ1lxocv9thbSSzpfoqMKLJJJJUewQrYRFKqSJ5-xJzPDUzCwo2kFAsBT35jl4nE_SE2c0csCtN0uzcFt8qexm6AW5fVTtXAUcL5jJP_p6B1xKLTW2drohN16zcCbR7wFLjKJZbEzHoWT-1cO6pejOqKVX-w6MYWmWrzp01cL9e_LHM0PCa3RVHwIH2lU"
+            />
+          </div>
+          <!-- Col 3 -->
+          <div class="mosaic-img mosaic-img--tall">
+            <img
+              alt="Woman at Nursery"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG-Hebs1u3EvztCjuirzIQSJDjIqRuoYReC8LB1K2Gm0k06EaRnAehBHvjP9N3THlJ5QkaynY0k9j-DDDk2IfuXIFtgFoETJt73ws1MHquxtoM1tb7-0L3AiHi5N5jZ8ZPNo89IuHe-OLTuqpNmIJoc_uB0tzQSydgGoiO5hSuR1HJPQqza4nnQo438t5CW0-wZKDvR6K963PzsS0tEamaJzNIPN_kQvlb_RoJ46k"
+            />
+          </div>
+          <!-- Col 4 -->
+          <div class="mosaic-col">
+            <div class="mosaic-img mosaic-img--sm">
+              <img
+                alt="Indoor greenhouse bench"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmaoyrY2ASRA2TvFW8_CT-qSmALmoWhoQF1CYcc5JRSb7vgqUvo6xTBa34Xdr_npSz9n3PLPf7jXUQhjw49AH6erCUVn5IAE0884zKgGK8rv9cEjOpYu0S99lAYi0zRe8HrmN9AztKAnkjzP4F6ULLWEbwqqSFLIsO1Ak2viQFdwpljDIMS8eCzYoMYXbliIECvFqQPl8Ypb7uRkvaRKdtA7LYjE0m3pl5H0InhKw"
+              />
+            </div>
+            <div class="mosaic-split">
+              <div class="mosaic-img">
+                <img
+                  alt="Plant enthusiast portrait"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYL4jyi6edJcuJfIorAkqDzF3lTMl6PrC8kDObGaFg_x2gM-acAT39oEddAKU1KKRvQ0bIzXBJVJfYy-a50DsDqHKtRVq3t5_UTssh8e0ZPk6bB3meVTVLHO7c61V7c7R-RyseHiI288RlU7qcN1AbmZzc2jDFjNzxpGVfwr99L2LvAysIZUH88zzw9a5eZSYqO6aZLaQ3Hmq4NAstFxGBADfwz_E0DXYOH0AO5Rg"
+                />
+              </div>
+              <div class="mosaic-img">
+                <img
+                  alt="Succulent Pot Aerial"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB12K5fFGw4GWuwkbpT-d5YyqIOnEDLuRXYOVWsz8i92GJWf7tnVuYcNTxhuJniV5nMWXv-OhE9v3UXM9fh6SSkwwgYPKftnRyXJ0IgYdHONbSXUEKUOZ6ld5FwO-pdoNlZj6OQKqbpgrPwFCmyXVgmYRgPO046Hchnoi7KHU0OJ39M3MVqFZOfWZ3TfbKYBqDItuUOZKCVbkMxL4-X-6ZpHF-dqn7-rzZx-lEiYaY"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SHOP BY CATEGORIES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section class="categories-section">
+      <div class="container-shop">
+        <div class="categories-section__header">
           <div>
-            <span id="shopResultCount" aria-live="polite">Showing 12 results</span>
-            <div class="sort-bar__filter" id="shopActiveFilters"><span class="sort-bar__filter-label">Active Filter:</span></div>
+            <span class="categories-section__label">Our Products</span>
+            <h2 class="categories-section__title">
+              Shop by <span class="accent">Categories</span>
+            </h2>
+            <h3 class="categories-section__subtitle">Best Category</h3>
           </div>
-          <div class="sort-bar__controls">
-            <span class="sort-bar__controls-label">Sort by:</span>
-            <div class="sort-bar__select-wrap">
-              <select class="sort-bar__select" id="shopSort">
-                <option value="default">Default Sorting</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="rating">Customer Rating</option>
-              </select>
-              <i class="sort-bar__select-icon" data-lucide="chevron-down"></i>
+          <a class="categories-section__cta" href="#">
+            <span>See All Products</span>
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card">
+            <img
+              class="category-card__img"
+              alt="Ornamental Foliage Plants"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6WMoCy7W5AmaiHkr7GvAQYfd3N7xD6458VEg_wmLmFDLUfFK1mqwVzb7AWLxUlID9Mr_YTvPAANcpKUTI5LDimsA1vZqsLzPh86NNdyP__azrL1jvYr38NEJ68djVKNLzY7aihBUsVpcHzTfEbg1T7PI_vcqVSHnNUHnqQhLaFOPVjMPVNswC2YgLJgYM4jepXWEPY-d94cOVzFDre4pzwVHTNh7Wcu638GAZe_I"
+            />
+            <div class="category-card__overlay">
+              <span class="category-card__label"
+                >Ornamental<br />Foliage Plants</span
+              >
+            </div>
+          </div>
+          <div class="category-card">
+            <img
+              class="category-card__img"
+              alt="Succulent Varieties"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVSxdkYPb66CF_nfp2x8X_-HZvsTrPe0ktfCdoTn9Kp8qWgGRKslMZbcgcP_nSdqqdIelo-nKoL0r0LFIpN_r4JPYFN0MtYVWjIFf566IP7ttjroiC1ve6-ez0M4LsQ96AMsWse2msyNXnmkhxaS6dHRJUnu0Dhhj_hnQFcWFlsLpdXwa3eKhLHtDhJnsdGljlQAG3SCSczbq_woejylpJMu6cyD7FY0L22FJPa_M"
+            />
+            <div class="category-card__overlay">
+              <span class="category-card__label">Succulent Varieties</span>
+            </div>
+          </div>
+          <div class="category-card">
+            <img
+              class="category-card__img"
+              alt="Tropical Flowering Plants"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfRnEGgEDwoEM69YbH_F9qHHyFzrTPLlJ42ZVSkzQ66qjdX7PasUvPVUvWD0UELYMFdItoBjADj5AkrkabnTZbPJyw5MU5zxSp_sup2vs_IacoG1_V9OylPJnopaybdwZMlQUG7rg_Of2F4xBsXx1dg_Kc1qqmrjcXcXMVgLUUZ6BClXbya5DHcclcUUO9DR5mQ0lebM3ugEsZM7m0OVgqJYDFyKTN3Ov7zOZeV2k"
+            />
+            <div class="category-card__overlay">
+              <span class="category-card__label"
+                >Tropical Flowering<br />Plants</span
+              >
+            </div>
+          </div>
+          <div class="category-card">
+            <img
+              class="category-card__img"
+              alt="Cacti Collection"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQJJRpPKX80Qjq4GWsAs91JTPx0mVjMSmcQ02HJAjApADXjzF-A0kYz27j7NgU29VU1-LXv4FKs9vgk0I7HRn4uCo78Rm_-kywKphwizeNQlbDLUooJif1hRcEXppa0EqssgONecLmSM7daiCsLHxa-ZpODf7lfhW4JCJJPST7e9jhb3aoa-82d91RbafbwaxoMsAdGSmTxYz5ko382vF0iqFEbY-zV2YmZoKkvLE"
+            />
+            <div class="category-card__overlay">
+              <span class="category-card__label">Cacti Collection</span>
+            </div>
+          </div>
+          <div class="category-card">
+            <img
+              class="category-card__img"
+              alt="Indoor Air-Purifying Plants"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIwaL9s9_xqVzyz9_Hly_SNGyK2ALNFHU_Sy7amszmdy4mvJJfkocrARtK_Vqbydkz_1RlbyUO5MD9z_jA7kCl5_ayQkUx8nrJOUGMoiEX7j8Oas6EwfEvgKlNT4XPFupt6z-mlFMF3a3jyiThs5NX1gkJiL43DLOcC0VVKs0J1aF6ySaqu-URMK7vOWJdnF-jg5ayivnDtjxfO9EKJ-9yUKzhqKJswhU1a1NyVF8"
+            />
+            <div class="category-card__overlay">
+              <span class="category-card__label"
+                >Indoor Air-<br />Purifying Plants</span
+              >
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Product Grid -->
-        <div class="product-grid">
-
-          <!-- Card 1: Fiddle Leaf Fig -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Fiddle Leaf Fig" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_L4cTO3ar9Qc7G98PzFmzbuGdY6qTgulnq3k7CDjmFsmgD_DaJIe6dNINqe8vDZ-G0qfc0pJdxNny4bkz0E4HaF7lk5yIdZQs9NojIEQ9swpJF6dzpp5ctCQmpO6CkByYxiThWF_1BBnXFAtayAh4RS9y5v5QF3pJkrZ7uZSHmm_nBUUrGUT96GCSh58kqHau4NJZlxoiZrCkQHvh28Kas-_XPbfJLAiglezWvBU" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Fiddle Leaf Fig</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.9</span><span>(155)</span><span>Â·</span><span>520 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">20%</span>
-              <span class="shop-card__price">$28.99</span>
-              <span class="shop-card__old-price">$35.99</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Peace Lily -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Peace Lily" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiCLRIwpBaf_oISx8JvwjGS7rsX8bbq3oGKo8bdAVZ4HECVQtpqfyFy85E1C-HOSUoJYcuZZV5_dIH4TNjDapNax6yUsM5xsUqJRI0u1rIfK9yfveeA1ITl8_-RTq2OxQIvN2EXrkMpm-szPvji1eUfprAZ6mNbb7JJZo0d9u1ncJd3SXEYYOGeLNoS6U5GDcIxtEG59PZ5SdWH8njLIRcWLP0IRgR9SfBQ1Qpr4o" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Peace Lily</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.6</span><span>(78)</span><span>Â·</span><span>280 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">25%</span>
-              <span class="shop-card__price">$18.50</span>
-              <span class="shop-card__old-price">$24.50</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Monstera Deliciosa -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Monstera Deliciosa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPrqRJnPE-vWiyezGmEus-FJNFeh_i3YPmHkJyLgFe_JdatXW4ZVJQqIoXblsfSxx6PlDpQGmVZqQkPtES8nAUHNaMCRaDfxPjucvWW5pvcp8WaMPneTFUH66M9LuaGdsRrInbMS3ZwPOK_weL2S57aiAEy7hhrBkK7d0UM512QQ2xoMSnqoj4H_gaAU0NWzXYv3EVqtw77x6mB4a0U3aCCbvpTwRFp9jaMP4bOwI" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Monstera Deliciosa</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.9</span><span>(275)</span><span>Â·</span><span>450 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">30%</span>
-              <span class="shop-card__price">$25.99</span>
-              <span class="shop-card__old-price">$36.99</span>
-            </div>
-          </div>
-
-          <!-- Card 4: Snake Plant -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Snake Plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXARjf0gVPNC3kU-dNNyitZsSwFE7cRhw9nNsf6oYq4zRl76DCai_5R86v_aQqsNBN3hrYMVt66QFzoAEBuaEWJP-QVXHPTAItuuk-GInXfIcVZL_UwbAi7djHZKLB4_MMmEgzCf-CTGzXrSDGbv8HUbzamORDbTueRoXuZZqOi8GYQcLJN_1vRRVh_d_go-ZBjP4lB0WzV6dLea0LPjqEFiCh5VK_qWiR1cKgkE" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Snake Plant</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.8</span><span>(92)</span><span>Â·</span><span>400 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__price">$22.50</span>
-            </div>
-          </div>
-
-          <!-- Card 5: ZZ Plant -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="ZZ Plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQO_VZuU8JeP2Bt1xnA4bChtzC7yJFh8-g_cK0cVQDv3-H7QefXz9cCfwX2gvehi_4N1C5eYlYVvjq9IsQsBWJeV2UsM15Im_LZLtZ1ylYGRD1fUGjS5DWtWRpW8pCHveLVayVWgI5K8K8QlbgEuXGiTQtpEb8sLqfIajY_eaxccJd2bCUTwRUgwhV9zHGdVMmUij5axqj-sVbff2qS-W5PBb_U_nHTES_5wpWHVg" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">ZZ Plant</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.7</span><span>(95)</span><span>Â·</span><span>350 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__price">$24.00</span>
-            </div>
-          </div>
-
-          <!-- Card 6: Spider Plant -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Spider Plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdSaXdq9RUMt9Hk-R16fHUq_JLYN8QpvLlAYubwD-1e65fJ8hhKNSHcaSndOGVv_C9flReALihHWmtFi8shg2G8fz7KDZh4NC--e23Bbd3C7Icl85TmTQKmZA5aZ6WCykwXvHdzmmloi_9jfCI9c3B5lxx8bOM8pNHd9F3K1M9dsrCAq5IysVNbV9tXpbAl07R30uGsL7T2_SueDnoSFjvvSVwzYGSTQl2L2qpdJQ" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Spider Plant</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.7</span><span>(89)</span><span>Â·</span><span>180 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">10%</span>
-              <span class="shop-card__price">$15.00</span>
-              <span class="shop-card__old-price">$16.50</span>
-            </div>
-          </div>
-
-          <!-- Card 7: Orchid -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Outdoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Orchid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBySK5Q-oF3az7zbKOctwBcqlHimnN7_aiejXbUSkvZH71RwyHr-iR1F0E61Ize1nZ5vuQHvaI67D1kNIXO22voRaJz9Vf5hDW_Q0bNwuaKCyQxs-9FjhlJoEa6oH1aAiePePDt3nqu9Vmm49QIn6k19QXJisUvlWpMU27_Xu4OZkeYSSJDMMKkuptUZoa3jLXsYOQQXrrHjJkoLlcIo9ZKLSnBFdXvLY2fqg75vhY" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Orchid</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.6</span><span>(82)</span><span>Â·</span><span>221 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$27.00</span>
-              <span class="shop-card__old-price">$52.00</span>
-            </div>
-          </div>
-
-          <!-- Card 8: Lavender -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Outdoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Lavender" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-ntAOudQrJAEeTVCsla1Z7ZvGZoeVZzrC2Kkm_phLJ1WPW5_OuFllEaV1vY0QjDQJrkUH50566jgsbkvwsV8zZEMpgL6BFxzfDU3M7Hh1TQyjveluReiBhAw1bW4WEcdejnbnDfPA5kleCodNWPTvNZPhJN6DJqoNCoxugSL5GATMdmiKs3ga5XzrBHlThWCg-uazVFGIxSglfGj29Ye3DG-mfmDzsChVI78TQs" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Lavender</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.8</span><span>(105)</span><span>Â·</span><span>300 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$15.00</span>
-              <span class="shop-card__old-price">$28.00</span>
-            </div>
-          </div>
-
-          <!-- Card 9: Hibiscus -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Outdoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Hibiscus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6Ds3hZS1nbn_CAeuo6HaVGhcvCN8NYxD5JczhpgkFQnuKLIf-supK78M-Kbx0wY7irtW0_Bx3EY16Hai9kDzuDzzwR_hHAsl8bPe53FFyuN3HdKfSMNPW7EbhJoXmzLvL79gFo51htpRshIEbLwM7O9rGIu2aAr3pKsmt9ybMU4lq4wggU2cn_Pi6a75SBhcRPWQQyUvjbJwX2EOUzkVvOAzVv_VtWn5qNMJjJ8" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Hibiscus</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.7</span><span>(80)</span><span>Â·</span><span>180 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$35.00</span>
-              <span class="shop-card__old-price">$70.00</span>
-            </div>
-          </div>
-
-          <!-- Card 10: Bamboo -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Bamboo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnlJjXzGnyWV7y5yJpVvAZSJ4L61xIvEacM1kzT1V7i_3nyDERZqQHTTYzqt11w9XDr4TPZnif8TrHdISq6cFo6HFMmzv4g27XQPyut32kNHreAx5WZ290TsdazBBwet8MqxSDTbR1we84I7Gk-w7Z5-4a3fuACThpZOQAmWvi95L5cRjGrNYIACt7kq_s7_xXiO00r_qto6EIQ7JnOyyO0wKdadt-L4_hdmcveAk" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Bamboo</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.5</span><span>(83)</span><span>Â·</span><span>150 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$22.00</span>
-              <span class="shop-card__old-price">$25.00</span>
-            </div>
-          </div>
-
-          <!-- Card 11: Succulent -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Succulent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4mzwnEvBxW3vyF1PqaAONl64aQcQ98wiUaQqC08u2QOyqzo9tAoX0oJqRAspXRxMIbURQ6CGrNS0d3RHp6qF6Jw3HqtxbMOdhS_t5QKrm4-oKF4w2wggkAXvO8SrNxEv3oC2wiv1jurdNqDrrIzdQxpZhxuYo4wuz0bTGoVk_ieV-d1UR-qtD_49kHtlX7bS2HatH5OpNgCKAs1KlDwVJOvoEb7kFyCC__HLeIyo" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Succulent</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.7</span><span>(120)</span><span>Â·</span><span>200 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$12.00</span>
-              <span class="shop-card__old-price">$24.00</span>
-            </div>
-          </div>
-
-          <!-- Card 12: Ficus -->
-          <div class="shop-card" onclick="window.location.href='product.html'" style="cursor: pointer;">
-            <div class="shop-card__img-wrap">
-              <span class="shop-card__tag">Indoor</span>
-              <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-              <img class="shop-card__img" alt="Ficus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeLhNO2FVtqCFcAfWnakmoNM_QEZhXITZRiAbHoUYHT3LkCYsr5aUdO8-nqZ3VvnILKXxJmAADWxsl1i_-wdXXqC0tCr9shaSUt6xoAvKy-cTc6R51xG10azjyMmiEl4FKk9jI4XPX49WyMRt0e92puoE5bsETgJcAl_lspSAGWkYo22Bj_tB9hWd9d-WyN7LVqnto4SWJhgFG9U4GUimhyccxla5BXN5aSA3G2WQ" />
-            </div>
-            <div class="shop-card__header"><h4 class="shop-card__name">Ficus</h4></div>
-            <div class="shop-card__meta">
-              <i class="shop-card__star" data-lucide="star"></i>
-              <span class="shop-card__rating">4.7</span><span>(76)</span><span>Â·</span><span>150 sold</span>
-            </div>
-            <div class="shop-card__footer">
-              <span class="shop-card__discount">50%</span>
-              <span class="shop-card__price">$30.00</span>
-              <span class="shop-card__old-price">$33.00</span>
-            </div>
-          </div>
-
-        </div>
-        <p class="shop-empty-state" id="shopEmptyState" hidden>No plants match these filters. Try changing your selections.</p>
-
-        <!-- Pagination -->
-        <div class="pagination">
-          <button class="pagination__btn"><i data-lucide="chevron-left"></i></button>
-          <button class="pagination__btn pagination__btn--active">1</button>
-          <button class="pagination__btn">2</button>
-          <button class="pagination__btn">3</button>
-          <span class="pagination__dots">...</span>
-          <button class="pagination__btn">9</button>
-          <button class="pagination__btn"><i data-lucide="chevron-right"></i></button>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TESTIMONIALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section class="testimonials-section">
-    <div class="testimonials-section__inner">
-      <h2 class="section-title--serif">Testimonial From <span class="accent">Customers</span></h2>
-      <div class="testimonial-frame">
-        <div class="testimonial-frame__img">
-          <img alt="Plant Living Room Setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0bIYadZMK9Ywoy5VcK7S3Jqfl7Q0Nl4qzjPqpJqwMwUP63MdGpDPIwNqEJKMxwNWD6-DNyJec6hu74639vdqvVx8aRpCMOYzZf2nhpZAdShrsmi7jw2xdhJL5O1gH3ND7WoDTxLUpojaqGRIM8bWh7tsrk03qhXlKtALfMoO-Pbd3oi7YdZAz3QYI4mT-501qNcxJa32l9YgUTqF6XAvVngpXFhfDtxcNVYmJ88" />
-        </div>
-        <div class="testimonial-frame__content">
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
           <div>
-            <div class="testimonial-frame__quote">"</div>
-            <p class="testimonial-frame__text">
-              "I am very satisfied with My Plant's service. The delivery was fast and safe, and the variety of houseplants was impressive. I will definitely come back to buy more plants for my home! 🌿"
-            </p>
-          </div>
-          <div class="testimonial-frame__footer">
-            <div class="testimonial-frame__author">
-              <img alt="Kristin Watson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFWXpYGMeRTD_AYJ3ICG9wcQbGOj3_9PcwuMv2zm6d_ZTudt3SqfVwxmktKl5Cldeu5xORZGOHIEEarHRVJlzKJszufZvGn20ppApIAYQM3ddvIDVoITJFPxcZ09tfO9NKNcd20BA3jnBVrw_rvMkmcKAkhjCx4bciV-JaBLKsTF4YMvwQzYIyHbnDUa5fgZHE1sCfcqbHi5NR84Li5qzbBe-2W4yBmtRVQD_q5hA" />
-              <span class="testimonial-frame__author-name">Kristin Watson</span>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
             </div>
-            <div class="testimonial-frame__nav">
-              <button class="nav-circle-btn"><i data-lucide="arrow-left"></i></button>
-              <button class="nav-circle-btn"><i data-lucide="arrow-right"></i></button>
+            <div class="footer__desc">
+              Bringing the beauty and joy of plants into homes and workplaces
+              across the country. Every plant, a story.
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VALUE PROPOSITION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section class="value-section">
-    <div class="container-shop">
-      <h2 class="section-title--serif">Why choose <span class="accent">Agrismart?</span></h2>
-      <div class="value-grid">
-        <div class="value-card">
-          <img class="value-card__img" alt="Free Shipping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Fw3AgG4DU6K5ceFLma4pFo_tm_3I_aOUBIEOKGT8Q6sQmzbGJ36Sdj339tuntm2uTTCfqyi_Ay-2kGq6P6xl24F5o1jpTkCnKEHDyXtg4h7kLHHdtjP72T8HwG0GKQulkuL6wvBh6sffw3mn62axDPks_g_IusnukKELY4xj-BWbELSnz17e3J3zTYCJvfvoXvhAZRVRxo0-TqotG-bnmD3y5jPr2HJGRVXBeiA" />
-          <div class="value-card__overlay">
-            <h3 class="value-card__title">Free Shipping &amp; Delivery Fast</h3>
-            <p class="value-card__desc">Super Fast Delivery, Items Arrive Without Delay!</p>
-            <button class="value-card__btn">Shop Now</button>
-          </div>
-        </div>
-        <div class="value-card">
-          <img class="value-card__img" alt="Exclusive Discounts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKII_mGVJHWh8yAykAOIFTYjur7SgiljVq0djSWwOVJq8cCQzpGHam2lwlo0sl28xTbcImKsKgkRResHn0gRbnwPs1xOEFD_2b1LBmhGCeUJ898oRn6osJAZQQVHDJ6VpNCY5PjFGvuJjFuLn3GTZQCREqzcgqn2Pqa1Mkz59lH3TsmSvtYWHvPTXiS6mDL6oNWK8_xG5_s2uaeSK6G9SHH43MoaSj_Nqg6GTWfU0" />
-          <div class="value-card__overlay">
-            <h3 class="value-card__title">Exclusive Discounts Await</h3>
-            <p class="value-card__desc">Unlock Special Offers Just for You!</p>
-            <button class="value-card__btn">Claim Your Discount</button>
-          </div>
-        </div>
-        <div class="value-card">
-          <img class="value-card__img" alt="Quality Assurance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQISWYK4LcTXIHF6mM0dwtYNO68pWwQyD56VQUzE-ctMYvvtRKWgDu3rPG6eTQYuS4rWem7jmkkIsZtiwbhHP6iAzFbcJYmE30KaRam3iP6oaibxJP-eDKoS77awXFpxNK49zmYtzg7FCMsUTH6FODPrgzA9Gue5jSIQV8SQesaw4JCqw75WSHx7yEyPNFppaQvBj6RD9eB3G5WX7EMUtDgWo0JcnZeH8BPEmnzM" />
-          <div class="value-card__overlay">
-            <h3 class="value-card__title">Quality Assurance Guaranteed</h3>
-            <p class="value-card__desc">Satisfaction Guaranteed on Every Purchase!</p>
-            <button class="value-card__btn">Browse Our Collection</button>
-          </div>
-        </div>
-        <div class="value-card">
-          <img class="value-card__img" alt="24/7 Customer Support" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsNi7b33erD6o5NM7JEis59K2Rs7hGrf223vJzsq4d26GK4BI-8YSlUfhjYnZ4VAktXO5eKkwft6yTvIQlcVG2Q8w0Z1I-cV2ntjTUpJHKvFGbSV3It6o3-PU9OEwpyd2DQ0kH8Wl_t0KnHjjGN2uIEZ-SbLTI71sQzchLYVdkbRv7_MYprmCfkDqU5yq2kxTwXeufA94_Ch-Irk0AYR_J9bDxbnJchCDhcvlWdsg" />
-          <div class="value-card__overlay">
-            <h3 class="value-card__title">24/7 Customer Support</h3>
-            <p class="value-card__desc">We're Here to Help You Anytime, Day or Night!</p>
-            <button class="value-card__btn">Contact Us Anytime</button>
-          </div>
-        </div>
-      </div>
-      <div class="value-nav">
-        <button class="nav-circle-btn"><i data-lucide="chevron-left"></i></button>
-        <button class="nav-circle-btn"><i data-lucide="chevron-right"></i></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• INSTAGRAM MOSAIC â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section class="instagram-section">
-    <div class="container-shop instagram-section__inner">
-      <span class="instagram-section__label">Follow Us</span>
-      <h2 class="instagram-section__title">Follow Us On <span class="accent">Instagram</span></h2>
-      <div class="mosaic-grid">
-        <!-- Col 1 -->
-        <div class="mosaic-col">
-          <div class="mosaic-img mosaic-img--sm">
-            <img alt="Plant Nursery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKoMMGSmFWAlN42S59qKE9EPzCcTZet1TEtqicjRTeJ2MC46hK6GVj2TNhoJcJljRDN1gAV1OomxUd7grMp9K1t_uNs1X-SkxYq2TXQNiHfd76hJ-_0TSG6K6LSvcc8eCQKm-nIlwqkcY4Ep4e-c_J4vKX-mzplmG2lT17g_ZNyMZJoz7ZRWFnCWA8a5qKMXYm88Pwom20KzwjkRI5NXFpjjwaq5gqFDMM7nQJJCc" />
-          </div>
-          <div class="mosaic-img mosaic-img--sm">
-            <img alt="Plant Care Soil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMjmTSVMDCdcG2SsJEwnTEpLDSK7stwKobK8ELhzViVoqAmLTlXnWbAxLpJnHFpzte8Ytx4DT1zTSE5P-vOhO2uBlLeg3Qd6DRU3MTsXBrd0Qd_f9oaeaz5sQ0xec95vyPXVOjGjbaID1yzt96jg12SuYi9eICtE2Oin7faDF0_gh83sds2LkP5qPbq1jnDW7-57NT3DQnMBVFMO3ZhFn7Zk_UvfUPfpnxqzWcyI" />
-          </div>
-        </div>
-        <!-- Col 2 -->
-        <div class="mosaic-img mosaic-img--tall">
-          <img alt="Man with Smartphone and Plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXKWcS1MZGxNI2_cQYUsuiPHFsrGaQK1WyQf7pMqKSFjgQ1lxocv9thbSSzpfoqMKLJJJJUewQrYRFKqSJ5-xJzPDUzCwo2kFAsBT35jl4nE_SE2c0csCtN0uzcFt8qexm6AW5fVTtXAUcL5jJP_p6B1xKLTW2drohN16zcCbR7wFLjKJZbEzHoWT-1cO6pejOqKVX-w6MYWmWrzp01cL9e_LHM0PCa3RVHwIH2lU" />
-        </div>
-        <!-- Col 3 -->
-        <div class="mosaic-img mosaic-img--tall">
-          <img alt="Woman at Nursery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG-Hebs1u3EvztCjuirzIQSJDjIqRuoYReC8LB1K2Gm0k06EaRnAehBHvjP9N3THlJ5QkaynY0k9j-DDDk2IfuXIFtgFoETJt73ws1MHquxtoM1tb7-0L3AiHi5N5jZ8ZPNo89IuHe-OLTuqpNmIJoc_uB0tzQSydgGoiO5hSuR1HJPQqza4nnQo438t5CW0-wZKDvR6K963PzsS0tEamaJzNIPN_kQvlb_RoJ46k" />
-        </div>
-        <!-- Col 4 -->
-        <div class="mosaic-col">
-          <div class="mosaic-img mosaic-img--sm">
-            <img alt="Indoor greenhouse bench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmaoyrY2ASRA2TvFW8_CT-qSmALmoWhoQF1CYcc5JRSb7vgqUvo6xTBa34Xdr_npSz9n3PLPf7jXUQhjw49AH6erCUVn5IAE0884zKgGK8rv9cEjOpYu0S99lAYi0zRe8HrmN9AztKAnkjzP4F6ULLWEbwqqSFLIsO1Ak2viQFdwpljDIMS8eCzYoMYXbliIECvFqQPl8Ypb7uRkvaRKdtA7LYjE0m3pl5H0InhKw" />
-          </div>
-          <div class="mosaic-split">
-            <div class="mosaic-img">
-              <img alt="Plant enthusiast portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYL4jyi6edJcuJfIorAkqDzF3lTMl6PrC8kDObGaFg_x2gM-acAT39oEddAKU1KKRvQ0bIzXBJVJfYy-a50DsDqHKtRVq3t5_UTssh8e0ZPk6bB3meVTVLHO7c61V7c7R-RyseHiI288RlU7qcN1AbmZzc2jDFjNzxpGVfwr99L2LvAysIZUH88zzw9a5eZSYqO6aZLaQ3Hmq4NAstFxGBADfwz_E0DXYOH0AO5Rg" />
-            </div>
-            <div class="mosaic-img">
-              <img alt="Succulent Pot Aerial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB12K5fFGw4GWuwkbpT-d5YyqIOnEDLuRXYOVWsz8i92GJWf7tnVuYcNTxhuJniV5nMWXv-OhE9v3UXM9fh6SSkwwgYPKftnRyXJ0IgYdHONbSXUEKUOZ6ld5FwO-pdoNlZj6OQKqbpgrPwFCmyXVgmYRgPO046Hchnoi7KHU0OJ39M3MVqFZOfWZ3TfbKYBqDItuUOZKCVbkMxL4-X-6ZpHF-dqn7-rzZx-lEiYaY" />
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+              <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+              <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+              <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
             </div>
           </div>
+          <div>
+            <div class="footer__heading">Shop</div>
+            <ul class="footer__links">
+              <li><a href="#">Indoor Plants</a></li>
+              <li><a href="#">Outdoor Plants</a></li>
+              <li><a href="#">Succulents</a></li>
+              <li><a href="#">Flowering Plants</a></li>
+              <li><a href="#">Bonsai Trees</a></li>
+              <li><a href="pots-accessories.html">Plant Pots</a></li>
+              <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Help</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track My Order</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Plant Care FAQs</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contact</div>
+            <ul class="footer__links">
+              <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+              <li><a href="#">📞 +962776135123</a></li>
+              <li>
+                <a href="mailto:alaafrihat52@gmail.com"
+                  >✉️ alaafrihat52@gmail.com</a
+                >
+              </li>
+              <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>&copy; 2025 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookies</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SHOP BY CATEGORIES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section class="categories-section">
-    <div class="container-shop">
-      <div class="categories-section__header">
-        <div>
-          <span class="categories-section__label">Our Products</span>
-          <h2 class="categories-section__title">Shop by <span class="accent">Categories</span></h2>
-          <h3 class="categories-section__subtitle">Best Category</h3>
-        </div>
-        <a class="categories-section__cta" href="#">
-          <span>See All Products</span>
-          <i data-lucide="arrow-up-right"></i>
-        </a>
-      </div>
-      <div class="categories-grid">
-        <div class="category-card">
-          <img class="category-card__img" alt="Ornamental Foliage Plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6WMoCy7W5AmaiHkr7GvAQYfd3N7xD6458VEg_wmLmFDLUfFK1mqwVzb7AWLxUlID9Mr_YTvPAANcpKUTI5LDimsA1vZqsLzPh86NNdyP__azrL1jvYr38NEJ68djVKNLzY7aihBUsVpcHzTfEbg1T7PI_vcqVSHnNUHnqQhLaFOPVjMPVNswC2YgLJgYM4jepXWEPY-d94cOVzFDre4pzwVHTNh7Wcu638GAZe_I" />
-          <div class="category-card__overlay"><span class="category-card__label">Ornamental<br />Foliage Plants</span></div>
-        </div>
-        <div class="category-card">
-          <img class="category-card__img" alt="Succulent Varieties" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVSxdkYPb66CF_nfp2x8X_-HZvsTrPe0ktfCdoTn9Kp8qWgGRKslMZbcgcP_nSdqqdIelo-nKoL0r0LFIpN_r4JPYFN0MtYVWjIFf566IP7ttjroiC1ve6-ez0M4LsQ96AMsWse2msyNXnmkhxaS6dHRJUnu0Dhhj_hnQFcWFlsLpdXwa3eKhLHtDhJnsdGljlQAG3SCSczbq_woejylpJMu6cyD7FY0L22FJPa_M" />
-          <div class="category-card__overlay"><span class="category-card__label">Succulent Varieties</span></div>
-        </div>
-        <div class="category-card">
-          <img class="category-card__img" alt="Tropical Flowering Plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfRnEGgEDwoEM69YbH_F9qHHyFzrTPLlJ42ZVSkzQ66qjdX7PasUvPVUvWD0UELYMFdItoBjADj5AkrkabnTZbPJyw5MU5zxSp_sup2vs_IacoG1_V9OylPJnopaybdwZMlQUG7rg_Of2F4xBsXx1dg_Kc1qqmrjcXcXMVgLUUZ6BClXbya5DHcclcUUO9DR5mQ0lebM3ugEsZM7m0OVgqJYDFyKTN3Ov7zOZeV2k" />
-          <div class="category-card__overlay"><span class="category-card__label">Tropical Flowering<br />Plants</span></div>
-        </div>
-        <div class="category-card">
-          <img class="category-card__img" alt="Cacti Collection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQJJRpPKX80Qjq4GWsAs91JTPx0mVjMSmcQ02HJAjApADXjzF-A0kYz27j7NgU29VU1-LXv4FKs9vgk0I7HRn4uCo78Rm_-kywKphwizeNQlbDLUooJif1hRcEXppa0EqssgONecLmSM7daiCsLHxa-ZpODf7lfhW4JCJJPST7e9jhb3aoa-82d91RbafbwaxoMsAdGSmTxYz5ko382vF0iqFEbY-zV2YmZoKkvLE" />
-          <div class="category-card__overlay"><span class="category-card__label">Cacti Collection</span></div>
-        </div>
-        <div class="category-card">
-          <img class="category-card__img" alt="Indoor Air-Purifying Plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIwaL9s9_xqVzyz9_Hly_SNGyK2ALNFHU_Sy7amszmdy4mvJJfkocrARtK_Vqbydkz_1RlbyUO5MD9z_jA7kCl5_ayQkUx8nrJOUGMoiEX7j8Oas6EwfEvgKlNT4XPFupt6z-mlFMF3a3jyiThs5NX1gkJiL43DLOcC0VVKs0J1aF6ySaqu-URMK7vOWJdnF-jg5ayivnDtjxfO9EKJ-9yUKzhqKJswhU1a1NyVF8" />
-          <div class="category-card__overlay"><span class="category-card__label">Indoor Air-<br />Purifying Plants</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< CART SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+    <style>
+      /* Inline sidebar styles to bypass browser CSS cache */
+      .cart-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .cart-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 380px;
+        max-width: 90vw;
+        height: 100%;
+        background: #fff;
+        z-index: 1200;
+        transition: right 0.35s;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-sidebar__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 28px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .cart-sidebar__title {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+      .cart-sidebar__close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .cart-sidebar__body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 28px;
+      }
+      .cart-empty {
+        text-align: center;
+        padding: 60px 0;
+      }
+      .cart-empty__icon {
+        font-size: 4rem;
+        margin-bottom: 16px;
+      }
+      .cart-item {
+        display: flex;
+        gap: 14px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        align-items: center;
+      }
+      .cart-item__img {
+        width: 66px;
+        height: 66px;
+        border-radius: 10px;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+      .cart-item__info {
+        flex: 1;
+        min-width: 0;
+      }
+      .cart-item__name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .cart-item__price {
+        font-size: 0.85rem;
+        color: #0f8a3c;
+        font-weight: 700;
+        margin-top: 4px;
+      }
+      .cart-item__qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .cart-item__qty button {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+      }
+      .cart-sidebar__footer {
+        padding: 20px 28px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .cart-total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+      }
+      .toast-container {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 1500;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .toast {
+        background: #111827;
+        color: #fff;
+        padding: 14px 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        font-size: 0.92rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        animation: slideInUp 0.35s forwards;
+      }
+      .toast.success {
+        background: #0f8a3c;
+      }
+      .toast.error {
+        background: #ef4444;
+      }
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+    </style>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <footer class="footer" id="contact">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo flex items-center">
-          <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+    <div id="toastContainer" class="toast-container"></div>
+    <div id="scrollTop" style="display: none"></div>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-sidebar__header">
+        <div class="cart-sidebar__title">
+          <svg
+            class="lucide-cart-animated"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="margin-right: 6px"
+          >
+            <path
+              d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+            />
+          </svg>
+          My Cart
         </div>
-        <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div>
-        <div class="footer__socials">
-          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
-          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
-          <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
-          <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+        <div class="cart-sidebar__close" onclick="closeCart()">✕</div>
+      </div>
+      <div class="cart-sidebar__body" id="cartBody">
+        <div class="cart-empty" id="cartEmpty">
+          <div class="cart-empty__icon">🪴</div>
+          <div class="cart-empty__text">
+            Your cart is empty.<br />Start adding some beautiful plants!
+          </div>
         </div>
+        <div id="cartItems"></div>
       </div>
-      <div>
-        <div class="footer__heading">Shop</div>
-        <ul class="footer__links">
-          <li><a href="#">Indoor Plants</a></li>
-          <li><a href="#">Outdoor Plants</a></li>
-          <li><a href="#">Succulents</a></li>
-          <li><a href="#">Flowering Plants</a></li>
-          <li><a href="#">Bonsai Trees</a></li>
-          <li><a href="pots-accessories.html">Plant Pots</a></li>
-          <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__heading">Help</div>
-        <ul class="footer__links">
-          <li><a href="track-order.html">Track My Order</a></li>
-          <li><a href="#">Shipping Policy</a></li>
-          <li><a href="#">Returns &amp; Refunds</a></li>
-          <li><a href="#">Plant Care FAQs</a></li>
-          <li><a href="contact.html">Contact Support</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__heading">Contact</div>
-        <ul class="footer__links">
-          <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
-          <li><a href="#">📞 +962776135123</a></li>
-          <li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li>
-          <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>&copy; 2025 Agrismart. All rights reserved.</span>
-      <div class="footer__bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies</a>
+      <div class="cart-sidebar__footer cart-footer-hidden" id="cartFooter">
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <a
+          href="cart.html"
+          class="btn btn-primary checkout-btn"
+          style="
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #1aa349;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+          "
+          >Proceed to Checkout &rarr;</a
+        >
+        <a
+          href="cart.html"
+          style="
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            color: #168a3e;
+            font-size: 14px;
+            font-weight: 600;
+          "
+          >View full cart</a
+        >
       </div>
     </div>
-  </div>
-</footer>
 
-  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< CART SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
-  <style>
-    /* Inline sidebar styles to bypass browser CSS cache */
-    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 1100; opacity: 0; pointer-events: none; transition: opacity .3s; }
-    .cart-overlay.open { opacity: 1; pointer-events: all; }
-    .cart-sidebar { position: fixed; top: 0; right: -420px; width: 380px; max-width: 90vw; height: 100%; background: #fff; z-index: 1200; transition: right .35s; display: flex; flex-direction: column; box-shadow: -4px 0 24px rgba(0,0,0,.12); }
-    .cart-sidebar.open { right: 0; }
-    .cart-sidebar__header { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 1px solid rgba(0,0,0,.08); }
-    .cart-sidebar__title { font-size: 1.1rem; font-weight: 700; }
-    .cart-sidebar__close { width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-    .cart-sidebar__body { flex: 1; overflow-y: auto; padding: 20px 28px; }
-    .cart-empty { text-align: center; padding: 60px 0; }
-    .cart-empty__icon { font-size: 4rem; margin-bottom: 16px; }
-    .cart-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,.07); align-items: center; }
-    .cart-item__img { width: 66px; height: 66px; border-radius: 10px; background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
-    .cart-item__info { flex: 1; min-width: 0; }
-    .cart-item__name { font-size: .9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .cart-item__price { font-size: .85rem; color: #0f8a3c; font-weight: 700; margin-top: 4px; }
-    .cart-item__qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
-    .cart-item__qty button { width: 26px; height: 26px; border-radius: 50%; background: #f3f4f6; font-weight: 700; border: none; cursor: pointer; }
-    .cart-sidebar__footer { padding: 20px 28px; border-top: 1px solid rgba(0,0,0,.08); }
-    .cart-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; }
-    .toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 1500; display: flex; flex-direction: column; gap: 10px; }
-    .toast { background: #111827; color: #fff; padding: 14px 20px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.15); font-size: .92rem; display: flex; align-items: center; gap: 12px; animation: slideInUp .35s forwards; }
-    .toast.success { background: #0f8a3c; }
-    .toast.error { background: #ef4444; }
-    @keyframes slideInUp { from { opacity: 0; transform: translateY(24px) scale(.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-  </style>
-
-  <div id="toastContainer" class="toast-container"></div>
-  <div id="scrollTop" style="display:none;"></div>
-  
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-  <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-sidebar__header">
-      <div class="cart-sidebar__title"><svg class="lucide-cart-animated" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"/></svg> My Cart</div>
-      <div class="cart-sidebar__close" onclick="closeCart()">✕</div>
-    </div>
-    <div class="cart-sidebar__body" id="cartBody">
-      <div class="cart-empty" id="cartEmpty">
-        <div class="cart-empty__icon">🪴</div>
-        <div class="cart-empty__text">Your cart is empty.<br>Start adding some beautiful plants!</div>
+    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< WISHLIST SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
+    <div class="cart-overlay" id="wishOverlay" onclick="closeWish()"></div>
+    <div class="cart-sidebar" id="wishSidebar">
+      <div class="cart-sidebar__header">
+        <div class="cart-sidebar__title">❤️ My Wishlist</div>
+        <div class="cart-sidebar__close" onclick="closeWish()">✕</div>
       </div>
-      <div id="cartItems"></div>
-    </div>
-    <div class="cart-sidebar__footer cart-footer-hidden" id="cartFooter">
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">$0.00</span>
+      <div class="cart-sidebar__body" id="wishBody">
+        <div class="cart-empty" id="wishEmpty">
+          <div class="cart-empty__icon">❤️</div>
+          <div class="cart-empty__text">
+            Your wishlist is empty.<br />Start adding some beautiful plants!
+          </div>
+        </div>
+        <div id="wishItems"></div>
       </div>
-      <a href="cart.html" class="btn btn-primary checkout-btn" style="display:block;width:100%;padding:15px;background:#1aa349;color:#fff;border:none;border-radius:8px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">Proceed to Checkout &rarr;</a>
-      <a href="cart.html" style="display:block;text-align:center;margin-top:12px;color:#168a3e;font-size:14px;font-weight:600;">View full cart</a>
     </div>
-  </div>
 
-  <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<< WISHLIST SIDEBAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  -->
-  <div class="cart-overlay" id="wishOverlay" onclick="closeWish()"></div>
-  <div class="cart-sidebar" id="wishSidebar">
-    <div class="cart-sidebar__header">
-      <div class="cart-sidebar__title">❤️ My Wishlist</div>
-      <div class="cart-sidebar__close" onclick="closeWish()">✕</div>
-    </div>
-    <div class="cart-sidebar__body" id="wishBody">
-      <div class="cart-empty" id="wishEmpty">
-        <div class="cart-empty__icon">❤️</div>
-        <div class="cart-empty__text">Your wishlist is empty.<br>Start adding some beautiful plants!</div>
-      </div>
-      <div id="wishItems"></div>
-    </div>
-  </div>
-
-  <!-- External JS -->
-  <script src="js/script.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/shop.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/app-promo.js"></script>
-</body>
-
+    <!-- External JS -->
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/app-promo.js"></script>
+  </body>
 </html>

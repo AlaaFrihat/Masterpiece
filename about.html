@@ -1,121 +1,416 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn about Agrismart: a connected plant marketplace with practical AI plant-care guidance for growers and plant lovers.">
-  <title>About Agrismart | Agrismart</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/about.css">
-</head>
-<body class="about-page">
-  <nav class="nav" aria-label="Main navigation">
-  <div class="container nav__inner">
-    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Plants</a></li>
-      <li><a href="stores.html">Nurseries</a></li>
-      <li><a href="about.html" class="active" aria-current="page">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
-      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
-      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
-      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-  <main>
-    <section class="about-title-band">
-      <div class="about-container">
-        <p class="about-eyebrow">OUR STORY</p>
-        <h1>About Agrismart</h1>
-        <nav class="about-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span aria-current="page">About</span></nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Learn about Agrismart: a connected plant marketplace with practical AI plant-care guidance for growers and plant lovers."
+    />
+    <title>About Agrismart | Agrismart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body class="about-page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav__inner">
+        <a
+          href="index.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Home"
+          ><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img"
+        /></a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Plants</a></li>
+          <li><a href="stores.html">Nurseries</a></li>
+          <li>
+            <a href="about.html" class="active" aria-current="page">About</a>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN</button
+            ><button class="lang-btn" id="lang-ar" type="button">
+              العربية
+            </button>
+          </div>
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="assets/header-icons.svg#icon-sun"></use></svg
+            ><svg id="themeIconDark">
+              <use href="assets/header-icons.svg#icon-moon"></use>
+            </svg>
+          </button>
+          <a
+            href="login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+            ><svg><use href="assets/header-icons.svg#icon-user"></use></svg
+          ></a>
+          <button
+            class="hamburger"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </section>
+    </nav>
 
-    <div class="about-container about-main">
-      <section class="about-hero about-surface">
-        <div class="about-hero__copy">
-          <span class="about-pill"><span class="about-pill__dot"></span> GROWING, MADE MORE CONNECTED</span>
-          <h2>Good plant care starts with the right connection.</h2>
-          <p>Agrismart brings plant discovery, helpful care guidance, and everyday growing essentials together in one easy place.</p>
-          <div class="about-actions"><a class="about-button about-button--primary" href="shop.html">Explore plants <span aria-hidden="true">→</span></a><a class="about-button about-button--quiet" href="ai-assistant.html">Meet the AI assistant</a></div>
-          <div class="about-hero__note"><span aria-hidden="true">✳</span><span>Created for plant lovers, home growers, and the people who help them grow.</span></div>
-        </div>
-        <div class="about-hero__art" aria-label="Illustration of plants, seeds, and care products" role="img">
-          <div class="about-orbit about-orbit--one"></div><div class="about-orbit about-orbit--two"></div>
-          <div class="about-sun-glow"></div><div class="about-art-leaf about-art-leaf--one"></div><div class="about-art-leaf about-art-leaf--two"></div>
-          <div class="about-plant about-plant--large"><i></i><i></i><i></i><i></i><b></b></div>
-          <div class="about-pot"></div>
-          <div class="about-art-tag about-art-tag--top"><span>✿</span><span><b>Find your green</b><small>Plants for every space</small></span></div>
-          <div class="about-art-tag about-art-tag--bottom"><span>✦</span><span><b>Grow with guidance</b><small>Care support in one place</small></span></div>
-          <div class="about-art-chip about-art-chip--seeds"><span>✳</span><b>Seeds &amp; nutrition</b><small>For every growing stage</small></div>
-          <div class="about-art-chip about-art-chip--tools"><span>⌁</span><b>Pots &amp; care tools</b><small>Little things that help</small></div>
-          <div class="about-seed-dots" aria-hidden="true">✧　·　✦　·　✧</div>
+    <main>
+      <section class="about-title-band">
+        <div class="about-container">
+          <p class="about-eyebrow">OUR STORY</p>
+          <h1>About Agrismart</h1>
+          <nav class="about-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span>/</span
+            ><span aria-current="page">About</span>
+          </nav>
         </div>
       </section>
 
-      <section class="about-intro about-surface" aria-labelledby="about-vision-title">
-        <div class="about-intro__text">
-          <p class="about-eyebrow">WHO WE ARE &amp; OUR VISION</p>
-          <h2 id="about-vision-title">A more thoughtful way to grow, shop, and care.</h2>
-          <p>Agrismart is a digital plant-care and gardening marketplace concept built around a simple idea: make it easier to find what you need and understand what to do next.</p>
-          <p>From a first houseplant to a balcony garden or a growing nursery, the site connects useful product categories with clear information and practical tools.</p>
-          <div class="about-tags"><span>Plant discovery</span><span>Practical care guidance</span><span>Growing essentials</span></div>
+      <div class="about-container about-main">
+        <section class="about-hero about-surface">
+          <div class="about-hero__copy">
+            <span class="about-pill"
+              ><span class="about-pill__dot"></span> GROWING, MADE MORE
+              CONNECTED</span
+            >
+            <h2>Good plant care starts with the right connection.</h2>
+            <p>
+              Agrismart brings plant discovery, helpful care guidance, and
+              everyday growing essentials together in one easy place.
+            </p>
+            <div class="about-actions">
+              <a class="about-button about-button--primary" href="shop.html"
+                >Explore plants <span aria-hidden="true">→</span></a
+              ><a
+                class="about-button about-button--quiet"
+                href="ai-assistant.html"
+                >Meet the AI assistant</a
+              >
+            </div>
+            <div class="about-hero__note">
+              <span aria-hidden="true">✳</span
+              ><span
+                >Created for plant lovers, home growers, and the people who help
+                them grow.</span
+              >
+            </div>
+          </div>
+          <div
+            class="about-hero__art"
+            aria-label="Illustration of plants, seeds, and care products"
+            role="img"
+          >
+            <div class="about-orbit about-orbit--one"></div>
+            <div class="about-orbit about-orbit--two"></div>
+            <div class="about-sun-glow"></div>
+            <div class="about-art-leaf about-art-leaf--one"></div>
+            <div class="about-art-leaf about-art-leaf--two"></div>
+            <div class="about-plant about-plant--large">
+              <i></i><i></i><i></i><i></i><b></b>
+            </div>
+            <div class="about-pot"></div>
+            <div class="about-art-tag about-art-tag--top">
+              <span>✿</span
+              ><span
+                ><b>Find your green</b
+                ><small>Plants for every space</small></span
+              >
+            </div>
+            <div class="about-art-tag about-art-tag--bottom">
+              <span>✦</span
+              ><span
+                ><b>Grow with guidance</b
+                ><small>Care support in one place</small></span
+              >
+            </div>
+            <div class="about-art-chip about-art-chip--seeds">
+              <span>✳</span><b>Seeds &amp; nutrition</b
+              ><small>For every growing stage</small>
+            </div>
+            <div class="about-art-chip about-art-chip--tools">
+              <span>⌁</span><b>Pots &amp; care tools</b
+              ><small>Little things that help</small>
+            </div>
+            <div class="about-seed-dots" aria-hidden="true">✧　·　✦　·　✧</div>
+          </div>
+        </section>
+
+        <section
+          class="about-intro about-surface"
+          aria-labelledby="about-vision-title"
+        >
+          <div class="about-intro__text">
+            <p class="about-eyebrow">WHO WE ARE &amp; OUR VISION</p>
+            <h2 id="about-vision-title">
+              A more thoughtful way to grow, shop, and care.
+            </h2>
+            <p>
+              Agrismart is a digital plant-care and gardening marketplace
+              concept built around a simple idea: make it easier to find what
+              you need and understand what to do next.
+            </p>
+            <p>
+              From a first houseplant to a balcony garden or a growing nursery,
+              the site connects useful product categories with clear information
+              and practical tools.
+            </p>
+            <div class="about-tags">
+              <span>Plant discovery</span><span>Practical care guidance</span
+              ><span>Growing essentials</span>
+            </div>
+          </div>
+          <div class="about-vision-card">
+            <span class="about-vision-card__icon" aria-hidden="true">⌂</span>
+            <p class="about-eyebrow">THE IDEA</p>
+            <h3>Every grower deserves a helpful place to begin.</h3>
+            <p>
+              Keep plant shopping approachable, explain choices clearly, and
+              make learning part of the growing experience.
+            </p>
+            <div class="about-vision-card__line">
+              <span></span><span></span><span></span><span></span><span></span
+              ><span></span><span></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="ecosystem-title">
+          <div class="about-section__heading">
+            <p class="about-eyebrow">ONE CONNECTED EXPERIENCE</p>
+            <h2 id="ecosystem-title">How Agrismart helps</h2>
+            <p>
+              Explore products, get a little guidance, and keep your growing
+              essentials together.
+            </p>
+          </div>
+          <div class="about-feature-grid">
+            <article class="about-feature-card">
+              <span class="about-feature-card__icon" aria-hidden="true">♧</span>
+              <p class="about-card-kicker">01 · DISCOVER</p>
+              <h3>Find plants for your space</h3>
+              <p>
+                Browse plant collections and product details, then use filters
+                to narrow by the qualities that matter to you.
+              </p>
+              <a href="shop.html"
+                >Browse plants <span aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="about-feature-card">
+              <span class="about-feature-card__icon" aria-hidden="true">▧</span>
+              <p class="about-card-kicker">02 · GET GUIDANCE</p>
+              <h3>Ask about plant care</h3>
+              <p>
+                The AI assistant can discuss symptoms, answer growing questions,
+                and suggest relevant catalog items. Its guidance is an initial
+                aid, not a confirmed diagnosis.
+              </p>
+              <a href="ai-assistant.html"
+                >Open AI Assistant <span aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="about-feature-card">
+              <span class="about-feature-card__icon" aria-hidden="true">✿</span>
+              <p class="about-card-kicker">03 · GROW</p>
+              <h3>Choose useful essentials</h3>
+              <p>
+                Shop pots and accessories, seeds, and fertilizers alongside
+                plants, so you can find supplies for different stages of
+                growing.
+              </p>
+              <a href="seeds.html"
+                >Explore seeds &amp; fertilizers
+                <span aria-hidden="true">→</span></a
+              >
+            </article>
+            <article class="about-feature-card">
+              <span class="about-feature-card__icon" aria-hidden="true">⌑</span>
+              <p class="about-card-kicker">04 · KEEP IT TOGETHER</p>
+              <h3>Use your own account</h3>
+              <p>
+                Signed-in customers can save favorites, manage a cart, and use
+                account and checkout pages in one connected flow.
+              </p>
+              <a href="register.html"
+                >Create an account <span aria-hidden="true">→</span></a
+              >
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="about-audience about-surface"
+          aria-labelledby="audience-title"
+        >
+          <div class="about-section__heading about-section__heading--left">
+            <p class="about-eyebrow">MADE FOR DIFFERENT GROWING JOURNEYS</p>
+            <h2 id="audience-title">
+              A useful starting point for growers and sellers.
+            </h2>
+            <p>
+              Whether you are caring for a single plant or building a
+              plant-focused business, Agrismart is designed to make the next
+              step easier to find.
+            </p>
+          </div>
+          <div class="about-audience__grid">
+            <article class="about-audience-card">
+              <span class="about-audience-card__label">FOR PLANT LOVERS</span>
+              <h3>Home growers &amp; gardeners</h3>
+              <p>
+                Discover indoor and outdoor plants, compare growing essentials,
+                and ask for practical help when a plant needs attention.
+              </p>
+              <ul>
+                <li>Browse a range of plant types and growing supplies</li>
+                <li>Find care information and AI-assisted suggestions</li>
+                <li>Save products and manage orders through your account</li>
+              </ul>
+            </article>
+            <article class="about-audience-card">
+              <span class="about-audience-card__label"
+                >FOR GROWING BUSINESSES</span
+              >
+              <h3>Nurseries &amp; plant sellers</h3>
+              <p>
+                The business registration option helps nurseries and sellers
+                share their business profile and the products they work with.
+              </p>
+              <ul>
+                <li>Introduce your shop or nursery to Agrismart</li>
+                <li>Describe your product categories and service area</li>
+                <li>Keep business details connected to your account</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <aside class="about-transparency">
+          <span aria-hidden="true">ⓘ</span>
+          <p>
+            <strong>A note about availability:</strong> The nearby-store and
+            pickup information is currently a prototype. Agrismart does not yet
+            show verified live branch inventory or confirmed pickup
+            availability.
+          </p>
+        </aside>
+
+        <section class="about-cta">
+          <div>
+            <p class="about-eyebrow">READY TO GROW?</p>
+            <h2>Start with what you want to grow.</h2>
+            <p>
+              Browse the collection or ask the assistant a plant-care question.
+            </p>
+          </div>
+          <div class="about-actions">
+            <a class="about-button about-button--light" href="shop.html"
+              >Explore the collection <span aria-hidden="true">→</span></a
+            ><a
+              class="about-button about-button--outline"
+              href="ai-assistant.html"
+              >Ask Agrismart AI</a
+            >
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Bringing the beauty and joy of plants into homes and workplaces.
+              Every plant, a story.
+            </div>
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a
+              ><a href="#" class="footer__social" aria-label="Instagram">📸</a
+              ><a href="#" class="footer__social" aria-label="Twitter">🐦</a
+              ><a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Explore</div>
+            <ul class="footer__links">
+              <li><a href="shop.html">Plants</a></li>
+              <li>
+                <a href="pots-accessories.html">Pots &amp; Accessories</a>
+              </li>
+              <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+              <li><a href="ai-assistant.html">AI Assistant</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Company</div>
+            <ul class="footer__links">
+              <li>
+                <a href="about.html" aria-current="page">About Agrismart</a>
+              </li>
+              <li><a href="index.html#blog">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contact</div>
+            <ul class="footer__links">
+              <li><a href="#">Amman, Jordan</a></li>
+              <li><a href="tel:+962776135123">+962 77 613 5123</a></li>
+              <li>
+                <a href="mailto:alaafrihat52@gmail.com"
+                  >alaafrihat52@gmail.com</a
+                >
+              </li>
+              <li><span>Everyday · 10:00 AM–9:00 PM</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="about-vision-card">
-          <span class="about-vision-card__icon" aria-hidden="true">⌂</span>
-          <p class="about-eyebrow">THE IDEA</p>
-          <h3>Every grower deserves a helpful place to begin.</h3>
-          <p>Keep plant shopping approachable, explain choices clearly, and make learning part of the growing experience.</p>
-          <div class="about-vision-card__line"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="footer__bottom">
+          <span>&copy; 2026 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+          </div>
         </div>
-      </section>
+      </div>
+    </footer>
 
-      <section class="about-section" aria-labelledby="ecosystem-title">
-        <div class="about-section__heading"><p class="about-eyebrow">ONE CONNECTED EXPERIENCE</p><h2 id="ecosystem-title">How Agrismart helps</h2><p>Explore products, get a little guidance, and keep your growing essentials together.</p></div>
-        <div class="about-feature-grid">
-          <article class="about-feature-card"><span class="about-feature-card__icon" aria-hidden="true">♧</span><p class="about-card-kicker">01 · DISCOVER</p><h3>Find plants for your space</h3><p>Browse plant collections and product details, then use filters to narrow by the qualities that matter to you.</p><a href="shop.html">Browse plants <span aria-hidden="true">→</span></a></article>
-          <article class="about-feature-card"><span class="about-feature-card__icon" aria-hidden="true">▧</span><p class="about-card-kicker">02 · GET GUIDANCE</p><h3>Ask about plant care</h3><p>The AI assistant can discuss symptoms, answer growing questions, and suggest relevant catalog items. Its guidance is an initial aid, not a confirmed diagnosis.</p><a href="ai-assistant.html">Open AI Assistant <span aria-hidden="true">→</span></a></article>
-          <article class="about-feature-card"><span class="about-feature-card__icon" aria-hidden="true">✿</span><p class="about-card-kicker">03 · GROW</p><h3>Choose useful essentials</h3><p>Shop pots and accessories, seeds, and fertilizers alongside plants, so you can find supplies for different stages of growing.</p><a href="seeds.html">Explore seeds &amp; fertilizers <span aria-hidden="true">→</span></a></article>
-          <article class="about-feature-card"><span class="about-feature-card__icon" aria-hidden="true">⌑</span><p class="about-card-kicker">04 · KEEP IT TOGETHER</p><h3>Use your own account</h3><p>Signed-in customers can save favorites, manage a cart, and use account and checkout pages in one connected flow.</p><a href="register.html">Create an account <span aria-hidden="true">→</span></a></article>
-        </div>
-      </section>
-
-      <section class="about-audience about-surface" aria-labelledby="audience-title">
-        <div class="about-section__heading about-section__heading--left"><p class="about-eyebrow">MADE FOR DIFFERENT GROWING JOURNEYS</p><h2 id="audience-title">A useful starting point for growers and sellers.</h2><p>Whether you are caring for a single plant or building a plant-focused business, Agrismart is designed to make the next step easier to find.</p></div>
-        <div class="about-audience__grid">
-          <article class="about-audience-card"><span class="about-audience-card__label">FOR PLANT LOVERS</span><h3>Home growers &amp; gardeners</h3><p>Discover indoor and outdoor plants, compare growing essentials, and ask for practical help when a plant needs attention.</p><ul><li>Browse a range of plant types and growing supplies</li><li>Find care information and AI-assisted suggestions</li><li>Save products and manage orders through your account</li></ul></article>
-          <article class="about-audience-card"><span class="about-audience-card__label">FOR GROWING BUSINESSES</span><h3>Nurseries &amp; plant sellers</h3><p>The business registration option helps nurseries and sellers share their business profile and the products they work with.</p><ul><li>Introduce your shop or nursery to Agrismart</li><li>Describe your product categories and service area</li><li>Keep business details connected to your account</li></ul></article>
-        </div>
-      </section>
-
-      <aside class="about-transparency"><span aria-hidden="true">ⓘ</span><p><strong>A note about availability:</strong> The nearby-store and pickup information is currently a prototype. Agrismart does not yet show verified live branch inventory or confirmed pickup availability.</p></aside>
-
-      <section class="about-cta"><div><p class="about-eyebrow">READY TO GROW?</p><h2>Start with what you want to grow.</h2><p>Browse the collection or ask the assistant a plant-care question.</p></div><div class="about-actions"><a class="about-button about-button--light" href="shop.html">Explore the collection <span aria-hidden="true">→</span></a><a class="about-button about-button--outline" href="ai-assistant.html">Ask Agrismart AI</a></div></section>
-    </div>
-  </main>
-
-  <footer class="footer" id="contact"><div class="container"><div class="footer__grid">
-    <div><div class="footer__logo flex items-center"><img src="assets/logo.svg" alt="Agrismart" class="footer-logo-img"></div><div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces. Every plant, a story.</div><div class="footer__socials"><a href="#" class="footer__social" aria-label="Facebook">📘</a><a href="#" class="footer__social" aria-label="Instagram">📸</a><a href="#" class="footer__social" aria-label="Twitter">🐦</a><a href="#" class="footer__social" aria-label="Pinterest">📌</a></div></div>
-    <div><div class="footer__heading">Explore</div><ul class="footer__links"><li><a href="shop.html">Plants</a></li><li><a href="pots-accessories.html">Pots &amp; Accessories</a></li><li><a href="seeds.html">Seeds &amp; Fertilizers</a></li><li><a href="ai-assistant.html">AI Assistant</a></li></ul></div>
-    <div><div class="footer__heading">Company</div><ul class="footer__links"><li><a href="about.html" aria-current="page">About Agrismart</a></li><li><a href="index.html#blog">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><div class="footer__heading">Contact</div><ul class="footer__links"><li><a href="#">Amman, Jordan</a></li><li><a href="tel:+962776135123">+962 77 613 5123</a></li><li><a href="mailto:alaafrihat52@gmail.com">alaafrihat52@gmail.com</a></li><li><span>Everyday · 10:00 AM–9:00 PM</span></li></ul></div>
-  </div><div class="footer__bottom"><span>&copy; 2026 Agrismart. All rights reserved.</span><div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></div></footer>
-
-  <script src="js/auth.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-</body>
+    <script src="js/auth.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+  </body>
 </html>

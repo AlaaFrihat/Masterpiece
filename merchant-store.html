@@ -1,588 +1,1071 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Storefront Preview | Agrismart Merchant Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/merchant-dashboard.css" />
+    <style>
+      /* Public Storefront in Merchant Cycle */
+      .merchant-preview-banner {
+        background: var(--m-surface);
+        border: 1px solid var(--m-border);
+        border-left: 6px solid #10b951;
+        border-radius: var(--m-radius);
+        padding: 1.25rem 1.75rem;
+        box-shadow: var(--m-shadow);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Public Storefront Preview | Agrismart Merchant Hub</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/merchant-dashboard.css" />
-  <style>
-    /* Public Storefront in Merchant Cycle */
-    .merchant-preview-banner {
-      background: var(--m-surface);
-      border: 1px solid var(--m-border);
-      border-left: 6px solid #10b951;
-      border-radius: var(--m-radius);
-      padding: 1.25rem 1.75rem;
-      box-shadow: var(--m-shadow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
+      html[dir="rtl"] .merchant-preview-banner {
+        border-left: 1px solid var(--m-border);
+        border-right: 6px solid #10b951;
+      }
 
-    html[dir="rtl"] .merchant-preview-banner {
-      border-left: 1px solid var(--m-border);
-      border-right: 6px solid #10b951;
-    }
+      .merchant-preview-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
 
-    .merchant-preview-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+      .merchant-preview-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(16, 185, 81, 0.12);
+        color: #047857;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
 
-    .merchant-preview-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(16, 185, 81, 0.12);
-      color: #047857;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
+      .merchant-preview-text h2 {
+        margin: 0 0 0.2rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--m-text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-    .merchant-preview-text h2 {
-      margin: 0 0 0.2rem;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--m-text);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+      .merchant-preview-text p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--m-text-muted);
+      }
 
-    .merchant-preview-text p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--m-text-muted);
-    }
+      .storefront-cover {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #064e3b, #10b951);
+        border-radius: var(--m-radius) var(--m-radius) 0 0;
+      }
 
-    .storefront-cover {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      background: linear-gradient(135deg, #064e3b, #10b951);
-      border-radius: var(--m-radius) var(--m-radius) 0 0;
-    }
+      .storefront-header-card {
+        background: var(--m-surface);
+        border: 1px solid var(--m-border);
+        border-radius: var(--m-radius);
+        box-shadow: var(--m-shadow);
+        margin-top: -60px;
+        padding: 1.75rem 2rem;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
 
-    .storefront-header-card {
-      background: var(--m-surface);
-      border: 1px solid var(--m-border);
-      border-radius: var(--m-radius);
-      box-shadow: var(--m-shadow);
-      margin-top: -60px;
-      padding: 1.75rem 2rem;
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
+      .storefront-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        border: 4px solid var(--m-surface);
+        background: linear-gradient(135deg, #10b951, #028532);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8rem;
+        font-weight: 800;
+        box-shadow: 0 8px 24px rgba(16, 185, 81, 0.25);
+        flex-shrink: 0;
+      }
 
-    .storefront-logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 24px;
-      border: 4px solid var(--m-surface);
-      background: linear-gradient(135deg, #10b951, #028532);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      font-weight: 800;
-      box-shadow: 0 8px 24px rgba(16,185,81,0.25);
-      flex-shrink: 0;
-    }
+      .storefront-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
 
-    .storefront-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
+      .storefront-card {
+        background: var(--m-surface);
+        border: 1px solid var(--m-border);
+        border-radius: var(--m-radius);
+        overflow: hidden;
+        box-shadow: var(--m-shadow);
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
 
-    .storefront-card {
-      background: var(--m-surface);
-      border: 1px solid var(--m-border);
-      border-radius: var(--m-radius);
-      overflow: hidden;
-      box-shadow: var(--m-shadow);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+      .storefront-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--m-shadow-lg);
+      }
 
-    .storefront-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--m-shadow-lg);
-    }
+      .storefront-card__img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: var(--m-surface-alt);
+      }
 
-    .storefront-card__img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: var(--m-surface-alt);
-    }
+      .storefront-card__body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+      }
 
-    .storefront-card__body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      flex: 1;
-    }
+      .spotlight-banner {
+        background: linear-gradient(
+          135deg,
+          #064e3b 0%,
+          #065f46 60%,
+          #0f766e 100%
+        );
+        color: #ffffff;
+        border-radius: var(--m-radius);
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        box-shadow: var(--m-shadow);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .spotlight-banner {
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 60%, #0f766e 100%);
-      color: #ffffff;
-      border-radius: var(--m-radius);
-      padding: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      box-shadow: var(--m-shadow);
-      position: relative;
-      overflow: hidden;
-    }
+      .spotlight-badge {
+        background: #facc15;
+        color: #78350f;
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
 
-    .spotlight-badge {
-      background: #facc15;
-      color: #78350f;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
+      .pickup-info-box {
+        background: var(--m-surface);
+        border: 1px dashed var(--m-primary);
+        border-radius: var(--m-radius);
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
 
-    .pickup-info-box {
-      background: var(--m-surface);
-      border: 1px dashed var(--m-primary);
-      border-radius: var(--m-radius);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
+      .review-card {
+        background: var(--m-surface);
+        border: 1px solid var(--m-border);
+        border-radius: var(--m-radius);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        box-shadow: var(--m-shadow);
+      }
+    </style>
+  </head>
 
-    .review-card {
-      background: var(--m-surface);
-      border: 1px solid var(--m-border);
-      border-radius: var(--m-radius);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      box-shadow: var(--m-shadow);
-    }
-  </style>
-</head>
+  <body data-requires-auth="true">
+    <!-- Shared SVG Sprite from index.html -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="svg-sprite-container"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol
+        id="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </symbol>
+      <symbol
+        id="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </symbol>
+      <symbol
+        id="icon-search"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol
+        id="icon-heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        />
+      </symbol>
+      <symbol
+        id="icon-user"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol
+        id="icon-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+        />
+      </symbol>
+    </svg>
 
-<body data-requires-auth="true">
-  <!-- Shared SVG Sprite from index.html -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></symbol>
-    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></symbol>
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
-    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" /></symbol>
-  </svg>
-
-  <!-- Distinct Merchant Top Strip -->
-  <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
-    <div class="merchant-top-strip__inner">
-      <div class="merchant-top-strip__badge">
-        <span class="merchant-pulse-dot"></span>
-        <span>🏪 Agrismart Nursery Portal · <span id="topStripStoreName">Al-Rawabi Botanical Nursery</span></span>
-      </div>
-      <div class="merchant-top-strip__actions">
-        <a href="store.html?id=rawabi" target="_blank">👁️ Live Shopper View ↗</a>
-        <a href="shop.html">🛒 Consumer Shop</a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Navigation (Source of Truth: index.html - Merchant Cycle) -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="merchant-dashboard.html" class="nav__logo logo-container" aria-label="Agrismart Merchant Hub">
-        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
-        <span class="nav-merchant-tag">Nursery Hub</span>
-      </a>
-
-      <ul class="nav__links" id="navLinks">
-        <li><a href="merchant-dashboard.html">Dashboard</a></li>
-        <li><a href="merchant-profile.html">Store Profile</a></li>
-        <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
-        <li><a href="merchant-analytics.html">Analytics</a></li>
-        <li><a href="merchant-store.html" class="active" aria-current="page">Public Store</a></li>
-        <li><a href="merchant-contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="lang-en" type="button">EN</button>
-          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+    <!-- Distinct Merchant Top Strip -->
+    <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
+      <div class="merchant-top-strip__inner">
+        <div class="merchant-top-strip__badge">
+          <span class="merchant-pulse-dot"></span>
+          <span
+            >🏪 Agrismart Nursery Portal ·
+            <span id="topStripStoreName"
+              >Al-Rawabi Botanical Nursery</span
+            ></span
+          >
         </div>
-        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
-          <svg id="themeIconLight" class="hidden-icon"><use href="#icon-sun"></use></svg>
-          <svg id="themeIconDark"><use href="#icon-moon"></use></svg>
-        </button>
-        <a href="merchant-account.html" id="loginPageButton" class="btn-icon" aria-label="Merchant Profile" title="Merchant Profile" data-auth-control>
-          <svg><use href="#icon-user"></use></svg>
+        <div class="merchant-top-strip__actions">
+          <a href="store.html?id=rawabi" target="_blank"
+            >👁️ Live Shopper View ↗</a
+          >
+          <a href="shop.html">🛒 Consumer Shop</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Navigation (Source of Truth: index.html - Merchant Cycle) -->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <a
+          href="merchant-dashboard.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Merchant Hub"
+        >
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+          <span class="nav-merchant-tag">Nursery Hub</span>
         </a>
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Main Storefront Layout in Merchant Cycle -->
-  <main class="merchant-main" style="padding-top:1.5rem;">
-    <div class="merchant-container">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="merchant-dashboard.html">Dashboard</a></li>
+          <li><a href="merchant-profile.html">Store Profile</a></li>
+          <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
+          <li><a href="merchant-analytics.html">Analytics</a></li>
+          <li>
+            <a href="merchant-store.html" class="active" aria-current="page"
+              >Public Store</a
+            >
+          </li>
+          <li><a href="merchant-contact.html">Contact</a></li>
+        </ul>
 
-      <!-- Merchant Control Bar on top of Storefront -->
-      <section class="merchant-preview-banner">
-        <div class="merchant-preview-info">
-          <div class="merchant-preview-icon">🏪</div>
-          <div class="merchant-preview-text">
-            <h2>Nursery Public Storefront · Merchant Portal View</h2>
-            <p>This is how shoppers see your nursery on Agrismart. Changes made in your Store Profile reflect here instantly.</p>
+        <div class="nav__actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN
+            </button>
+            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
           </div>
-        </div>
-        <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center;">
-          <a href="merchant-profile.html" class="btn-merchant btn-merchant--primary">
-            ✏️ Edit Store Profile
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg id="themeIconDark"><use href="#icon-moon"></use></svg>
+          </button>
+          <a
+            href="merchant-account.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Merchant Profile"
+            title="Merchant Profile"
+            data-auth-control
+          >
+            <svg><use href="#icon-user"></use></svg>
           </a>
-          <a href="merchant-dashboard.html#inventory" class="btn-merchant btn-merchant--outline">
-            ➕ Add / Manage Plants
-          </a>
-          <button type="button" class="btn-merchant btn-merchant--outline" id="copyPublicLinkBtn">
-            🔗 Copy Customer Link
+          <button
+            class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+          >
+            <span></span><span></span><span></span>
           </button>
-          <a href="store.html?id=rawabi" target="_blank" class="btn-merchant btn-merchant--outline" title="Open external shopper link in new tab">
-            👁️ Live Shopper View ↗
-          </a>
-        </div>
-      </section>
-
-      <!-- Vacation Mode Alert Banner -->
-      <aside id="storeVacationBanner" style="display:none; background:#fffbeb; border:1px solid #f59e0b; border-radius:var(--m-radius); padding:1.1rem 1.35rem; margin-bottom:1.25rem; align-items:flex-start; gap:0.85rem; color:#92400e; box-shadow:0 4px 12px rgba(245,158,11,0.08);">
-        <span style="font-size:1.6rem; line-height:1;">🌴</span>
-        <div>
-          <strong id="storeVacationTitle" style="display:block; font-size:1rem; margin-bottom:0.25rem; color:#78350f;">Nursery is temporarily in Maintenance / Vacation Mode</strong>
-          <p id="storeVacationDesc" style="margin:0; font-size:0.88rem; color:#92400e; line-height:1.5;">
-            Our greenhouse staff is currently attending to botanical propagation. Specimen browsing is open; order dispatches will resume shortly.
-          </p>
-        </div>
-      </aside>
-
-      <!-- Store Promotional Announcement Banner -->
-      <aside id="storeAnnouncementBanner" style="display:none; background:linear-gradient(90deg, #064e3b 0%, #047857 100%); border-radius:var(--m-radius); padding:0.9rem 1.4rem; margin-bottom:1.25rem; color:#ffffff; align-items:center; justify-content:space-between; gap:1rem; box-shadow:0 4px 14px rgba(6,78,59,0.2);">
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <span style="font-size:1.3rem;">📣</span>
-          <span id="storeAnnouncementText" style="font-weight:600; font-size:0.94rem;">Special Nursery Promotion</span>
-        </div>
-        <span style="font-size:0.76rem; background:rgba(255,255,255,0.22); padding:3px 10px; border-radius:999px; text-transform:uppercase; letter-spacing:0.04em; white-space:nowrap;">Nursery Highlight</span>
-      </aside>
-
-      <!-- Cover Image -->
-      <img class="storefront-cover" id="storeCoverImg" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600&auto=format&fit=crop&q=80" alt="Nursery Greenhouse">
-
-      <!-- Store Profile Card -->
-      <section class="storefront-header-card">
-        <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-          <div class="storefront-logo" id="storeLogoBadge">R</div>
-          <div>
-            <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
-              <h1 id="storeHeaderTitle" style="margin:0; font-size:1.85rem; font-weight:800; color:var(--m-text);">Al-Rawabi Botanical Nursery</h1>
-              <span class="merchant-badge">✓ Agrismart Verified Nursery</span>
-            </div>
-            <p id="storeHeaderTagline" style="margin:0.4rem 0 0.6rem; color:var(--m-text-muted); font-size:0.95rem; max-width:650px;">
-              Specializing in certified Mediterranean specimens, acclimated rare aroids, organic seedling starters, and artisan clay pottery since 2018.
-            </p>
-            <div class="merchant-chips" id="storeHeaderChips">
-              <span class="merchant-chip" id="chipStoreLocation">📍 Wasfi Al-Tal St, Gardens, Amman</span>
-              <span class="merchant-chip" id="chipStorePhone">📞 +962 7 9811 2233</span>
-              <span class="merchant-chip" id="chipStoreRating">⭐ 4.9 (148 reviews)</span>
-              <span class="merchant-chip">🕒 Open Mon-Sat: 9am - 7pm</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-          <button class="btn-merchant btn-merchant--primary" id="followStoreBtn" type="button">
-            ❤️ Follow Nursery (<span id="followersCount">1,420</span>)
-          </button>
-          <button class="btn-merchant btn-merchant--outline" id="shareStoreBtn" type="button">
-            🔗 Share Store
-          </button>
-          <button class="btn-merchant btn-merchant--outline" id="askExpertBtn" type="button">
-            🌿 Ask Specialist
-          </button>
-          <a id="storeWhatsAppLink" href="https://wa.me/962798112233" target="_blank" rel="noopener" class="btn-merchant btn-merchant--outline">
-            💬 WhatsApp
-          </a>
-        </div>
-      </section>
-
-      <!-- Specimen Spotlight Banner -->
-      <section class="spotlight-banner" id="spotlightBanner">
-        <div id="spotlightInfoCol">
-          <span class="spotlight-badge">⭐ Botanical Specimen of the Week</span>
-          <h2 id="spotlightTitle" style="margin:0 0 0.5rem; font-size:1.6rem; font-weight:800;">
-            Variegated Monstera Albo
-          </h2>
-          <p id="spotlightDesc" style="margin:0 0 1rem; font-size:0.95rem; max-width:600px; color:#d1fae5;">
-            Hand-acclimated mother plant specimen with marbled white foliage. Ready for potting.
-          </p>
-          <div style="display:flex; align-items:baseline; gap:0.75rem;">
-            <span id="spotlightPrice" style="font-size:1.85rem; font-weight:800; color:#facc15;">$110.00</span>
-            <span style="font-size:0.85rem; background:rgba(0,0,0,0.25); padding:0.2rem 0.5rem; border-radius:6px;">Direct from greenhouse stock</span>
-          </div>
-        </div>
-        <a href="merchant-dashboard.html#inventory" class="btn-merchant" style="background:#ffffff; color:#064e3b; font-weight:800; font-size:1rem; padding:0.85rem 1.5rem; text-decoration:none;">
-          🌿 Manage in Inventory
-        </a>
-      </section>
-
-      <!-- Greenhouse Pick-up Box -->
-      <section class="pickup-info-box">
-        <div style="display:flex; align-items:center; gap:1rem;">
-          <span style="font-size:2rem;">🏡</span>
-          <div>
-            <strong style="display:block; font-size:1rem; color:var(--m-text);">Greenhouse Self-Pickup Available (Free)</strong>
-            <span id="pickupNoteText" style="font-size:0.88rem; color:var(--m-text-muted);">
-              Prefer selecting your own plant specimen in person? Place an order online and pick up at our Amman greenhouse anytime during opening hours.
-            </span>
-          </div>
-        </div>
-        <a href="nearby-stores.html" class="btn-merchant btn-merchant--outline" style="white-space:nowrap;">
-          📍 View Map Location
-        </a>
-      </section>
-
-      <!-- Store Highlights / Care Guarantee -->
-      <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem;">
-        <div class="kpi-card">
-          <div class="kpi-info">
-            <span class="kpi-title">Guaranteed Arrival</span>
-            <span style="font-weight:700; font-size:1.05rem;">Root Hydrated &amp; Foam Packed</span>
-            <span class="kpi-sub">Sphagnum moss moisture wraps</span>
-          </div>
-          <div class="kpi-icon-wrap">💧</div>
-        </div>
-
-        <div class="kpi-card">
-          <div class="kpi-info">
-            <span class="kpi-title">Horticultural Advice</span>
-            <span style="font-weight:700; font-size:1.05rem;">Direct Plant Care Support</span>
-            <span class="kpi-sub">Customized for local Jordan tap water &amp; sun</span>
-          </div>
-          <div class="kpi-icon-wrap">🌱</div>
-        </div>
-
-        <div class="kpi-card">
-          <div class="kpi-info">
-            <span class="kpi-title">Express Delivery</span>
-            <span style="font-weight:700; font-size:1.05rem;">Climate Controlled Fleet</span>
-            <span class="kpi-sub">Same/Next day delivery in Amman &amp; Zarqa</span>
-          </div>
-          <div class="kpi-icon-wrap">🚚</div>
-        </div>
-      </section>
-
-      <!-- Store Catalog Toolbar & Internal Search -->
-      <section class="panel-toolbar" style="margin-top:0.5rem;">
-        <div class="panel-toolbar-start">
-          <div class="toolbar-search">
-            <span class="toolbar-search-icon">🔍</span>
-            <input type="text" id="nurserySearchInput" placeholder="Search this nursery's plants..." />
-          </div>
-
-          <select class="toolbar-filter-select" id="nurseryCategoryFilter" aria-label="Filter category">
-            <option value="all">All Nursery Categories</option>
-            <option value="outdoor">Outdoor Plants &amp; Trees</option>
-            <option value="indoor">Indoor Houseplants</option>
-            <option value="pots">Handmade Pots &amp; Planters</option>
-            <option value="seeds">Seeds &amp; Nutrition</option>
-          </select>
-        </div>
-
-        <span style="font-size:0.88rem; color:var(--m-text-muted);" id="catalogResultCount">
-          Showing available nursery specimens
-        </span>
-      </section>
-
-      <!-- Plants Grid (Dynamic & Filterable) -->
-      <section class="storefront-grid" id="storefrontCatalogGrid">
-        <!-- Rendered by js/merchant-store.js -->
-      </section>
-
-      <!-- Customer Reviews & Testimonials Section -->
-      <section style="margin-top:2rem;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
-          <div>
-            <h2 style="margin:0 0 0.25rem; font-size:1.45rem; font-weight:800; color:var(--m-text);">Verified Customer Experiences</h2>
-            <p style="margin:0; font-size:0.9rem; color:var(--m-text-muted);">Real reviews from botanical collectors who received plants from this nursery.</p>
-          </div>
-          <button class="btn-merchant btn-merchant--outline" id="writeReviewBtn" type="button">
-            ✍️ Write a Review
-          </button>
-        </div>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <strong>Rania Qasim · Amman</strong>
-              <span style="color:#d97706; font-size:0.9rem;">★★★★★</span>
-            </div>
-            <p style="margin:0; font-size:0.92rem; color:var(--m-text); line-height:1.5;">
-              "The Monstera Albo arrived in immaculate shape. Moisture around root balls was kept fresh and the white variegation is stunning. Highly recommended nursery!"
-            </p>
-            <small style="color:var(--m-text-muted);">Verified Buyer · 3 days ago</small>
-          </div>
-
-          <div class="review-card">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <strong>Tareq Masri · Dabouq</strong>
-              <span style="color:#d97706; font-size:0.9rem;">★★★★★</span>
-            </div>
-            <p style="margin:0; font-size:0.92rem; color:var(--m-text); line-height:1.5;">
-              "Picked up the mature olive tree directly from their greenhouse. The nursery team even helped me load it into my truck and gave detailed pruning tips."
-            </p>
-            <small style="color:var(--m-text-muted);">Verified Buyer · 1 week ago</small>
-          </div>
-
-          <div class="review-card">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <strong>Leen Al-Husseini · Zarqa</strong>
-              <span style="color:#d97706; font-size:0.9rem;">★★★★★</span>
-            </div>
-            <p style="margin:0; font-size:0.92rem; color:var(--m-text); line-height:1.5;">
-              "Fast same-day delivery via Agrismart climate van. The terracotta pots and organic seeds sprouted within 4 days. Top quality."
-            </p>
-            <small style="color:var(--m-text-muted);">Verified Buyer · 2 weeks ago</small>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Ask Expert Modal -->
-  <div class="merchant-modal-backdrop" id="expertModal">
-    <div class="merchant-modal" style="max-width:540px;">
-      <div class="modal-header">
-        <h3 class="modal-title" id="expertModalTitle">🌿 Ask the Nursery Horticulturist</h3>
-        <button class="modal-close" id="closeExpertModalBtn" type="button" aria-label="Close modal">&times;</button>
-      </div>
-      <form id="expertForm">
-        <div class="modal-body">
-          <p style="margin:0; font-size:0.92rem; color:var(--m-text-muted);">
-            Have questions about sun requirements, soil moisture, or repotting in Jordan's climate? Send an inquiry directly to the greenhouse team.
-          </p>
-          <div class="form-group">
-            <label class="form-label" for="inquiryPlant">Which plant are you asking about?</label>
-            <input type="text" class="form-input" id="inquiryPlant" placeholder="e.g. Monstera Albo or Olive Bonsai" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="inquiryQuestion">Your question / care situation</label>
-            <textarea class="form-input" id="inquiryQuestion" rows="3" placeholder="Describe lighting, watering habits, or leaf symptoms..." required></textarea>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="inquiryWhatsApp">Your WhatsApp phone number</label>
-            <input type="tel" class="form-input" id="inquiryWhatsApp" placeholder="+962 7X XXX XXXX" required />
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-merchant btn-merchant--outline" id="cancelExpertModalBtn">Cancel</button>
-          <button type="submit" class="btn-merchant btn-merchant--primary">Send to Nursery Team</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Shared Footer (Source of Truth: index.html - Merchant Cycle) -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo flex items-center">
-            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
-          </div>
-          <div class="footer__desc">
-            Empowering plant growers, verified nurseries, and botanical enthusiasts nationwide.
-          </div>
-        </div>
-        <div>
-          <div class="footer__heading">Merchant Hub</div>
-          <ul class="footer__links">
-            <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
-            <li><a href="merchant-profile.html">Store Profile &amp; Editor</a></li>
-            <li><a href="merchant-store.html">Public Marketplace Store</a></li>
-            <li><a href="nearby-stores.html">Nearby Greenhouses Map</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Support &amp; Logistics</div>
-          <ul class="footer__links">
-            <li><a href="track-order.html">Track Shipments</a></li>
-            <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
-            <li><a href="about.html">About Agrismart</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Headquarters</div>
-          <ul class="footer__links">
-            <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
-            <li><span>📞 +962 7 9811 2233</span></li>
-            <li><a href="mailto:wholesale@agrismart.com">✉️ wholesale@agrismart.com</a></li>
-          </ul>
         </div>
       </div>
+    </nav>
+
+    <!-- Main Storefront Layout in Merchant Cycle -->
+    <main class="merchant-main" style="padding-top: 1.5rem">
+      <div class="merchant-container">
+        <!-- Merchant Control Bar on top of Storefront -->
+        <section class="merchant-preview-banner">
+          <div class="merchant-preview-info">
+            <div class="merchant-preview-icon">🏪</div>
+            <div class="merchant-preview-text">
+              <h2>Nursery Public Storefront · Merchant Portal View</h2>
+              <p>
+                This is how shoppers see your nursery on Agrismart. Changes made
+                in your Store Profile reflect here instantly.
+              </p>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              gap: 0.6rem;
+              flex-wrap: wrap;
+              align-items: center;
+            "
+          >
+            <a
+              href="merchant-profile.html"
+              class="btn-merchant btn-merchant--primary"
+            >
+              ✏️ Edit Store Profile
+            </a>
+            <a
+              href="merchant-dashboard.html#inventory"
+              class="btn-merchant btn-merchant--outline"
+            >
+              ➕ Add / Manage Plants
+            </a>
+            <button
+              type="button"
+              class="btn-merchant btn-merchant--outline"
+              id="copyPublicLinkBtn"
+            >
+              🔗 Copy Customer Link
+            </button>
+            <a
+              href="store.html?id=rawabi"
+              target="_blank"
+              class="btn-merchant btn-merchant--outline"
+              title="Open external shopper link in new tab"
+            >
+              👁️ Live Shopper View ↗
+            </a>
+          </div>
+        </section>
+
+        <!-- Vacation Mode Alert Banner -->
+        <aside
+          id="storeVacationBanner"
+          style="
+            display: none;
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-radius: var(--m-radius);
+            padding: 1.1rem 1.35rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+            gap: 0.85rem;
+            color: #92400e;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08);
+          "
+        >
+          <span style="font-size: 1.6rem; line-height: 1">🌴</span>
+          <div>
+            <strong
+              id="storeVacationTitle"
+              style="
+                display: block;
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+                color: #78350f;
+              "
+              >Nursery is temporarily in Maintenance / Vacation Mode</strong
+            >
+            <p
+              id="storeVacationDesc"
+              style="
+                margin: 0;
+                font-size: 0.88rem;
+                color: #92400e;
+                line-height: 1.5;
+              "
+            >
+              Our greenhouse staff is currently attending to botanical
+              propagation. Specimen browsing is open; order dispatches will
+              resume shortly.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Store Promotional Announcement Banner -->
+        <aside
+          id="storeAnnouncementBanner"
+          style="
+            display: none;
+            background: linear-gradient(90deg, #064e3b 0%, #047857 100%);
+            border-radius: var(--m-radius);
+            padding: 0.9rem 1.4rem;
+            margin-bottom: 1.25rem;
+            color: #ffffff;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: 0 4px 14px rgba(6, 78, 59, 0.2);
+          "
+        >
+          <div style="display: flex; align-items: center; gap: 0.75rem">
+            <span style="font-size: 1.3rem">📣</span>
+            <span
+              id="storeAnnouncementText"
+              style="font-weight: 600; font-size: 0.94rem"
+              >Special Nursery Promotion</span
+            >
+          </div>
+          <span
+            style="
+              font-size: 0.76rem;
+              background: rgba(255, 255, 255, 0.22);
+              padding: 3px 10px;
+              border-radius: 999px;
+              text-transform: uppercase;
+              letter-spacing: 0.04em;
+              white-space: nowrap;
+            "
+            >Nursery Highlight</span
+          >
+        </aside>
+
+        <!-- Cover Image -->
+        <img
+          class="storefront-cover"
+          id="storeCoverImg"
+          src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600&auto=format&fit=crop&q=80"
+          alt="Nursery Greenhouse"
+        />
+
+        <!-- Store Profile Card -->
+        <section class="storefront-header-card">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 1.5rem;
+              flex-wrap: wrap;
+            "
+          >
+            <div class="storefront-logo" id="storeLogoBadge">R</div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.75rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <h1
+                  id="storeHeaderTitle"
+                  style="
+                    margin: 0;
+                    font-size: 1.85rem;
+                    font-weight: 800;
+                    color: var(--m-text);
+                  "
+                >
+                  Al-Rawabi Botanical Nursery
+                </h1>
+                <span class="merchant-badge">✓ Agrismart Verified Nursery</span>
+              </div>
+              <p
+                id="storeHeaderTagline"
+                style="
+                  margin: 0.4rem 0 0.6rem;
+                  color: var(--m-text-muted);
+                  font-size: 0.95rem;
+                  max-width: 650px;
+                "
+              >
+                Specializing in certified Mediterranean specimens, acclimated
+                rare aroids, organic seedling starters, and artisan clay pottery
+                since 2018.
+              </p>
+              <div class="merchant-chips" id="storeHeaderChips">
+                <span class="merchant-chip" id="chipStoreLocation"
+                  >📍 Wasfi Al-Tal St, Gardens, Amman</span
+                >
+                <span class="merchant-chip" id="chipStorePhone"
+                  >📞 +962 7 9811 2233</span
+                >
+                <span class="merchant-chip" id="chipStoreRating"
+                  >⭐ 4.9 (148 reviews)</span
+                >
+                <span class="merchant-chip">🕒 Open Mon-Sat: 9am - 7pm</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+            <button
+              class="btn-merchant btn-merchant--primary"
+              id="followStoreBtn"
+              type="button"
+            >
+              ❤️ Follow Nursery (<span id="followersCount">1,420</span>)
+            </button>
+            <button
+              class="btn-merchant btn-merchant--outline"
+              id="shareStoreBtn"
+              type="button"
+            >
+              🔗 Share Store
+            </button>
+            <button
+              class="btn-merchant btn-merchant--outline"
+              id="askExpertBtn"
+              type="button"
+            >
+              🌿 Ask Specialist
+            </button>
+            <a
+              id="storeWhatsAppLink"
+              href="https://wa.me/962798112233"
+              target="_blank"
+              rel="noopener"
+              class="btn-merchant btn-merchant--outline"
+            >
+              💬 WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <!-- Specimen Spotlight Banner -->
+        <section class="spotlight-banner" id="spotlightBanner">
+          <div id="spotlightInfoCol">
+            <span class="spotlight-badge"
+              >⭐ Botanical Specimen of the Week</span
+            >
+            <h2
+              id="spotlightTitle"
+              style="margin: 0 0 0.5rem; font-size: 1.6rem; font-weight: 800"
+            >
+              Variegated Monstera Albo
+            </h2>
+            <p
+              id="spotlightDesc"
+              style="
+                margin: 0 0 1rem;
+                font-size: 0.95rem;
+                max-width: 600px;
+                color: #d1fae5;
+              "
+            >
+              Hand-acclimated mother plant specimen with marbled white foliage.
+              Ready for potting.
+            </p>
+            <div style="display: flex; align-items: baseline; gap: 0.75rem">
+              <span
+                id="spotlightPrice"
+                style="font-size: 1.85rem; font-weight: 800; color: #facc15"
+                >$110.00</span
+              >
+              <span
+                style="
+                  font-size: 0.85rem;
+                  background: rgba(0, 0, 0, 0.25);
+                  padding: 0.2rem 0.5rem;
+                  border-radius: 6px;
+                "
+                >Direct from greenhouse stock</span
+              >
+            </div>
+          </div>
+          <a
+            href="merchant-dashboard.html#inventory"
+            class="btn-merchant"
+            style="
+              background: #ffffff;
+              color: #064e3b;
+              font-weight: 800;
+              font-size: 1rem;
+              padding: 0.85rem 1.5rem;
+              text-decoration: none;
+            "
+          >
+            🌿 Manage in Inventory
+          </a>
+        </section>
+
+        <!-- Greenhouse Pick-up Box -->
+        <section class="pickup-info-box">
+          <div style="display: flex; align-items: center; gap: 1rem">
+            <span style="font-size: 2rem">🏡</span>
+            <div>
+              <strong
+                style="display: block; font-size: 1rem; color: var(--m-text)"
+                >Greenhouse Self-Pickup Available (Free)</strong
+              >
+              <span
+                id="pickupNoteText"
+                style="font-size: 0.88rem; color: var(--m-text-muted)"
+              >
+                Prefer selecting your own plant specimen in person? Place an
+                order online and pick up at our Amman greenhouse anytime during
+                opening hours.
+              </span>
+            </div>
+          </div>
+          <a
+            href="nearby-stores.html"
+            class="btn-merchant btn-merchant--outline"
+            style="white-space: nowrap"
+          >
+            📍 View Map Location
+          </a>
+        </section>
+
+        <!-- Store Highlights / Care Guarantee -->
+        <section
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+          "
+        >
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <span class="kpi-title">Guaranteed Arrival</span>
+              <span style="font-weight: 700; font-size: 1.05rem"
+                >Root Hydrated &amp; Foam Packed</span
+              >
+              <span class="kpi-sub">Sphagnum moss moisture wraps</span>
+            </div>
+            <div class="kpi-icon-wrap">💧</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <span class="kpi-title">Horticultural Advice</span>
+              <span style="font-weight: 700; font-size: 1.05rem"
+                >Direct Plant Care Support</span
+              >
+              <span class="kpi-sub"
+                >Customized for local Jordan tap water &amp; sun</span
+              >
+            </div>
+            <div class="kpi-icon-wrap">🌱</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-info">
+              <span class="kpi-title">Express Delivery</span>
+              <span style="font-weight: 700; font-size: 1.05rem"
+                >Climate Controlled Fleet</span
+              >
+              <span class="kpi-sub"
+                >Same/Next day delivery in Amman &amp; Zarqa</span
+              >
+            </div>
+            <div class="kpi-icon-wrap">🚚</div>
+          </div>
+        </section>
+
+        <!-- Store Catalog Toolbar & Internal Search -->
+        <section class="panel-toolbar" style="margin-top: 0.5rem">
+          <div class="panel-toolbar-start">
+            <div class="toolbar-search">
+              <span class="toolbar-search-icon">🔍</span>
+              <input
+                type="text"
+                id="nurserySearchInput"
+                placeholder="Search this nursery's plants..."
+              />
+            </div>
+
+            <select
+              class="toolbar-filter-select"
+              id="nurseryCategoryFilter"
+              aria-label="Filter category"
+            >
+              <option value="all">All Nursery Categories</option>
+              <option value="outdoor">Outdoor Plants &amp; Trees</option>
+              <option value="indoor">Indoor Houseplants</option>
+              <option value="pots">Handmade Pots &amp; Planters</option>
+              <option value="seeds">Seeds &amp; Nutrition</option>
+            </select>
+          </div>
+
+          <span
+            style="font-size: 0.88rem; color: var(--m-text-muted)"
+            id="catalogResultCount"
+          >
+            Showing available nursery specimens
+          </span>
+        </section>
+
+        <!-- Plants Grid (Dynamic & Filterable) -->
+        <section class="storefront-grid" id="storefrontCatalogGrid">
+          <!-- Rendered by js/merchant-store.js -->
+        </section>
+
+        <!-- Customer Reviews & Testimonials Section -->
+        <section style="margin-top: 2rem">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 1rem;
+              margin-bottom: 1.25rem;
+            "
+          >
+            <div>
+              <h2
+                style="
+                  margin: 0 0 0.25rem;
+                  font-size: 1.45rem;
+                  font-weight: 800;
+                  color: var(--m-text);
+                "
+              >
+                Verified Customer Experiences
+              </h2>
+              <p
+                style="margin: 0; font-size: 0.9rem; color: var(--m-text-muted)"
+              >
+                Real reviews from botanical collectors who received plants from
+                this nursery.
+              </p>
+            </div>
+            <button
+              class="btn-merchant btn-merchant--outline"
+              id="writeReviewBtn"
+              type="button"
+            >
+              ✍️ Write a Review
+            </button>
+          </div>
+
+          <div class="reviews-grid">
+            <div class="review-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <strong>Rania Qasim · Amman</strong>
+                <span style="color: #d97706; font-size: 0.9rem">★★★★★</span>
+              </div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 0.92rem;
+                  color: var(--m-text);
+                  line-height: 1.5;
+                "
+              >
+                "The Monstera Albo arrived in immaculate shape. Moisture around
+                root balls was kept fresh and the white variegation is stunning.
+                Highly recommended nursery!"
+              </p>
+              <small style="color: var(--m-text-muted)"
+                >Verified Buyer · 3 days ago</small
+              >
+            </div>
+
+            <div class="review-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <strong>Tareq Masri · Dabouq</strong>
+                <span style="color: #d97706; font-size: 0.9rem">★★★★★</span>
+              </div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 0.92rem;
+                  color: var(--m-text);
+                  line-height: 1.5;
+                "
+              >
+                "Picked up the mature olive tree directly from their greenhouse.
+                The nursery team even helped me load it into my truck and gave
+                detailed pruning tips."
+              </p>
+              <small style="color: var(--m-text-muted)"
+                >Verified Buyer · 1 week ago</small
+              >
+            </div>
+
+            <div class="review-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <strong>Leen Al-Husseini · Zarqa</strong>
+                <span style="color: #d97706; font-size: 0.9rem">★★★★★</span>
+              </div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 0.92rem;
+                  color: var(--m-text);
+                  line-height: 1.5;
+                "
+              >
+                "Fast same-day delivery via Agrismart climate van. The
+                terracotta pots and organic seeds sprouted within 4 days. Top
+                quality."
+              </p>
+              <small style="color: var(--m-text-muted)"
+                >Verified Buyer · 2 weeks ago</small
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Ask Expert Modal -->
+    <div class="merchant-modal-backdrop" id="expertModal">
+      <div class="merchant-modal" style="max-width: 540px">
+        <div class="modal-header">
+          <h3 class="modal-title" id="expertModalTitle">
+            🌿 Ask the Nursery Horticulturist
+          </h3>
+          <button
+            class="modal-close"
+            id="closeExpertModalBtn"
+            type="button"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        </div>
+        <form id="expertForm">
+          <div class="modal-body">
+            <p
+              style="margin: 0; font-size: 0.92rem; color: var(--m-text-muted)"
+            >
+              Have questions about sun requirements, soil moisture, or repotting
+              in Jordan's climate? Send an inquiry directly to the greenhouse
+              team.
+            </p>
+            <div class="form-group">
+              <label class="form-label" for="inquiryPlant"
+                >Which plant are you asking about?</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="inquiryPlant"
+                placeholder="e.g. Monstera Albo or Olive Bonsai"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inquiryQuestion"
+                >Your question / care situation</label
+              >
+              <textarea
+                class="form-input"
+                id="inquiryQuestion"
+                rows="3"
+                placeholder="Describe lighting, watering habits, or leaf symptoms..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inquiryWhatsApp"
+                >Your WhatsApp phone number</label
+              >
+              <input
+                type="tel"
+                class="form-input"
+                id="inquiryWhatsApp"
+                placeholder="+962 7X XXX XXXX"
+                required
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn-merchant btn-merchant--outline"
+              id="cancelExpertModalBtn"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-merchant btn-merchant--primary">
+              Send to Nursery Team
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </footer>
 
-  <!-- Scripts: Exact sequence as requested in AGENTS.md -->
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/stores-data.js"></script>
-  <script src="js/merchant-store.js"></script>
-</body>
+    <!-- Shared Footer (Source of Truth: index.html - Merchant Cycle) -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Empowering plant growers, verified nurseries, and botanical
+              enthusiasts nationwide.
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Merchant Hub</div>
+            <ul class="footer__links">
+              <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
+              <li>
+                <a href="merchant-profile.html">Store Profile &amp; Editor</a>
+              </li>
+              <li>
+                <a href="merchant-store.html">Public Marketplace Store</a>
+              </li>
+              <li><a href="nearby-stores.html">Nearby Greenhouses Map</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Support &amp; Logistics</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track Shipments</a></li>
+              <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
+              <li><a href="about.html">About Agrismart</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Headquarters</div>
+            <ul class="footer__links">
+              <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
+              <li><span>📞 +962 7 9811 2233</span></li>
+              <li>
+                <a href="mailto:wholesale@agrismart.com"
+                  >✉️ wholesale@agrismart.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
+    <!-- Scripts: Exact sequence as requested in AGENTS.md -->
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/stores-data.js"></script>
+    <script src="js/merchant-store.js"></script>
+  </body>
 </html>

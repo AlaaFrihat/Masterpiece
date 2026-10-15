@@ -1,1 +1,284 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Categories &amp; Rooms | Agrismart Admin</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="css/admin.css"><link rel="stylesheet" href="css/admin-categories.css"></head><body class="admin-page categories-page" data-admin-page="true"><aside class="admin-sidebar" id="adminSidebar"><div class="admin-brand"><img src="assets/logo.svg" alt="Agrismart"><div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div></div><a class="live-store" href="index.html">▣ <span>View Live Store</span><b>↗</b></a><p class="side-label">OPERATIONS</p><nav class="admin-nav"><button data-section="overview">▦ <span>Overview</span></button><button data-section="orders">▣ <span>Orders &amp; Fulfillment</span><i>12</i></button><button data-section="inventory">♧ <span>Products &amp; Inventory</span></button><button class="active" data-section="categories">⊞ <span>Categories &amp; Rooms</span></button><button data-section="customers">▤ <span>Customers &amp; Reviews</span></button><button data-section="analytics">⌁ <span>Analytics &amp; Revenue</span></button><button data-section="settings">⚙ <span>Settings</span></button></nav><div class="wiki-card"><strong>▣ Plant Care Wiki</strong><p>Nursery manuals, seasonal care logs, and propagation guides.</p><a href="ai-assistant.html">Explore docs →</a></div><div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div></aside><div class="admin-main"><header class="admin-topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="admin-search">⌕<input placeholder="Search orders, plants, SKU, customers…"></div><div class="range-switch"><button>Today</button><button class="selected">Last 7 Days</button><button>This Month</button></div><div class="top-actions"><span class="online"><b></b> Online · Receiving Orders</span><button class="lang active">EN</button><button class="lang">AR</button><button class="notify">♧<i></i></button><button class="admin-profile"><span class="avatar">AF</span><span><strong>Alaa Frihat</strong><small>Operations Lead</small></span><b>⌄</b></button><button class="logout-button" data-admin-logout>Log out</button></div></header><main class="admin-content"><section class="categories-heading"><div><p>▦ CATALOG ARCHITECTURE <span>/</span> Store Taxonomy</p><h1>Categories &amp; Room Collections</h1><span>Curate the storefront rooms, botanical taxonomy, and seasonal hero campaigns.</span></div><div><button>▦ Reorder Storefront</button><button class="category-primary">＋ Create Collection / Room</button></div></section><section class="category-metrics"><article><small>ROOM COLLECTIONS</small><strong>5 <em>All Active</em></strong><p>◉ 100% indexed in Home navigation</p></article><article><small>BOTANICAL CATEGORIES</small><strong>8 <em>＋2 Seeds &amp; Pots</em></strong><p>↗ 482 botanical SKUs attached</p></article><article><small>LIVE HOMEPAGE BANNERS</small><strong>3 <em>1 Countdown Active</em></strong><p>◷ Autumn Promo ending in 4d</p></article><article><small>TAXONOMY GMV SHARE</small><strong>78.4% <em>Direct Clicks</em></strong><p>↗ +14.2% from previous month</p></article></section><section class="rooms-section"><div class="section-title"><div><h2>▌ Shop by Rooms Collections</h2><p>Real-time engagement and catalog split for the customer room filter strip.</p></div><small>Layout: 5 Cards Grid ☷</small></div><div class="room-grid"><article><div class="room-image room-1"><span>Position #1</span><b>✎</b></div><h3>Indoor Room</h3><small>Living &amp; Lounges</small><div class="room-stats"><span>Catalog Size <b>142 Plants</b></span><span>Conv. Rate <b>4.8%</b></span><span>Monthly Sales <b>$18,420</b></span><span>Top SKU <b>Monstera L...</b></span></div><label>Home Feed Status <i class="toggle on"></i></label></article><article><div class="room-image room-2"><span>Position #2</span><b>✎</b></div><h3>Workspace</h3><small>Desks &amp; Studios</small><div class="room-stats"><span>Catalog Size <b>68 Plants</b></span><span>Conv. Rate <b>5.2%</b></span><span>Monthly Sales <b>$12,390</b></span><span>Top SKU <b>Snake Plant ...</b></span></div><label>Home Feed Status <i class="toggle on"></i></label></article><article><div class="room-image room-3"><span>Position #3</span><b>✎</b></div><h3>Outdoor Room</h3><small>Balconies &amp; Gardens</small><div class="room-stats"><span>Catalog Size <b>89 Plants</b></span><span>Conv. Rate <b>3.9%</b></span><span>Monthly Sales <b>$9,850</b></span><span>Top SKU <b>Hibiscus Bra...</b></span></div><label>Home Feed Status <i class="toggle on"></i></label></article><article><div class="room-image room-4"><span>Position #4</span><b>✎</b></div><h3>Bedroom</h3><small>Quiet &amp; Low Light</small><div class="room-stats"><span>Catalog Size <b>54 Plants</b></span><span>Conv. Rate <b>4.4%</b></span><span>Monthly Sales <b>$11,200</b></span><span>Top SKU <b>ZZ Plant Zen...</b></span></div><label>Home Feed Status <i class="toggle on"></i></label></article><article><div class="room-image room-5"><span>Position #5</span><b>✎</b></div><h3>Bathroom</h3><small>High Moisture</small><div class="room-stats"><span>Catalog Size <b>39 Plants</b></span><span>Conv. Rate <b>4.1%</b></span><span>Monthly Sales <b>$6,430</b></span><span>Top SKU <b>Bird’s Nest F...</b></span></div><label>Home Feed Status <i class="toggle on"></i></label></article></div></section><section class="taxonomy-section"><div class="section-title"><div><h2>▌ Botanical &amp; Auxiliary Categories</h2><p>Taxonomy classifications with performance rankings, SEO paths, and stock depth.</p></div><div><input id="categorySearch" placeholder="⌕ Filter category or slug..."><button>⇩ Export Taxonomy</button></div></div><div class="taxonomy-table"><div class="taxonomy-row taxonomy-head"><span>Category &amp; Visual</span><span>Storefront Slug</span><span>Live Products</span><span>Top Performing Item</span><span>30-Day GMV</span><span>Visibility</span><span>Actions</span></div><div id="categoryRows"></div><div class="taxonomy-foot">Showing 7 of 8 active botanical categories <span>Previous　<b>1</b>　2　Next</span></div></div></section><section class="campaign-section"><div class="section-title"><div><h2>▌ Promotional Campaign Hero &amp; Banners</h2><p>Configure the flash discount widgets and countdown timers displayed on the consumer storefront.</p></div><button>▣ New Banner Slot</button></div><div class="campaign-grid"><article><span>Live on Storefront</span><small>Hero Card Banner</small><div><b>50% OFF</b><h3>Autumn Promo Deal</h3><p>Scheduled: 21–30 Sept</p><button>Shop now →</button></div><p>Target Collection: <b>Best Seller Deals</b><br>Clicks Today: <b>1,489 clicks (9.2% CTR)</b></p><footer><button>Edit Content</button><button>Pause</button></footer></article><article><span>Live on Storefront</span><small>Countdown Timer Bar</small><div class="countdown"><b>NATURE'S SPECIAL DISCOUNT</b><h3>Get 60% off · Limited Offer</h3><strong>02　:　24　:　59</strong></div><p>Attached Coupon: <b>GREEN60</b><br>Redemptions: <b>342 uses of 500 cap</b></p><footer><button>Adjust Timer</button><button>Rules</button></footer></article><article><span>Live on Storefront</span><small>Mid-Feed Strip</small><div><b>WEEKLY GREEN DEALS</b><h3>Exclusive Discounts on Must-Have Greens</h3><p>With curated nursery care instructions</p></div><p>Featured SKU: <b>Fiddle Leaf Fig Large</b><br>Conversion Delta: <b>+22.4% this week</b></p><footer><button>Edit Content</button><button>Preview</button></footer></article></div></section></main></div><script src="js/language.js"></script><script src="js/admin-auth.js"></script><script src="js/admin-categories.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Categories &amp; Rooms | Agrismart Admin</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/admin-categories.css" />
+  </head>
+  <body class="admin-page categories-page" data-admin-page="true">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-brand">
+        <img src="assets/logo.svg" alt="Agrismart" />
+        <div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div>
+      </div>
+      <a class="live-store" href="index.html"
+        >▣ <span>View Live Store</span><b>↗</b></a
+      >
+      <p class="side-label">OPERATIONS</p>
+      <nav class="admin-nav">
+        <button data-section="overview">▦ <span>Overview</span></button
+        ><button data-section="orders">
+          ▣ <span>Orders &amp; Fulfillment</span><i>12</i></button
+        ><button data-section="inventory">
+          ♧ <span>Products &amp; Inventory</span></button
+        ><button class="active" data-section="categories">
+          ⊞ <span>Categories &amp; Rooms</span></button
+        ><button data-section="customers">
+          ▤ <span>Customers &amp; Reviews</span></button
+        ><button data-section="analytics">
+          ⌁ <span>Analytics &amp; Revenue</span></button
+        ><button data-section="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="wiki-card">
+        <strong>▣ Plant Care Wiki</strong>
+        <p>Nursery manuals, seasonal care logs, and propagation guides.</p>
+        <a href="ai-assistant.html">Explore docs →</a>
+      </div>
+      <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div class="admin-search">
+          ⌕<input placeholder="Search orders, plants, SKU, customers…" />
+        </div>
+        <div class="range-switch">
+          <button>Today</button><button class="selected">Last 7 Days</button
+          ><button>This Month</button>
+        </div>
+        <div class="top-actions">
+          <span class="online"><b></b> Online · Receiving Orders</span
+          ><button class="lang active">EN</button
+          ><button class="lang">AR</button
+          ><button class="notify">♧<i></i></button
+          ><button class="admin-profile">
+            <span class="avatar">AF</span
+            ><span
+              ><strong>Alaa Frihat</strong><small>Operations Lead</small></span
+            ><b>⌄</b></button
+          ><button class="logout-button" data-admin-logout>Log out</button>
+        </div>
+      </header>
+      <main class="admin-content">
+        <section class="categories-heading">
+          <div>
+            <p>▦ CATALOG ARCHITECTURE <span>/</span> Store Taxonomy</p>
+            <h1>Categories &amp; Room Collections</h1>
+            <span
+              >Curate the storefront rooms, botanical taxonomy, and seasonal
+              hero campaigns.</span
+            >
+          </div>
+          <div>
+            <button>▦ Reorder Storefront</button
+            ><button class="category-primary">
+              ＋ Create Collection / Room
+            </button>
+          </div>
+        </section>
+        <section class="category-metrics">
+          <article>
+            <small>ROOM COLLECTIONS</small
+            ><strong>5 <em>All Active</em></strong>
+            <p>◉ 100% indexed in Home navigation</p>
+          </article>
+          <article>
+            <small>BOTANICAL CATEGORIES</small
+            ><strong>8 <em>＋2 Seeds &amp; Pots</em></strong>
+            <p>↗ 482 botanical SKUs attached</p>
+          </article>
+          <article>
+            <small>LIVE HOMEPAGE BANNERS</small
+            ><strong>3 <em>1 Countdown Active</em></strong>
+            <p>◷ Autumn Promo ending in 4d</p>
+          </article>
+          <article>
+            <small>TAXONOMY GMV SHARE</small
+            ><strong>78.4% <em>Direct Clicks</em></strong>
+            <p>↗ +14.2% from previous month</p>
+          </article>
+        </section>
+        <section class="rooms-section">
+          <div class="section-title">
+            <div>
+              <h2>▌ Shop by Rooms Collections</h2>
+              <p>
+                Real-time engagement and catalog split for the customer room
+                filter strip.
+              </p>
+            </div>
+            <small>Layout: 5 Cards Grid ☷</small>
+          </div>
+          <div class="room-grid">
+            <article>
+              <div class="room-image room-1">
+                <span>Position #1</span><b>✎</b>
+              </div>
+              <h3>Indoor Room</h3>
+              <small>Living &amp; Lounges</small>
+              <div class="room-stats">
+                <span>Catalog Size <b>142 Plants</b></span
+                ><span>Conv. Rate <b>4.8%</b></span
+                ><span>Monthly Sales <b>$18,420</b></span
+                ><span>Top SKU <b>Monstera L...</b></span>
+              </div>
+              <label>Home Feed Status <i class="toggle on"></i></label>
+            </article>
+            <article>
+              <div class="room-image room-2">
+                <span>Position #2</span><b>✎</b>
+              </div>
+              <h3>Workspace</h3>
+              <small>Desks &amp; Studios</small>
+              <div class="room-stats">
+                <span>Catalog Size <b>68 Plants</b></span
+                ><span>Conv. Rate <b>5.2%</b></span
+                ><span>Monthly Sales <b>$12,390</b></span
+                ><span>Top SKU <b>Snake Plant ...</b></span>
+              </div>
+              <label>Home Feed Status <i class="toggle on"></i></label>
+            </article>
+            <article>
+              <div class="room-image room-3">
+                <span>Position #3</span><b>✎</b>
+              </div>
+              <h3>Outdoor Room</h3>
+              <small>Balconies &amp; Gardens</small>
+              <div class="room-stats">
+                <span>Catalog Size <b>89 Plants</b></span
+                ><span>Conv. Rate <b>3.9%</b></span
+                ><span>Monthly Sales <b>$9,850</b></span
+                ><span>Top SKU <b>Hibiscus Bra...</b></span>
+              </div>
+              <label>Home Feed Status <i class="toggle on"></i></label>
+            </article>
+            <article>
+              <div class="room-image room-4">
+                <span>Position #4</span><b>✎</b>
+              </div>
+              <h3>Bedroom</h3>
+              <small>Quiet &amp; Low Light</small>
+              <div class="room-stats">
+                <span>Catalog Size <b>54 Plants</b></span
+                ><span>Conv. Rate <b>4.4%</b></span
+                ><span>Monthly Sales <b>$11,200</b></span
+                ><span>Top SKU <b>ZZ Plant Zen...</b></span>
+              </div>
+              <label>Home Feed Status <i class="toggle on"></i></label>
+            </article>
+            <article>
+              <div class="room-image room-5">
+                <span>Position #5</span><b>✎</b>
+              </div>
+              <h3>Bathroom</h3>
+              <small>High Moisture</small>
+              <div class="room-stats">
+                <span>Catalog Size <b>39 Plants</b></span
+                ><span>Conv. Rate <b>4.1%</b></span
+                ><span>Monthly Sales <b>$6,430</b></span
+                ><span>Top SKU <b>Bird’s Nest F...</b></span>
+              </div>
+              <label>Home Feed Status <i class="toggle on"></i></label>
+            </article>
+          </div>
+        </section>
+        <section class="taxonomy-section">
+          <div class="section-title">
+            <div>
+              <h2>▌ Botanical &amp; Auxiliary Categories</h2>
+              <p>
+                Taxonomy classifications with performance rankings, SEO paths,
+                and stock depth.
+              </p>
+            </div>
+            <div>
+              <input
+                id="categorySearch"
+                placeholder="⌕ Filter category or slug..."
+              /><button>⇩ Export Taxonomy</button>
+            </div>
+          </div>
+          <div class="taxonomy-table">
+            <div class="taxonomy-row taxonomy-head">
+              <span>Category &amp; Visual</span><span>Storefront Slug</span
+              ><span>Live Products</span><span>Top Performing Item</span
+              ><span>30-Day GMV</span><span>Visibility</span
+              ><span>Actions</span>
+            </div>
+            <div id="categoryRows"></div>
+            <div class="taxonomy-foot">
+              Showing 7 of 8 active botanical categories
+              <span>Previous　<b>1</b>　2　Next</span>
+            </div>
+          </div>
+        </section>
+        <section class="campaign-section">
+          <div class="section-title">
+            <div>
+              <h2>▌ Promotional Campaign Hero &amp; Banners</h2>
+              <p>
+                Configure the flash discount widgets and countdown timers
+                displayed on the consumer storefront.
+              </p>
+            </div>
+            <button>▣ New Banner Slot</button>
+          </div>
+          <div class="campaign-grid">
+            <article>
+              <span>Live on Storefront</span><small>Hero Card Banner</small>
+              <div>
+                <b>50% OFF</b>
+                <h3>Autumn Promo Deal</h3>
+                <p>Scheduled: 21–30 Sept</p>
+                <button>Shop now →</button>
+              </div>
+              <p>
+                Target Collection: <b>Best Seller Deals</b><br />Clicks Today:
+                <b>1,489 clicks (9.2% CTR)</b>
+              </p>
+              <footer>
+                <button>Edit Content</button><button>Pause</button>
+              </footer>
+            </article>
+            <article>
+              <span>Live on Storefront</span><small>Countdown Timer Bar</small>
+              <div class="countdown">
+                <b>NATURE'S SPECIAL DISCOUNT</b>
+                <h3>Get 60% off · Limited Offer</h3>
+                <strong>02　:　24　:　59</strong>
+              </div>
+              <p>
+                Attached Coupon: <b>GREEN60</b><br />Redemptions:
+                <b>342 uses of 500 cap</b>
+              </p>
+              <footer>
+                <button>Adjust Timer</button><button>Rules</button>
+              </footer>
+            </article>
+            <article>
+              <span>Live on Storefront</span><small>Mid-Feed Strip</small>
+              <div>
+                <b>WEEKLY GREEN DEALS</b>
+                <h3>Exclusive Discounts on Must-Have Greens</h3>
+                <p>With curated nursery care instructions</p>
+              </div>
+              <p>
+                Featured SKU: <b>Fiddle Leaf Fig Large</b><br />Conversion
+                Delta: <b>+22.4% this week</b>
+              </p>
+              <footer>
+                <button>Edit Content</button><button>Preview</button>
+              </footer>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="js/language.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-categories.js"></script>
+  </body>
+</html>

@@ -1,14 +1,18 @@
 /* Subtle leaf watermark pattern imitation for specific sections */
 .bg-leaf-pattern {
   background-color: #fafbfa;
-  background-image: radial-gradient(#d1e7dd 0.75px, transparent 0.75px), radial-gradient(#d1e7dd 0.75px, #fafbfa 0.75px);
+  background-image:
+    radial-gradient(#d1e7dd 0.75px, transparent 0.75px),
+    radial-gradient(#d1e7dd 0.75px, #fafbfa 0.75px);
   background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+  background-position:
+    0 0,
+    15px 15px;
 }
 
 /* Remove default appearance for clean look */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

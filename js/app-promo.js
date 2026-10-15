@@ -1,6 +1,6 @@
 (() => {
-  const footer = document.querySelector('footer.footer');
-  if (!footer || document.querySelector('.app-promo')) return;
+  const footer = document.querySelector("footer.footer");
+  if (!footer || document.querySelector(".app-promo")) return;
 
   const markup = `
     <section class="app-promo" aria-labelledby="app-promo-title">
@@ -76,5 +76,5 @@
       </div>
     </section>`;
 
-  footer.insertAdjacentHTML('beforebegin', markup);
+  footer.insertAdjacentHTML("beforebegin", markup);
 })();

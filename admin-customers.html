@@ -1,48 +1,292 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Customers &amp; Reviews | Agrismart Admin</title>
-  <link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="css/admin.css"><link rel="stylesheet" href="css/admin-customers.css">
-</head>
-<body class="admin-page customers-page" data-admin-page="true">
-  <aside class="admin-sidebar" id="adminSidebar">
-    <div class="admin-brand"><img src="assets/logo.svg" alt="Agrismart"><div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div></div>
-    <a class="live-store" href="index.html">▣ <span>View Live Store</span><b>↗</b></a><p class="side-label">OPERATIONS</p>
-    <nav class="admin-nav">
-      <button data-section="overview">▦ <span>Overview</span></button>
-      <button data-section="orders">▣ <span>Orders &amp; Fulfillment</span><i>12</i></button>
-      <button data-section="inventory">♧ <span>Products &amp; Inventory</span></button>
-      <button data-section="categories">⊞ <span>Categories &amp; Rooms</span></button>
-      <button class="active" data-section="customers">▤ <span>Customers &amp; Reviews</span></button>
-      <button data-section="analytics">⌁ <span>Analytics &amp; Revenue</span></button>
-      <button data-section="settings">⚙ <span>Settings</span></button>
-    </nav>
-    <div class="wiki-card"><strong>▣ Plant Care Wiki</strong><p>Nursery manuals, seasonal care logs, and propagation guides.</p><a href="ai-assistant.html">Explore docs →</a></div>
-    <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
-  </aside>
-  <div class="admin-main">
-    <header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="admin-search">⌕<input id="globalCustomerSearch" placeholder="Search orders, plants, SKU, customers…"></div><div class="range-switch"><button>Today</button><button class="selected">Last 7 Days</button><button>This Month</button></div><div class="top-actions"><span class="online"><b></b> Online · Receiving Orders</span><button class="lang active">EN</button><button class="lang">AR</button><button class="notify" aria-label="Notifications">♧<i></i></button><button class="admin-profile"><span class="avatar">AF</span><span><strong>Alaa Frihat</strong><small>Operations Lead</small></span><b>⌄</b></button><button class="logout-button" data-admin-logout>Log out</button></div></header>
-    <main class="admin-content">
-      <section class="customers-heading"><div><p>COMMUNITY &amp; CARE OPS <span>●</span> Real-time sync: Active</p><h1>Customers &amp; Reviews Moderation</h1><span>Manage nursery patrons, track household plant survival rates, triage botanical diagnosis queries, and curate live storefront community unboxing proof.</span></div><div><button id="exportCohort">⇩ Export Cohort CSV</button><button class="vip-action" id="vipPerks">▤ Issue VIP Care Perks</button></div></section>
-      <section class="customer-metrics"><article><small>ACTIVE PLANT LOVERS</small><strong>3,840</strong><footer><b>↑ +14% this month</b><span>320 new this week</span></footer></article><article><small>REPEAT PLANT BUYERS</small><strong>48.6%</strong><footer><b class="retention">✿ High Retention</b><span>2.4× industry average</span></footer></article><article><small>CUSTOMER CSAT</small><strong>4.9 <em>/ 5.0</em></strong><footer><b class="stars">★★★★★</b><span>520 verified reviews</span></footer></article><article><small>30-DAY PLANT WARRANTY</small><strong>0.8%</strong><footer><b class="claim">● 2 Claims Pending</b><span>99.2% Survival Rate</span></footer></article></section>
-      <section class="customer-columns">
-        <div class="customer-primary-column">
-          <article class="customer-panel profiles-panel">
-            <div class="customer-panel-head"><div><h2>Botanical Customer Profiles</h2><p>Customer loyalty, purchase history, and plant health at a glance.</p></div><div class="profile-tabs"><span>3,840 Records</span><button class="active" data-tier="all">All Profiles</button><button data-tier="vip">VIP Emerald</button><button data-tier="recent">Recent Orders</button></div></div>
-            <div class="customer-filters"><label>⌕<input id="profileSearch" placeholder="Search name, email, phone, city…"></label><select id="tierFilter"><option value="all">Club Tier: All</option><option value="vip">Emerald VIP</option><option value="gold">Gold Planter</option><option value="sprout">New Sprout</option></select><select><option>Room: All</option><option>Living Room</option><option>Workspace</option><option>Terrace</option></select><button id="moreFilters">☷ More Filters</button></div>
-            <div class="customer-table-wrap"><table class="customer-table"><thead><tr><th>Customer</th><th>Loyalty Tier</th><th>Purchases &amp; LTV</th><th>Living Space Preference</th><th>Botanical Health Score</th></tr></thead><tbody id="customerRows"></tbody></table></div>
-            <div class="customer-table-foot"><span>Showing 4 of 3,840 active plant caregivers</span><div><button>Previous</button><button class="active">1</button><button>2</button><button>3</button><button>Next</button></div></div>
-          </article>
-          <article class="customer-panel reviews-panel"><div class="customer-panel-head"><div><h2>Unboxing &amp; Delivery Review Moderation</h2><p>Live ratings, hydration packaging checks, and customer unboxing snapshots awaiting storefront feature approval.</p></div><span class="triage-count">4 Needs Triage</span></div><div class="review-grid" id="reviewGrid"></div></article>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customers &amp; Reviews | Agrismart Admin</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/admin-customers.css" />
+  </head>
+  <body class="admin-page customers-page" data-admin-page="true">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-brand">
+        <img src="assets/logo.svg" alt="Agrismart" />
+        <div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div>
+      </div>
+      <a class="live-store" href="index.html"
+        >▣ <span>View Live Store</span><b>↗</b></a
+      >
+      <p class="side-label">OPERATIONS</p>
+      <nav class="admin-nav">
+        <button data-section="overview">▦ <span>Overview</span></button>
+        <button data-section="orders">
+          ▣ <span>Orders &amp; Fulfillment</span><i>12</i>
+        </button>
+        <button data-section="inventory">
+          ♧ <span>Products &amp; Inventory</span>
+        </button>
+        <button data-section="categories">
+          ⊞ <span>Categories &amp; Rooms</span>
+        </button>
+        <button class="active" data-section="customers">
+          ▤ <span>Customers &amp; Reviews</span>
+        </button>
+        <button data-section="analytics">
+          ⌁ <span>Analytics &amp; Revenue</span>
+        </button>
+        <button data-section="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="wiki-card">
+        <strong>▣ Plant Care Wiki</strong>
+        <p>Nursery manuals, seasonal care logs, and propagation guides.</p>
+        <a href="ai-assistant.html">Explore docs →</a>
+      </div>
+      <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+          ☰
+        </button>
+        <div class="admin-search">
+          ⌕<input
+            id="globalCustomerSearch"
+            placeholder="Search orders, plants, SKU, customers…"
+          />
         </div>
-        <aside class="customer-aside">
-          <article class="customer-panel loyalty-panel"><div class="customer-panel-head"><h2>♧ Green Thumb Club</h2><small>Tier Rules v2.1</small></div><p>Patrons earn Chlorophyll Points with every purchase, unboxing review, and seasonal potting soil recharge.</p><div class="loyalty-tier"><strong>● Canopy (Level 4) <b>142 VIPs</b></strong><small>Spend &gt; $1,000 / yr <em>Free Nursery Doctor Visits</em></small></div><div class="loyalty-tier"><strong>● Bloom (Level 3) <b>618 Members</b></strong><small>Spend $400–$999 <em>15% Soil &amp; Nutrient Discount</em></small></div><div class="loyalty-tier"><strong>● Sprout (Level 2) <b>1,420 Members</b></strong><small>2+ Completed Orders <em>Seasonal Repotting E-Book</em></small></div><div class="loyalty-tier muted-tier"><strong>● Seedling (Level 1) <b>1,660 Members</b></strong><small>New Registered Caregiver <em>Starter Fertilizer Sample</em></small></div><button class="rule-button">⚙ Configure Loyalty Rule Engine</button></article>
-          <article class="customer-panel doctor-panel"><div class="customer-panel-head"><h2>✚ Plant Doctor Queue</h2><span>3 Pending</span></div><p>Urgent patron inquiries requiring botanical triage to maintain the 30-day health guarantee.</p><div class="doctor-case"><div><strong>Yellow leaf inquiry on Monstera</strong><em>Chlorosis?</em></div><small>From: Rania K. · Order #AG-8821</small><p>▧ Leaf photo attached (Underside dry)</p><footer><span>18m waiting</span><button>Reply Diagnosis</button></footer></div><div class="doctor-case"><div><strong>Repotting advice for ZZ Plant</strong><em class="advice">Care Advice</em></div><small>From: Zaid M. · Order #AG-8410</small><p>▧ Rootbound inquiry for 12-inch terracotta</p><footer><span>45m waiting</span><button class="secondary">Send Repot Guide</button></footer></div><div class="doctor-case"><div><strong>Calathea leaf curling in dry office</strong><em class="humidity">Humidity &lt;30%</em></div><small>From: Noor S. · Order #AG-8799</small><p>Indoor humidity concern · Workspace collection</p><footer><span>1h 12m waiting</span><button>Dispatch Humidifier Tip</button></footer></div><div class="on-call">♧ Botanist On-Call: Dr. Haneen <b>Online</b></div></article>
-        </aside>
-      </section>
-    </main>
-  </div>
-  <div class="customer-toast" id="customerToast" role="status"></div>
-  <script src="js/language.js"></script><script src="js/admin-auth.js"></script><script src="js/admin-customers.js"></script>
-</body></html>
+        <div class="range-switch">
+          <button>Today</button><button class="selected">Last 7 Days</button
+          ><button>This Month</button>
+        </div>
+        <div class="top-actions">
+          <span class="online"><b></b> Online · Receiving Orders</span
+          ><button class="lang active">EN</button
+          ><button class="lang">AR</button
+          ><button class="notify" aria-label="Notifications">♧<i></i></button
+          ><button class="admin-profile">
+            <span class="avatar">AF</span
+            ><span
+              ><strong>Alaa Frihat</strong><small>Operations Lead</small></span
+            ><b>⌄</b></button
+          ><button class="logout-button" data-admin-logout>Log out</button>
+        </div>
+      </header>
+      <main class="admin-content">
+        <section class="customers-heading">
+          <div>
+            <p>
+              COMMUNITY &amp; CARE OPS <span>●</span> Real-time sync: Active
+            </p>
+            <h1>Customers &amp; Reviews Moderation</h1>
+            <span
+              >Manage nursery patrons, track household plant survival rates,
+              triage botanical diagnosis queries, and curate live storefront
+              community unboxing proof.</span
+            >
+          </div>
+          <div>
+            <button id="exportCohort">⇩ Export Cohort CSV</button
+            ><button class="vip-action" id="vipPerks">
+              ▤ Issue VIP Care Perks
+            </button>
+          </div>
+        </section>
+        <section class="customer-metrics">
+          <article>
+            <small>ACTIVE PLANT LOVERS</small><strong>3,840</strong>
+            <footer>
+              <b>↑ +14% this month</b><span>320 new this week</span>
+            </footer>
+          </article>
+          <article>
+            <small>REPEAT PLANT BUYERS</small><strong>48.6%</strong>
+            <footer>
+              <b class="retention">✿ High Retention</b
+              ><span>2.4× industry average</span>
+            </footer>
+          </article>
+          <article>
+            <small>CUSTOMER CSAT</small><strong>4.9 <em>/ 5.0</em></strong>
+            <footer>
+              <b class="stars">★★★★★</b><span>520 verified reviews</span>
+            </footer>
+          </article>
+          <article>
+            <small>30-DAY PLANT WARRANTY</small><strong>0.8%</strong>
+            <footer>
+              <b class="claim">● 2 Claims Pending</b
+              ><span>99.2% Survival Rate</span>
+            </footer>
+          </article>
+        </section>
+        <section class="customer-columns">
+          <div class="customer-primary-column">
+            <article class="customer-panel profiles-panel">
+              <div class="customer-panel-head">
+                <div>
+                  <h2>Botanical Customer Profiles</h2>
+                  <p>
+                    Customer loyalty, purchase history, and plant health at a
+                    glance.
+                  </p>
+                </div>
+                <div class="profile-tabs">
+                  <span>3,840 Records</span
+                  ><button class="active" data-tier="all">All Profiles</button
+                  ><button data-tier="vip">VIP Emerald</button
+                  ><button data-tier="recent">Recent Orders</button>
+                </div>
+              </div>
+              <div class="customer-filters">
+                <label
+                  >⌕<input
+                    id="profileSearch"
+                    placeholder="Search name, email, phone, city…" /></label
+                ><select id="tierFilter">
+                  <option value="all">Club Tier: All</option>
+                  <option value="vip">Emerald VIP</option>
+                  <option value="gold">Gold Planter</option>
+                  <option value="sprout">New Sprout</option></select
+                ><select>
+                  <option>Room: All</option>
+                  <option>Living Room</option>
+                  <option>Workspace</option>
+                  <option>Terrace</option></select
+                ><button id="moreFilters">☷ More Filters</button>
+              </div>
+              <div class="customer-table-wrap">
+                <table class="customer-table">
+                  <thead>
+                    <tr>
+                      <th>Customer</th>
+                      <th>Loyalty Tier</th>
+                      <th>Purchases &amp; LTV</th>
+                      <th>Living Space Preference</th>
+                      <th>Botanical Health Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="customerRows"></tbody>
+                </table>
+              </div>
+              <div class="customer-table-foot">
+                <span>Showing 4 of 3,840 active plant caregivers</span>
+                <div>
+                  <button>Previous</button><button class="active">1</button
+                  ><button>2</button><button>3</button><button>Next</button>
+                </div>
+              </div>
+            </article>
+            <article class="customer-panel reviews-panel">
+              <div class="customer-panel-head">
+                <div>
+                  <h2>Unboxing &amp; Delivery Review Moderation</h2>
+                  <p>
+                    Live ratings, hydration packaging checks, and customer
+                    unboxing snapshots awaiting storefront feature approval.
+                  </p>
+                </div>
+                <span class="triage-count">4 Needs Triage</span>
+              </div>
+              <div class="review-grid" id="reviewGrid"></div>
+            </article>
+          </div>
+          <aside class="customer-aside">
+            <article class="customer-panel loyalty-panel">
+              <div class="customer-panel-head">
+                <h2>♧ Green Thumb Club</h2>
+                <small>Tier Rules v2.1</small>
+              </div>
+              <p>
+                Patrons earn Chlorophyll Points with every purchase, unboxing
+                review, and seasonal potting soil recharge.
+              </p>
+              <div class="loyalty-tier">
+                <strong>● Canopy (Level 4) <b>142 VIPs</b></strong
+                ><small
+                  >Spend &gt; $1,000 / yr
+                  <em>Free Nursery Doctor Visits</em></small
+                >
+              </div>
+              <div class="loyalty-tier">
+                <strong>● Bloom (Level 3) <b>618 Members</b></strong
+                ><small
+                  >Spend $400–$999
+                  <em>15% Soil &amp; Nutrient Discount</em></small
+                >
+              </div>
+              <div class="loyalty-tier">
+                <strong>● Sprout (Level 2) <b>1,420 Members</b></strong
+                ><small
+                  >2+ Completed Orders <em>Seasonal Repotting E-Book</em></small
+                >
+              </div>
+              <div class="loyalty-tier muted-tier">
+                <strong>● Seedling (Level 1) <b>1,660 Members</b></strong
+                ><small
+                  >New Registered Caregiver
+                  <em>Starter Fertilizer Sample</em></small
+                >
+              </div>
+              <button class="rule-button">
+                ⚙ Configure Loyalty Rule Engine
+              </button>
+            </article>
+            <article class="customer-panel doctor-panel">
+              <div class="customer-panel-head">
+                <h2>✚ Plant Doctor Queue</h2>
+                <span>3 Pending</span>
+              </div>
+              <p>
+                Urgent patron inquiries requiring botanical triage to maintain
+                the 30-day health guarantee.
+              </p>
+              <div class="doctor-case">
+                <div>
+                  <strong>Yellow leaf inquiry on Monstera</strong
+                  ><em>Chlorosis?</em>
+                </div>
+                <small>From: Rania K. · Order #AG-8821</small>
+                <p>▧ Leaf photo attached (Underside dry)</p>
+                <footer>
+                  <span>18m waiting</span><button>Reply Diagnosis</button>
+                </footer>
+              </div>
+              <div class="doctor-case">
+                <div>
+                  <strong>Repotting advice for ZZ Plant</strong
+                  ><em class="advice">Care Advice</em>
+                </div>
+                <small>From: Zaid M. · Order #AG-8410</small>
+                <p>▧ Rootbound inquiry for 12-inch terracotta</p>
+                <footer>
+                  <span>45m waiting</span
+                  ><button class="secondary">Send Repot Guide</button>
+                </footer>
+              </div>
+              <div class="doctor-case">
+                <div>
+                  <strong>Calathea leaf curling in dry office</strong
+                  ><em class="humidity">Humidity &lt;30%</em>
+                </div>
+                <small>From: Noor S. · Order #AG-8799</small>
+                <p>Indoor humidity concern · Workspace collection</p>
+                <footer>
+                  <span>1h 12m waiting</span
+                  ><button>Dispatch Humidifier Tip</button>
+                </footer>
+              </div>
+              <div class="on-call">
+                ♧ Botanist On-Call: Dr. Haneen <b>Online</b>
+              </div>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <div class="customer-toast" id="customerToast" role="status"></div>
+    <script src="js/language.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-customers.js"></script>
+  </body>
+</html>

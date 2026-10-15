@@ -1,794 +1,1767 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agrismart - Nursery Profile &amp; Storefront Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/merchant-dashboard.css" />
+    <link rel="stylesheet" href="css/merchant-profile.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agrismart - Nursery Profile &amp; Storefront Editor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="css/merchant-dashboard.css" />
-  <link rel="stylesheet" href="css/merchant-profile.css" />
-</head>
+  <body data-requires-auth="true">
+    <!-- Shared SVG Sprite from index.html -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="svg-sprite-container"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol
+        id="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </symbol>
 
-<body data-requires-auth="true">
-  <!-- Shared SVG Sprite from index.html -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5" />
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-    </symbol>
+      <symbol
+        id="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </symbol>
 
-    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </symbol>
+      <symbol
+        id="icon-search"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
 
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </symbol>
+      <symbol
+        id="icon-heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        />
+      </symbol>
 
-    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path
-        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-    </symbol>
+      <symbol
+        id="icon-user"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
 
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </symbol>
+      <symbol
+        id="icon-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+        />
+      </symbol>
+    </svg>
 
-    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" />
-    </symbol>
-  </svg>
-
-  <!-- Distinct Merchant Top Strip -->
-  <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
-    <div class="merchant-top-strip__inner">
-      <div class="merchant-top-strip__badge">
-        <span class="merchant-pulse-dot"></span>
-        <span>🏪 Agrismart Nursery Portal · <span id="topStripStoreName">Al-Rawabi Botanical Nursery</span></span>
-      </div>
-      <div class="merchant-top-strip__actions">
-        <a href="merchant-store.html">👁️ Public Storefront</a>
-        <a href="shop.html">🛒 Consumer Shop</a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Navigation (Source of Truth: index.html with Merchant Portal Hub) -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="merchant-dashboard.html" class="nav__logo logo-container" aria-label="Agrismart Merchant Hub">
-        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
-        <span class="nav-merchant-tag">Nursery Hub</span>
-      </a>
-
-      <ul class="nav__links" id="navLinks">
-        <li><a href="merchant-dashboard.html">Dashboard</a></li>
-        <li><a href="merchant-profile.html" class="active">Store Profile</a></li>
-        <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
-        <li><a href="merchant-analytics.html">Analytics</a></li>
-        <li><a href="merchant-store.html">Public Store</a></li>
-        <li><a href="merchant-contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="lang-en" type="button">EN</button>
-          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+    <!-- Distinct Merchant Top Strip -->
+    <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
+      <div class="merchant-top-strip__inner">
+        <div class="merchant-top-strip__badge">
+          <span class="merchant-pulse-dot"></span>
+          <span
+            >🏪 Agrismart Nursery Portal ·
+            <span id="topStripStoreName"
+              >Al-Rawabi Botanical Nursery</span
+            ></span
+          >
         </div>
-        <!-- Theme Toggle -->
-        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
-          <svg id="themeIconLight" class="hidden-icon">
-            <use href="#icon-sun"></use>
-          </svg>
-          <svg id="themeIconDark">
-            <use href="#icon-moon"></use>
-          </svg>
-        </button>
-        <!-- Merchant Profile / User Icon -->
-        <a href="merchant-account.html" id="loginPageButton" class="btn-icon" aria-label="Merchant Profile" title="Merchant Profile" data-auth-control>
-          <svg>
-            <use href="#icon-user"></use>
-          </svg>
+        <div class="merchant-top-strip__actions">
+          <a href="merchant-store.html">👁️ Public Storefront</a>
+          <a href="shop.html">🛒 Consumer Shop</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Navigation (Source of Truth: index.html with Merchant Portal Hub) -->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <a
+          href="merchant-dashboard.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Merchant Hub"
+        >
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+          <span class="nav-merchant-tag">Nursery Hub</span>
         </a>
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Main Profile & Storefront Customizer Content -->
-  <main class="merchant-main">
-    <div class="merchant-container">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="merchant-dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="merchant-profile.html" class="active">Store Profile</a>
+          </li>
+          <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
+          <li><a href="merchant-analytics.html">Analytics</a></li>
+          <li><a href="merchant-store.html">Public Store</a></li>
+          <li><a href="merchant-contact.html">Contact</a></li>
+        </ul>
 
-      <!-- ── Hero Identity Banner ── -->
-      <section class="merchant-hero">
-        <div class="merchant-identity">
-          <div class="merchant-avatar" id="storeHeroInitial">R</div>
-          <div class="merchant-meta">
-            <div class="merchant-title-row">
-              <h1 class="merchant-title" id="storeHeroName">Al-Rawabi Botanical Nursery</h1>
-              <span class="merchant-badge">✓ Verified Nursery</span>
-            </div>
-            <div class="merchant-chips">
-              <span class="merchant-chip">⚙️ Nursery Profile &amp; Storefront Editor</span>
-              <span class="merchant-chip">📍 <span id="storeHeroCityPreview">Amman, Jordan</span></span>
-              <span class="merchant-chip">🌿 Direct Customer Visibility</span>
-            </div>
+        <div class="nav__actions">
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN
+            </button>
+            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
           </div>
-        </div>
-
-        <div class="merchant-actions">
-          <a class="btn-merchant btn-merchant--primary" href="merchant-store.html" title="Preview Live Public Store">
-            👁️ View Public Storefront
+          <!-- Theme Toggle -->
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg id="themeIconDark">
+              <use href="#icon-moon"></use>
+            </svg>
+          </button>
+          <!-- Merchant Profile / User Icon -->
+          <a
+            href="merchant-account.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Merchant Profile"
+            title="Merchant Profile"
+            data-auth-control
+          >
+            <svg>
+              <use href="#icon-user"></use>
+            </svg>
           </a>
-          <a class="btn-merchant btn-merchant--outline" href="merchant-dashboard.html" title="Back to Dashboard">
-            📊 Dashboard
-          </a>
-          <button class="btn-merchant btn-merchant--primary" type="button" onclick="document.getElementById('saveProfileBtn').click()">
-            💾 Save Profile
+          <!-- Hamburger -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+          >
+            <span></span><span></span><span></span>
           </button>
         </div>
-      </section>
+      </div>
+    </nav>
 
-      <!-- ── Split Layout: Editor Form + Sticky Live Preview ── -->
-      <div class="merchant-profile-layout">
-
-        <!-- ════════ COLUMN 1: STORE PROFILE EDITOR ════════ -->
-        <div class="profile-editor-col">
-
-          <form id="storeProfileForm">
-            <div class="profile-card">
-              <!-- Subtabs Navigation -->
-              <nav class="profile-subtabs" aria-label="Profile Customizer Subtabs">
-                <button type="button" class="profile-subtab-btn is-active" data-tab="general">
-                  🌿 Basic Information
-                </button>
-                <button type="button" class="profile-subtab-btn" data-tab="branding">
-                  🎨 Visuals &amp; Branding
-                </button>
-                <button type="button" class="profile-subtab-btn" data-tab="location">
-                  📍 Location &amp; Delivery
-                </button>
-                <button type="button" class="profile-subtab-btn" data-tab="finance">
-                  🏛️ Legal &amp; CliQ Payouts
-                </button>
-                <button type="button" class="profile-subtab-btn" data-tab="hours">
-                  🕒 Working Hours &amp; Social
-                </button>
-                <button type="button" class="profile-subtab-btn" data-tab="announcements">
-                  📢 Store Status &amp; QR Stand
-                </button>
-              </nav>
-
-              <!-- ── SUBTAB 1: GENERAL INFORMATION ── -->
-              <div class="profile-section-panel is-active" id="panel-general">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>🌿 Nursery Details &amp; Directory Bio</h3>
-                    <p>Customize your registered store name, contact manager, and customer bio.</p>
-                  </div>
-                </div>
-
-                <div class="profile-card__body">
-                  <div class="profile-form-grid">
-                    <div class="form-group-merchant">
-                      <label for="profileStoreName">Store Name (English) *</label>
-                      <input type="text" id="profileStoreName" required placeholder="e.g. Al-Rawabi Botanical Nursery">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileStoreNameAr">اسم المتجر / المشتل (بالعربية) *</label>
-                      <input type="text" id="profileStoreNameAr" dir="rtl" required placeholder="مثال: مشتل الروابي النباتي">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileOwnerName">Lead Horticulturist / Manager Name</label>
-                      <input type="text" id="profileOwnerName" placeholder="e.g. Eng. Tariq Al-Rawabi">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileCategory">Primary Botanical Specialty</label>
-                      <select id="profileCategory">
-                        <option value="exotic">Exotic Aroids &amp; Rare Tropicals</option>
-                        <option value="indoor">Indoor Houseplants &amp; Low-Light</option>
-                        <option value="trees">Olive Trees, Palms &amp; Outdoor Citrus</option>
-                        <option value="pots">Handmade Pottery &amp; Planters</option>
-                        <option value="seeds">Seeds, Peat Moss &amp; Fertilizers</option>
-                        <option value="general">Comprehensive General Nursery</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profilePhone">Direct Contact Phone *</label>
-                      <input type="tel" id="profilePhone" required placeholder="+962 7 9811 2233">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileWhatsapp">Customer WhatsApp Hotline *</label>
-                      <input type="tel" id="profileWhatsapp" required placeholder="+962 7 9811 2233">
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label for="profileEmail">Official Business Email</label>
-                      <input type="email" id="profileEmail" placeholder="wholesale@alrawabi-nursery.jo">
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label for="profileTagline">Store Bio &amp; Customer Tagline (English)</label>
-                      <textarea id="profileTagline" rows="3" placeholder="Describe your nursery specialties, acclimated plants, and heritage..."></textarea>
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label for="profileTaglineAr">نبذة المتجر ووصف المشتل (بالعربية)</label>
-                      <textarea id="profileTaglineAr" rows="3" dir="rtl" placeholder="صف خبرتكم في تربية النباتات، البيوت الزجاجية، ونوعية الشتلات..."></textarea>
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label>Highlight Specialty Badges (Select up to 4)</label>
-                      <div class="specialties-selector">
-                        <span class="specialty-chip-toggle is-checked" data-specialty="Mediterranean Flora">🌿 Mediterranean Flora</span>
-                        <span class="specialty-chip-toggle is-checked" data-specialty="Acclimated Aroids">🪴 Acclimated Aroids</span>
-                        <span class="specialty-chip-toggle is-checked" data-specialty="Artisan Pottery">🏺 Artisan Pottery</span>
-                        <span class="specialty-chip-toggle is-checked" data-specialty="Greenhouse Pickup">🏡 Greenhouse Pickup</span>
-                        <span class="specialty-chip-toggle" data-specialty="Rare Mother Plants">🌱 Rare Mother Plants</span>
-                        <span class="specialty-chip-toggle" data-specialty="Organic Soil Mixes">🌾 Organic Soil Mixes</span>
-                        <span class="specialty-chip-toggle" data-specialty="Commercial Peat Moss">📦 Commercial Peat Moss</span>
-                        <span class="specialty-chip-toggle" data-specialty="Fruit Trees & Citrus">🍋 Fruit Trees &amp; Citrus</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <!-- Main Profile & Storefront Customizer Content -->
+    <main class="merchant-main">
+      <div class="merchant-container">
+        <!-- ── Hero Identity Banner ── -->
+        <section class="merchant-hero">
+          <div class="merchant-identity">
+            <div class="merchant-avatar" id="storeHeroInitial">R</div>
+            <div class="merchant-meta">
+              <div class="merchant-title-row">
+                <h1 class="merchant-title" id="storeHeroName">
+                  Al-Rawabi Botanical Nursery
+                </h1>
+                <span class="merchant-badge">✓ Verified Nursery</span>
               </div>
-
-              <!-- ── SUBTAB 2: VISUALS & BRANDING ── -->
-              <div class="profile-section-panel" id="panel-branding">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>🎨 Store Cover Photo &amp; Visual Identity</h3>
-                    <p>Select a verified high-resolution greenhouse photo or provide a custom image URL.</p>
-                  </div>
-                </div>
-
-                <div class="profile-card__body">
-                  <div class="profile-form-grid">
-                    <div class="form-group-merchant full-span">
-                      <label for="profileCoverUrl">Storefront Cover Image URL *</label>
-                      <input type="url" id="profileCoverUrl" required placeholder="https://images.unsplash.com/...">
-                      <small style="color:var(--m-text-muted); font-size:0.82rem; margin-top:0.25rem;">
-                        Recommended aspect ratio: 16:9 or panoramic (1200x500px).
-                      </small>
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label>Choose from Botanical Greenhouse Presets:</label>
-                      <div class="preset-covers-grid">
-                        <div class="preset-cover-card is-selected" data-url="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&auto=format&fit=crop&q=80">
-                          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&auto=format&fit=crop&q=80" alt="Lush Greenhouse">
-                        </div>
-                        <div class="preset-cover-card" data-url="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&auto=format&fit=crop&q=80">
-                          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&auto=format&fit=crop&q=80" alt="Botanical Glasshouse">
-                        </div>
-                        <div class="preset-cover-card" data-url="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&auto=format&fit=crop&q=80">
-                          <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop&q=80" alt="Tropical Foliage">
-                        </div>
-                        <div class="preset-cover-card" data-url="https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=1200&auto=format&fit=crop&q=80">
-                          <img src="https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=400&auto=format&fit=crop&q=80" alt="Olive Bonsai Garden">
-                        </div>
-                        <div class="preset-cover-card" data-url="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&auto=format&fit=crop&q=80">
-                          <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&auto=format&fit=crop&q=80" alt="Mediterranean Terracotta">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileAvatarLetter">Store Monogram Initial / Symbol</label>
-                      <input type="text" id="profileAvatarLetter" maxlength="2" placeholder="e.g. R or ال">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label>Avatar Brand Gradient Theme</label>
-                      <div class="avatar-color-swatches">
-                        <div class="avatar-color-swatch is-selected" data-color="linear-gradient(135deg, #10b951, #028532)" style="background: linear-gradient(135deg, #10b951, #028532);" title="Botanical Emerald"></div>
-                        <div class="avatar-color-swatch" data-color="linear-gradient(135deg, #059669, #047857)" style="background: linear-gradient(135deg, #059669, #047857);" title="Deep Forest"></div>
-                        <div class="avatar-color-swatch" data-color="linear-gradient(135deg, #15803d, #14532d)" style="background: linear-gradient(135deg, #15803d, #14532d);" title="Olive Canopy"></div>
-                        <div class="avatar-color-swatch" data-color="linear-gradient(135deg, #0d9488, #115e59)" style="background: linear-gradient(135deg, #0d9488, #115e59);" title="Teal Succulent"></div>
-                        <div class="avatar-color-swatch" data-color="linear-gradient(135deg, #b45309, #78350f)" style="background: linear-gradient(135deg, #b45309, #78350f);" title="Terracotta Clay"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="merchant-chips">
+                <span class="merchant-chip"
+                  >⚙️ Nursery Profile &amp; Storefront Editor</span
+                >
+                <span class="merchant-chip"
+                  >📍 <span id="storeHeroCityPreview">Amman, Jordan</span></span
+                >
+                <span class="merchant-chip">🌿 Direct Customer Visibility</span>
               </div>
+            </div>
+          </div>
 
-              <!-- ── SUBTAB 3: LOCATION & DELIVERY ── -->
-              <div class="profile-section-panel" id="panel-location">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>📍 Greenhouse Location &amp; Fulfillment Options</h3>
-                    <p>Customers will see this pickup address and delivery dispatch timeframe.</p>
-                  </div>
-                </div>
+          <div class="merchant-actions">
+            <a
+              class="btn-merchant btn-merchant--primary"
+              href="merchant-store.html"
+              title="Preview Live Public Store"
+            >
+              👁️ View Public Storefront
+            </a>
+            <a
+              class="btn-merchant btn-merchant--outline"
+              href="merchant-dashboard.html"
+              title="Back to Dashboard"
+            >
+              📊 Dashboard
+            </a>
+            <button
+              class="btn-merchant btn-merchant--primary"
+              type="button"
+              onclick="document.getElementById('saveProfileBtn').click()"
+            >
+              💾 Save Profile
+            </button>
+          </div>
+        </section>
 
-                <div class="profile-card__body">
-                  <div class="profile-form-grid">
-                    <div class="form-group-merchant">
-                      <label for="profileCity">City / Governorate (English) *</label>
-                      <input type="text" id="profileCity" required placeholder="e.g. Amman - Gardens">
-                    </div>
+        <!-- ── Split Layout: Editor Form + Sticky Live Preview ── -->
+        <div class="merchant-profile-layout">
+          <!-- ════════ COLUMN 1: STORE PROFILE EDITOR ════════ -->
+          <div class="profile-editor-col">
+            <form id="storeProfileForm">
+              <div class="profile-card">
+                <!-- Subtabs Navigation -->
+                <nav
+                  class="profile-subtabs"
+                  aria-label="Profile Customizer Subtabs"
+                >
+                  <button
+                    type="button"
+                    class="profile-subtab-btn is-active"
+                    data-tab="general"
+                  >
+                    🌿 Basic Information
+                  </button>
+                  <button
+                    type="button"
+                    class="profile-subtab-btn"
+                    data-tab="branding"
+                  >
+                    🎨 Visuals &amp; Branding
+                  </button>
+                  <button
+                    type="button"
+                    class="profile-subtab-btn"
+                    data-tab="location"
+                  >
+                    📍 Location &amp; Delivery
+                  </button>
+                  <button
+                    type="button"
+                    class="profile-subtab-btn"
+                    data-tab="finance"
+                  >
+                    🏛️ Legal &amp; CliQ Payouts
+                  </button>
+                  <button
+                    type="button"
+                    class="profile-subtab-btn"
+                    data-tab="hours"
+                  >
+                    🕒 Working Hours &amp; Social
+                  </button>
+                  <button
+                    type="button"
+                    class="profile-subtab-btn"
+                    data-tab="announcements"
+                  >
+                    📢 Store Status &amp; QR Stand
+                  </button>
+                </nav>
 
-                    <div class="form-group-merchant">
-                      <label for="profileCityAr">المدينة / المنطقة (بالعربية) *</label>
-                      <input type="text" id="profileCityAr" dir="rtl" required placeholder="مثال: عمان - الجاردنز">
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label for="profileAddress">Physical Greenhouse Street Address *</label>
-                      <input type="text" id="profileAddress" required placeholder="e.g. Wasfi Al-Tal St, Gardens, Amman, Jordan">
-                    </div>
-
-                    <!-- Map Location Pinning Section -->
-                    <div class="form-group-merchant full-span map-picker-section">
-                      <div class="map-picker-header">
-                        <div>
-                          <label style="font-weight:700; font-size:0.98rem; color:var(--m-text); display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
-                            <span>🗺️ Pin Exact Greenhouse Location on Map</span>
-                          </label>
-                          <p style="margin:0; font-size:0.85rem; color:var(--m-text-muted);">
-                            Click on the map or drag the green marker to pinpoint your nursery. Buyers will use this for pickup and route directions.
-                          </p>
-                        </div>
-                        <div class="map-picker-actions">
-                          <button type="button" id="btnGeolocate" class="btn-merchant btn-merchant--sm btn-merchant--outline" style="font-size:0.84rem; display:inline-flex; align-items:center; gap:0.4rem;">
-                            <span>📍 Use My Current GPS</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      <!-- City Shortcuts -->
-                      <div class="map-city-shortcuts" style="display:flex; align-items:center; gap:0.45rem; flex-wrap:wrap; margin:0.6rem 0 0.4rem;">
-                        <span style="font-size:0.8rem; font-weight:600; color:var(--m-text-muted);">Quick jump:</span>
-                        <button type="button" class="btn-city-jump is-active" data-lat="31.9881" data-lng="35.8655" data-city="Amman - Gardens" data-city-ar="عمان - الجاردنز">Amman (Gardens)</button>
-                        <button type="button" class="btn-city-jump" data-lat="31.9961" data-lng="35.8285" data-city="Amman - Dabouq" data-city-ar="عمان - دابوق">Amman (Dabouq)</button>
-                        <button type="button" class="btn-city-jump" data-lat="31.9478" data-lng="35.8836" data-city="Amman - Abdoun" data-city-ar="عمان - عبدون">Amman (Abdoun)</button>
-                        <button type="button" class="btn-city-jump" data-lat="32.0728" data-lng="36.0880" data-city="Zarqa" data-city-ar="الزرقاء">Zarqa</button>
-                        <button type="button" class="btn-city-jump" data-lat="32.5556" data-lng="35.8500" data-city="Irbid" data-city-ar="إربد">Irbid</button>
-                        <button type="button" class="btn-city-jump" data-lat="32.0392" data-lng="35.7272" data-city="As-Salt" data-city-ar="السلط">As-Salt</button>
-                        <button type="button" class="btn-city-jump" data-lat="29.5267" data-lng="35.0078" data-city="Aqaba" data-city-ar="العقبة">Aqaba</button>
-                      </div>
-
-                      <!-- The Leaflet Map Element -->
-                      <div id="storeMapPicker"></div>
-
-                      <!-- Coordinates readout & status -->
-                      <div class="map-coordinates-bar">
-                        <div style="display:flex; align-items:center; gap:0.5rem;">
-                          <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#10b951;"></span>
-                          <span id="mapPinStatus" style="font-weight:600; color:var(--m-text);">Location Pinned: 31.9881, 35.8655</span>
-                        </div>
-                        <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
-                          <label style="margin:0; font-size:0.82rem; color:var(--m-text-muted); display:inline-flex; align-items:center; gap:0.3rem;">Lat: <input type="number" step="0.000001" id="profileLat" class="map-coord-input" value="31.988100"></label>
-                          <label style="margin:0; font-size:0.82rem; color:var(--m-text-muted); display:inline-flex; align-items:center; gap:0.3rem;">Lng: <input type="number" step="0.000001" id="profileLng" class="map-coord-input" value="35.865500"></label>
-                          <a id="openInGoogleMapsLink" href="https://maps.google.com/?q=31.9881,35.8655" target="_blank" rel="noopener" class="btn-merchant btn-merchant--sm" style="font-size:0.8rem; text-decoration:none; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;">
-                            <span>🗺️ Test on Google Maps</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group-merchant full-span">
-                      <label for="profilePickupNote">Greenhouse Self-Pickup Instructions</label>
-                      <textarea id="profilePickupNote" rows="2" placeholder="Greenhouse pickup available daily from 9:00 AM to 7:00 PM..."></textarea>
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileDeliveryTime">Delivery Promise &amp; Speed</label>
-                      <select id="profileDeliveryTime">
-                        <option value="Same-day Amman Dispatch">Same-day Amman Dispatch</option>
-                        <option value="Express 24h Delivery">Express 24h Delivery</option>
-                        <option value="24-48 Hours">24-48 Hours</option>
-                        <option value="Scheduled Weekend Delivery">Scheduled Weekend Delivery</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileMinFreeDelivery">Free Delivery Threshold ($ / JOD)</label>
-                      <input type="number" id="profileMinFreeDelivery" value="35.00" step="5" min="0">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ── SUBTAB 4: LEGAL & FINANCIALS ── -->
-              <div class="profile-section-panel" id="panel-finance">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>🏛️ Commercial Verification &amp; Payout Settings</h3>
-                    <p>Automated CliQ instant payouts and commercial registration details.</p>
-                  </div>
-                </div>
-
-                <div class="profile-card__body">
-                  <div class="profile-form-grid">
-                    <div class="form-group-merchant">
-                      <label for="profileRegNo">Commercial Registration Number</label>
-                      <input type="text" id="profileRegNo" value="JO-REG-88291" placeholder="JO-REG-...">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileTaxId">Sales Tax / VAT ID Number</label>
-                      <input type="text" id="profileTaxId" value="TAX-99214-JO" placeholder="TAX-...">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profilePayoutMethod">Default Payout Route</label>
-                      <select id="profilePayoutMethod">
-                        <option value="cliq">CliQ Instant Transfer (Jordan Central Bank)</option>
-                        <option value="rtgs">Direct Bank RTGS Deposit</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileCliqAlias">CliQ Alias / Registered Mobile *</label>
-                      <input type="text" id="profileCliqAlias" value="RAWABI-PLANTS" required placeholder="e.g. RAWABI-PLANTS or 079xxxxxxx">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileBankName">Commercial Bank Name</label>
-                      <input type="text" id="profileBankName" value="Arab Bank - Jordan">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileIban">IBAN Account Number</label>
-                      <input type="text" id="profileIban" value="JO94 ARAB 0120 0000 8829 1102 4401" placeholder="JO...">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ── SUBTAB 5: HOURS & SOCIAL ── -->
-              <div class="profile-section-panel" id="panel-hours">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>🕒 Operating Schedule &amp; Social Channels</h3>
-                    <p>Connect your business working hours and official social accounts.</p>
-                  </div>
-                </div>
-
-                <div class="profile-card__body">
-                  <div class="profile-form-grid">
-                    <div class="form-group-merchant full-span">
-                      <label for="profileHours">Public Working Hours</label>
-                      <input type="text" id="profileHours" placeholder="e.g. Sat - Thu: 8:30 AM - 7:30 PM, Fri: 1:30 PM - 7:00 PM">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileInstagram">Instagram Handle / URL</label>
-                      <input type="text" id="profileInstagram" placeholder="@yournursery">
-                    </div>
-
-                    <div class="form-group-merchant">
-                      <label for="profileFacebook">Facebook Page URL</label>
-                      <input type="text" id="profileFacebook" placeholder="fb.com/yournursery">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ── SUBTAB 6: STORE STATUS, ANNOUNCEMENTS & QR STAND ── -->
-              <div class="profile-section-panel" id="panel-announcements">
-                <div class="profile-card__header">
-                  <div class="profile-card__title-group">
-                    <h3>📢 Store Status, Announcements &amp; Counter QR Stand</h3>
-                    <p>Manage vacation closures, promotional notices, and download printable in-store QR displays.</p>
-                  </div>
-                </div>
-
-                <div class="profile-card__body">
-                  <!-- Vacation Mode Setting Card -->
-                  <div class="status-setting-card" id="vacationSettingCard">
-                    <div class="status-toggle-row">
-                      <div>
-                        <strong style="display:flex; align-items:center; gap:0.5rem; font-size:1.02rem; color:var(--m-text);">
-                          <span>🌴 Nursery Vacation / Temporary Closure Mode</span>
-                        </strong>
-                        <p style="margin:0.25rem 0 0; font-size:0.86rem; color:var(--m-text-muted);">
-                          Pause incoming orders during greenhouse repotting, seasonal inventory audits, or staff holidays.
-                        </p>
-                      </div>
-                      <div class="switch-label-group">
-                        <span id="vacationStatusText" style="font-weight:700; font-size:0.86rem; color:#10b951;">Open for Orders</span>
-                        <label class="switch-control">
-                          <input type="checkbox" id="profileVacationMode">
-                          <span class="switch-slider slider-amber"></span>
-                        </label>
-                      </div>
-                    </div>
-
-                    <div id="vacationDetailsSection" style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px dashed var(--m-border); display:none;">
-                      <div class="profile-form-grid">
-                        <div class="form-group-merchant">
-                          <label for="profileVacationReturn">Expected Return / Re-opening Date</label>
-                          <input type="date" id="profileVacationReturn">
-                        </div>
-                        <div class="form-group-merchant">
-                          <label for="profileVacationNote">Shopper Explanation Notice (English)</label>
-                          <input type="text" id="profileVacationNote" placeholder="e.g. Nursery undergoing spring repotting. Browsing open; orders resume June 1st.">
-                        </div>
-                        <div class="form-group-merchant full-span">
-                          <label for="profileVacationNoteAr">رسالة الإجازة للعملاء (بالعربية)</label>
-                          <input type="text" id="profileVacationNoteAr" dir="rtl" placeholder="مثال: المشتل في فترة جرد وتحديث الشتلات. تصفح النباتات متاح وتستأنف الطلبات قريباً.">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Storefront Announcement Banner Card -->
-                  <div class="status-setting-card">
-                    <div class="status-toggle-row" style="margin-bottom:1rem;">
-                      <div>
-                        <strong style="display:flex; align-items:center; gap:0.5rem; font-size:1.02rem; color:var(--m-text);">
-                          <span>📣 Top Storefront Promotional Announcement Bar</span>
-                        </strong>
-                        <p style="margin:0.25rem 0 0; font-size:0.86rem; color:var(--m-text-muted);">
-                          Displays an eye-catching highlight bar at the top of your public nursery storefront.
-                        </p>
-                      </div>
-                      <div class="switch-label-group">
-                        <label class="switch-control">
-                          <input type="checkbox" id="profileAnnouncementActive" checked>
-                          <span class="switch-slider"></span>
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class="profile-form-grid">
-                      <div class="form-group-merchant full-span">
-                        <label for="profileAnnouncement">Announcement Text (English)</label>
-                        <input type="text" id="profileAnnouncement" placeholder="e.g. 🌿 Spring Nursery Fair: 15% off all Mediterranean trees and indoor aroids this week!">
-                      </div>
-                      <div class="form-group-merchant full-span">
-                        <label for="profileAnnouncementAr">نص الإعلان الترويجي (بالعربية)</label>
-                        <input type="text" id="profileAnnouncementAr" dir="rtl" placeholder="مثال: 🌿 مهرجان الربيع النباتي: خصم ١٥٪ على جميع أشجار البحر المتوسط ونباتات الأرويد هذا الأسبوع!">
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Physical Greenhouse Counter QR Stand -->
-                  <div style="margin-top:2rem;">
-                    <div style="margin-bottom:1.25rem;">
-                      <h4 style="margin:0 0 0.35rem; font-size:1.15rem; font-weight:700; color:var(--m-text); display:flex; align-items:center; gap:0.5rem;">
-                        <span>🪴 Printable Greenhouse Counter QR Stand</span>
-                      </h4>
-                      <p style="margin:0; font-size:0.86rem; color:var(--m-text-muted);">
-                        Place this display stand at your physical nursery entrance or cashier counter. In-store walk-in customers can scan it to browse care sheets and catalog specimens directly from their smartphones.
+                <!-- ── SUBTAB 1: GENERAL INFORMATION ── -->
+                <div class="profile-section-panel is-active" id="panel-general">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>🌿 Nursery Details &amp; Directory Bio</h3>
+                      <p>
+                        Customize your registered store name, contact manager,
+                        and customer bio.
                       </p>
                     </div>
+                  </div>
 
-                    <!-- Live Physical Stand Card Preview -->
-                    <div class="qr-counter-stand" id="qrCounterStandDisplay">
-                      <div class="qr-counter-stand__badge">🌿 Agrismart Verified Nursery</div>
-                      <h3 class="qr-counter-stand__title" id="qrStandStoreTitle">Al-Rawabi Botanical Nursery</h3>
-                      <p class="qr-counter-stand__sub" id="qrStandStoreSub">Scan our official QR code to browse live stock, botanical care guides, or order home delivery directly.</p>
-                      
-                      <div class="qr-code-frame">
-                        <img id="counterStandQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https%3A%2F%2Fagrismart.jo%2Fstore.html%3Fid%3Drawabi&color=122119" alt="Greenhouse Counter QR Code">
+                  <div class="profile-card__body">
+                    <div class="profile-form-grid">
+                      <div class="form-group-merchant">
+                        <label for="profileStoreName"
+                          >Store Name (English) *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileStoreName"
+                          required
+                          placeholder="e.g. Al-Rawabi Botanical Nursery"
+                        />
                       </div>
 
-                      <div class="qr-counter-stand__cta">📱 Point Phone Camera to Explore</div>
-                      <p class="qr-counter-stand__foot">Supported by Agrismart Smart Plant Telemetry</p>
-                    </div>
+                      <div class="form-group-merchant">
+                        <label for="profileStoreNameAr"
+                          >اسم المتجر / المشتل (بالعربية) *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileStoreNameAr"
+                          dir="rtl"
+                          required
+                          placeholder="مثال: مشتل الروابي النباتي"
+                        />
+                      </div>
 
-                    <!-- Counter Stand Action Buttons -->
-                    <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
-                      <button type="button" class="btn-merchant btn-merchant--primary" id="btnPrintQrStand">
-                        🖨️ Print Display Stand (A5 / Counter Placard)
-                      </button>
-                      <button type="button" class="btn-merchant btn-merchant--outline" id="btnDownloadQrPng">
-                        ⬇️ Download QR Code (PNG)
-                      </button>
-                      <button type="button" class="btn-merchant btn-merchant--outline" id="btnCopyStoreQrLink">
-                        🔗 Copy Storefront Link
-                      </button>
+                      <div class="form-group-merchant">
+                        <label for="profileOwnerName"
+                          >Lead Horticulturist / Manager Name</label
+                        >
+                        <input
+                          type="text"
+                          id="profileOwnerName"
+                          placeholder="e.g. Eng. Tariq Al-Rawabi"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileCategory"
+                          >Primary Botanical Specialty</label
+                        >
+                        <select id="profileCategory">
+                          <option value="exotic">
+                            Exotic Aroids &amp; Rare Tropicals
+                          </option>
+                          <option value="indoor">
+                            Indoor Houseplants &amp; Low-Light
+                          </option>
+                          <option value="trees">
+                            Olive Trees, Palms &amp; Outdoor Citrus
+                          </option>
+                          <option value="pots">
+                            Handmade Pottery &amp; Planters
+                          </option>
+                          <option value="seeds">
+                            Seeds, Peat Moss &amp; Fertilizers
+                          </option>
+                          <option value="general">
+                            Comprehensive General Nursery
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profilePhone">Direct Contact Phone *</label>
+                        <input
+                          type="tel"
+                          id="profilePhone"
+                          required
+                          placeholder="+962 7 9811 2233"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileWhatsapp"
+                          >Customer WhatsApp Hotline *</label
+                        >
+                        <input
+                          type="tel"
+                          id="profileWhatsapp"
+                          required
+                          placeholder="+962 7 9811 2233"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label for="profileEmail"
+                          >Official Business Email</label
+                        >
+                        <input
+                          type="email"
+                          id="profileEmail"
+                          placeholder="wholesale@alrawabi-nursery.jo"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label for="profileTagline"
+                          >Store Bio &amp; Customer Tagline (English)</label
+                        >
+                        <textarea
+                          id="profileTagline"
+                          rows="3"
+                          placeholder="Describe your nursery specialties, acclimated plants, and heritage..."
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label for="profileTaglineAr"
+                          >نبذة المتجر ووصف المشتل (بالعربية)</label
+                        >
+                        <textarea
+                          id="profileTaglineAr"
+                          rows="3"
+                          dir="rtl"
+                          placeholder="صف خبرتكم في تربية النباتات، البيوت الزجاجية، ونوعية الشتلات..."
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label
+                          >Highlight Specialty Badges (Select up to 4)</label
+                        >
+                        <div class="specialties-selector">
+                          <span
+                            class="specialty-chip-toggle is-checked"
+                            data-specialty="Mediterranean Flora"
+                            >🌿 Mediterranean Flora</span
+                          >
+                          <span
+                            class="specialty-chip-toggle is-checked"
+                            data-specialty="Acclimated Aroids"
+                            >🪴 Acclimated Aroids</span
+                          >
+                          <span
+                            class="specialty-chip-toggle is-checked"
+                            data-specialty="Artisan Pottery"
+                            >🏺 Artisan Pottery</span
+                          >
+                          <span
+                            class="specialty-chip-toggle is-checked"
+                            data-specialty="Greenhouse Pickup"
+                            >🏡 Greenhouse Pickup</span
+                          >
+                          <span
+                            class="specialty-chip-toggle"
+                            data-specialty="Rare Mother Plants"
+                            >🌱 Rare Mother Plants</span
+                          >
+                          <span
+                            class="specialty-chip-toggle"
+                            data-specialty="Organic Soil Mixes"
+                            >🌾 Organic Soil Mixes</span
+                          >
+                          <span
+                            class="specialty-chip-toggle"
+                            data-specialty="Commercial Peat Moss"
+                            >📦 Commercial Peat Moss</span
+                          >
+                          <span
+                            class="specialty-chip-toggle"
+                            data-specialty="Fruit Trees & Citrus"
+                            >🍋 Fruit Trees &amp; Citrus</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SUBTAB 2: VISUALS & BRANDING ── -->
+                <div class="profile-section-panel" id="panel-branding">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>🎨 Store Cover Photo &amp; Visual Identity</h3>
+                      <p>
+                        Select a verified high-resolution greenhouse photo or
+                        provide a custom image URL.
+                      </p>
                     </div>
                   </div>
 
+                  <div class="profile-card__body">
+                    <div class="profile-form-grid">
+                      <div class="form-group-merchant full-span">
+                        <label for="profileCoverUrl"
+                          >Storefront Cover Image URL *</label
+                        >
+                        <input
+                          type="url"
+                          id="profileCoverUrl"
+                          required
+                          placeholder="https://images.unsplash.com/..."
+                        />
+                        <small
+                          style="
+                            color: var(--m-text-muted);
+                            font-size: 0.82rem;
+                            margin-top: 0.25rem;
+                          "
+                        >
+                          Recommended aspect ratio: 16:9 or panoramic
+                          (1200x500px).
+                        </small>
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label>Choose from Botanical Greenhouse Presets:</label>
+                        <div class="preset-covers-grid">
+                          <div
+                            class="preset-cover-card is-selected"
+                            data-url="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&auto=format&fit=crop&q=80"
+                          >
+                            <img
+                              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&auto=format&fit=crop&q=80"
+                              alt="Lush Greenhouse"
+                            />
+                          </div>
+                          <div
+                            class="preset-cover-card"
+                            data-url="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&auto=format&fit=crop&q=80"
+                          >
+                            <img
+                              src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&auto=format&fit=crop&q=80"
+                              alt="Botanical Glasshouse"
+                            />
+                          </div>
+                          <div
+                            class="preset-cover-card"
+                            data-url="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&auto=format&fit=crop&q=80"
+                          >
+                            <img
+                              src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop&q=80"
+                              alt="Tropical Foliage"
+                            />
+                          </div>
+                          <div
+                            class="preset-cover-card"
+                            data-url="https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=1200&auto=format&fit=crop&q=80"
+                          >
+                            <img
+                              src="https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=400&auto=format&fit=crop&q=80"
+                              alt="Olive Bonsai Garden"
+                            />
+                          </div>
+                          <div
+                            class="preset-cover-card"
+                            data-url="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&auto=format&fit=crop&q=80"
+                          >
+                            <img
+                              src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&auto=format&fit=crop&q=80"
+                              alt="Mediterranean Terracotta"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileAvatarLetter"
+                          >Store Monogram Initial / Symbol</label
+                        >
+                        <input
+                          type="text"
+                          id="profileAvatarLetter"
+                          maxlength="2"
+                          placeholder="e.g. R or ال"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label>Avatar Brand Gradient Theme</label>
+                        <div class="avatar-color-swatches">
+                          <div
+                            class="avatar-color-swatch is-selected"
+                            data-color="linear-gradient(135deg, #10b951, #028532)"
+                            style="
+                              background: linear-gradient(
+                                135deg,
+                                #10b951,
+                                #028532
+                              );
+                            "
+                            title="Botanical Emerald"
+                          ></div>
+                          <div
+                            class="avatar-color-swatch"
+                            data-color="linear-gradient(135deg, #059669, #047857)"
+                            style="
+                              background: linear-gradient(
+                                135deg,
+                                #059669,
+                                #047857
+                              );
+                            "
+                            title="Deep Forest"
+                          ></div>
+                          <div
+                            class="avatar-color-swatch"
+                            data-color="linear-gradient(135deg, #15803d, #14532d)"
+                            style="
+                              background: linear-gradient(
+                                135deg,
+                                #15803d,
+                                #14532d
+                              );
+                            "
+                            title="Olive Canopy"
+                          ></div>
+                          <div
+                            class="avatar-color-swatch"
+                            data-color="linear-gradient(135deg, #0d9488, #115e59)"
+                            style="
+                              background: linear-gradient(
+                                135deg,
+                                #0d9488,
+                                #115e59
+                              );
+                            "
+                            title="Teal Succulent"
+                          ></div>
+                          <div
+                            class="avatar-color-swatch"
+                            data-color="linear-gradient(135deg, #b45309, #78350f)"
+                            style="
+                              background: linear-gradient(
+                                135deg,
+                                #b45309,
+                                #78350f
+                              );
+                            "
+                            title="Terracotta Clay"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SUBTAB 3: LOCATION & DELIVERY ── -->
+                <div class="profile-section-panel" id="panel-location">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>📍 Greenhouse Location &amp; Fulfillment Options</h3>
+                      <p>
+                        Customers will see this pickup address and delivery
+                        dispatch timeframe.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="profile-card__body">
+                    <div class="profile-form-grid">
+                      <div class="form-group-merchant">
+                        <label for="profileCity"
+                          >City / Governorate (English) *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileCity"
+                          required
+                          placeholder="e.g. Amman - Gardens"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileCityAr"
+                          >المدينة / المنطقة (بالعربية) *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileCityAr"
+                          dir="rtl"
+                          required
+                          placeholder="مثال: عمان - الجاردنز"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label for="profileAddress"
+                          >Physical Greenhouse Street Address *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileAddress"
+                          required
+                          placeholder="e.g. Wasfi Al-Tal St, Gardens, Amman, Jordan"
+                        />
+                      </div>
+
+                      <!-- Map Location Pinning Section -->
+                      <div
+                        class="form-group-merchant full-span map-picker-section"
+                      >
+                        <div class="map-picker-header">
+                          <div>
+                            <label
+                              style="
+                                font-weight: 700;
+                                font-size: 0.98rem;
+                                color: var(--m-text);
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                margin-bottom: 0.25rem;
+                              "
+                            >
+                              <span
+                                >🗺️ Pin Exact Greenhouse Location on Map</span
+                              >
+                            </label>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 0.85rem;
+                                color: var(--m-text-muted);
+                              "
+                            >
+                              Click on the map or drag the green marker to
+                              pinpoint your nursery. Buyers will use this for
+                              pickup and route directions.
+                            </p>
+                          </div>
+                          <div class="map-picker-actions">
+                            <button
+                              type="button"
+                              id="btnGeolocate"
+                              class="btn-merchant btn-merchant--sm btn-merchant--outline"
+                              style="
+                                font-size: 0.84rem;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 0.4rem;
+                              "
+                            >
+                              <span>📍 Use My Current GPS</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- City Shortcuts -->
+                        <div
+                          class="map-city-shortcuts"
+                          style="
+                            display: flex;
+                            align-items: center;
+                            gap: 0.45rem;
+                            flex-wrap: wrap;
+                            margin: 0.6rem 0 0.4rem;
+                          "
+                        >
+                          <span
+                            style="
+                              font-size: 0.8rem;
+                              font-weight: 600;
+                              color: var(--m-text-muted);
+                            "
+                            >Quick jump:</span
+                          >
+                          <button
+                            type="button"
+                            class="btn-city-jump is-active"
+                            data-lat="31.9881"
+                            data-lng="35.8655"
+                            data-city="Amman - Gardens"
+                            data-city-ar="عمان - الجاردنز"
+                          >
+                            Amman (Gardens)
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="31.9961"
+                            data-lng="35.8285"
+                            data-city="Amman - Dabouq"
+                            data-city-ar="عمان - دابوق"
+                          >
+                            Amman (Dabouq)
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="31.9478"
+                            data-lng="35.8836"
+                            data-city="Amman - Abdoun"
+                            data-city-ar="عمان - عبدون"
+                          >
+                            Amman (Abdoun)
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="32.0728"
+                            data-lng="36.0880"
+                            data-city="Zarqa"
+                            data-city-ar="الزرقاء"
+                          >
+                            Zarqa
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="32.5556"
+                            data-lng="35.8500"
+                            data-city="Irbid"
+                            data-city-ar="إربد"
+                          >
+                            Irbid
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="32.0392"
+                            data-lng="35.7272"
+                            data-city="As-Salt"
+                            data-city-ar="السلط"
+                          >
+                            As-Salt
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-city-jump"
+                            data-lat="29.5267"
+                            data-lng="35.0078"
+                            data-city="Aqaba"
+                            data-city-ar="العقبة"
+                          >
+                            Aqaba
+                          </button>
+                        </div>
+
+                        <!-- The Leaflet Map Element -->
+                        <div id="storeMapPicker"></div>
+
+                        <!-- Coordinates readout & status -->
+                        <div class="map-coordinates-bar">
+                          <div
+                            style="
+                              display: flex;
+                              align-items: center;
+                              gap: 0.5rem;
+                            "
+                          >
+                            <span
+                              style="
+                                display: inline-block;
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                                background: #10b951;
+                              "
+                            ></span>
+                            <span
+                              id="mapPinStatus"
+                              style="font-weight: 600; color: var(--m-text)"
+                              >Location Pinned: 31.9881, 35.8655</span
+                            >
+                          </div>
+                          <div
+                            style="
+                              display: flex;
+                              gap: 0.75rem;
+                              align-items: center;
+                              flex-wrap: wrap;
+                            "
+                          >
+                            <label
+                              style="
+                                margin: 0;
+                                font-size: 0.82rem;
+                                color: var(--m-text-muted);
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 0.3rem;
+                              "
+                              >Lat:
+                              <input
+                                type="number"
+                                step="0.000001"
+                                id="profileLat"
+                                class="map-coord-input"
+                                value="31.988100"
+                            /></label>
+                            <label
+                              style="
+                                margin: 0;
+                                font-size: 0.82rem;
+                                color: var(--m-text-muted);
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 0.3rem;
+                              "
+                              >Lng:
+                              <input
+                                type="number"
+                                step="0.000001"
+                                id="profileLng"
+                                class="map-coord-input"
+                                value="35.865500"
+                            /></label>
+                            <a
+                              id="openInGoogleMapsLink"
+                              href="https://maps.google.com/?q=31.9881,35.8655"
+                              target="_blank"
+                              rel="noopener"
+                              class="btn-merchant btn-merchant--sm"
+                              style="
+                                font-size: 0.8rem;
+                                text-decoration: none;
+                                padding: 4px 10px;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 4px;
+                              "
+                            >
+                              <span>🗺️ Test on Google Maps</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group-merchant full-span">
+                        <label for="profilePickupNote"
+                          >Greenhouse Self-Pickup Instructions</label
+                        >
+                        <textarea
+                          id="profilePickupNote"
+                          rows="2"
+                          placeholder="Greenhouse pickup available daily from 9:00 AM to 7:00 PM..."
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileDeliveryTime"
+                          >Delivery Promise &amp; Speed</label
+                        >
+                        <select id="profileDeliveryTime">
+                          <option value="Same-day Amman Dispatch">
+                            Same-day Amman Dispatch
+                          </option>
+                          <option value="Express 24h Delivery">
+                            Express 24h Delivery
+                          </option>
+                          <option value="24-48 Hours">24-48 Hours</option>
+                          <option value="Scheduled Weekend Delivery">
+                            Scheduled Weekend Delivery
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileMinFreeDelivery"
+                          >Free Delivery Threshold ($ / JOD)</label
+                        >
+                        <input
+                          type="number"
+                          id="profileMinFreeDelivery"
+                          value="35.00"
+                          step="5"
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SUBTAB 4: LEGAL & FINANCIALS ── -->
+                <div class="profile-section-panel" id="panel-finance">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>🏛️ Commercial Verification &amp; Payout Settings</h3>
+                      <p>
+                        Automated CliQ instant payouts and commercial
+                        registration details.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="profile-card__body">
+                    <div class="profile-form-grid">
+                      <div class="form-group-merchant">
+                        <label for="profileRegNo"
+                          >Commercial Registration Number</label
+                        >
+                        <input
+                          type="text"
+                          id="profileRegNo"
+                          value="JO-REG-88291"
+                          placeholder="JO-REG-..."
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileTaxId"
+                          >Sales Tax / VAT ID Number</label
+                        >
+                        <input
+                          type="text"
+                          id="profileTaxId"
+                          value="TAX-99214-JO"
+                          placeholder="TAX-..."
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profilePayoutMethod"
+                          >Default Payout Route</label
+                        >
+                        <select id="profilePayoutMethod">
+                          <option value="cliq">
+                            CliQ Instant Transfer (Jordan Central Bank)
+                          </option>
+                          <option value="rtgs">Direct Bank RTGS Deposit</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileCliqAlias"
+                          >CliQ Alias / Registered Mobile *</label
+                        >
+                        <input
+                          type="text"
+                          id="profileCliqAlias"
+                          value="RAWABI-PLANTS"
+                          required
+                          placeholder="e.g. RAWABI-PLANTS or 079xxxxxxx"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileBankName"
+                          >Commercial Bank Name</label
+                        >
+                        <input
+                          type="text"
+                          id="profileBankName"
+                          value="Arab Bank - Jordan"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileIban">IBAN Account Number</label>
+                        <input
+                          type="text"
+                          id="profileIban"
+                          value="JO94 ARAB 0120 0000 8829 1102 4401"
+                          placeholder="JO..."
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SUBTAB 5: HOURS & SOCIAL ── -->
+                <div class="profile-section-panel" id="panel-hours">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>🕒 Operating Schedule &amp; Social Channels</h3>
+                      <p>
+                        Connect your business working hours and official social
+                        accounts.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="profile-card__body">
+                    <div class="profile-form-grid">
+                      <div class="form-group-merchant full-span">
+                        <label for="profileHours">Public Working Hours</label>
+                        <input
+                          type="text"
+                          id="profileHours"
+                          placeholder="e.g. Sat - Thu: 8:30 AM - 7:30 PM, Fri: 1:30 PM - 7:00 PM"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileInstagram"
+                          >Instagram Handle / URL</label
+                        >
+                        <input
+                          type="text"
+                          id="profileInstagram"
+                          placeholder="@yournursery"
+                        />
+                      </div>
+
+                      <div class="form-group-merchant">
+                        <label for="profileFacebook">Facebook Page URL</label>
+                        <input
+                          type="text"
+                          id="profileFacebook"
+                          placeholder="fb.com/yournursery"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SUBTAB 6: STORE STATUS, ANNOUNCEMENTS & QR STAND ── -->
+                <div class="profile-section-panel" id="panel-announcements">
+                  <div class="profile-card__header">
+                    <div class="profile-card__title-group">
+                      <h3>
+                        📢 Store Status, Announcements &amp; Counter QR Stand
+                      </h3>
+                      <p>
+                        Manage vacation closures, promotional notices, and
+                        download printable in-store QR displays.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="profile-card__body">
+                    <!-- Vacation Mode Setting Card -->
+                    <div class="status-setting-card" id="vacationSettingCard">
+                      <div class="status-toggle-row">
+                        <div>
+                          <strong
+                            style="
+                              display: flex;
+                              align-items: center;
+                              gap: 0.5rem;
+                              font-size: 1.02rem;
+                              color: var(--m-text);
+                            "
+                          >
+                            <span
+                              >🌴 Nursery Vacation / Temporary Closure
+                              Mode</span
+                            >
+                          </strong>
+                          <p
+                            style="
+                              margin: 0.25rem 0 0;
+                              font-size: 0.86rem;
+                              color: var(--m-text-muted);
+                            "
+                          >
+                            Pause incoming orders during greenhouse repotting,
+                            seasonal inventory audits, or staff holidays.
+                          </p>
+                        </div>
+                        <div class="switch-label-group">
+                          <span
+                            id="vacationStatusText"
+                            style="
+                              font-weight: 700;
+                              font-size: 0.86rem;
+                              color: #10b951;
+                            "
+                            >Open for Orders</span
+                          >
+                          <label class="switch-control">
+                            <input type="checkbox" id="profileVacationMode" />
+                            <span class="switch-slider slider-amber"></span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div
+                        id="vacationDetailsSection"
+                        style="
+                          margin-top: 1.25rem;
+                          padding-top: 1.25rem;
+                          border-top: 1px dashed var(--m-border);
+                          display: none;
+                        "
+                      >
+                        <div class="profile-form-grid">
+                          <div class="form-group-merchant">
+                            <label for="profileVacationReturn"
+                              >Expected Return / Re-opening Date</label
+                            >
+                            <input type="date" id="profileVacationReturn" />
+                          </div>
+                          <div class="form-group-merchant">
+                            <label for="profileVacationNote"
+                              >Shopper Explanation Notice (English)</label
+                            >
+                            <input
+                              type="text"
+                              id="profileVacationNote"
+                              placeholder="e.g. Nursery undergoing spring repotting. Browsing open; orders resume June 1st."
+                            />
+                          </div>
+                          <div class="form-group-merchant full-span">
+                            <label for="profileVacationNoteAr"
+                              >رسالة الإجازة للعملاء (بالعربية)</label
+                            >
+                            <input
+                              type="text"
+                              id="profileVacationNoteAr"
+                              dir="rtl"
+                              placeholder="مثال: المشتل في فترة جرد وتحديث الشتلات. تصفح النباتات متاح وتستأنف الطلبات قريباً."
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Storefront Announcement Banner Card -->
+                    <div class="status-setting-card">
+                      <div
+                        class="status-toggle-row"
+                        style="margin-bottom: 1rem"
+                      >
+                        <div>
+                          <strong
+                            style="
+                              display: flex;
+                              align-items: center;
+                              gap: 0.5rem;
+                              font-size: 1.02rem;
+                              color: var(--m-text);
+                            "
+                          >
+                            <span
+                              >📣 Top Storefront Promotional Announcement
+                              Bar</span
+                            >
+                          </strong>
+                          <p
+                            style="
+                              margin: 0.25rem 0 0;
+                              font-size: 0.86rem;
+                              color: var(--m-text-muted);
+                            "
+                          >
+                            Displays an eye-catching highlight bar at the top of
+                            your public nursery storefront.
+                          </p>
+                        </div>
+                        <div class="switch-label-group">
+                          <label class="switch-control">
+                            <input
+                              type="checkbox"
+                              id="profileAnnouncementActive"
+                              checked
+                            />
+                            <span class="switch-slider"></span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="profile-form-grid">
+                        <div class="form-group-merchant full-span">
+                          <label for="profileAnnouncement"
+                            >Announcement Text (English)</label
+                          >
+                          <input
+                            type="text"
+                            id="profileAnnouncement"
+                            placeholder="e.g. 🌿 Spring Nursery Fair: 15% off all Mediterranean trees and indoor aroids this week!"
+                          />
+                        </div>
+                        <div class="form-group-merchant full-span">
+                          <label for="profileAnnouncementAr"
+                            >نص الإعلان الترويجي (بالعربية)</label
+                          >
+                          <input
+                            type="text"
+                            id="profileAnnouncementAr"
+                            dir="rtl"
+                            placeholder="مثال: 🌿 مهرجان الربيع النباتي: خصم ١٥٪ على جميع أشجار البحر المتوسط ونباتات الأرويد هذا الأسبوع!"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Physical Greenhouse Counter QR Stand -->
+                    <div style="margin-top: 2rem">
+                      <div style="margin-bottom: 1.25rem">
+                        <h4
+                          style="
+                            margin: 0 0 0.35rem;
+                            font-size: 1.15rem;
+                            font-weight: 700;
+                            color: var(--m-text);
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                          "
+                        >
+                          <span>🪴 Printable Greenhouse Counter QR Stand</span>
+                        </h4>
+                        <p
+                          style="
+                            margin: 0;
+                            font-size: 0.86rem;
+                            color: var(--m-text-muted);
+                          "
+                        >
+                          Place this display stand at your physical nursery
+                          entrance or cashier counter. In-store walk-in
+                          customers can scan it to browse care sheets and
+                          catalog specimens directly from their smartphones.
+                        </p>
+                      </div>
+
+                      <!-- Live Physical Stand Card Preview -->
+                      <div class="qr-counter-stand" id="qrCounterStandDisplay">
+                        <div class="qr-counter-stand__badge">
+                          🌿 Agrismart Verified Nursery
+                        </div>
+                        <h3
+                          class="qr-counter-stand__title"
+                          id="qrStandStoreTitle"
+                        >
+                          Al-Rawabi Botanical Nursery
+                        </h3>
+                        <p class="qr-counter-stand__sub" id="qrStandStoreSub">
+                          Scan our official QR code to browse live stock,
+                          botanical care guides, or order home delivery
+                          directly.
+                        </p>
+
+                        <div class="qr-code-frame">
+                          <img
+                            id="counterStandQrImg"
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https%3A%2F%2Fagrismart.jo%2Fstore.html%3Fid%3Drawabi&color=122119"
+                            alt="Greenhouse Counter QR Code"
+                          />
+                        </div>
+
+                        <div class="qr-counter-stand__cta">
+                          📱 Point Phone Camera to Explore
+                        </div>
+                        <p class="qr-counter-stand__foot">
+                          Supported by Agrismart Smart Plant Telemetry
+                        </p>
+                      </div>
+
+                      <!-- Counter Stand Action Buttons -->
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: center;
+                          gap: 1rem;
+                          flex-wrap: wrap;
+                          margin-top: 1.5rem;
+                        "
+                      >
+                        <button
+                          type="button"
+                          class="btn-merchant btn-merchant--primary"
+                          id="btnPrintQrStand"
+                        >
+                          🖨️ Print Display Stand (A5 / Counter Placard)
+                        </button>
+                        <button
+                          type="button"
+                          class="btn-merchant btn-merchant--outline"
+                          id="btnDownloadQrPng"
+                        >
+                          ⬇️ Download QR Code (PNG)
+                        </button>
+                        <button
+                          type="button"
+                          class="btn-merchant btn-merchant--outline"
+                          id="btnCopyStoreQrLink"
+                        >
+                          🔗 Copy Storefront Link
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-            </div>
-
-            <!-- Sticky Save Actions Bar -->
-            <div class="profile-actions-bar">
-              <a href="merchant-store.html" class="btn-merchant btn-merchant--outline">
-                👁️ View Live Storefront
-              </a>
-              <button type="submit" class="btn-merchant btn-merchant--primary" id="saveProfileBtn">
-                💾 Save Changes &amp; Publish
-              </button>
-            </div>
-          </form>
-
-        </div>
-
-        <!-- ════════ COLUMN 2: LIVE STORE CARD PREVIEW ════════ -->
-        <aside class="profile-preview-col">
-          <div class="profile-preview-sticky">
-
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span class="preview-header-badge">
-                <span class="merchant-pulse-dot"></span> Live Customer Storefront Preview
-              </span>
-              <span style="font-size:0.8rem; color:var(--m-text-muted);">Real-time</span>
-            </div>
-
-            <!-- Mirrored Storefront Card from stores.html -->
-            <article class="preview-card" id="storePreviewCard" aria-label="Storefront Preview">
-              <img class="preview-card__cover" id="previewCover" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&auto=format&fit=crop&q=80" alt="Store Cover Preview">
-              
-              <div class="preview-card__avatar" id="previewAvatar">R</div>
-
-              <div class="preview-card__body">
-                <!-- Live Status Banners Preview -->
-                <div id="previewAnnouncementBanner" style="display:none; background:linear-gradient(90deg, #10b951, #047857); color:#fff; padding:0.5rem 0.85rem; border-radius:8px; font-size:0.8rem; font-weight:600; margin-bottom:0.75rem; align-items:center; gap:0.4rem;">
-                  <span>📢</span> <span id="previewAnnouncementText">Special Nursery Announcement</span>
-                </div>
-                <div id="previewVacationBanner" style="display:none; background:#fef3c7; border:1px solid #f59e0b; color:#92400e; padding:0.5rem 0.85rem; border-radius:8px; font-size:0.8rem; font-weight:600; margin-bottom:0.75rem; align-items:center; gap:0.4rem;">
-                  <span>🌴</span> <span id="previewVacationText">Vacation Mode Active</span>
-                </div>
-
-                <div class="preview-card__name-row">
-                  <h4 class="preview-card__name" id="previewName">Al-Rawabi Botanical Nursery</h4>
-                  <span class="preview-card__verified">✓ Verified</span>
-                </div>
-
-                <p class="preview-card__tagline" id="previewTagline">
-                  Specializing in certified Mediterranean specimens, acclimated rare aroids, organic seedling starters, and artisan clay pottery since 2018.
-                </p>
-
-                <div class="preview-card__chips">
-                  <span class="preview-card__chip">📍 <span id="previewCity">Amman - Gardens</span></span>
-                  <span class="preview-card__chip">📞 <span id="previewPhone">+962 7 9811 2233</span></span>
-                  <span class="preview-card__chip">🚚 <span id="previewDelivery">Same-day Amman Dispatch</span></span>
-                </div>
-
-                <div class="preview-card__actions">
-                  <a href="merchant-store.html" class="btn-merchant btn-merchant--primary" style="flex:1; text-align:center; justify-content:center;">
-                    Visit Nursery Storefront →
-                  </a>
-                  <button type="button" id="previewMapBtn" class="btn-merchant btn-merchant--outline" title="Pin / View Store Location on Map">
-                    🗺️ Pin on Map
-                  </button>
-                </div>
+              <!-- Sticky Save Actions Bar -->
+              <div class="profile-actions-bar">
+                <a
+                  href="merchant-store.html"
+                  class="btn-merchant btn-merchant--outline"
+                >
+                  👁️ View Live Storefront
+                </a>
+                <button
+                  type="submit"
+                  class="btn-merchant btn-merchant--primary"
+                  id="saveProfileBtn"
+                >
+                  💾 Save Changes &amp; Publish
+                </button>
               </div>
-            </article>
-
-            <!-- Store Trust & Fulfillment Stats Preview -->
-            <div class="preview-stats-card">
-              <div class="preview-stat-item">
-                <span id="previewStatRating">4.9 ★</span>
-                <span>Rating</span>
-              </div>
-              <div class="preview-stat-item">
-                <span id="previewStatOrders">1,420+</span>
-                <span>Fulfilled</span>
-              </div>
-              <div class="preview-stat-item">
-                <span id="previewStatFollowers">1.4k</span>
-                <span>Followers</span>
-              </div>
-            </div>
-
-            <div style="background:var(--m-surface); border:1px solid var(--m-border); border-radius:var(--m-radius); padding:1.25rem 1.5rem; font-size:0.86rem; color:var(--m-text-muted);">
-              <strong style="color:var(--m-text); display:block; margin-bottom:0.25rem;">💡 Merchant Tip:</strong>
-              Your profile updates immediately sync across the consumer marketplace (`stores.html` directory, `store.html` dedicated storefront, and `nearby-stores.html` map pin).
-            </div>
-
+            </form>
           </div>
-        </aside>
 
+          <!-- ════════ COLUMN 2: LIVE STORE CARD PREVIEW ════════ -->
+          <aside class="profile-preview-col">
+            <div class="profile-preview-sticky">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span class="preview-header-badge">
+                  <span class="merchant-pulse-dot"></span> Live Customer
+                  Storefront Preview
+                </span>
+                <span style="font-size: 0.8rem; color: var(--m-text-muted)"
+                  >Real-time</span
+                >
+              </div>
+
+              <!-- Mirrored Storefront Card from stores.html -->
+              <article
+                class="preview-card"
+                id="storePreviewCard"
+                aria-label="Storefront Preview"
+              >
+                <img
+                  class="preview-card__cover"
+                  id="previewCover"
+                  src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&auto=format&fit=crop&q=80"
+                  alt="Store Cover Preview"
+                />
+
+                <div class="preview-card__avatar" id="previewAvatar">R</div>
+
+                <div class="preview-card__body">
+                  <!-- Live Status Banners Preview -->
+                  <div
+                    id="previewAnnouncementBanner"
+                    style="
+                      display: none;
+                      background: linear-gradient(90deg, #10b951, #047857);
+                      color: #fff;
+                      padding: 0.5rem 0.85rem;
+                      border-radius: 8px;
+                      font-size: 0.8rem;
+                      font-weight: 600;
+                      margin-bottom: 0.75rem;
+                      align-items: center;
+                      gap: 0.4rem;
+                    "
+                  >
+                    <span>📢</span>
+                    <span id="previewAnnouncementText"
+                      >Special Nursery Announcement</span
+                    >
+                  </div>
+                  <div
+                    id="previewVacationBanner"
+                    style="
+                      display: none;
+                      background: #fef3c7;
+                      border: 1px solid #f59e0b;
+                      color: #92400e;
+                      padding: 0.5rem 0.85rem;
+                      border-radius: 8px;
+                      font-size: 0.8rem;
+                      font-weight: 600;
+                      margin-bottom: 0.75rem;
+                      align-items: center;
+                      gap: 0.4rem;
+                    "
+                  >
+                    <span>🌴</span>
+                    <span id="previewVacationText">Vacation Mode Active</span>
+                  </div>
+
+                  <div class="preview-card__name-row">
+                    <h4 class="preview-card__name" id="previewName">
+                      Al-Rawabi Botanical Nursery
+                    </h4>
+                    <span class="preview-card__verified">✓ Verified</span>
+                  </div>
+
+                  <p class="preview-card__tagline" id="previewTagline">
+                    Specializing in certified Mediterranean specimens,
+                    acclimated rare aroids, organic seedling starters, and
+                    artisan clay pottery since 2018.
+                  </p>
+
+                  <div class="preview-card__chips">
+                    <span class="preview-card__chip"
+                      >📍 <span id="previewCity">Amman - Gardens</span></span
+                    >
+                    <span class="preview-card__chip"
+                      >📞 <span id="previewPhone">+962 7 9811 2233</span></span
+                    >
+                    <span class="preview-card__chip"
+                      >🚚
+                      <span id="previewDelivery"
+                        >Same-day Amman Dispatch</span
+                      ></span
+                    >
+                  </div>
+
+                  <div class="preview-card__actions">
+                    <a
+                      href="merchant-store.html"
+                      class="btn-merchant btn-merchant--primary"
+                      style="
+                        flex: 1;
+                        text-align: center;
+                        justify-content: center;
+                      "
+                    >
+                      Visit Nursery Storefront →
+                    </a>
+                    <button
+                      type="button"
+                      id="previewMapBtn"
+                      class="btn-merchant btn-merchant--outline"
+                      title="Pin / View Store Location on Map"
+                    >
+                      🗺️ Pin on Map
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Store Trust & Fulfillment Stats Preview -->
+              <div class="preview-stats-card">
+                <div class="preview-stat-item">
+                  <span id="previewStatRating">4.9 ★</span>
+                  <span>Rating</span>
+                </div>
+                <div class="preview-stat-item">
+                  <span id="previewStatOrders">1,420+</span>
+                  <span>Fulfilled</span>
+                </div>
+                <div class="preview-stat-item">
+                  <span id="previewStatFollowers">1.4k</span>
+                  <span>Followers</span>
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: var(--m-surface);
+                  border: 1px solid var(--m-border);
+                  border-radius: var(--m-radius);
+                  padding: 1.25rem 1.5rem;
+                  font-size: 0.86rem;
+                  color: var(--m-text-muted);
+                "
+              >
+                <strong
+                  style="
+                    color: var(--m-text);
+                    display: block;
+                    margin-bottom: 0.25rem;
+                  "
+                  >💡 Merchant Tip:</strong
+                >
+                Your profile updates immediately sync across the consumer
+                marketplace (`stores.html` directory, `store.html` dedicated
+                storefront, and `nearby-stores.html` map pin).
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
+    </main>
 
-    </div>
-  </main>
-
-  <!-- Shared Footer (Compliant with AGENTS.md) -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo flex items-center">
-            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+    <!-- Shared Footer (Compliant with AGENTS.md) -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Empowering plant growers, verified nurseries, and botanical
+              enthusiasts nationwide.
+            </div>
           </div>
-          <div class="footer__desc">
-            Empowering plant growers, verified nurseries, and botanical enthusiasts nationwide.
+          <div>
+            <div class="footer__heading">Merchant Hub</div>
+            <ul class="footer__links">
+              <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
+              <li>
+                <a href="merchant-profile.html">Store Profile &amp; Editor</a>
+              </li>
+              <li>
+                <a href="merchant-store.html">Public Marketplace Store</a>
+              </li>
+              <li><a href="nearby-stores.html">Nearby Greenhouses Map</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Support &amp; Logistics</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track Shipments</a></li>
+              <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
+              <li><a href="about.html">About Agrismart</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Headquarters</div>
+            <ul class="footer__links">
+              <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
+              <li><span>📞 +962 7 9811 2233</span></li>
+              <li>
+                <a href="mailto:wholesale@agrismart.com"
+                  >✉️ wholesale@agrismart.com</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
+    </footer>
+
+    <!-- Hidden Printable Stand Container for Clean A5/A4 Counter Printing -->
+    <div id="printableStandRoot" class="no-print" style="display: none">
+      <div
+        style="
+          width: 148mm;
+          height: 210mm;
+          max-width: 100%;
+          border: 8px solid #10b951;
+          border-radius: 24px;
+          padding: 24mm 16mm;
+          text-align: center;
+          font-family: &quot;Inter&quot;, system-ui, sans-serif;
+          background: #ffffff;
+          color: #0f172a;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          box-sizing: border-box;
+        "
+      >
         <div>
-          <div class="footer__heading">Merchant Hub</div>
-          <ul class="footer__links">
-            <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
-            <li><a href="merchant-profile.html">Store Profile &amp; Editor</a></li>
-            <li><a href="merchant-store.html">Public Marketplace Store</a></li>
-            <li><a href="nearby-stores.html">Nearby Greenhouses Map</a></li>
-          </ul>
+          <div
+            style="
+              display: inline-block;
+              background: #ecfdf5;
+              border: 2px solid #10b951;
+              color: #047857;
+              font-weight: 800;
+              font-size: 13pt;
+              padding: 6px 18px;
+              border-radius: 999px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 12px;
+            "
+          >
+            🌿 Agrismart Verified Nursery
+          </div>
+          <h1
+            id="printStandTitle"
+            style="
+              font-size: 24pt;
+              font-weight: 900;
+              margin: 6px 0;
+              color: #064e3b;
+              line-height: 1.2;
+            "
+          >
+            Al-Rawabi Botanical Nursery
+          </h1>
+          <p
+            id="printStandCity"
+            style="font-size: 12pt; color: #475569; margin: 0"
+          >
+            Wasfi Al-Tal St, Gardens, Amman, Jordan
+          </p>
         </div>
-        <div>
-          <div class="footer__heading">Support &amp; Logistics</div>
-          <ul class="footer__links">
-            <li><a href="track-order.html">Track Shipments</a></li>
-            <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
-            <li><a href="about.html">About Agrismart</a></li>
-          </ul>
+
+        <div
+          style="
+            background: #f8fafc;
+            border: 3px solid #0f172a;
+            border-radius: 20px;
+            padding: 16px;
+            margin: 16px 0;
+          "
+        >
+          <img
+            id="printStandQrImg"
+            src=""
+            style="width: 62mm; height: 62mm; display: block"
+            alt="QR Code"
+          />
         </div>
+
         <div>
-          <div class="footer__heading">Headquarters</div>
-          <ul class="footer__links">
-            <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
-            <li><span>📞 +962 7 9811 2233</span></li>
-            <li><a href="mailto:wholesale@agrismart.com">✉️ wholesale@agrismart.com</a></li>
-          </ul>
+          <h2
+            style="
+              font-size: 16pt;
+              font-weight: 800;
+              margin: 0 0 6px;
+              color: #0f172a;
+            "
+          >
+            📱 Point Your Camera To Scan
+          </h2>
+          <p
+            style="
+              font-size: 11pt;
+              color: #64748b;
+              margin: 0;
+              max-width: 110mm;
+              line-height: 1.4;
+            "
+          >
+            Browse real-time botanical inventory, plant care telemetry sheets,
+            and arrange same-day delivery.
+          </p>
+          <p style="font-size: 9pt; color: #94a3b8; margin-top: 14px">
+            Powered by Agrismart National Botanical Platform
+          </p>
         </div>
       </div>
     </div>
-  </footer>
 
-  <!-- Hidden Printable Stand Container for Clean A5/A4 Counter Printing -->
-  <div id="printableStandRoot" class="no-print" style="display:none;">
-    <div style="width:148mm; height:210mm; max-width:100%; border:8px solid #10b951; border-radius:24px; padding:24mm 16mm; text-align:center; font-family:'Inter',system-ui,sans-serif; background:#ffffff; color:#0f172a; display:flex; flex-direction:column; align-items:center; justify-content:space-between; box-sizing:border-box;">
-      <div>
-        <div style="display:inline-block; background:#ecfdf5; border:2px solid #10b951; color:#047857; font-weight:800; font-size:13pt; padding:6px 18px; border-radius:999px; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">🌿 Agrismart Verified Nursery</div>
-        <h1 id="printStandTitle" style="font-size:24pt; font-weight:900; margin:6px 0; color:#064e3b; line-height:1.2;">Al-Rawabi Botanical Nursery</h1>
-        <p id="printStandCity" style="font-size:12pt; color:#475569; margin:0;">Wasfi Al-Tal St, Gardens, Amman, Jordan</p>
-      </div>
-      
-      <div style="background:#f8fafc; border:3px solid #0f172a; border-radius:20px; padding:16px; margin:16px 0;">
-        <img id="printStandQrImg" src="" style="width:62mm; height:62mm; display:block;" alt="QR Code">
-      </div>
-
-      <div>
-        <h2 style="font-size:16pt; font-weight:800; margin:0 0 6px; color:#0f172a;">📱 Point Your Camera To Scan</h2>
-        <p style="font-size:11pt; color:#64748b; margin:0; max-width:110mm; line-height:1.4;">Browse real-time botanical inventory, plant care telemetry sheets, and arrange same-day delivery.</p>
-        <p style="font-size:9pt; color:#94a3b8; margin-top:14px;">Powered by Agrismart National Botanical Platform</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts: Exact sequence as requested in AGENTS.md -->
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/header.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/stores-data.js"></script>
-  <script src="js/merchant-profile.js"></script>
-</body>
-
+    <!-- Scripts: Exact sequence as requested in AGENTS.md -->
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/header.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="js/stores-data.js"></script>
+    <script src="js/merchant-profile.js"></script>
+  </body>
 </html>

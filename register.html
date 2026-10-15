@@ -1,620 +1,1222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_blank" name="shell-type" />
+    <title>Agrismart Portal - Register</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/register.css" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta content="web_blank" name="shell-type" />
-  <title>Agrismart Portal - Register</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/app-promo.css" />
+    <link rel="stylesheet" href="css/auth-shared.css" />
+  </head>
 
-  <link rel="stylesheet" href="css/footer.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/app-promo.css" />
-  <link rel="stylesheet" href="css/auth-shared.css" />
-</head>
+  <body class="reg-body">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+      aria-hidden="true"
+    >
+      <symbol
+        id="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </symbol>
 
-<body class="reg-body">
-  <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; overflow: hidden;"
-    aria-hidden="true">
-    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5" />
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-    </symbol>
+      <symbol
+        id="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </symbol>
 
-    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </symbol>
+      <symbol
+        id="icon-search"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
 
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </symbol>
+      <symbol
+        id="icon-heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        />
+      </symbol>
 
-    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path
-        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-    </symbol>
+      <symbol
+        id="icon-user"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
 
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </symbol>
+      <symbol
+        id="icon-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+        />
+      </symbol>
+      <symbol id="icon-google" viewBox="0 0 24 24">
+        <path
+          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+          fill="#4285F4"
+        ></path>
+        <path
+          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+          fill="#34A853"
+        ></path>
+        <path
+          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+          fill="#FBBC05"
+        ></path>
+        <path
+          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+          fill="#EA4335"
+        ></path>
+      </symbol>
 
-    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" />
-    </symbol>
-    <symbol id="icon-google" viewBox="0 0 24 24">
-      <path
-        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-        fill="#4285F4"></path>
-      <path
-        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-        fill="#34A853"></path>
-      <path
-        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-        fill="#FBBC05"></path>
-      <path
-        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-        fill="#EA4335"></path>
-    </symbol>
+      <symbol id="icon-apple" viewBox="0 0 24 24">
+        <path
+          d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.96 2.81 1.03.08 2.07-.52 2.71-1.27z"
+          fill="currentColor"
+        ></path>
+      </symbol>
+    </svg>
 
-    <symbol id="icon-apple" viewBox="0 0 24 24">
-      <path
-        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.62-2.69 1.39-.58.67-1.09 1.76-.96 2.81 1.03.08 2.07-.52 2.71-1.27z"
-        fill="currentColor"></path>
-    </symbol>
-  </svg>
-
-  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="nav__logo logo-container">
-        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
-      </a>
-
-      <ul class="nav__links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Plants</a></li>
-        <li><a href="stores.html">Nurseries</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="lang-en" type="button">EN</button>
-          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
-        </div>
-        <!-- Theme Toggle -->
-        <button class="btn-icon theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <svg id="themeIconLight" class="hidden-icon">
-            <use href="#icon-sun"></use>
-          </svg>
-          <svg id="themeIconDark">
-            <use href="#icon-moon"></use>
-          </svg>
-        </button>
-        <!-- Login / User -->
-        <a href="./login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control>
-          <svg>
-            <use href="#icon-user"></use>
-          </svg>
+    <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <a href="index.html" class="nav__logo logo-container">
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
         </a>
-        <!-- Hamburger -->
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
+
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Plants</a></li>
+          <li><a href="stores.html">Nurseries</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN
+            </button>
+            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+          </div>
+          <!-- Theme Toggle -->
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg id="themeIconDark">
+              <use href="#icon-moon"></use>
+            </svg>
+          </button>
+          <!-- Login / User -->
+          <a
+            href="./login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+          >
+            <svg>
+              <use href="#icon-user"></use>
+            </svg>
+          </a>
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="reg-main">
-    <!-- Master Sanctuary Frame -->
-    <div class="reg-card">
-      <!-- LEFT COLUMN: Deep Forest Sanctuary Showcase Panel -->
-      <div class="reg-hero">
-        <!-- Ambient Botanical Glow Spheres -->
-        <div class="reg-hero-glow-1"></div>
-        <div class="reg-hero-glow-2"></div>
+    <main class="reg-main">
+      <!-- Master Sanctuary Frame -->
+      <div class="reg-card">
+        <!-- LEFT COLUMN: Deep Forest Sanctuary Showcase Panel -->
+        <div class="reg-hero">
+          <!-- Ambient Botanical Glow Spheres -->
+          <div class="reg-hero-glow-1"></div>
+          <div class="reg-hero-glow-2"></div>
 
-        <!-- Top Header Segment -->
-        <div class="reg-hero-content">
-          <div class="reg-hero-badges">
-            <span class="reg-hero-badge-primary">
-              <span class="reg-pulse-dot reg-pulse-primary"></span>
-              Living Flora Collective
-            </span>
-            <span class="reg-hero-badge-secondary">Ver. 3.4</span>
-          </div>
-          <div>
-            <p class="reg-hero-subtitle">Agrismart Intelligence</p>
-            <h1 class="reg-hero-title">Join the Living Sanctuary Community.</h1>
-            <p class="reg-hero-desc">
-              Create your account to unlock biophilic plant telemetry, automated hydration schedules, and
-              member-exclusive greenhouse specimens.
-            </p>
-          </div>
-
-          <!-- Specimen Hero Feature Card -->
-          <div class="reg-specimen-card group">
-            <div class="reg-specimen-inner">
-              <div class="reg-specimen-img-wrapper">
-                <img class="reg-specimen-img" data-alt="Monstera Albo Borsigiana"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuApOz3vlRkO6gdaFLpiznropSwPh6LfwDwKBnXQGMgGrTqszxBxJeBrin1o347Z1QIlpHOUNDOcYyQWFD6nB-dEcLtqXR3A-5R8NaNEAAJ_OD_1-O6kCHwekr1qYn_OcP39YHvIeEhFtYphXt3rKCnLCD_mz9xA3fYqe21zxMelxS75xopFZ3j_nptLjHh-B7WVCe2r5SaxFo8OpjlWCJe6cFcMabdH3_LwjgWabbvvYdV81CgeoCUz" />
-                <span class="reg-specimen-status-dot"></span>
-              </div>
-              <div class="reg-specimen-info">
-                <div class="reg-specimen-meta">
-                  <span class="reg-specimen-batch">Vault Batch #048</span>
-                  <span class="reg-specimen-sync">Ready to Sync</span>
-                </div>
-                <p class="reg-specimen-name">Monstera Albo Variegata</p>
-                <p class="reg-specimen-location">Microclimate: Greenhouse Pavilion Alpha</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Smart Live Telemetry Panel -->
-          <div class="reg-telemetry">
-            <div class="reg-telemetry-header">
-              <div class="reg-telemetry-title">
-                <span class="material-symbols-outlined icon-sensors">sensors</span>
-                ZONE 01 TELEMETRY
-              </div>
-              <span class="reg-telemetry-sync">
-                <span class="reg-pulse-dot reg-pulse-primary"></span> Synchronized
+          <!-- Top Header Segment -->
+          <div class="reg-hero-content">
+            <div class="reg-hero-badges">
+              <span class="reg-hero-badge-primary">
+                <span class="reg-pulse-dot reg-pulse-primary"></span>
+                Living Flora Collective
               </span>
-            </div>
-            <div class="reg-telemetry-grid">
-              <div class="reg-stat-box">
-                <div class="reg-stat-header">
-                  <span>Moisture</span>
-                  <span class="material-symbols-outlined icon-water">water_drop</span>
-                </div>
-                <div class="reg-stat-value-area">
-                  <div class="reg-stat-value">78%</div>
-                  <div class="reg-stat-bar-bg">
-                    <div class="reg-stat-bar-fill stat-moisture"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="reg-stat-box">
-                <div class="reg-stat-header">
-                  <span>Sunlight</span>
-                  <span class="material-symbols-outlined icon-sunny">wb_sunny</span>
-                </div>
-                <div class="reg-stat-value-area">
-                  <div class="reg-stat-value">Optimal</div>
-                  <div class="reg-stat-bar-bg">
-                    <div class="reg-stat-bar-fill stat-sunlight"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="reg-stat-box">
-                <div class="reg-stat-header">
-                  <span>Vitality</span>
-                  <span class="material-symbols-outlined icon-spa">spa</span>
-                </div>
-                <div class="reg-stat-value-area">
-                  <div class="reg-stat-value">98%</div>
-                  <div class="reg-stat-bar-bg">
-                    <div class="reg-stat-bar-fill stat-vitality"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <section class="reg-merchant-highlights" aria-label="Tools for your business">
-          <p class="reg-merchant-highlights__eyebrow">MADE FOR GROWING BUSINESSES</p>
-          <h2>Grow your plant business with the Agrismart marketplace.</h2>
-          <div class="reg-merchant-highlights__list">
-            <div><span class="material-symbols-outlined">potted_plant</span><p><b>Plants for every space</b><small>Explore indoor, outdoor, tropical, flowering, and easy-care plants.</small><small class="reg-merchant-highlights__extra">Browse by category, open detailed plant profiles, and compare care needs for home, garden, or workplace.</small></p></div>
-            <div><span class="material-symbols-outlined">spa</span><p><b>Seeds to start something new</b><small>Find flower, herb, fruit, and vegetable seeds for growing.</small><small class="reg-merchant-highlights__extra">Discover options for kitchen gardens, colorful borders, and new growing projects in every season.</small></p></div>
-            <div><span class="material-symbols-outlined">inventory_2</span><p><b>Pots &amp; growing essentials</b><small>Browse pots, stands, and care tools to complete your range.</small><small class="reg-merchant-highlights__extra">Match practical accessories with plants and find useful finishing touches for greener spaces.</small></p></div>
-            <div><span class="material-symbols-outlined">shopping_bag</span><p><b>A simple shopping journey</b><small>Review your cart, enter delivery details, and follow your orders.</small><small class="reg-merchant-highlights__extra">Check your order summary at checkout, then find order information from your account.</small></p></div>
-            <div><span class="material-symbols-outlined">menu_book</span><p><b>Helpful plant care guidance</b><small>Give customers useful tips for choosing and caring for plants.</small><small class="reg-merchant-highlights__extra">Product details and care information help shoppers understand light, watering, and plant features.</small></p></div>
-            <div><span class="material-symbols-outlined">support_agent</span><p><b>Support when you need it</b><small>Keep your business contact and service area together in your profile.</small><small class="reg-merchant-highlights__extra">Use customer service links and FAQs for common questions about orders, delivery, and returns.</small></p></div>
-          </div>
-        </section>
-
-        <!-- Bottom Panel Guarantee & Social Proof -->
-        <div class="reg-hero-footer">
-          <div class="reg-guarantee">
-            <div class="reg-guarantee-icon">
-              <span class="material-symbols-outlined icon-verified">verified</span>
+              <span class="reg-hero-badge-secondary">Ver. 3.4</span>
             </div>
             <div>
-              <p class="reg-guarantee-title">Verified Organic & 30-Day Guarantee</p>
-              <p class="reg-guarantee-desc">Healthy botanical arrival pledge and nursery telemetry replacement coverage
-                included.</p>
+              <p class="reg-hero-subtitle">Agrismart Intelligence</p>
+              <h1 class="reg-hero-title">
+                Join the Living Sanctuary Community.
+              </h1>
+              <p class="reg-hero-desc">
+                Create your account to unlock biophilic plant telemetry,
+                automated hydration schedules, and member-exclusive greenhouse
+                specimens.
+              </p>
             </div>
-          </div>
-          <div class="reg-social-proof">
-            <div class="reg-social-left">
-              <div class="reg-avatars">
-                <div class="reg-avatar">
-                  <img data-alt="Portrait photo 1"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT90w2cnnKMtU2c3dXB1U-jwfBXP5rGWJ9FwXaCZ-D_JsuD4Byw9dKaFg66qiis1_zPobxsYc3SsZAiYvnzlINMCRw-ChFuewCqlh6JP-_2RZ3IdLSTPBovWnfVzR_5qdt00LOlq_4mHDnmHnr-LFotn9aBFbbIAGCk8Z1ev5wtCpVWGNHz0Brnyq2Ud67V_46y95zl9AfeFuAOAnAg0bi1ULdF9iQqQPr_Qi_K4dCLupKmfA_2tXs" />
+
+            <!-- Specimen Hero Feature Card -->
+            <div class="reg-specimen-card group">
+              <div class="reg-specimen-inner">
+                <div class="reg-specimen-img-wrapper">
+                  <img
+                    class="reg-specimen-img"
+                    data-alt="Monstera Albo Borsigiana"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuApOz3vlRkO6gdaFLpiznropSwPh6LfwDwKBnXQGMgGrTqszxBxJeBrin1o347Z1QIlpHOUNDOcYyQWFD6nB-dEcLtqXR3A-5R8NaNEAAJ_OD_1-O6kCHwekr1qYn_OcP39YHvIeEhFtYphXt3rKCnLCD_mz9xA3fYqe21zxMelxS75xopFZ3j_nptLjHh-B7WVCe2r5SaxFo8OpjlWCJe6cFcMabdH3_LwjgWabbvvYdV81CgeoCUz"
+                  />
+                  <span class="reg-specimen-status-dot"></span>
                 </div>
-                <div class="reg-avatar">
-                  <img data-alt="Portrait photo 2"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3xH29GF16siGt6OA0GmRjrUYsM7BeK7BwnDP1mfkFkoxSyCSrfQNbsUi7Lks_tMqrOEY4gSSzpiz1musKcmMRA4Wv2SechamDsPjrYVfy3zLDZxDsPxZ7rtWbAux411okiKv3kYRzsqT27_P4Dso57K0flqFERa4WkwNk3QpVDco9WkU7uiKJBmwJ5aUP_PGfxIp2P87ft_doN1zSgAXM00hN7NzYrs3vE7CAGHyXxcbgGugSstys" />
-                </div>
-                <div class="reg-avatar">
-                  <img data-alt="Portrait photo 3"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhXUzOZJW9deqNwTVaPdK7J8bDCNv3KwpiftsLrT_GeNYIOLuBJoZhV9fujQ7QDdTeJ2YzQMo6f2bByyG5Y5gqX0h_pJ4vhlSEd7K8129N2BAw4dMhEaBeYP95B5pR4QH_iP26BQSrxqFhvQvNeczEeuWYgzxtABXOyDsCGwhMg3HXQbNpbjh8FYTLxFSFslswhGgENPmxSYQSiORFKnhICyjFWIeUmG_yNf1nlGTCcR07hBzc65UO" />
+                <div class="reg-specimen-info">
+                  <div class="reg-specimen-meta">
+                    <span class="reg-specimen-batch">Vault Batch #048</span>
+                    <span class="reg-specimen-sync">Ready to Sync</span>
+                  </div>
+                  <p class="reg-specimen-name">Monstera Albo Variegata</p>
+                  <p class="reg-specimen-location">
+                    Microclimate: Greenhouse Pavilion Alpha
+                  </p>
                 </div>
               </div>
-              <div class="reg-social-stats">
-                <p class="reg-social-count">14,200+ Members</p>
-                <p class="reg-social-desc">Botanical stewards active</p>
+            </div>
+
+            <!-- Smart Live Telemetry Panel -->
+            <div class="reg-telemetry">
+              <div class="reg-telemetry-header">
+                <div class="reg-telemetry-title">
+                  <span class="material-symbols-outlined icon-sensors"
+                    >sensors</span
+                  >
+                  ZONE 01 TELEMETRY
+                </div>
+                <span class="reg-telemetry-sync">
+                  <span class="reg-pulse-dot reg-pulse-primary"></span>
+                  Synchronized
+                </span>
               </div>
-            </div>
-            <div class="reg-rating">
-              <span class="material-symbols-outlined icon-star">star</span>
-              <span class="reg-rating-score">4.95</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT COLUMN: Create Account Form Panel -->
-      <div class="reg-auth-section">
-        <div class="reg-auth-header-bar">
-          <div class="reg-auth-tabs">
-            <a class="reg-tab inactive" id="tab-signin" href="login.html">Sign In</a>
-            <button class="reg-tab active" id="tab-signup" type="button">Create Account</button>
-          </div>
-          <div class="reg-secure-badge">
-            <span class="material-symbols-outlined icon-encrypted">encrypted</span>
-            <span>Secure 256-bit Registration</span>
-          </div>
-        </div>
-
-        <div class="reg-form-header">
-          <h2 id="registrationHeading">Create your account</h2>
-          <p id="registrationDescription">Start nurturing your smart botanical sanctuary today.</p>
-        </div>
-
-        <form class="reg-form" id="createAccountForm"
-         >
-          <!-- Role Selector -->
-          <div>
-            <label class="reg-role-label">Sanctuary Role</label>
-            <div class="reg-role-grid" id="roleSelectorGroup">
-              <button class="reg-role-btn active" id="role-personal" type="button" aria-pressed="true" aria-controls="businessFields">
-                <div class="reg-role-icon">
-                  <span class="material-symbols-outlined icon-plant">potted_plant</span>
+              <div class="reg-telemetry-grid">
+                <div class="reg-stat-box">
+                  <div class="reg-stat-header">
+                    <span>Moisture</span>
+                    <span class="material-symbols-outlined icon-water"
+                      >water_drop</span
+                    >
+                  </div>
+                  <div class="reg-stat-value-area">
+                    <div class="reg-stat-value">78%</div>
+                    <div class="reg-stat-bar-bg">
+                      <div class="reg-stat-bar-fill stat-moisture"></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="reg-role-content">
-                  <p class="reg-role-title">Personal Account</p>
-                  <p class="reg-role-desc">Home plant care & sensor logs</p>
+                <div class="reg-stat-box">
+                  <div class="reg-stat-header">
+                    <span>Sunlight</span>
+                    <span class="material-symbols-outlined icon-sunny"
+                      >wb_sunny</span
+                    >
+                  </div>
+                  <div class="reg-stat-value-area">
+                    <div class="reg-stat-value">Optimal</div>
+                    <div class="reg-stat-bar-bg">
+                      <div class="reg-stat-bar-fill stat-sunlight"></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="reg-role-check" id="role-personal-check">
-                  <span class="material-symbols-outlined icon-check-filled">check_circle</span>
+                <div class="reg-stat-box">
+                  <div class="reg-stat-header">
+                    <span>Vitality</span>
+                    <span class="material-symbols-outlined icon-spa">spa</span>
+                  </div>
+                  <div class="reg-stat-value-area">
+                    <div class="reg-stat-value">98%</div>
+                    <div class="reg-stat-bar-bg">
+                      <div class="reg-stat-bar-fill stat-vitality"></div>
+                    </div>
+                  </div>
                 </div>
-              </button>
-
-              <button class="reg-role-btn inactive" id="role-trader" type="button" aria-pressed="false" aria-controls="businessFields">
-                <div class="reg-role-icon">
-                  <span class="material-symbols-outlined icon-store">storefront</span>
-                </div>
-                <div class="reg-role-content">
-                  <p class="reg-role-title">Trader & Nursery</p>
-                  <p class="reg-role-desc">Wholesale procurement & dispatch</p>
-                </div>
-                <div class="reg-role-check hidden" id="role-trader-check">
-                  <span class="material-symbols-outlined icon-check-filled">check_circle</span>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          <!-- Social Fast Sign Up -->
-          <div class="reg-social-grid">
-            <button class="reg-social-btn" type="button">
-              <svg class="social-svg">
-                <use href="#icon-google"></use>
-              </svg>
-              <span>Continue with Google</span>
-            </button>
-            <button class="reg-social-btn" type="button">
-              <svg class="social-svg-fill">
-                <use href="#icon-apple"></use>
-              </svg>
-              <span>Continue with Apple</span>
-            </button>
-          </div>
-
-          <div class="reg-divider">
-            <div class="reg-divider-line"></div>
-            <span class="reg-divider-text">Or register with email</span>
-          </div>
-
-          <!-- Inputs -->
-          <div class="reg-input-group">
-            <label class="reg-input-label" for="fullName">Full Name</label>
-            <div class="reg-input-wrapper">
-              <span class="material-symbols-outlined reg-input-icon">person</span>
-              <input class="reg-input" id="fullName" placeholder="Elena Rostova" type="text" />
+              </div>
             </div>
           </div>
 
-          <div class="reg-input-group">
-            <div class="reg-input-label-row">
-              <label class="reg-input-label" for="userEmail">Botanical Email Address</label>
-              <span class="reg-valid-tag">
-                <span class="material-symbols-outlined icon-valid">check_circle</span> Valid domain
-              </span>
-            </div>
-            <div class="reg-input-wrapper">
-              <span class="material-symbols-outlined reg-input-icon">mail</span>
-              <input class="reg-input" id="userEmail" placeholder="elena.rostova@botanica.io" type="email"
-                />
-            </div>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-input-label" for="passwordField">Create Password</label>
-            <div class="reg-input-wrapper">
-              <span class="material-symbols-outlined reg-input-icon">lock</span>
-              <input class="reg-input" id="passwordField" type="password" autocomplete="new-password" minlength="8" required />
-              <button class="reg-pwd-toggle" id="togglePasswordBtn" type="button" aria-label="Show password" aria-pressed="false">
-                <span class="material-symbols-outlined icon-pwd" id="passwordIconState">visibility</span>
-              </button>
-            </div>
-            <div class="reg-pwd-strength">
-              <div class="reg-pwd-strength-header">
-                <span class="reg-pwd-strength-label">Security Strength</span>
-                <span class="reg-pwd-strength-val" id="passwordStrengthValue" aria-live="polite">Add a password to see its strength</span>
+          <section
+            class="reg-merchant-highlights"
+            aria-label="Tools for your business"
+          >
+            <p class="reg-merchant-highlights__eyebrow">
+              MADE FOR GROWING BUSINESSES
+            </p>
+            <h2>Grow your plant business with the Agrismart marketplace.</h2>
+            <div class="reg-merchant-highlights__list">
+              <div>
+                <span class="material-symbols-outlined">potted_plant</span>
+                <p>
+                  <b>Plants for every space</b
+                  ><small
+                    >Explore indoor, outdoor, tropical, flowering, and easy-care
+                    plants.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Browse by category, open detailed plant profiles, and
+                    compare care needs for home, garden, or workplace.</small
+                  >
+                </p>
               </div>
-              <div class="reg-pwd-bars" id="passwordStrengthMeter" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" aria-valuetext="No password entered">
-                <span class="reg-pwd-segment"></span><span class="reg-pwd-segment"></span><span class="reg-pwd-segment"></span><span class="reg-pwd-segment"></span>
+              <div>
+                <span class="material-symbols-outlined">spa</span>
+                <p>
+                  <b>Seeds to start something new</b
+                  ><small
+                    >Find flower, herb, fruit, and vegetable seeds for
+                    growing.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Discover options for kitchen gardens, colorful borders, and
+                    new growing projects in every season.</small
+                  >
+                </p>
               </div>
-              <ul class="reg-password-requirements" aria-label="Password requirements">
-                <li data-password-rule="length"><span aria-hidden="true">○</span> At least 8 characters</li>
-                <li data-password-rule="case"><span aria-hidden="true">○</span> Uppercase and lowercase letters</li>
-                <li data-password-rule="number"><span aria-hidden="true">○</span> One number</li>
-                <li data-password-rule="symbol"><span aria-hidden="true">○</span> One symbol</li>
-              </ul>
-            </div>
-          </div>
-
-          <input type="hidden" id="accountType" name="accountType" value="personal" />
-
-          <section class="business-fields" id="businessFields" aria-labelledby="businessFieldsTitle" hidden>
-            <div class="business-fields__heading">
-              <span class="material-symbols-outlined" aria-hidden="true">storefront</span>
-              <div><h3 id="businessFieldsTitle">Business details</h3><p>Tell us about your shop or nursery.</p></div>
-            </div>
-
-            <div class="business-fields__grid">
-              <div class="reg-input-group business-field business-field--wide">
-                <label class="reg-input-label" for="businessName">Store or nursery name <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">store</span><input class="reg-input" id="businessName" name="businessName" type="text" placeholder="e.g. Green Leaf Nursery" required disabled></div>
+              <div>
+                <span class="material-symbols-outlined">inventory_2</span>
+                <p>
+                  <b>Pots &amp; growing essentials</b
+                  ><small
+                    >Browse pots, stands, and care tools to complete your
+                    range.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Match practical accessories with plants and find useful
+                    finishing touches for greener spaces.</small
+                  >
+                </p>
               </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessType">Business type <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">category</span><select class="reg-input" id="businessType" name="businessType" required disabled><option value="">Choose a business type</option><option>Plant nursery</option><option>Garden center</option><option>Plant shop</option><option>Online store</option><option>Plant wholesaler</option><option>Other</option></select></div>
+              <div>
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <p>
+                  <b>A simple shopping journey</b
+                  ><small
+                    >Review your cart, enter delivery details, and follow your
+                    orders.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Check your order summary at checkout, then find order
+                    information from your account.</small
+                  >
+                </p>
               </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessPhone">Business phone <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">call</span><input class="reg-input" id="businessPhone" name="businessPhone" type="tel" autocomplete="tel" placeholder="+962 7X XXX XXXX" required disabled></div>
+              <div>
+                <span class="material-symbols-outlined">menu_book</span>
+                <p>
+                  <b>Helpful plant care guidance</b
+                  ><small
+                    >Give customers useful tips for choosing and caring for
+                    plants.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Product details and care information help shoppers
+                    understand light, watering, and plant features.</small
+                  >
+                </p>
               </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessCountry">Country <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">public</span><select class="reg-input" id="businessCountry" name="businessCountry" required disabled><option value="">Choose a country</option><option>Jordan</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Other</option></select></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessCity">City <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">location_city</span><input class="reg-input" id="businessCity" name="businessCity" type="text" autocomplete="address-level2" placeholder="Amman" required disabled></div>
-              </div>
-              <div class="reg-input-group business-field--wide">
-                <label class="reg-input-label" for="businessAddress">Shop address <span>*</span></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">location_on</span><input class="reg-input" id="businessAddress" name="businessAddress" type="text" autocomplete="street-address" placeholder="Street, building, and area" required disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessEmail">Business email <small>Optional</small></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">alternate_email</span><input class="reg-input" id="businessEmail" name="businessEmail" type="email" autocomplete="email" placeholder="shop@example.com" disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessModel">Sales model</label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">storefront</span><select class="reg-input" id="businessModel" name="businessModel" disabled><option value="">Choose your sales model</option><option>Retail</option><option>Wholesale</option><option>Retail and wholesale</option></select></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessBranches">Store locations</label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">domain</span><select class="reg-input" id="businessBranches" name="businessBranches" disabled><option value="">Choose number of locations</option><option>One location</option><option>2–5 locations</option><option>6 or more locations</option></select></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessServiceArea">Service area <small>Optional</small></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">distance</span><input class="reg-input" id="businessServiceArea" name="businessServiceArea" type="text" placeholder="Areas or cities you serve" disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessRegistration">Business registration number <small>Optional</small></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">badge</span><input class="reg-input" id="businessRegistration" name="businessRegistration" type="text" placeholder="Registration number" disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessTaxId">Tax / VAT number <small>Optional</small></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">receipt_long</span><input class="reg-input" id="businessTaxId" name="businessTaxId" type="text" placeholder="Tax or VAT ID" disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessWebsite">Website or social page <small>Optional</small></label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">link</span><input class="reg-input" id="businessWebsite" name="businessWebsite" type="url" placeholder="https://" disabled></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="businessYears">Years in business</label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">event</span><select class="reg-input" id="businessYears" name="businessYears" disabled><option value="">Select range</option><option>New business</option><option>1–3 years</option><option>4–7 years</option><option>8+ years</option></select></div>
-              </div>
-              <div class="reg-input-group">
-                <label class="reg-input-label" for="wholesaleVolume">Expected monthly wholesale orders</label>
-                <div class="reg-input-wrapper"><span class="material-symbols-outlined reg-input-icon">inventory_2</span><select class="reg-input" id="wholesaleVolume" name="wholesaleVolume" disabled><option value="">Choose a range</option><option>1–5 orders</option><option>6–20 orders</option><option>21–50 orders</option><option>50+ orders</option></select></div>
-              </div>
-              <fieldset class="business-categories business-field--wide">
-                <legend>What would you like to source?</legend>
-                <label><input type="checkbox" name="productCategories" value="plants" disabled> Plants</label>
-                <label><input type="checkbox" name="productCategories" value="seeds-fertilizers" disabled> Seeds &amp; Fertilizers</label>
-                <label><input type="checkbox" name="productCategories" value="pots-accessories" disabled> Pots &amp; accessories</label>
-                <label><input type="checkbox" name="productCategories" value="care-supplies" disabled> Care supplies</label>
-              </fieldset>
-              <div class="reg-input-group business-field--wide">
-                <label class="reg-input-label" for="businessNotes">Anything else about your business? <small>Optional</small></label>
-                <textarea class="reg-input business-notes" id="businessNotes" name="businessNotes" rows="3" placeholder="Tell us about your shop and what you are looking for." disabled></textarea>
-              </div>
-            </div>
-            <p class="business-fields__privacy"><span class="material-symbols-outlined" aria-hidden="true">lock</span> Your business information stays with your Agrismart account.</p>
-            <div class="business-next-steps" aria-labelledby="businessNextStepsTitle">
-              <h4 id="businessNextStepsTitle">Your business profile, step by step</h4>
-              <div class="business-next-steps__grid">
-                <div>
-                  <span>01</span><b>Add your shop details</b>
-                  <small>Set the name and location customers will recognize.</small>
-                </div>
-                <div><span>02</span><b>Choose your interests</b>
-                  <small>Tell us which plants and supplies you work with.</small>
-                </div>
-                <div><span>03</span><b>Finish your account</b>
-                  <small>Use one account to manage your personal and business details.</small>
-                </div>
+              <div>
+                <span class="material-symbols-outlined">support_agent</span>
+                <p>
+                  <b>Support when you need it</b
+                  ><small
+                    >Keep your business contact and service area together in
+                    your profile.</small
+                  ><small class="reg-merchant-highlights__extra"
+                    >Use customer service links and FAQs for common questions
+                    about orders, delivery, and returns.</small
+                  >
+                </p>
               </div>
             </div>
           </section>
 
-          <!-- Trader Hint Box -->
-          <div class="reg-trader-hint hidden" id="traderBadgeField">
-            <span class="material-symbols-outlined">verified_user</span>
-            <span>Business registration and tax numbers are optional. Your store details help us set up wholesale access.</span>
+          <!-- Bottom Panel Guarantee & Social Proof -->
+          <div class="reg-hero-footer">
+            <div class="reg-guarantee">
+              <div class="reg-guarantee-icon">
+                <span class="material-symbols-outlined icon-verified"
+                  >verified</span
+                >
+              </div>
+              <div>
+                <p class="reg-guarantee-title">
+                  Verified Organic & 30-Day Guarantee
+                </p>
+                <p class="reg-guarantee-desc">
+                  Healthy botanical arrival pledge and nursery telemetry
+                  replacement coverage included.
+                </p>
+              </div>
+            </div>
+            <div class="reg-social-proof">
+              <div class="reg-social-left">
+                <div class="reg-avatars">
+                  <div class="reg-avatar">
+                    <img
+                      data-alt="Portrait photo 1"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT90w2cnnKMtU2c3dXB1U-jwfBXP5rGWJ9FwXaCZ-D_JsuD4Byw9dKaFg66qiis1_zPobxsYc3SsZAiYvnzlINMCRw-ChFuewCqlh6JP-_2RZ3IdLSTPBovWnfVzR_5qdt00LOlq_4mHDnmHnr-LFotn9aBFbbIAGCk8Z1ev5wtCpVWGNHz0Brnyq2Ud67V_46y95zl9AfeFuAOAnAg0bi1ULdF9iQqQPr_Qi_K4dCLupKmfA_2tXs"
+                    />
+                  </div>
+                  <div class="reg-avatar">
+                    <img
+                      data-alt="Portrait photo 2"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3xH29GF16siGt6OA0GmRjrUYsM7BeK7BwnDP1mfkFkoxSyCSrfQNbsUi7Lks_tMqrOEY4gSSzpiz1musKcmMRA4Wv2SechamDsPjrYVfy3zLDZxDsPxZ7rtWbAux411okiKv3kYRzsqT27_P4Dso57K0flqFERa4WkwNk3QpVDco9WkU7uiKJBmwJ5aUP_PGfxIp2P87ft_doN1zSgAXM00hN7NzYrs3vE7CAGHyXxcbgGugSstys"
+                    />
+                  </div>
+                  <div class="reg-avatar">
+                    <img
+                      data-alt="Portrait photo 3"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhXUzOZJW9deqNwTVaPdK7J8bDCNv3KwpiftsLrT_GeNYIOLuBJoZhV9fujQ7QDdTeJ2YzQMo6f2bByyG5Y5gqX0h_pJ4vhlSEd7K8129N2BAw4dMhEaBeYP95B5pR4QH_iP26BQSrxqFhvQvNeczEeuWYgzxtABXOyDsCGwhMg3HXQbNpbjh8FYTLxFSFslswhGgENPmxSYQSiORFKnhICyjFWIeUmG_yNf1nlGTCcR07hBzc65UO"
+                    />
+                  </div>
+                </div>
+                <div class="reg-social-stats">
+                  <p class="reg-social-count">14,200+ Members</p>
+                  <p class="reg-social-desc">Botanical stewards active</p>
+                </div>
+              </div>
+              <div class="reg-rating">
+                <span class="material-symbols-outlined icon-star">star</span>
+                <span class="reg-rating-score">4.95</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Create Account Form Panel -->
+        <div class="reg-auth-section">
+          <div class="reg-auth-header-bar">
+            <div class="reg-auth-tabs">
+              <a class="reg-tab inactive" id="tab-signin" href="login.html"
+                >Sign In</a
+              >
+              <button class="reg-tab active" id="tab-signup" type="button">
+                Create Account
+              </button>
+            </div>
+            <div class="reg-secure-badge">
+              <span class="material-symbols-outlined icon-encrypted"
+                >encrypted</span
+              >
+              <span>Secure 256-bit Registration</span>
+            </div>
           </div>
 
-          <!-- Checkboxes -->
-          <div class="reg-checkboxes">
-            <label class="reg-checkbox-label group">
-              <input checked class="reg-checkbox" type="checkbox" />
-              <span class="reg-checkbox-text">
-                I agree to the <a href="#">Terms of Service</a> & <a href="#">Plant Care Privacy Policy</a>.
-              </span>
-            </label>
-            <label class="reg-checkbox-label group">
-              <input checked class="reg-checkbox" type="checkbox" />
-              <span class="reg-checkbox-text">
-                Receive seasonal nursery advice, biophilic telemetric updates, and rare specimen releases.
-              </span>
-            </label>
+          <div class="reg-form-header">
+            <h2 id="registrationHeading">Create your account</h2>
+            <p id="registrationDescription">
+              Start nurturing your smart botanical sanctuary today.
+            </p>
           </div>
 
-          <button class="reg-submit-btn" type="submit">
-            <span class="material-symbols-outlined icon-btn">eco</span>
-            <span id="registrationSubmitText">Create Account</span>
-            <span class="material-symbols-outlined icon-btn">arrow_forward</span>
-          </button>
-        </form>
+          <form class="reg-form" id="createAccountForm">
+            <!-- Role Selector -->
+            <div>
+              <label class="reg-role-label">Sanctuary Role</label>
+              <div class="reg-role-grid" id="roleSelectorGroup">
+                <button
+                  class="reg-role-btn active"
+                  id="role-personal"
+                  type="button"
+                  aria-pressed="true"
+                  aria-controls="businessFields"
+                >
+                  <div class="reg-role-icon">
+                    <span class="material-symbols-outlined icon-plant"
+                      >potted_plant</span
+                    >
+                  </div>
+                  <div class="reg-role-content">
+                    <p class="reg-role-title">Personal Account</p>
+                    <p class="reg-role-desc">Home plant care & sensor logs</p>
+                  </div>
+                  <div class="reg-role-check" id="role-personal-check">
+                    <span class="material-symbols-outlined icon-check-filled"
+                      >check_circle</span
+                    >
+                  </div>
+                </button>
 
-        <div class="reg-form-footer">
-          <p class="reg-footer-text">
-            Already part of the ecosystem?
-            <a class="reg-footer-link" href="login.html">Sign In</a>
-          </p>
-          <div class="reg-footer-status">
-            <span class="reg-footer-status-dot"></span>
-            <span>Temperature-monitored freight live</span>
+                <button
+                  class="reg-role-btn inactive"
+                  id="role-trader"
+                  type="button"
+                  aria-pressed="false"
+                  aria-controls="businessFields"
+                >
+                  <div class="reg-role-icon">
+                    <span class="material-symbols-outlined icon-store"
+                      >storefront</span
+                    >
+                  </div>
+                  <div class="reg-role-content">
+                    <p class="reg-role-title">Trader & Nursery</p>
+                    <p class="reg-role-desc">
+                      Wholesale procurement & dispatch
+                    </p>
+                  </div>
+                  <div class="reg-role-check hidden" id="role-trader-check">
+                    <span class="material-symbols-outlined icon-check-filled"
+                      >check_circle</span
+                    >
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Social Fast Sign Up -->
+            <div class="reg-social-grid">
+              <button class="reg-social-btn" type="button">
+                <svg class="social-svg">
+                  <use href="#icon-google"></use>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+              <button class="reg-social-btn" type="button">
+                <svg class="social-svg-fill">
+                  <use href="#icon-apple"></use>
+                </svg>
+                <span>Continue with Apple</span>
+              </button>
+            </div>
+
+            <div class="reg-divider">
+              <div class="reg-divider-line"></div>
+              <span class="reg-divider-text">Or register with email</span>
+            </div>
+
+            <!-- Inputs -->
+            <div class="reg-input-group">
+              <label class="reg-input-label" for="fullName">Full Name</label>
+              <div class="reg-input-wrapper">
+                <span class="material-symbols-outlined reg-input-icon"
+                  >person</span
+                >
+                <input
+                  class="reg-input"
+                  id="fullName"
+                  placeholder="Elena Rostova"
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div class="reg-input-group">
+              <div class="reg-input-label-row">
+                <label class="reg-input-label" for="userEmail"
+                  >Botanical Email Address</label
+                >
+                <span class="reg-valid-tag">
+                  <span class="material-symbols-outlined icon-valid"
+                    >check_circle</span
+                  >
+                  Valid domain
+                </span>
+              </div>
+              <div class="reg-input-wrapper">
+                <span class="material-symbols-outlined reg-input-icon"
+                  >mail</span
+                >
+                <input
+                  class="reg-input"
+                  id="userEmail"
+                  placeholder="elena.rostova@botanica.io"
+                  type="email"
+                />
+              </div>
+            </div>
+
+            <div class="reg-input-group">
+              <label class="reg-input-label" for="passwordField"
+                >Create Password</label
+              >
+              <div class="reg-input-wrapper">
+                <span class="material-symbols-outlined reg-input-icon"
+                  >lock</span
+                >
+                <input
+                  class="reg-input"
+                  id="passwordField"
+                  type="password"
+                  autocomplete="new-password"
+                  minlength="8"
+                  required
+                />
+                <button
+                  class="reg-pwd-toggle"
+                  id="togglePasswordBtn"
+                  type="button"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                >
+                  <span
+                    class="material-symbols-outlined icon-pwd"
+                    id="passwordIconState"
+                    >visibility</span
+                  >
+                </button>
+              </div>
+              <div class="reg-pwd-strength">
+                <div class="reg-pwd-strength-header">
+                  <span class="reg-pwd-strength-label">Security Strength</span>
+                  <span
+                    class="reg-pwd-strength-val"
+                    id="passwordStrengthValue"
+                    aria-live="polite"
+                    >Add a password to see its strength</span
+                  >
+                </div>
+                <div
+                  class="reg-pwd-bars"
+                  id="passwordStrengthMeter"
+                  role="progressbar"
+                  aria-label="Password strength"
+                  aria-valuemin="0"
+                  aria-valuemax="5"
+                  aria-valuenow="0"
+                  aria-valuetext="No password entered"
+                >
+                  <span class="reg-pwd-segment"></span
+                  ><span class="reg-pwd-segment"></span
+                  ><span class="reg-pwd-segment"></span
+                  ><span class="reg-pwd-segment"></span>
+                </div>
+                <ul
+                  class="reg-password-requirements"
+                  aria-label="Password requirements"
+                >
+                  <li data-password-rule="length">
+                    <span aria-hidden="true">○</span> At least 8 characters
+                  </li>
+                  <li data-password-rule="case">
+                    <span aria-hidden="true">○</span> Uppercase and lowercase
+                    letters
+                  </li>
+                  <li data-password-rule="number">
+                    <span aria-hidden="true">○</span> One number
+                  </li>
+                  <li data-password-rule="symbol">
+                    <span aria-hidden="true">○</span> One symbol
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <input
+              type="hidden"
+              id="accountType"
+              name="accountType"
+              value="personal"
+            />
+
+            <section
+              class="business-fields"
+              id="businessFields"
+              aria-labelledby="businessFieldsTitle"
+              hidden
+            >
+              <div class="business-fields__heading">
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >storefront</span
+                >
+                <div>
+                  <h3 id="businessFieldsTitle">Business details</h3>
+                  <p>Tell us about your shop or nursery.</p>
+                </div>
+              </div>
+
+              <div class="business-fields__grid">
+                <div
+                  class="reg-input-group business-field business-field--wide"
+                >
+                  <label class="reg-input-label" for="businessName"
+                    >Store or nursery name <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >store</span
+                    ><input
+                      class="reg-input"
+                      id="businessName"
+                      name="businessName"
+                      type="text"
+                      placeholder="e.g. Green Leaf Nursery"
+                      required
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessType"
+                    >Business type <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >category</span
+                    ><select
+                      class="reg-input"
+                      id="businessType"
+                      name="businessType"
+                      required
+                      disabled
+                    >
+                      <option value="">Choose a business type</option>
+                      <option>Plant nursery</option>
+                      <option>Garden center</option>
+                      <option>Plant shop</option>
+                      <option>Online store</option>
+                      <option>Plant wholesaler</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessPhone"
+                    >Business phone <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >call</span
+                    ><input
+                      class="reg-input"
+                      id="businessPhone"
+                      name="businessPhone"
+                      type="tel"
+                      autocomplete="tel"
+                      placeholder="+962 7X XXX XXXX"
+                      required
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessCountry"
+                    >Country <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >public</span
+                    ><select
+                      class="reg-input"
+                      id="businessCountry"
+                      name="businessCountry"
+                      required
+                      disabled
+                    >
+                      <option value="">Choose a country</option>
+                      <option>Jordan</option>
+                      <option>Saudi Arabia</option>
+                      <option>United Arab Emirates</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessCity"
+                    >City <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >location_city</span
+                    ><input
+                      class="reg-input"
+                      id="businessCity"
+                      name="businessCity"
+                      type="text"
+                      autocomplete="address-level2"
+                      placeholder="Amman"
+                      required
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group business-field--wide">
+                  <label class="reg-input-label" for="businessAddress"
+                    >Shop address <span>*</span></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >location_on</span
+                    ><input
+                      class="reg-input"
+                      id="businessAddress"
+                      name="businessAddress"
+                      type="text"
+                      autocomplete="street-address"
+                      placeholder="Street, building, and area"
+                      required
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessEmail"
+                    >Business email <small>Optional</small></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >alternate_email</span
+                    ><input
+                      class="reg-input"
+                      id="businessEmail"
+                      name="businessEmail"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="shop@example.com"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessModel"
+                    >Sales model</label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >storefront</span
+                    ><select
+                      class="reg-input"
+                      id="businessModel"
+                      name="businessModel"
+                      disabled
+                    >
+                      <option value="">Choose your sales model</option>
+                      <option>Retail</option>
+                      <option>Wholesale</option>
+                      <option>Retail and wholesale</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessBranches"
+                    >Store locations</label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >domain</span
+                    ><select
+                      class="reg-input"
+                      id="businessBranches"
+                      name="businessBranches"
+                      disabled
+                    >
+                      <option value="">Choose number of locations</option>
+                      <option>One location</option>
+                      <option>2–5 locations</option>
+                      <option>6 or more locations</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessServiceArea"
+                    >Service area <small>Optional</small></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >distance</span
+                    ><input
+                      class="reg-input"
+                      id="businessServiceArea"
+                      name="businessServiceArea"
+                      type="text"
+                      placeholder="Areas or cities you serve"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessRegistration"
+                    >Business registration number <small>Optional</small></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >badge</span
+                    ><input
+                      class="reg-input"
+                      id="businessRegistration"
+                      name="businessRegistration"
+                      type="text"
+                      placeholder="Registration number"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessTaxId"
+                    >Tax / VAT number <small>Optional</small></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >receipt_long</span
+                    ><input
+                      class="reg-input"
+                      id="businessTaxId"
+                      name="businessTaxId"
+                      type="text"
+                      placeholder="Tax or VAT ID"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessWebsite"
+                    >Website or social page <small>Optional</small></label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >link</span
+                    ><input
+                      class="reg-input"
+                      id="businessWebsite"
+                      name="businessWebsite"
+                      type="url"
+                      placeholder="https://"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="businessYears"
+                    >Years in business</label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >event</span
+                    ><select
+                      class="reg-input"
+                      id="businessYears"
+                      name="businessYears"
+                      disabled
+                    >
+                      <option value="">Select range</option>
+                      <option>New business</option>
+                      <option>1–3 years</option>
+                      <option>4–7 years</option>
+                      <option>8+ years</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="reg-input-group">
+                  <label class="reg-input-label" for="wholesaleVolume"
+                    >Expected monthly wholesale orders</label
+                  >
+                  <div class="reg-input-wrapper">
+                    <span class="material-symbols-outlined reg-input-icon"
+                      >inventory_2</span
+                    ><select
+                      class="reg-input"
+                      id="wholesaleVolume"
+                      name="wholesaleVolume"
+                      disabled
+                    >
+                      <option value="">Choose a range</option>
+                      <option>1–5 orders</option>
+                      <option>6–20 orders</option>
+                      <option>21–50 orders</option>
+                      <option>50+ orders</option>
+                    </select>
+                  </div>
+                </div>
+                <fieldset class="business-categories business-field--wide">
+                  <legend>What would you like to source?</legend>
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="productCategories"
+                      value="plants"
+                      disabled
+                    />
+                    Plants</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="productCategories"
+                      value="seeds-fertilizers"
+                      disabled
+                    />
+                    Seeds &amp; Fertilizers</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="productCategories"
+                      value="pots-accessories"
+                      disabled
+                    />
+                    Pots &amp; accessories</label
+                  >
+                  <label
+                    ><input
+                      type="checkbox"
+                      name="productCategories"
+                      value="care-supplies"
+                      disabled
+                    />
+                    Care supplies</label
+                  >
+                </fieldset>
+                <div class="reg-input-group business-field--wide">
+                  <label class="reg-input-label" for="businessNotes"
+                    >Anything else about your business?
+                    <small>Optional</small></label
+                  >
+                  <textarea
+                    class="reg-input business-notes"
+                    id="businessNotes"
+                    name="businessNotes"
+                    rows="3"
+                    placeholder="Tell us about your shop and what you are looking for."
+                    disabled
+                  ></textarea>
+                </div>
+              </div>
+              <p class="business-fields__privacy">
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >lock</span
+                >
+                Your business information stays with your Agrismart account.
+              </p>
+              <div
+                class="business-next-steps"
+                aria-labelledby="businessNextStepsTitle"
+              >
+                <h4 id="businessNextStepsTitle">
+                  Your business profile, step by step
+                </h4>
+                <div class="business-next-steps__grid">
+                  <div>
+                    <span>01</span><b>Add your shop details</b>
+                    <small
+                      >Set the name and location customers will
+                      recognize.</small
+                    >
+                  </div>
+                  <div>
+                    <span>02</span><b>Choose your interests</b>
+                    <small
+                      >Tell us which plants and supplies you work with.</small
+                    >
+                  </div>
+                  <div>
+                    <span>03</span><b>Finish your account</b>
+                    <small
+                      >Use one account to manage your personal and business
+                      details.</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Trader Hint Box -->
+            <div class="reg-trader-hint hidden" id="traderBadgeField">
+              <span class="material-symbols-outlined">verified_user</span>
+              <span
+                >Business registration and tax numbers are optional. Your store
+                details help us set up wholesale access.</span
+              >
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="reg-checkboxes">
+              <label class="reg-checkbox-label group">
+                <input checked class="reg-checkbox" type="checkbox" />
+                <span class="reg-checkbox-text">
+                  I agree to the <a href="#">Terms of Service</a> &
+                  <a href="#">Plant Care Privacy Policy</a>.
+                </span>
+              </label>
+              <label class="reg-checkbox-label group">
+                <input checked class="reg-checkbox" type="checkbox" />
+                <span class="reg-checkbox-text">
+                  Receive seasonal nursery advice, biophilic telemetric updates,
+                  and rare specimen releases.
+                </span>
+              </label>
+            </div>
+
+            <button class="reg-submit-btn" type="submit">
+              <span class="material-symbols-outlined icon-btn">eco</span>
+              <span id="registrationSubmitText">Create Account</span>
+              <span class="material-symbols-outlined icon-btn"
+                >arrow_forward</span
+              >
+            </button>
+          </form>
+
+          <div class="reg-form-footer">
+            <p class="reg-footer-text">
+              Already part of the ecosystem?
+              <a class="reg-footer-link" href="login.html">Sign In</a>
+            </p>
+            <div class="reg-footer-status">
+              <span class="reg-footer-status-dot"></span>
+              <span>Temperature-monitored freight live</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="footer" id="contact">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo flex items-center">
-          <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Bringing the beauty and joy of plants into homes and workplaces
+              across the country. Every plant, a story.
+            </div>
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+              <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+              <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+              <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Shop</div>
+            <ul class="footer__links">
+              <li><a href="#">Indoor Plants</a></li>
+              <li><a href="#">Outdoor Plants</a></li>
+              <li><a href="#">Succulents</a></li>
+              <li><a href="#">Flowering Plants</a></li>
+              <li><a href="#">Bonsai Trees</a></li>
+              <li><a href="pots-accessories.html">Plant Pots</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Help</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track My Order</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Plant Care FAQs</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contact</div>
+            <ul class="footer__links">
+              <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+              <li><a href="#">📞 +962776135123</a></li>
+              <li>
+                <a href="mailto:alaafrihat52@gmail.com"
+                  >✉️ alaafrihat52@gmail.com</a
+                >
+              </li>
+              <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div>
-        <div class="footer__socials">
-          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
-          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
-          <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
-          <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+        <div class="footer__bottom">
+          <span>&copy; 2025 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookies</a>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="footer__heading">Shop</div>
-        <ul class="footer__links">
-          <li><a href="#">Indoor Plants</a></li>
-          <li><a href="#">Outdoor Plants</a></li>
-          <li><a href="#">Succulents</a></li>
-          <li><a href="#">Flowering Plants</a></li>
-          <li><a href="#">Bonsai Trees</a></li>
-          <li><a href="pots-accessories.html">Plant Pots</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__heading">Help</div>
-        <ul class="footer__links">
-          <li><a href="track-order.html">Track My Order</a></li>
-          <li><a href="#">Shipping Policy</a></li>
-          <li><a href="#">Returns &amp; Refunds</a></li>
-          <li><a href="#">Plant Care FAQs</a></li>
-          <li><a href="contact.html">Contact Support</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__heading">Contact</div>
-        <ul class="footer__links">
-          <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
-          <li><a href="#">📞 +962776135123</a></li>
-          <li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li>
-          <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>&copy; 2025 Agrismart. All rights reserved.</span>
-      <div class="footer__bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-  <script src="js/register.js"></script>
-<script src="js/cart.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/app-promo.js"></script>
-</body>
-
+    <script src="js/register.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/app-promo.js"></script>
+  </body>
 </html>

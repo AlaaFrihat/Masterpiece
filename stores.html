@@ -1,607 +1,862 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover verified partner nurseries and plant growers across Jordan. Browse individual botanical storefronts and buy plants online directly from local growers."
+    />
+    <title>Partner Nurseries &amp; Stores | Agrismart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/stores.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover verified partner nurseries and plant growers across Jordan. Browse individual botanical storefronts and buy plants online directly from local growers." />
-  <title>Partner Nurseries &amp; Stores | Agrismart</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/stores.css" />
-</head>
+  <body>
+    <!-- Shared SVG Sprite from index.html -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="svg-sprite-container"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol
+        id="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </symbol>
 
-<body>
-  <!-- Shared SVG Sprite from index.html -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5" />
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-    </symbol>
+      <symbol
+        id="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </symbol>
 
-    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </symbol>
+      <symbol
+        id="icon-search"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
 
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </symbol>
+      <symbol
+        id="icon-heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        />
+      </symbol>
 
-    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path
-        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-    </symbol>
+      <symbol
+        id="icon-user"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
 
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </symbol>
+      <symbol
+        id="icon-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+        />
+      </symbol>
+    </svg>
 
-    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
-      <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" />
-    </symbol>
-  </svg>
-
-  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION (Source of truth: index.html) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home">
-        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
-      </a>
-
-      <ul class="nav__links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Plants</a></li>
-        <li><a href="stores.html" class="active">Nurseries</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="lang-en" type="button">EN</button>
-          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
-        </div>
-        <!-- Theme Toggle -->
-        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
-          <svg id="themeIconLight" class="hidden-icon">
-            <use href="#icon-sun"></use>
-          </svg>
-          <svg id="themeIconDark">
-            <use href="#icon-moon"></use>
-          </svg>
-        </button>
-        <!-- Login / User -->
-        <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control>
-          <svg>
-            <use href="#icon-user"></use>
-          </svg>
+    <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NAVIGATION (Source of truth: index.html) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <a
+          href="index.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Home"
+        >
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
         </a>
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Main Directory Shell -->
-  <main class="stores-page-main">
-    <div class="stores-shell">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Plants</a></li>
+          <li><a href="stores.html" class="active">Nurseries</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" style="font-size:0.88rem; color:var(--stores-text-muted); display:flex; align-items:center; gap:0.5rem;">
-        <a href="index.html" style="color:inherit; text-decoration:none;">Home</a>
-        <span>/</span>
-        <span style="color:var(--stores-text); font-weight:600;">Partner Nurseries &amp; Stores</span>
-      </nav>
-
-      <!-- ── Hero Banner ── -->
-      <section class="stores-hero">
-        <div class="stores-hero__content">
-          <div class="stores-hero__badge">
-            <span>🌱</span> Verified Botanical Network
+        <div class="nav__actions">
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN
+            </button>
+            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
           </div>
-          <h1 class="stores-hero__title">Explore Partner Nurseries &amp; Stores</h1>
-          <p class="stores-hero__desc">
-            Browse authentic local nurseries, rare aroid collectors, and agricultural suppliers across Jordan. Enter any nursery to view their distinct greenhouse catalog, order online, or arrange direct greenhouse pickup.
-          </p>
-          <div class="stores-hero__stats">
-            <span class="stores-hero__stat-pill">✓ 100% Horticultural Quality Inspected</span>
-            <span class="stores-hero__stat-pill">🚚 Climate-Controlled Fleet Delivery</span>
-            <span class="stores-hero__stat-pill">🏡 Direct Greenhouse Self-Pickup Available</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Search & Filter Controls ── -->
-      <section class="stores-toolbar" aria-label="Search and Filter Nurseries">
-        <div class="stores-toolbar__top">
-          <div class="stores-search-wrap">
-            <span class="stores-search-icon">🔍</span>
-            <input
-              type="text"
-              id="storeSearchInput"
-              class="stores-search-input"
-              placeholder="Search nurseries by name, city, or plant specialty..."
-              aria-label="Search nurseries" />
-          </div>
-
-          <div class="stores-dropdowns">
-            <select id="storeCityFilter" class="stores-select" aria-label="Filter by City">
-              <option value="all">All Cities (Jordan)</option>
-              <option value="Amman">Amman</option>
-              <option value="As-Salt">As-Salt &amp; Valley</option>
-              <option value="Zarqa">Zarqa</option>
-              <option value="Irbid">Irbid</option>
-            </select>
-
-            <select id="storeSortSelect" class="stores-select" aria-label="Sort Nurseries">
-              <option value="rating">Highest Rated ★</option>
-              <option value="dispatched">Most Fulfilled Orders</option>
-              <option value="plants">Largest Variety</option>
-              <option value="name">Alphabetical (A-Z)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Filter Chips -->
-        <div class="stores-chips" role="tablist">
-          <span class="stores-chips__label">Specialty:</span>
-          <button class="stores-chip is-active" data-cat="all" type="button">All Nurseries</button>
-          <button class="stores-chip" data-cat="indoor" type="button">Indoor &amp; Rare Aroids</button>
-          <button class="stores-chip" data-cat="trees" type="button">Olive &amp; Fruit Trees</button>
-          <button class="stores-chip" data-cat="supplies" type="button">Garden Supplies &amp; Seeds</button>
-        </div>
-      </section>
-
-      <!-- Results Header -->
-      <div class="stores-result-header">
-        <span id="storesCounterText">Showing partner nurseries...</span>
-        <a href="nearby-stores.html" style="color:var(--stores-primary); font-weight:700; text-decoration:none; display:flex; align-items:center; gap:0.35rem;">
-          🗺️ View Nurseries on Live Map →
-        </a>
-      </div>
-
-      <!-- ── Nurseries Cards Grid ── -->
-      <section class="stores-grid" id="storesGrid" aria-label="List of partner nurseries">
-        <!-- Nursery Card 1: Al-Rawabi -->
-        <article class="store-card">
-          <div class="store-card__cover-wrap">
-            <img class="store-card__cover" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&amp;auto=format&amp;fit=crop&amp;q=80" alt="Al-Rawabi Botanical Nursery" loading="lazy">
-            <span class="store-card__verified-badge">
-              <span>✓</span> Verified Nursery
-            </span>
-          </div>
-          <div class="store-card__body">
-            <div class="store-card__avatar-row">
-              <div class="store-card__avatar" style="background:linear-gradient(135deg, #10b951, #028532);">
-                R
-              </div>
-              <div class="store-card__rating">
-                <span>★</span> 4.9 (148)
-              </div>
-            </div>
-            <h2 class="store-card__title">
-              <a href="store.html?id=rawabi">Al-Rawabi Botanical Nursery</a>
-            </h2>
-            <div class="store-card__location">
-              <span>📍</span> <span>Amman - Gardens</span>
-            </div>
-            <p class="store-card__desc">Specializing in certified Mediterranean specimens, acclimated rare aroids, organic seedling starters, and artisan clay pottery since 2018.</p>
-            <div class="store-card__tags">
-              <span class="store-card__tag">Mediterranean Flora</span>
-              <span class="store-card__tag">Acclimated Aroids</span>
-              <span class="store-card__tag">Artisan Pottery</span>
-              <span class="store-card__tag">Greenhouse Pickup</span>
-            </div>
-            <div class="store-card__metrics">
-              <div>
-                <span class="store-card__metric-val">24+</span>
-                <span class="store-card__metric-lbl">Plants</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">4.9 ★</span>
-                <span class="store-card__metric-lbl">Score</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">1,420</span>
-                <span class="store-card__metric-lbl">Followers</span>
-              </div>
-            </div>
-            <div class="store-card__actions">
-              <a href="store.html?id=rawabi" class="btn-visit-store">
-                <span>Visit Nursery Storefront →</span>
-              </a>
-              <a href="nearby-stores.html" class="btn-store-sub" title="View on Map">
-                🗺️
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Nursery Card 2: Green Leaf -->
-        <article class="store-card">
-          <div class="store-card__cover-wrap">
-            <img class="store-card__cover" src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&amp;auto=format&amp;fit=crop&amp;q=80" alt="Green Leaf Exotic Nursery" loading="lazy">
-            <span class="store-card__verified-badge">
-              <span>✓</span> Verified Nursery
-            </span>
-          </div>
-          <div class="store-card__body">
-            <div class="store-card__avatar-row">
-              <div class="store-card__avatar" style="background:linear-gradient(135deg, #059669, #047857);">
-                G
-              </div>
-              <div class="store-card__rating">
-                <span>★</span> 4.9 (96)
-              </div>
-            </div>
-            <h2 class="store-card__title">
-              <a href="store.html?id=greenleaf">Green Leaf Exotic Nursery</a>
-            </h2>
-            <div class="store-card__location">
-              <span>📍</span> <span>Amman - Dabouq</span>
-            </div>
-            <p class="store-card__desc">Amman's prime hub for rare tropical aroids, monsteras, philodendrons, and premium humidity-loving indoor foliage.</p>
-            <div class="store-card__tags">
-              <span class="store-card__tag">Exotic Philodendrons</span>
-              <span class="store-card__tag">Tropical Monsteras</span>
-              <span class="store-card__tag">Hydroponics &amp; Moss</span>
-              <span class="store-card__tag">Rare Imports</span>
-            </div>
-            <div class="store-card__metrics">
-              <div>
-                <span class="store-card__metric-val">18+</span>
-                <span class="store-card__metric-lbl">Plants</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">4.9 ★</span>
-                <span class="store-card__metric-lbl">Score</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">980</span>
-                <span class="store-card__metric-lbl">Followers</span>
-              </div>
-            </div>
-            <div class="store-card__actions">
-              <a href="store.html?id=greenleaf" class="btn-visit-store">
-                <span>Visit Nursery Storefront →</span>
-              </a>
-              <a href="nearby-stores.html" class="btn-store-sub" title="View on Map">
-                🗺️
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Nursery Card 3: Olive Grove -->
-        <article class="store-card">
-          <div class="store-card__cover-wrap">
-            <img class="store-card__cover" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&amp;auto=format&amp;fit=crop&amp;q=80" alt="Jordan Valley Olive Grove &amp; Flora" loading="lazy">
-            <span class="store-card__verified-badge">
-              <span>✓</span> Verified Nursery
-            </span>
-          </div>
-          <div class="store-card__body">
-            <div class="store-card__avatar-row">
-              <div class="store-card__avatar" style="background:linear-gradient(135deg, #d97706, #b45309);">
-                J
-              </div>
-              <div class="store-card__rating">
-                <span>★</span> 4.8 (215)
-              </div>
-            </div>
-            <h2 class="store-card__title">
-              <a href="store.html?id=olivegrove">Jordan Valley Olive Grove &amp; Flora</a>
-            </h2>
-            <div class="store-card__location">
-              <span>📍</span> <span>As-Salt &amp; Jordan Valley</span>
-            </div>
-            <p class="store-card__desc">Centenary Nabali olive trees, flowering bougainvillea hedges, citrus trees, and rustic Jordanian clay pottery.</p>
-            <div class="store-card__tags">
-              <span class="store-card__tag">Nabali Olive Trees</span>
-              <span class="store-card__tag">Flowering Bougainvillea</span>
-              <span class="store-card__tag">Citrus &amp; Fruit</span>
-              <span class="store-card__tag">Terracotta Jars</span>
-            </div>
-            <div class="store-card__metrics">
-              <div>
-                <span class="store-card__metric-val">32+</span>
-                <span class="store-card__metric-lbl">Plants</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">4.8 ★</span>
-                <span class="store-card__metric-lbl">Score</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">1,850</span>
-                <span class="store-card__metric-lbl">Followers</span>
-              </div>
-            </div>
-            <div class="store-card__actions">
-              <a href="store.html?id=olivegrove" class="btn-visit-store">
-                <span>Visit Nursery Storefront →</span>
-              </a>
-              <a href="nearby-stores.html" class="btn-store-sub" title="View on Map">
-                🗺️
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Nursery Card 4: Amman Oasis -->
-        <article class="store-card">
-          <div class="store-card__cover-wrap">
-            <img class="store-card__cover" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&amp;auto=format&amp;fit=crop&amp;q=80" alt="Amman Oasis Garden Centre" loading="lazy">
-            <span class="store-card__verified-badge">
-              <span>✓</span> Verified Nursery
-            </span>
-          </div>
-          <div class="store-card__body">
-            <div class="store-card__avatar-row">
-              <div class="store-card__avatar" style="background:linear-gradient(135deg, #0284c7, #0369a1);">
-                O
-              </div>
-              <div class="store-card__rating">
-                <span>★</span> 4.7 (180)
-              </div>
-            </div>
-            <h2 class="store-card__title">
-              <a href="store.html?id=oasis">Amman Oasis Garden Centre</a>
-            </h2>
-            <div class="store-card__location">
-              <span>📍</span> <span>Amman - Airport Road</span>
-            </div>
-            <p class="store-card__desc">Complete horticultural supply center: certified organic vegetable seeds, Dutch peat moss, micro-irrigation kits, and plant nutrition.</p>
-            <div class="store-card__tags">
-              <span class="store-card__tag">Organic Vegetable Seeds</span>
-              <span class="store-card__tag">Dutch Peat Moss</span>
-              <span class="store-card__tag">Balcony Drip Systems</span>
-              <span class="store-card__tag">Soil Conditioners</span>
-            </div>
-            <div class="store-card__metrics">
-              <div>
-                <span class="store-card__metric-val">40+</span>
-                <span class="store-card__metric-lbl">Plants</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">4.7 ★</span>
-                <span class="store-card__metric-lbl">Score</span>
-              </div>
-              <div>
-                <span class="store-card__metric-val">1,290</span>
-                <span class="store-card__metric-lbl">Followers</span>
-              </div>
-            </div>
-            <div class="store-card__actions">
-              <a href="store.html?id=oasis" class="btn-visit-store">
-                <span>Visit Nursery Storefront →</span>
-              </a>
-              <a href="nearby-stores.html" class="btn-store-sub" title="View on Map">
-                🗺️
-              </a>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── Join as Merchant CTA ── -->
-      <section class="stores-cta-banner">
-        <div class="stores-cta-content">
-          <h2 class="stores-cta-title">Grow Your Nursery with Agrismart Merchant Hub</h2>
-          <p class="stores-cta-desc">
-            Are you a nursery owner, botanical greenhouse operator, or agricultural supplier in Jordan? Connect your catalog with thousands of plant lovers, manage delivery slips, and enjoy automated CliQ payouts.
-          </p>
-        </div>
-        <div class="stores-cta-actions">
-          <a href="register.html" class="btn-visit-store" style="padding:0.85rem 1.75rem;">
-            🌿 Join as Partner Nursery
+          <!-- Theme Toggle -->
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg id="themeIconDark">
+              <use href="#icon-moon"></use>
+            </svg>
+          </button>
+          <!-- Login / User -->
+          <a
+            href="login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+          >
+            <svg>
+              <use href="#icon-user"></use>
+            </svg>
           </a>
-          <a href="merchant-dashboard.html" class="btn-store-sub" style="padding:0.85rem 1.5rem;">
-            Merchant Login Portal
+          <!-- Hamburger -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Directory Shell -->
+    <main class="stores-page-main">
+      <div class="stores-shell">
+        <!-- Breadcrumbs -->
+        <nav
+          aria-label="Breadcrumb"
+          style="
+            font-size: 0.88rem;
+            color: var(--stores-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <a href="index.html" style="color: inherit; text-decoration: none"
+            >Home</a
+          >
+          <span>/</span>
+          <span style="color: var(--stores-text); font-weight: 600"
+            >Partner Nurseries &amp; Stores</span
+          >
+        </nav>
+
+        <!-- ── Hero Banner ── -->
+        <section class="stores-hero">
+          <div class="stores-hero__content">
+            <div class="stores-hero__badge">
+              <span>🌱</span> Verified Botanical Network
+            </div>
+            <h1 class="stores-hero__title">
+              Explore Partner Nurseries &amp; Stores
+            </h1>
+            <p class="stores-hero__desc">
+              Browse authentic local nurseries, rare aroid collectors, and
+              agricultural suppliers across Jordan. Enter any nursery to view
+              their distinct greenhouse catalog, order online, or arrange direct
+              greenhouse pickup.
+            </p>
+            <div class="stores-hero__stats">
+              <span class="stores-hero__stat-pill"
+                >✓ 100% Horticultural Quality Inspected</span
+              >
+              <span class="stores-hero__stat-pill"
+                >🚚 Climate-Controlled Fleet Delivery</span
+              >
+              <span class="stores-hero__stat-pill"
+                >🏡 Direct Greenhouse Self-Pickup Available</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Search & Filter Controls ── -->
+        <section
+          class="stores-toolbar"
+          aria-label="Search and Filter Nurseries"
+        >
+          <div class="stores-toolbar__top">
+            <div class="stores-search-wrap">
+              <span class="stores-search-icon">🔍</span>
+              <input
+                type="text"
+                id="storeSearchInput"
+                class="stores-search-input"
+                placeholder="Search nurseries by name, city, or plant specialty..."
+                aria-label="Search nurseries"
+              />
+            </div>
+
+            <div class="stores-dropdowns">
+              <select
+                id="storeCityFilter"
+                class="stores-select"
+                aria-label="Filter by City"
+              >
+                <option value="all">All Cities (Jordan)</option>
+                <option value="Amman">Amman</option>
+                <option value="As-Salt">As-Salt &amp; Valley</option>
+                <option value="Zarqa">Zarqa</option>
+                <option value="Irbid">Irbid</option>
+              </select>
+
+              <select
+                id="storeSortSelect"
+                class="stores-select"
+                aria-label="Sort Nurseries"
+              >
+                <option value="rating">Highest Rated ★</option>
+                <option value="dispatched">Most Fulfilled Orders</option>
+                <option value="plants">Largest Variety</option>
+                <option value="name">Alphabetical (A-Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Filter Chips -->
+          <div class="stores-chips" role="tablist">
+            <span class="stores-chips__label">Specialty:</span>
+            <button class="stores-chip is-active" data-cat="all" type="button">
+              All Nurseries
+            </button>
+            <button class="stores-chip" data-cat="indoor" type="button">
+              Indoor &amp; Rare Aroids
+            </button>
+            <button class="stores-chip" data-cat="trees" type="button">
+              Olive &amp; Fruit Trees
+            </button>
+            <button class="stores-chip" data-cat="supplies" type="button">
+              Garden Supplies &amp; Seeds
+            </button>
+          </div>
+        </section>
+
+        <!-- Results Header -->
+        <div class="stores-result-header">
+          <span id="storesCounterText">Showing partner nurseries...</span>
+          <a
+            href="nearby-stores.html"
+            style="
+              color: var(--stores-primary);
+              font-weight: 700;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: 0.35rem;
+            "
+          >
+            🗺️ View Nurseries on Live Map →
           </a>
         </div>
-      </section>
 
-    </div>
-  </main>
+        <!-- ── Nurseries Cards Grid ── -->
+        <section
+          class="stores-grid"
+          id="storesGrid"
+          aria-label="List of partner nurseries"
+        >
+          <!-- Nursery Card 1: Al-Rawabi -->
+          <article class="store-card">
+            <div class="store-card__cover-wrap">
+              <img
+                class="store-card__cover"
+                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&amp;auto=format&amp;fit=crop&amp;q=80"
+                alt="Al-Rawabi Botanical Nursery"
+                loading="lazy"
+              />
+              <span class="store-card__verified-badge">
+                <span>✓</span> Verified Nursery
+              </span>
+            </div>
+            <div class="store-card__body">
+              <div class="store-card__avatar-row">
+                <div
+                  class="store-card__avatar"
+                  style="background: linear-gradient(135deg, #10b951, #028532)"
+                >
+                  R
+                </div>
+                <div class="store-card__rating"><span>★</span> 4.9 (148)</div>
+              </div>
+              <h2 class="store-card__title">
+                <a href="store.html?id=rawabi">Al-Rawabi Botanical Nursery</a>
+              </h2>
+              <div class="store-card__location">
+                <span>📍</span> <span>Amman - Gardens</span>
+              </div>
+              <p class="store-card__desc">
+                Specializing in certified Mediterranean specimens, acclimated
+                rare aroids, organic seedling starters, and artisan clay pottery
+                since 2018.
+              </p>
+              <div class="store-card__tags">
+                <span class="store-card__tag">Mediterranean Flora</span>
+                <span class="store-card__tag">Acclimated Aroids</span>
+                <span class="store-card__tag">Artisan Pottery</span>
+                <span class="store-card__tag">Greenhouse Pickup</span>
+              </div>
+              <div class="store-card__metrics">
+                <div>
+                  <span class="store-card__metric-val">24+</span>
+                  <span class="store-card__metric-lbl">Plants</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">4.9 ★</span>
+                  <span class="store-card__metric-lbl">Score</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">1,420</span>
+                  <span class="store-card__metric-lbl">Followers</span>
+                </div>
+              </div>
+              <div class="store-card__actions">
+                <a href="store.html?id=rawabi" class="btn-visit-store">
+                  <span>Visit Nursery Storefront →</span>
+                </a>
+                <a
+                  href="nearby-stores.html"
+                  class="btn-store-sub"
+                  title="View on Map"
+                >
+                  🗺️
+                </a>
+              </div>
+            </div>
+          </article>
 
-  <!-- Shared Footer (Compliant with AGENTS.md) -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo flex items-center">
-            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+          <!-- Nursery Card 2: Green Leaf -->
+          <article class="store-card">
+            <div class="store-card__cover-wrap">
+              <img
+                class="store-card__cover"
+                src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&amp;auto=format&amp;fit=crop&amp;q=80"
+                alt="Green Leaf Exotic Nursery"
+                loading="lazy"
+              />
+              <span class="store-card__verified-badge">
+                <span>✓</span> Verified Nursery
+              </span>
+            </div>
+            <div class="store-card__body">
+              <div class="store-card__avatar-row">
+                <div
+                  class="store-card__avatar"
+                  style="background: linear-gradient(135deg, #059669, #047857)"
+                >
+                  G
+                </div>
+                <div class="store-card__rating"><span>★</span> 4.9 (96)</div>
+              </div>
+              <h2 class="store-card__title">
+                <a href="store.html?id=greenleaf">Green Leaf Exotic Nursery</a>
+              </h2>
+              <div class="store-card__location">
+                <span>📍</span> <span>Amman - Dabouq</span>
+              </div>
+              <p class="store-card__desc">
+                Amman's prime hub for rare tropical aroids, monsteras,
+                philodendrons, and premium humidity-loving indoor foliage.
+              </p>
+              <div class="store-card__tags">
+                <span class="store-card__tag">Exotic Philodendrons</span>
+                <span class="store-card__tag">Tropical Monsteras</span>
+                <span class="store-card__tag">Hydroponics &amp; Moss</span>
+                <span class="store-card__tag">Rare Imports</span>
+              </div>
+              <div class="store-card__metrics">
+                <div>
+                  <span class="store-card__metric-val">18+</span>
+                  <span class="store-card__metric-lbl">Plants</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">4.9 ★</span>
+                  <span class="store-card__metric-lbl">Score</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">980</span>
+                  <span class="store-card__metric-lbl">Followers</span>
+                </div>
+              </div>
+              <div class="store-card__actions">
+                <a href="store.html?id=greenleaf" class="btn-visit-store">
+                  <span>Visit Nursery Storefront →</span>
+                </a>
+                <a
+                  href="nearby-stores.html"
+                  class="btn-store-sub"
+                  title="View on Map"
+                >
+                  🗺️
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Nursery Card 3: Olive Grove -->
+          <article class="store-card">
+            <div class="store-card__cover-wrap">
+              <img
+                class="store-card__cover"
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&amp;auto=format&amp;fit=crop&amp;q=80"
+                alt="Jordan Valley Olive Grove &amp; Flora"
+                loading="lazy"
+              />
+              <span class="store-card__verified-badge">
+                <span>✓</span> Verified Nursery
+              </span>
+            </div>
+            <div class="store-card__body">
+              <div class="store-card__avatar-row">
+                <div
+                  class="store-card__avatar"
+                  style="background: linear-gradient(135deg, #d97706, #b45309)"
+                >
+                  J
+                </div>
+                <div class="store-card__rating"><span>★</span> 4.8 (215)</div>
+              </div>
+              <h2 class="store-card__title">
+                <a href="store.html?id=olivegrove"
+                  >Jordan Valley Olive Grove &amp; Flora</a
+                >
+              </h2>
+              <div class="store-card__location">
+                <span>📍</span> <span>As-Salt &amp; Jordan Valley</span>
+              </div>
+              <p class="store-card__desc">
+                Centenary Nabali olive trees, flowering bougainvillea hedges,
+                citrus trees, and rustic Jordanian clay pottery.
+              </p>
+              <div class="store-card__tags">
+                <span class="store-card__tag">Nabali Olive Trees</span>
+                <span class="store-card__tag">Flowering Bougainvillea</span>
+                <span class="store-card__tag">Citrus &amp; Fruit</span>
+                <span class="store-card__tag">Terracotta Jars</span>
+              </div>
+              <div class="store-card__metrics">
+                <div>
+                  <span class="store-card__metric-val">32+</span>
+                  <span class="store-card__metric-lbl">Plants</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">4.8 ★</span>
+                  <span class="store-card__metric-lbl">Score</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">1,850</span>
+                  <span class="store-card__metric-lbl">Followers</span>
+                </div>
+              </div>
+              <div class="store-card__actions">
+                <a href="store.html?id=olivegrove" class="btn-visit-store">
+                  <span>Visit Nursery Storefront →</span>
+                </a>
+                <a
+                  href="nearby-stores.html"
+                  class="btn-store-sub"
+                  title="View on Map"
+                >
+                  🗺️
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Nursery Card 4: Amman Oasis -->
+          <article class="store-card">
+            <div class="store-card__cover-wrap">
+              <img
+                class="store-card__cover"
+                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&amp;auto=format&amp;fit=crop&amp;q=80"
+                alt="Amman Oasis Garden Centre"
+                loading="lazy"
+              />
+              <span class="store-card__verified-badge">
+                <span>✓</span> Verified Nursery
+              </span>
+            </div>
+            <div class="store-card__body">
+              <div class="store-card__avatar-row">
+                <div
+                  class="store-card__avatar"
+                  style="background: linear-gradient(135deg, #0284c7, #0369a1)"
+                >
+                  O
+                </div>
+                <div class="store-card__rating"><span>★</span> 4.7 (180)</div>
+              </div>
+              <h2 class="store-card__title">
+                <a href="store.html?id=oasis">Amman Oasis Garden Centre</a>
+              </h2>
+              <div class="store-card__location">
+                <span>📍</span> <span>Amman - Airport Road</span>
+              </div>
+              <p class="store-card__desc">
+                Complete horticultural supply center: certified organic
+                vegetable seeds, Dutch peat moss, micro-irrigation kits, and
+                plant nutrition.
+              </p>
+              <div class="store-card__tags">
+                <span class="store-card__tag">Organic Vegetable Seeds</span>
+                <span class="store-card__tag">Dutch Peat Moss</span>
+                <span class="store-card__tag">Balcony Drip Systems</span>
+                <span class="store-card__tag">Soil Conditioners</span>
+              </div>
+              <div class="store-card__metrics">
+                <div>
+                  <span class="store-card__metric-val">40+</span>
+                  <span class="store-card__metric-lbl">Plants</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">4.7 ★</span>
+                  <span class="store-card__metric-lbl">Score</span>
+                </div>
+                <div>
+                  <span class="store-card__metric-val">1,290</span>
+                  <span class="store-card__metric-lbl">Followers</span>
+                </div>
+              </div>
+              <div class="store-card__actions">
+                <a href="store.html?id=oasis" class="btn-visit-store">
+                  <span>Visit Nursery Storefront →</span>
+                </a>
+                <a
+                  href="nearby-stores.html"
+                  class="btn-store-sub"
+                  title="View on Map"
+                >
+                  🗺️
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- ── Join as Merchant CTA ── -->
+        <section class="stores-cta-banner">
+          <div class="stores-cta-content">
+            <h2 class="stores-cta-title">
+              Grow Your Nursery with Agrismart Merchant Hub
+            </h2>
+            <p class="stores-cta-desc">
+              Are you a nursery owner, botanical greenhouse operator, or
+              agricultural supplier in Jordan? Connect your catalog with
+              thousands of plant lovers, manage delivery slips, and enjoy
+              automated CliQ payouts.
+            </p>
           </div>
-          <div class="footer__desc">
-            Connecting botanical enthusiasts with Jordan's finest verified nurseries, greenhouses, and organic growers.
+          <div class="stores-cta-actions">
+            <a
+              href="register.html"
+              class="btn-visit-store"
+              style="padding: 0.85rem 1.75rem"
+            >
+              🌿 Join as Partner Nursery
+            </a>
+            <a
+              href="merchant-dashboard.html"
+              class="btn-store-sub"
+              style="padding: 0.85rem 1.5rem"
+            >
+              Merchant Login Portal
+            </a>
           </div>
-          <div class="footer__socials">
-            <a href="#" class="footer__social" aria-label="Facebook">📘</a>
-            <a href="#" class="footer__social" aria-label="Instagram">📸</a>
-            <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+        </section>
+      </div>
+    </main>
+
+    <!-- Shared Footer (Compliant with AGENTS.md) -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Connecting botanical enthusiasts with Jordan's finest verified
+              nurseries, greenhouses, and organic growers.
+            </div>
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+              <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+              <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer__heading">Shop &amp; Explore</div>
+            <ul class="footer__links">
+              <li><a href="shop.html">All Plants</a></li>
+              <li><a href="pots-accessories.html">Plant Pots</a></li>
+              <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+              <li><a href="stores.html">Partner Nurseries</a></li>
+              <li><a href="nearby-stores.html">Nearby Stores Map</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer__heading">For Growers</div>
+            <ul class="footer__links">
+              <li><a href="merchant-dashboard.html">Nursery Portal</a></li>
+              <li>
+                <a href="merchant-wallet.html">Wallet &amp; CliQ Payouts</a>
+              </li>
+              <li><a href="merchant-analytics.html">Demand Analytics</a></li>
+              <li><a href="register.html">Register Your Nursery</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer__heading">Contact &amp; Support</div>
+            <ul class="footer__links">
+              <li><a href="tel:+962776135123">📞 +962 7 7613 5123</a></li>
+              <li><span>📍 Amman, Jordan</span></li>
+              <li>
+                <a href="mailto:support@agrismart.com"
+                  >✉️ support@agrismart.com</a
+                >
+              </li>
+              <li><a href="contact.html">Send a Message</a></li>
+            </ul>
           </div>
         </div>
 
-        <div>
-          <div class="footer__heading">Shop &amp; Explore</div>
-          <ul class="footer__links">
-            <li><a href="shop.html">All Plants</a></li>
-            <li><a href="pots-accessories.html">Plant Pots</a></li>
-            <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
-            <li><a href="stores.html">Partner Nurseries</a></li>
-            <li><a href="nearby-stores.html">Nearby Stores Map</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer__heading">For Growers</div>
-          <ul class="footer__links">
-            <li><a href="merchant-dashboard.html">Nursery Portal</a></li>
-            <li><a href="merchant-wallet.html">Wallet &amp; CliQ Payouts</a></li>
-            <li><a href="merchant-analytics.html">Demand Analytics</a></li>
-            <li><a href="register.html">Register Your Nursery</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer__heading">Contact &amp; Support</div>
-          <ul class="footer__links">
-            <li><a href="tel:+962776135123">📞 +962 7 7613 5123</a></li>
-            <li><span>📍 Amman, Jordan</span></li>
-            <li><a href="mailto:support@agrismart.com">✉️ support@agrismart.com</a></li>
-            <li><a href="contact.html">Send a Message</a></li>
-          </ul>
+        <div class="footer__bottom">
+          <span>&copy; 2026 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
         </div>
       </div>
+    </footer>
 
-      <div class="footer__bottom">
-        <span>&copy; 2026 Agrismart. All rights reserved.</span>
-        <div class="footer__bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/stores-data.js"></script>
+    <script>
+      function initStoresDirectory() {
+        const isArabic = () => document.documentElement.lang === "ar";
+        const grid = document.getElementById("storesGrid");
+        const searchInput = document.getElementById("storeSearchInput");
+        const cityFilter = document.getElementById("storeCityFilter");
+        const sortSelect = document.getElementById("storeSortSelect");
+        const counterText = document.getElementById("storesCounterText");
+        const chipButtons = document.querySelectorAll(".stores-chip");
 
-  <!-- Scripts -->
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/stores-data.js"></script>
-  <script>
-    function initStoresDirectory() {
-      const isArabic = () => document.documentElement.lang === 'ar';
-      const grid = document.getElementById('storesGrid');
-      const searchInput = document.getElementById('storeSearchInput');
-      const cityFilter = document.getElementById('storeCityFilter');
-      const sortSelect = document.getElementById('storeSortSelect');
-      const counterText = document.getElementById('storesCounterText');
-      const chipButtons = document.querySelectorAll('.stores-chip');
+        let currentCat = "all";
 
-      let currentCat = 'all';
+        function renderStores() {
+          if (!grid) return;
+          if (
+            !window.AgrismartStores ||
+            typeof window.AgrismartStores.getStores !== "function"
+          ) {
+            return;
+          }
+          const stores = window.AgrismartStores.getStores() || [];
 
-      function renderStores() {
-        if (!grid) return;
-        if (!window.AgrismartStores || typeof window.AgrismartStores.getStores !== 'function') {
-          return;
-        }
-        const stores = window.AgrismartStores.getStores() || [];
+          const search = (searchInput?.value || "").toLowerCase().trim();
+          const city = (cityFilter?.value || "all").toLowerCase().trim();
+          const sort = sortSelect?.value || "rating";
 
-        const search = (searchInput?.value || '').toLowerCase().trim();
-        const city = (cityFilter?.value || 'all').toLowerCase().trim();
-        const sort = sortSelect?.value || 'rating';
+          let filtered = stores.filter((s) => {
+            const nameEn = (s.name || "").toLowerCase();
+            const nameAr = (s.nameAr || "").toLowerCase();
+            const cityEn = (s.city || "").toLowerCase();
+            const cityAr = (s.cityAr || "").toLowerCase();
+            const descEn = (s.tagline || "").toLowerCase();
+            const descAr = (s.taglineAr || "").toLowerCase();
+            const specsEn = (Array.isArray(s.specialties) ? s.specialties : [])
+              .join(" ")
+              .toLowerCase();
+            const specsAr = (
+              Array.isArray(s.specialtiesAr) ? s.specialtiesAr : []
+            )
+              .join(" ")
+              .toLowerCase();
 
-        let filtered = stores.filter(s => {
-          const nameEn = (s.name || '').toLowerCase();
-          const nameAr = (s.nameAr || '').toLowerCase();
-          const cityEn = (s.city || '').toLowerCase();
-          const cityAr = (s.cityAr || '').toLowerCase();
-          const descEn = (s.tagline || '').toLowerCase();
-          const descAr = (s.taglineAr || '').toLowerCase();
-          const specsEn = (Array.isArray(s.specialties) ? s.specialties : []).join(' ').toLowerCase();
-          const specsAr = (Array.isArray(s.specialtiesAr) ? s.specialtiesAr : []).join(' ').toLowerCase();
+            const matchesSearch =
+              !search ||
+              nameEn.includes(search) ||
+              nameAr.includes(search) ||
+              cityEn.includes(search) ||
+              cityAr.includes(search) ||
+              descEn.includes(search) ||
+              descAr.includes(search) ||
+              specsEn.includes(search) ||
+              specsAr.includes(search);
 
-          const matchesSearch = !search ||
-            nameEn.includes(search) ||
-            nameAr.includes(search) ||
-            cityEn.includes(search) ||
-            cityAr.includes(search) ||
-            descEn.includes(search) ||
-            descAr.includes(search) ||
-            specsEn.includes(search) ||
-            specsAr.includes(search);
+            const matchesCity =
+              city === "all" ||
+              cityEn.includes(city) ||
+              cityAr.includes(city) ||
+              (city === "amman" &&
+                (cityEn.includes("amman") || cityAr.includes("عمان"))) ||
+              (city === "as-salt" &&
+                (cityEn.includes("salt") ||
+                  cityAr.includes("سلط") ||
+                  cityEn.includes("valley"))) ||
+              (city === "zarqa" &&
+                (cityEn.includes("zarqa") || cityAr.includes("زرقاء"))) ||
+              (city === "irbid" &&
+                (cityEn.includes("irbid") ||
+                  cityAr.includes("إربد") ||
+                  cityAr.includes("اربد")));
 
-          const matchesCity = city === 'all' ||
-            cityEn.includes(city) ||
-            cityAr.includes(city) ||
-            (city === 'amman' && (cityEn.includes('amman') || cityAr.includes('عمان'))) ||
-            (city === 'as-salt' && (cityEn.includes('salt') || cityAr.includes('سلط') || cityEn.includes('valley'))) ||
-            (city === 'zarqa' && (cityEn.includes('zarqa') || cityAr.includes('زرقاء'))) ||
-            (city === 'irbid' && (cityEn.includes('irbid') || cityAr.includes('إربد') || cityAr.includes('اربد')));
+            const matchesCat =
+              currentCat === "all" ||
+              s.category === currentCat ||
+              (currentCat === "indoor" &&
+                (s.category === "exotic" || s.category === "indoor")) ||
+              (Array.isArray(s.specialties) &&
+                s.specialties.some((sp) =>
+                  (sp || "").toLowerCase().includes(currentCat),
+                )) ||
+              (Array.isArray(s.specialtiesAr) &&
+                s.specialtiesAr.some((sp) =>
+                  (sp || "").toLowerCase().includes(currentCat),
+                ));
 
-          const matchesCat = currentCat === 'all' ||
-            s.category === currentCat ||
-            (currentCat === 'indoor' && (s.category === 'exotic' || s.category === 'indoor')) ||
-            (Array.isArray(s.specialties) && s.specialties.some(sp => (sp || '').toLowerCase().includes(currentCat))) ||
-            (Array.isArray(s.specialtiesAr) && s.specialtiesAr.some(sp => (sp || '').toLowerCase().includes(currentCat)));
+            return matchesSearch && matchesCity && matchesCat;
+          });
 
-          return matchesSearch && matchesCity && matchesCat;
-        });
+          // Sorting
+          filtered.sort((a, b) => {
+            if (sort === "rating") return (b.rating || 0) - (a.rating || 0);
+            if (sort === "dispatched")
+              return (
+                (parseInt(b.dispatched) || 0) - (parseInt(a.dispatched) || 0)
+              );
+            if (sort === "plants")
+              return (b.totalPlants || 0) - (a.totalPlants || 0);
+            if (sort === "name")
+              return (a.name || "").localeCompare(b.name || "");
+            return 0;
+          });
 
-        // Sorting
-        filtered.sort((a, b) => {
-          if (sort === 'rating') return (b.rating || 0) - (a.rating || 0);
-          if (sort === 'dispatched') return (parseInt(b.dispatched) || 0) - (parseInt(a.dispatched) || 0);
-          if (sort === 'plants') return (b.totalPlants || 0) - (a.totalPlants || 0);
-          if (sort === 'name') return (a.name || '').localeCompare(b.name || '');
-          return 0;
-        });
+          if (counterText) {
+            counterText.textContent = isArabic()
+              ? `عرض ${filtered.length} من المشاتل الشريكة في الأردن`
+              : `Showing ${filtered.length} verified partner nurseries in Jordan`;
+          }
 
-        if (counterText) {
-          counterText.textContent = isArabic()
-            ? `عرض ${filtered.length} من المشاتل الشريكة في الأردن`
-            : `Showing ${filtered.length} verified partner nurseries in Jordan`;
-        }
-
-        if (!filtered.length) {
-          grid.innerHTML = `
+          if (!filtered.length) {
+            grid.innerHTML = `
             <div style="grid-column: 1/-1; padding: 4rem 2rem; text-align: center; background: var(--stores-surface); border-radius: var(--stores-radius); border: 1px solid var(--stores-border);">
               <span style="font-size: 3rem; display: block; margin-bottom: 0.75rem;">🪴</span>
-              <h3 style="margin: 0 0 0.5rem; font-size: 1.3rem;">${isArabic() ? 'لم يتم العثور على مشاتل تطابق البحث' : 'No partner nurseries found'}</h3>
-              <p style="color: var(--stores-text-muted); margin: 0;">${isArabic() ? 'جرّب البحث باسم مشتل آخر أو تغيير خيارات التصفية.' : 'Try adjusting your search terms or city filters.'}</p>
+              <h3 style="margin: 0 0 0.5rem; font-size: 1.3rem;">${isArabic() ? "لم يتم العثور على مشاتل تطابق البحث" : "No partner nurseries found"}</h3>
+              <p style="color: var(--stores-text-muted); margin: 0;">${isArabic() ? "جرّب البحث باسم مشتل آخر أو تغيير خيارات التصفية." : "Try adjusting your search terms or city filters."}</p>
             </div>
           `;
-          return;
-        }
+            return;
+          }
 
-        grid.innerHTML = filtered.map(store => {
-          const storeName = isArabic() && store.nameAr ? store.nameAr : store.name;
-          const storeCity = isArabic() && store.cityAr ? store.cityAr : store.city;
-          const storeTagline = isArabic() && store.taglineAr ? store.taglineAr : store.tagline;
-          const specs = (isArabic() && Array.isArray(store.specialtiesAr) && store.specialtiesAr.length)
-            ? store.specialtiesAr
-            : (Array.isArray(store.specialties) ? store.specialties : []);
+          grid.innerHTML = filtered
+            .map((store) => {
+              const storeName =
+                isArabic() && store.nameAr ? store.nameAr : store.name;
+              const storeCity =
+                isArabic() && store.cityAr ? store.cityAr : store.city;
+              const storeTagline =
+                isArabic() && store.taglineAr ? store.taglineAr : store.tagline;
+              const specs =
+                isArabic() &&
+                Array.isArray(store.specialtiesAr) &&
+                store.specialtiesAr.length
+                  ? store.specialtiesAr
+                  : Array.isArray(store.specialties)
+                    ? store.specialties
+                    : [];
 
-          return `
+              return `
             <article class="store-card">
               <div class="store-card__cover-wrap">
-                <img class="store-card__cover" src="${store.cover || ''}" alt="${storeName}" loading="lazy">
+                <img class="store-card__cover" src="${store.cover || ""}" alt="${storeName}" loading="lazy">
                 <span class="store-card__verified-badge">
-                  <span>✓</span> ${isArabic() ? 'مشتل معتمد' : 'Verified Nursery'}
+                  <span>✓</span> ${isArabic() ? "مشتل معتمد" : "Verified Nursery"}
                 </span>
               </div>
 
               <div class="store-card__body">
                 <div class="store-card__avatar-row">
-                  <div class="store-card__avatar" style="background:${store.avatarColor || 'linear-gradient(135deg, #10b951, #028532)'};">
+                  <div class="store-card__avatar" style="background:${store.avatarColor || "linear-gradient(135deg, #10b951, #028532)"};">
                     ${store.avatar || storeName.charAt(0)}
                   </div>
                   <div class="store-card__rating">
@@ -620,67 +875,67 @@
                 <p class="store-card__desc">${storeTagline}</p>
 
                 <div class="store-card__tags">
-                  ${specs.map(t => `<span class="store-card__tag">${t}</span>`).join('')}
+                  ${specs.map((t) => `<span class="store-card__tag">${t}</span>`).join("")}
                 </div>
 
                 <div class="store-card__metrics">
                   <div>
                     <span class="store-card__metric-val">${store.totalPlants || 20}+</span>
-                    <span class="store-card__metric-lbl">${isArabic() ? 'نبتة متوفرة' : 'Plants'}</span>
+                    <span class="store-card__metric-lbl">${isArabic() ? "نبتة متوفرة" : "Plants"}</span>
                   </div>
                   <div>
                     <span class="store-card__metric-val">${store.rating || 4.9} ★</span>
-                    <span class="store-card__metric-lbl">${isArabic() ? 'تقييم الجودة' : 'Score'}</span>
+                    <span class="store-card__metric-lbl">${isArabic() ? "تقييم الجودة" : "Score"}</span>
                   </div>
                   <div>
-                    <span class="store-card__metric-val">${store.followers || '1k'}</span>
-                    <span class="store-card__metric-lbl">${isArabic() ? 'متابع' : 'Followers'}</span>
+                    <span class="store-card__metric-val">${store.followers || "1k"}</span>
+                    <span class="store-card__metric-lbl">${isArabic() ? "متابع" : "Followers"}</span>
                   </div>
                 </div>
 
                 <div class="store-card__actions">
                   <a href="store.html?id=${encodeURIComponent(store.id)}" class="btn-visit-store">
-                    <span>${isArabic() ? 'زيارة متجر المشتل ←' : 'Visit Nursery Storefront →'}</span>
+                    <span>${isArabic() ? "زيارة متجر المشتل ←" : "Visit Nursery Storefront →"}</span>
                   </a>
-                  <a href="nearby-stores.html" class="btn-store-sub" title="${isArabic() ? 'عرض على الخريطة' : 'View on Map'}">
+                  <a href="nearby-stores.html" class="btn-store-sub" title="${isArabic() ? "عرض على الخريطة" : "View on Map"}">
                     🗺️
                   </a>
                 </div>
               </div>
             </article>
           `;
-        }).join('');
+            })
+            .join("");
+        }
+
+        // Initial Render
+        renderStores();
+
+        // Events
+        searchInput?.addEventListener("input", renderStores);
+        cityFilter?.addEventListener("change", renderStores);
+        sortSelect?.addEventListener("change", renderStores);
+
+        chipButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            chipButtons.forEach((b) => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            currentCat = btn.dataset.cat || "all";
+            renderStores();
+          });
+        });
+
+        // Language Switcher hook
+        const handleLang = () => renderStores();
+        window.addEventListener("agrismart:languagechange", handleLang);
+        document.addEventListener("agrismart:languagechange", handleLang);
       }
 
-      // Initial Render
-      renderStores();
-
-      // Events
-      searchInput?.addEventListener('input', renderStores);
-      cityFilter?.addEventListener('change', renderStores);
-      sortSelect?.addEventListener('change', renderStores);
-
-      chipButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          chipButtons.forEach(b => b.classList.remove('is-active'));
-          btn.classList.add('is-active');
-          currentCat = btn.dataset.cat || 'all';
-          renderStores();
-        });
-      });
-
-      // Language Switcher hook
-      const handleLang = () => renderStores();
-      window.addEventListener('agrismart:languagechange', handleLang);
-      document.addEventListener('agrismart:languagechange', handleLang);
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initStoresDirectory);
-    } else {
-      initStoresDirectory();
-    }
-  </script>
-</body>
-
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initStoresDirectory);
+      } else {
+        initStoresDirectory();
+      }
+    </script>
+  </body>
 </html>

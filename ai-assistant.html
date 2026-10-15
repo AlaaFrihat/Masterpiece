@@ -1,131 +1,822 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get practical plant care guidance, find Agrismart products, check your orders and explore nearby pickup options.">
-  <title>AI Assistant | Agrismart</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/ai-assistant.css">
-</head>
-<body class="ai-page">
-  <nav class="nav" aria-label="Main navigation">
-  <div class="container nav__inner">
-    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Plants</a></li>
-      <li><a href="stores.html">Nurseries</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
-      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
-      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
-      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-  <main>
-    <section class="ai-hero"><div class="ai-shell">
-      <div class="ai-breadcrumb"><a href="index.html">Home</a><span>/</span><span>AI Assistant</span></div>
-      <div class="ai-hero__grid"><div><p class="ai-kicker"><span class="ai-pulse"></span> AGRISMART BOTANICAL CARE</p><h1>Find the right care<br>for every <em>leaf.</em></h1><p class="ai-hero__copy">Describe a plant concern, look up an order, or find products that fit your space. Get clear next steps and shop directly from Agrismart.</p>
-        <div class="ai-hero__trust"><span>✦ Plant care guidance</span><span>⌕ Search the catalog</span><span>⌖ Local pickup options</span></div></div>
-        <div class="ai-hero__visual" aria-label="Plant care assistant illustration"><div class="ai-orbit ai-orbit--one"></div><div class="ai-orbit ai-orbit--two"></div><div class="ai-leaf ai-leaf--one">✿</div><div class="ai-leaf ai-leaf--two">❋</div><div class="ai-visual-card"><span class="ai-visual-card__icon">✦</span><strong>Your garden, understood.</strong><small>Guidance for plants and people</small><div class="ai-visual-card__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class="ai-floating-note ai-floating-note--top">🌱 &nbsp;Care, made simple</span><span class="ai-floating-note ai-floating-note--bottom">✦ &nbsp; Shop with confidence</span></div>
-      </div>
-    </div></section>
-
-    <section class="ai-diagnosis-workspace ai-shell" aria-label="AI Botanical Care and Diagnosis">
-      <div class="ai-diagnosis-heading"><div><p class="ai-kicker">AI BOTANICAL CARE</p><h2>Botanical Care &amp; Diagnosis</h2><p>Describe what is happening or add a photo to receive a careful, practical assessment.</p></div><div class="ai-diagnosis-heading__tools"><div class="ai-diagnosis-capabilities"><span>✿ Plant photo analysis</span><span>✦ Care guidance</span><span>⌕ Shop recommendations</span></div><div class="ai-diagnosis-heading__actions"><div class="ai-live-status" id="aiServiceStatus" role="status"><i></i><span>Connecting to AI…</span></div><button class="ai-secondary ai-example-open" id="openDiagnosisExample" type="button">▧ <span>See a sample report</span></button></div></div></div>
-      <div class="ai-diagnosis-session"><span class="ai-session-live"><i></i> AI assessment</span><span>Written symptoms and optional plant photo</span><span>Advice and products from Agrismart</span></div>
-            <div class="ai-diagnosis-panel" id="panel-diagnose">
-        <div class="ai-diagnose-grid">
-          <section class="ai-card ai-diagnose-card"><div class="ai-card__title"><div><span class="ai-icon">✿</span><div><h3>Tell me about your plant</h3><p>A few details help narrow down what may be happening.</p></div></div><span class="ai-step">01 / 04</span></div>
-            <form id="diagnosisForm"><label class="ai-label" for="plantName">Plant name <small>optional</small></label><input class="ai-input" id="plantName" placeholder="e.g. Monstera, Peace Lily" autocomplete="off">
-              <label class="ai-label" for="symptomText">What have you noticed?</label><textarea class="ai-input ai-textarea" id="symptomText" rows="4" placeholder="Describe the leaves, soil, light, or any recent changes..."></textarea>
-              <div class="ai-quick-label">Or choose the signs you see</div><div class="ai-symptoms" id="symptomChoices"><button type="button" class="ai-chip" data-symptom="yellow">Yellow leaves</button><button type="button" class="ai-chip" data-symptom="droop">Drooping</button><button type="button" class="ai-chip" data-symptom="spots">Spots or pests</button><button type="button" class="ai-chip" data-symptom="dry">Dry leaf edges</button></div>
-              <label class="ai-upload" for="plantPhoto"><span class="ai-upload__icon">＋</span><span><b>Add a plant photo</b><small>Optional · JPG or PNG · Sent to the AI only when you request analysis</small></span><input type="file" id="plantPhoto" accept="image/png,image/jpeg,image/webp"></label><div class="ai-photo-preview" id="photoPreview" hidden><img id="photoPreviewImage" alt="Selected plant"><span id="photoFileName"></span><button type="button" id="removePhoto" aria-label="Remove photo">×</button></div>
-              <button class="ai-primary" type="submit"><span>Get care suggestions</span><span aria-hidden="true">→</span></button><p class="ai-fineprint">Guidance is educational and can’t replace an in-person plant specialist.</p>
-            </form>
-          </section>
-          <section class="ai-card ai-result-card" id="diagnosisResult" aria-live="polite"><div class="ai-result-empty"><div class="ai-result-illustration"><span>✧</span><b>✿</b></div><p class="ai-kicker">A LITTLE MORE ABOUT YOUR PLANT</p><h3>Your care plan starts here</h3><p>Share what you’re seeing and I’ll suggest practical checks, care steps, and products from the Agrismart collection.</p><div class="ai-result-steps"><span><i>1</i> Describe the signs</span><span><i>2</i> Review likely causes</span><span><i>3</i> Choose your next step</span></div></div></section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Get practical plant care guidance, find Agrismart products, check your orders and explore nearby pickup options."
+    />
+    <title>AI Assistant | Agrismart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/ai-assistant.css" />
+  </head>
+  <body class="ai-page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav__inner">
+        <a
+          href="index.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Home"
+          ><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img"
+        /></a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Plants</a></li>
+          <li><a href="stores.html">Nurseries</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN</button
+            ><button class="lang-btn" id="lang-ar" type="button">
+              العربية
+            </button>
+          </div>
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="assets/header-icons.svg#icon-sun"></use></svg
+            ><svg id="themeIconDark">
+              <use href="assets/header-icons.svg#icon-moon"></use>
+            </svg>
+          </button>
+          <a
+            href="login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+            ><svg><use href="assets/header-icons.svg#icon-user"></use></svg
+          ></a>
+          <button
+            class="hamburger"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
-      <dialog class="ai-example-dialog" id="diagnosisExampleDialog" aria-labelledby="diagnosisExampleTitle">
-        <div class="ai-example-dialog__inner">
-          <div class="ai-example-dialog__header">
+    </nav>
+
+    <main>
+      <section class="ai-hero">
+        <div class="ai-shell">
+          <div class="ai-breadcrumb">
+            <a href="index.html">Home</a><span>/</span><span>AI Assistant</span>
+          </div>
+          <div class="ai-hero__grid">
             <div>
-              <span class="ai-example-label">SAMPLE CARE REPORT</span>
-              <h2 id="diagnosisExampleTitle">Sample plant assessment</h2>
-              <p>See how Agrismart organizes diagnostic insights and product suggestions.</p>
+              <p class="ai-kicker">
+                <span class="ai-pulse"></span> AGRISMART BOTANICAL CARE
+              </p>
+              <h1>Find the right care<br />for every <em>leaf.</em></h1>
+              <p class="ai-hero__copy">
+                Describe a plant concern, look up an order, or find products
+                that fit your space. Get clear next steps and shop directly from
+                Agrismart.
+              </p>
+              <div class="ai-hero__trust">
+                <span>✦ Plant care guidance</span
+                ><span>⌕ Search the catalog</span
+                ><span>⌖ Local pickup options</span>
+              </div>
             </div>
-            <button type="button" class="ai-example-close" id="closeDiagnosisExample" aria-label="Close sample report">✕</button>
+            <div
+              class="ai-hero__visual"
+              aria-label="Plant care assistant illustration"
+            >
+              <div class="ai-orbit ai-orbit--one"></div>
+              <div class="ai-orbit ai-orbit--two"></div>
+              <div class="ai-leaf ai-leaf--one">✿</div>
+              <div class="ai-leaf ai-leaf--two">❋</div>
+              <div class="ai-visual-card">
+                <span class="ai-visual-card__icon">✦</span
+                ><strong>Your garden, understood.</strong
+                ><small>Guidance for plants and people</small>
+                <div class="ai-visual-card__wave">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+              <span class="ai-floating-note ai-floating-note--top"
+                >🌱 &nbsp;Care, made simple</span
+              ><span class="ai-floating-note ai-floating-note--bottom"
+                >✦ &nbsp; Shop with confidence</span
+              >
+            </div>
           </div>
-          <div class="ai-example-meta"><span>Demo report · SAMPLE-01</span><span>Example issue: leaf spots</span><span>Image and text are illustrative</span></div>
-          <div class="ai-example-grid"><section class="ai-card ai-example-assessment"><figure><img src="assets/hero-plant.png" alt="Illustrative plant image for a sample diagnosis"><figcaption>Illustrative image · actual scans use your photo</figcaption></figure><div><span class="ai-report-badge">✿ SAMPLE ASSESSMENT</span><h3>Leaf spots on a houseplant</h3><p>Several things can cause leaf spots, including moisture on foliage, pests, or light stress. The AI would explain possibilities based on the photo and details you provide.</p><small>No disease or confidence score is assumed in this example.</small></div></section>
-            <section class="ai-card ai-example-product"><span class="ai-kicker">PRODUCT SUGGESTION</span><h3>A relevant Agrismart item</h3><div class="ai-example-product__item"><img src="assets/fertilizer-bottle.svg" alt="Sample product card illustration"><div><strong>Catalog product card</strong><p>Product name, current price, details, and add-to-cart action appear here when a relevant item is found.</p></div></div><span class="ai-example-note">Example layout · not a treatment recommendation</span></section>
-            <section class="ai-card ai-example-care"><div class="ai-report-section-title"><span class="ai-icon">✿</span><div><h3>Care steps &amp; analysis</h3><p>Personalized next steps would appear here.</p></div></div><ol><li>Inspect both sides of the leaves and stems.</li><li>Check soil moisture and drainage before changing watering.</li><li>Keep the plant separate while checking for visible pests.</li><li>Ask a plant specialist if damage continues to spread.</li></ol></section>
-            <section class="ai-card ai-example-area"><div class="ai-report-section-title"><span class="ai-icon">⌖</span><div><h3>Local delivery &amp; pickup</h3><p>Area options are based on your selected city.</p></div></div><div class="ai-example-location"><span>⌖</span><div><strong>Selected service area</strong><small>Delivery and pickup details appear here when available.</small></div></div><p>Exact stores, distance, hours, and stock are shown only when verified live data is connected.</p></section>
+        </div>
+      </section>
+
+      <section
+        class="ai-diagnosis-workspace ai-shell"
+        aria-label="AI Botanical Care and Diagnosis"
+      >
+        <div class="ai-diagnosis-heading">
+          <div>
+            <p class="ai-kicker">AI BOTANICAL CARE</p>
+            <h2>Botanical Care &amp; Diagnosis</h2>
+            <p>
+              Describe what is happening or add a photo to receive a careful,
+              practical assessment.
+            </p>
           </div>
-          <section class="ai-example-tips"><h3>Helpful follow-up checks</h3><div><article><b>01</b><strong>Check before watering</strong><p>Feel the soil first and follow plant needs.</p></article><article><b>02</b><strong>Inspect leaves</strong><p>Look at both sides for visible changes.</p></article><article><b>03</b><strong>Note recent changes</strong><p>Track light, watering, and plant moves.</p></article><article><b>04</b><strong>Keep tools clean</strong><p>Clean cutting tools between plants.</p></article></div></section>
-          <div class="ai-example-dialog__footer"><p>Sample content is for layout demonstration only. A real report is generated from your request.</p><button class="ai-primary" id="startDiagnosisFromExample" type="button">Start my diagnosis <span>→</span></button></div>
+          <div class="ai-diagnosis-heading__tools">
+            <div class="ai-diagnosis-capabilities">
+              <span>✿ Plant photo analysis</span><span>✦ Care guidance</span
+              ><span>⌕ Shop recommendations</span>
+            </div>
+            <div class="ai-diagnosis-heading__actions">
+              <div class="ai-live-status" id="aiServiceStatus" role="status">
+                <i></i><span>Connecting to AI…</span>
+              </div>
+              <button
+                class="ai-secondary ai-example-open"
+                id="openDiagnosisExample"
+                type="button"
+              >
+                ▧ <span>See a sample report</span>
+              </button>
+            </div>
+          </div>
         </div>
-      </dialog>
-    </section>
-    <section class="ai-live-section ai-shell" aria-label="Live AI conversation">
-      <div class="ai-live-heading"><div><p class="ai-kicker">YOUR AGRISMART PLANT EXPERT</p><h2>Let’s figure it out together.</h2><p>Ask anything about your plant, your order, or what to grow next. Keep the conversation going naturally.</p></div></div>
-      <div class="ai-chat-card">
-        <div class="ai-chat-toolbar"><div class="ai-chat-brand"><span class="ai-chat-brand__icon">✿</span><span><b>Agrismart AI</b><small>Plant care · products · growing advice</small></span></div><button class="ai-chat-new" id="newChatButton" type="button">＋ <span>New chat</span></button></div>
-        <div class="ai-chat-messages" id="liveMessages" aria-live="polite" aria-label="Conversation">
-          <article class="ai-chat-message ai-chat-message--assistant"><span class="ai-chat-avatar">✿</span><div class="ai-chat-bubble"><b>Hi! I’m your Agrismart plant assistant.</b><p>Tell me what’s happening with your plant, share a photo, or ask me to help you find something in the shop. I’ll ask follow-up questions when I need more details.</p><small>AI answers can be imperfect. For serious plant health issues, check with a local horticulture professional.</small></div></article>
-          <div class="ai-chat-suggestions" id="chatSuggestions"><button type="button" data-prompt="My plant’s leaves are turning yellow. What should I check first?">🌿 &nbsp;My leaves are turning yellow</button><button type="button" data-prompt="Help me find an easy-care plant for a room with low light.">🪴 &nbsp;Find an easy-care plant</button><button type="button" data-prompt="I want to start growing herbs at home. What do I need?">🌱 &nbsp;Help me start an herb garden</button></div>
+        <div class="ai-diagnosis-session">
+          <span class="ai-session-live"><i></i> AI assessment</span
+          ><span>Written symptoms and optional plant photo</span
+          ><span>Advice and products from Agrismart</span>
         </div>
-        <div class="ai-chat-attachment" id="chatAttachment" hidden><img id="chatAttachmentPreview" alt="Selected plant photo"><span id="chatAttachmentName"></span><button type="button" id="removeChatAttachment" aria-label="Remove photo">×</button></div>
-        <form class="ai-chat-composer" id="chatForm"><label class="ai-chat-attach" for="chatImageInput" title="Attach a plant photo" aria-label="Attach a plant photo">＋<input id="chatImageInput" type="file" accept="image/png,image/jpeg,image/webp"></label><label class="ai-sr-only" for="chatInput">Message Agrismart AI</label><textarea id="chatInput" rows="1" placeholder="Message Agrismart AI…" maxlength="4000" required></textarea><button class="ai-chat-send" id="chatSendButton" type="submit" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button></form>
-        <div class="ai-chat-footnote"><span>↵ Enter to send · Shift + Enter for a new line</span><span>Your message and any attached photo are sent to the AI service. Do not share passwords or payment card details.</span></div>
+        <div class="ai-diagnosis-panel" id="panel-diagnose">
+          <div class="ai-diagnose-grid">
+            <section class="ai-card ai-diagnose-card">
+              <div class="ai-card__title">
+                <div>
+                  <span class="ai-icon">✿</span>
+                  <div>
+                    <h3>Tell me about your plant</h3>
+                    <p>A few details help narrow down what may be happening.</p>
+                  </div>
+                </div>
+                <span class="ai-step">01 / 04</span>
+              </div>
+              <form id="diagnosisForm">
+                <label class="ai-label" for="plantName"
+                  >Plant name <small>optional</small></label
+                ><input
+                  class="ai-input"
+                  id="plantName"
+                  placeholder="e.g. Monstera, Peace Lily"
+                  autocomplete="off"
+                />
+                <label class="ai-label" for="symptomText"
+                  >What have you noticed?</label
+                ><textarea
+                  class="ai-input ai-textarea"
+                  id="symptomText"
+                  rows="4"
+                  placeholder="Describe the leaves, soil, light, or any recent changes..."
+                ></textarea>
+                <div class="ai-quick-label">Or choose the signs you see</div>
+                <div class="ai-symptoms" id="symptomChoices">
+                  <button type="button" class="ai-chip" data-symptom="yellow">
+                    Yellow leaves</button
+                  ><button type="button" class="ai-chip" data-symptom="droop">
+                    Drooping</button
+                  ><button type="button" class="ai-chip" data-symptom="spots">
+                    Spots or pests</button
+                  ><button type="button" class="ai-chip" data-symptom="dry">
+                    Dry leaf edges
+                  </button>
+                </div>
+                <label class="ai-upload" for="plantPhoto"
+                  ><span class="ai-upload__icon">＋</span
+                  ><span
+                    ><b>Add a plant photo</b
+                    ><small
+                      >Optional · JPG or PNG · Sent to the AI only when you
+                      request analysis</small
+                    ></span
+                  ><input
+                    type="file"
+                    id="plantPhoto"
+                    accept="image/png,image/jpeg,image/webp"
+                /></label>
+                <div class="ai-photo-preview" id="photoPreview" hidden>
+                  <img id="photoPreviewImage" alt="Selected plant" /><span
+                    id="photoFileName"
+                  ></span
+                  ><button
+                    type="button"
+                    id="removePhoto"
+                    aria-label="Remove photo"
+                  >
+                    ×
+                  </button>
+                </div>
+                <button class="ai-primary" type="submit">
+                  <span>Get care suggestions</span
+                  ><span aria-hidden="true">→</span>
+                </button>
+                <p class="ai-fineprint">
+                  Guidance is educational and can’t replace an in-person plant
+                  specialist.
+                </p>
+              </form>
+            </section>
+            <section
+              class="ai-card ai-result-card"
+              id="diagnosisResult"
+              aria-live="polite"
+            >
+              <div class="ai-result-empty">
+                <div class="ai-result-illustration"><span>✧</span><b>✿</b></div>
+                <p class="ai-kicker">A LITTLE MORE ABOUT YOUR PLANT</p>
+                <h3>Your care plan starts here</h3>
+                <p>
+                  Share what you’re seeing and I’ll suggest practical checks,
+                  care steps, and products from the Agrismart collection.
+                </p>
+                <div class="ai-result-steps">
+                  <span><i>1</i> Describe the signs</span
+                  ><span><i>2</i> Review likely causes</span
+                  ><span><i>3</i> Choose your next step</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <dialog
+          class="ai-example-dialog"
+          id="diagnosisExampleDialog"
+          aria-labelledby="diagnosisExampleTitle"
+        >
+          <div class="ai-example-dialog__inner">
+            <div class="ai-example-dialog__header">
+              <div>
+                <span class="ai-example-label">SAMPLE CARE REPORT</span>
+                <h2 id="diagnosisExampleTitle">Sample plant assessment</h2>
+                <p>
+                  See how Agrismart organizes diagnostic insights and product
+                  suggestions.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="ai-example-close"
+                id="closeDiagnosisExample"
+                aria-label="Close sample report"
+              >
+                ✕
+              </button>
+            </div>
+            <div class="ai-example-meta">
+              <span>Demo report · SAMPLE-01</span
+              ><span>Example issue: leaf spots</span
+              ><span>Image and text are illustrative</span>
+            </div>
+            <div class="ai-example-grid">
+              <section class="ai-card ai-example-assessment">
+                <figure>
+                  <img
+                    src="assets/hero-plant.png"
+                    alt="Illustrative plant image for a sample diagnosis"
+                  />
+                  <figcaption>
+                    Illustrative image · actual scans use your photo
+                  </figcaption>
+                </figure>
+                <div>
+                  <span class="ai-report-badge">✿ SAMPLE ASSESSMENT</span>
+                  <h3>Leaf spots on a houseplant</h3>
+                  <p>
+                    Several things can cause leaf spots, including moisture on
+                    foliage, pests, or light stress. The AI would explain
+                    possibilities based on the photo and details you provide.
+                  </p>
+                  <small
+                    >No disease or confidence score is assumed in this
+                    example.</small
+                  >
+                </div>
+              </section>
+              <section class="ai-card ai-example-product">
+                <span class="ai-kicker">PRODUCT SUGGESTION</span>
+                <h3>A relevant Agrismart item</h3>
+                <div class="ai-example-product__item">
+                  <img
+                    src="assets/fertilizer-bottle.svg"
+                    alt="Sample product card illustration"
+                  />
+                  <div>
+                    <strong>Catalog product card</strong>
+                    <p>
+                      Product name, current price, details, and add-to-cart
+                      action appear here when a relevant item is found.
+                    </p>
+                  </div>
+                </div>
+                <span class="ai-example-note"
+                  >Example layout · not a treatment recommendation</span
+                >
+              </section>
+              <section class="ai-card ai-example-care">
+                <div class="ai-report-section-title">
+                  <span class="ai-icon">✿</span>
+                  <div>
+                    <h3>Care steps &amp; analysis</h3>
+                    <p>Personalized next steps would appear here.</p>
+                  </div>
+                </div>
+                <ol>
+                  <li>Inspect both sides of the leaves and stems.</li>
+                  <li>
+                    Check soil moisture and drainage before changing watering.
+                  </li>
+                  <li>
+                    Keep the plant separate while checking for visible pests.
+                  </li>
+                  <li>Ask a plant specialist if damage continues to spread.</li>
+                </ol>
+              </section>
+              <section class="ai-card ai-example-area">
+                <div class="ai-report-section-title">
+                  <span class="ai-icon">⌖</span>
+                  <div>
+                    <h3>Local delivery &amp; pickup</h3>
+                    <p>Area options are based on your selected city.</p>
+                  </div>
+                </div>
+                <div class="ai-example-location">
+                  <span>⌖</span>
+                  <div>
+                    <strong>Selected service area</strong
+                    ><small
+                      >Delivery and pickup details appear here when
+                      available.</small
+                    >
+                  </div>
+                </div>
+                <p>
+                  Exact stores, distance, hours, and stock are shown only when
+                  verified live data is connected.
+                </p>
+              </section>
+            </div>
+            <section class="ai-example-tips">
+              <h3>Helpful follow-up checks</h3>
+              <div>
+                <article>
+                  <b>01</b><strong>Check before watering</strong>
+                  <p>Feel the soil first and follow plant needs.</p>
+                </article>
+                <article>
+                  <b>02</b><strong>Inspect leaves</strong>
+                  <p>Look at both sides for visible changes.</p>
+                </article>
+                <article>
+                  <b>03</b><strong>Note recent changes</strong>
+                  <p>Track light, watering, and plant moves.</p>
+                </article>
+                <article>
+                  <b>04</b><strong>Keep tools clean</strong>
+                  <p>Clean cutting tools between plants.</p>
+                </article>
+              </div>
+            </section>
+            <div class="ai-example-dialog__footer">
+              <p>
+                Sample content is for layout demonstration only. A real report
+                is generated from your request.
+              </p>
+              <button
+                class="ai-primary"
+                id="startDiagnosisFromExample"
+                type="button"
+              >
+                Start my diagnosis <span>→</span>
+              </button>
+            </div>
+          </div>
+        </dialog>
+      </section>
+      <section
+        class="ai-live-section ai-shell"
+        aria-label="Live AI conversation"
+      >
+        <div class="ai-live-heading">
+          <div>
+            <p class="ai-kicker">YOUR AGRISMART PLANT EXPERT</p>
+            <h2>Let’s figure it out together.</h2>
+            <p>
+              Ask anything about your plant, your order, or what to grow next.
+              Keep the conversation going naturally.
+            </p>
+          </div>
+        </div>
+        <div class="ai-chat-card">
+          <div class="ai-chat-toolbar">
+            <div class="ai-chat-brand">
+              <span class="ai-chat-brand__icon">✿</span
+              ><span
+                ><b>Agrismart AI</b
+                ><small>Plant care · products · growing advice</small></span
+              >
+            </div>
+            <button class="ai-chat-new" id="newChatButton" type="button">
+              ＋ <span>New chat</span>
+            </button>
+          </div>
+          <div
+            class="ai-chat-messages"
+            id="liveMessages"
+            aria-live="polite"
+            aria-label="Conversation"
+          >
+            <article class="ai-chat-message ai-chat-message--assistant">
+              <span class="ai-chat-avatar">✿</span>
+              <div class="ai-chat-bubble">
+                <b>Hi! I’m your Agrismart plant assistant.</b>
+                <p>
+                  Tell me what’s happening with your plant, share a photo, or
+                  ask me to help you find something in the shop. I’ll ask
+                  follow-up questions when I need more details.
+                </p>
+                <small
+                  >AI answers can be imperfect. For serious plant health issues,
+                  check with a local horticulture professional.</small
+                >
+              </div>
+            </article>
+            <div class="ai-chat-suggestions" id="chatSuggestions">
+              <button
+                type="button"
+                data-prompt="My plant’s leaves are turning yellow. What should I check first?"
+              >
+                🌿 &nbsp;My leaves are turning yellow</button
+              ><button
+                type="button"
+                data-prompt="Help me find an easy-care plant for a room with low light."
+              >
+                🪴 &nbsp;Find an easy-care plant</button
+              ><button
+                type="button"
+                data-prompt="I want to start growing herbs at home. What do I need?"
+              >
+                🌱 &nbsp;Help me start an herb garden
+              </button>
+            </div>
+          </div>
+          <div class="ai-chat-attachment" id="chatAttachment" hidden>
+            <img id="chatAttachmentPreview" alt="Selected plant photo" /><span
+              id="chatAttachmentName"
+            ></span
+            ><button
+              type="button"
+              id="removeChatAttachment"
+              aria-label="Remove photo"
+            >
+              ×
+            </button>
+          </div>
+          <form class="ai-chat-composer" id="chatForm">
+            <label
+              class="ai-chat-attach"
+              for="chatImageInput"
+              title="Attach a plant photo"
+              aria-label="Attach a plant photo"
+              >＋<input
+                id="chatImageInput"
+                type="file"
+                accept="image/png,image/jpeg,image/webp" /></label
+            ><label class="ai-sr-only" for="chatInput"
+              >Message Agrismart AI</label
+            ><textarea
+              id="chatInput"
+              rows="1"
+              placeholder="Message Agrismart AI…"
+              maxlength="4000"
+              required
+            ></textarea
+            ><button
+              class="ai-chat-send"
+              id="chatSendButton"
+              type="submit"
+              aria-label="Send message"
+              title="Send message"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </form>
+          <div class="ai-chat-footnote">
+            <span>↵ Enter to send · Shift + Enter for a new line</span
+            ><span
+              >Your message and any attached photo are sent to the AI service.
+              Do not share passwords or payment card details.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-workspace ai-shell" aria-label="Agrismart assistant">
+        <div class="ai-workspace__heading">
+          <div>
+            <p class="ai-kicker">QUICK SELF-SERVICE TOOLS</p>
+            <h2>Look up something specific</h2>
+          </div>
+          <span class="ai-status"><i></i> Orders stay on this device</span>
+        </div>
+        <div class="ai-tabs" role="tablist" aria-label="Assistant tools">
+          <button
+            class="ai-tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-panel="orders"
+          >
+            ▤ <span>Find an order</span>
+          </button>
+          <button
+            class="ai-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-panel="products"
+          >
+            ⌕ <span>Find products</span>
+          </button>
+          <button
+            class="ai-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-panel="stores"
+          >
+            ⌖ <span>Nearby options</span>
+          </button>
+        </div>
+
+        <div class="ai-panel is-active" id="panel-orders" role="tabpanel">
+          <section class="ai-card ai-lookup-card">
+            <div class="ai-card__title">
+              <div>
+                <span class="ai-icon">▤</span>
+                <div>
+                  <h3>Find your Agrismart order</h3>
+                  <p>
+                    Look up orders saved to this browser using your order number
+                    or email.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <form class="ai-inline-form" id="orderSearchForm">
+              <label class="ai-sr-only" for="orderQuery"
+                >Order number or email</label
+              ><input
+                class="ai-input"
+                id="orderQuery"
+                placeholder="Order number (e.g. AG-...) or email address"
+                required
+              /><button class="ai-primary" type="submit">
+                Search orders <span>→</span>
+              </button>
+            </form>
+            <p class="ai-fineprint">
+              Order details stay in this browser. This demo does not contact a
+              live order service.
+            </p>
+            <div
+              id="orderResults"
+              class="ai-order-results"
+              aria-live="polite"
+            ></div>
+          </section>
+        </div>
+
+        <div class="ai-panel" id="panel-products" role="tabpanel" hidden>
+          <section class="ai-card ai-lookup-card">
+            <div class="ai-card__title">
+              <div>
+                <span class="ai-icon">⌕</span>
+                <div>
+                  <h3>Search the Agrismart collection</h3>
+                  <p>
+                    Find plants by name, care level, or a quality you’re looking
+                    for.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <form class="ai-inline-form" id="productSearchForm">
+              <label class="ai-sr-only" for="productQuery"
+                >Search products</label
+              ><input
+                class="ai-input"
+                id="productQuery"
+                placeholder="Try “low light”, “easy care”, or “Monstera”"
+              /><button class="ai-primary" type="submit">
+                Search products <span>→</span>
+              </button>
+            </form>
+            <div
+              id="productResults"
+              class="ai-products-grid"
+              aria-live="polite"
+            ></div>
+            <a class="ai-text-link" href="shop.html"
+              >Browse all plants <span>→</span></a
+            >
+          </section>
+        </div>
+
+        <div class="ai-panel" id="panel-stores" role="tabpanel" hidden>
+          <section class="ai-card ai-lookup-card">
+            <div class="ai-card__title">
+              <div>
+                <span class="ai-icon">⌖</span>
+                <div>
+                  <h3>Shop around your area</h3>
+                  <p>
+                    Choose your city to see delivery and pickup coverage
+                    options.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <form class="ai-inline-form ai-location-form" id="locationForm">
+              <label class="ai-sr-only" for="customerCity">Your city</label
+              ><select class="ai-input" id="customerCity">
+                <option value="Amman">Amman</option>
+                <option value="Zarqa">Zarqa</option>
+                <option value="Irbid">Irbid</option>
+                <option value="Salt">Salt</option>
+                <option value="Aqaba">Aqaba</option>
+                <option value="Madaba">Madaba</option></select
+              ><button class="ai-secondary" id="useLocation" type="button">
+                ⌖ Use my location</button
+              ><button class="ai-primary" type="submit">
+                Show options <span>→</span>
+              </button>
+            </form>
+            <p class="ai-fineprint">
+              Location is only requested if you choose “Use my location”.
+              Coverage shown here is a prototype and is not live store
+              inventory.
+            </p>
+            <div
+              id="storeResults"
+              class="ai-store-results"
+              aria-live="polite"
+            ></div>
+            <p class="ai-fineprint">
+              <a href="nearby-stores.html">Open the live Nearby Stores map →</a>
+            </p>
+          </section>
+        </div>
+        <div class="ai-disclaimer">
+          <span>✦</span>
+          <p>
+            <b>A helpful starting point, not a diagnosis.</b> Plant symptoms can
+            have several causes. If a plant continues to decline, consult a
+            local horticulture professional.
+          </p>
+        </div>
+      </section>
+
+      <section class="ai-how">
+        <div class="ai-shell">
+          <div class="ai-section-heading">
+            <p class="ai-kicker">SMALL STEPS, HEALTHIER PLANTS</p>
+            <h2>Support for your whole growing journey</h2>
+            <p>
+              From the first question to your next delivery, find useful help in
+              one place.
+            </p>
+          </div>
+          <div class="ai-benefits">
+            <article>
+              <span>✿</span>
+              <h3>Understand plant signals</h3>
+              <p>
+                Use visible symptoms and care conditions to explore possible
+                causes and sensible next checks.
+              </p>
+            </article>
+            <article>
+              <span>⌕</span>
+              <h3>Find a fitting product</h3>
+              <p>
+                Search plants and growing essentials already listed in the
+                Agrismart shop.
+              </p>
+            </article>
+            <article>
+              <span>▤</span>
+              <h3>Keep orders close</h3>
+              <p>
+                Search order records this browser has saved and continue to your
+                account for more details.
+              </p>
+            </article>
+            <article>
+              <span>⌖</span>
+              <h3>Plan around your area</h3>
+              <p>
+                Choose a city to see prototype delivery and pickup suggestions
+                while local coverage is prepared.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Bringing the beauty and joy of plants into homes and workplaces
+              across the country. Every plant, a story.
+            </div>
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a
+              ><a href="#" class="footer__social" aria-label="Instagram">📸</a
+              ><a href="#" class="footer__social" aria-label="Twitter">🐦</a
+              ><a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Shop</div>
+            <ul class="footer__links">
+              <li><a href="shop.html">Indoor Plants</a></li>
+              <li><a href="pots-accessories.html">Plant Pots</a></li>
+              <li><a href="seeds.html">Seeds &amp; Fertilizers</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Help</div>
+            <ul class="footer__links">
+              <li><a href="my-account.html">My Account</a></li>
+              <li><a href="ai-assistant.html">AI Assistant</a></li>
+              <li><a href="track-order.html">Track My Order</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contact</div>
+            <ul class="footer__links">
+              <li><a href="#">📍 Amman, Jordan</a></li>
+              <li><a href="tel:+962776135123">☎ +962 776135123</a></li>
+              <li>
+                <a href="mailto:alaafrihat52@gmail.com"
+                  >✉ alaafrihat52@gmail.com</a
+                >
+              </li>
+              <li>◷ Everyday, 10:00 AM–09:00 PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2025 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+          </div>
+        </div>
       </div>
-    </section>
+    </footer>
 
-    <section class="ai-workspace ai-shell" aria-label="Agrismart assistant">
-      <div class="ai-workspace__heading"><div><p class="ai-kicker">QUICK SELF-SERVICE TOOLS</p><h2>Look up something specific</h2></div><span class="ai-status"><i></i> Orders stay on this device</span></div>
-      <div class="ai-tabs" role="tablist" aria-label="Assistant tools">
-        <button class="ai-tab is-active" type="button" role="tab" aria-selected="true" data-panel="orders">▤ <span>Find an order</span></button>
-        <button class="ai-tab" type="button" role="tab" aria-selected="false" data-panel="products">⌕ <span>Find products</span></button>
-        <button class="ai-tab" type="button" role="tab" aria-selected="false" data-panel="stores">⌖ <span>Nearby options</span></button>
-      </div>
-
-      <div class="ai-panel is-active" id="panel-orders" role="tabpanel"><section class="ai-card ai-lookup-card"><div class="ai-card__title"><div><span class="ai-icon">▤</span><div><h3>Find your Agrismart order</h3><p>Look up orders saved to this browser using your order number or email.</p></div></div></div><form class="ai-inline-form" id="orderSearchForm"><label class="ai-sr-only" for="orderQuery">Order number or email</label><input class="ai-input" id="orderQuery" placeholder="Order number (e.g. AG-...) or email address" required><button class="ai-primary" type="submit">Search orders <span>→</span></button></form><p class="ai-fineprint">Order details stay in this browser. This demo does not contact a live order service.</p><div id="orderResults" class="ai-order-results" aria-live="polite"></div></section></div>
-
-      <div class="ai-panel" id="panel-products" role="tabpanel" hidden><section class="ai-card ai-lookup-card"><div class="ai-card__title"><div><span class="ai-icon">⌕</span><div><h3>Search the Agrismart collection</h3><p>Find plants by name, care level, or a quality you’re looking for.</p></div></div></div><form class="ai-inline-form" id="productSearchForm"><label class="ai-sr-only" for="productQuery">Search products</label><input class="ai-input" id="productQuery" placeholder="Try “low light”, “easy care”, or “Monstera”"><button class="ai-primary" type="submit">Search products <span>→</span></button></form><div id="productResults" class="ai-products-grid" aria-live="polite"></div><a class="ai-text-link" href="shop.html">Browse all plants <span>→</span></a></section></div>
-
-      <div class="ai-panel" id="panel-stores" role="tabpanel" hidden><section class="ai-card ai-lookup-card"><div class="ai-card__title"><div><span class="ai-icon">⌖</span><div><h3>Shop around your area</h3><p>Choose your city to see delivery and pickup coverage options.</p></div></div></div><form class="ai-inline-form ai-location-form" id="locationForm"><label class="ai-sr-only" for="customerCity">Your city</label><select class="ai-input" id="customerCity"><option value="Amman">Amman</option><option value="Zarqa">Zarqa</option><option value="Irbid">Irbid</option><option value="Salt">Salt</option><option value="Aqaba">Aqaba</option><option value="Madaba">Madaba</option></select><button class="ai-secondary" id="useLocation" type="button">⌖ Use my location</button><button class="ai-primary" type="submit">Show options <span>→</span></button></form><p class="ai-fineprint">Location is only requested if you choose “Use my location”. Coverage shown here is a prototype and is not live store inventory.</p><div id="storeResults" class="ai-store-results" aria-live="polite"></div><p class="ai-fineprint"><a href="nearby-stores.html">Open the live Nearby Stores map →</a></p></section></div>
-      <div class="ai-disclaimer"><span>✦</span><p><b>A helpful starting point, not a diagnosis.</b> Plant symptoms can have several causes. If a plant continues to decline, consult a local horticulture professional.</p></div>
-    </section>
-
-    <section class="ai-how"><div class="ai-shell"><div class="ai-section-heading"><p class="ai-kicker">SMALL STEPS, HEALTHIER PLANTS</p><h2>Support for your whole growing journey</h2><p>From the first question to your next delivery, find useful help in one place.</p></div><div class="ai-benefits">
-      <article><span>✿</span><h3>Understand plant signals</h3><p>Use visible symptoms and care conditions to explore possible causes and sensible next checks.</p></article><article><span>⌕</span><h3>Find a fitting product</h3><p>Search plants and growing essentials already listed in the Agrismart shop.</p></article><article><span>▤</span><h3>Keep orders close</h3><p>Search order records this browser has saved and continue to your account for more details.</p></article><article><span>⌖</span><h3>Plan around your area</h3><p>Choose a city to see prototype delivery and pickup suggestions while local coverage is prepared.</p></article>
-    </div></div></section>
-  </main>
-
-  <footer class="footer" id="contact"><div class="container"><div class="footer__grid">
-    <div><div class="footer__logo"><img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img"></div><div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div><div class="footer__socials"><a href="#" class="footer__social" aria-label="Facebook">📘</a><a href="#" class="footer__social" aria-label="Instagram">📸</a><a href="#" class="footer__social" aria-label="Twitter">🐦</a><a href="#" class="footer__social" aria-label="Pinterest">📌</a></div></div>
-    <div><div class="footer__heading">Shop</div><ul class="footer__links"><li><a href="shop.html">Indoor Plants</a></li><li><a href="pots-accessories.html">Plant Pots</a></li><li><a href="seeds.html">Seeds &amp; Fertilizers</a></li></ul></div>
-    <div><div class="footer__heading">Help</div><ul class="footer__links"><li><a href="my-account.html">My Account</a></li><li><a href="ai-assistant.html">AI Assistant</a></li><li><a href="track-order.html">Track My Order</a></li><li><a href="contact.html">Contact Support</a></li></ul></div>
-    <div><div class="footer__heading">Contact</div><ul class="footer__links"><li><a href="#">📍 Amman, Jordan</a></li><li><a href="tel:+962776135123">☎ +962 776135123</a></li><li><a href="mailto:alaafrihat52@gmail.com">✉ alaafrihat52@gmail.com</a></li><li>◷ Everyday, 10:00 AM–09:00 PM</li></ul></div>
-  </div><div class="footer__bottom"><span>© 2025 Agrismart. All rights reserved.</span><div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div></div></footer>
-
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/ai-assistant.js"></script>
-</body>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/ai-assistant.js"></script>
+  </body>
 </html>

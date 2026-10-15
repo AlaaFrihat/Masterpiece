@@ -3,7 +3,7 @@
 /* --- Base & Body --- */
 .login-body {
   background-color: #f4f7f4;
-  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
   color: #141b2b;
   min-height: 100vh;
   display: flex;
@@ -252,7 +252,7 @@ html.dark .login-body .login-card {
   bottom: 0;
   background-size: cover;
   background-position: center;
-  background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1Wq1My9iefOCvovymTXJViN4vUFtkiEZpXMxBCxAQO6A_Bz0R5Stqu2tI1eDxXMhZJkLPdmRxIXWEe1cEw8ppNu9zOz95QALAy0qrK35bDQZbeqDuAbXXhDFb55P3Tyr5fYyHBeILAWPq6j5_HzrilL0kqpnymCZLgDbA3SOuK8IhNPnE_ajzfJVLpUFBSC6iqjmbHKBw0L4cjAt46hxneJAzhfYP31hmj4qiCatv7v');
+  background-image: url("https://lh3.googleusercontent.com/aida/AEtjO1Wq1My9iefOCvovymTXJViN4vUFtkiEZpXMxBCxAQO6A_Bz0R5Stqu2tI1eDxXMhZJkLPdmRxIXWEe1cEw8ppNu9zOz95QALAy0qrK35bDQZbeqDuAbXXhDFb55P3Tyr5fYyHBeILAWPq6j5_HzrilL0kqpnymCZLgDbA3SOuK8IhNPnE_ajzfJVLpUFBSC6iqjmbHKBw0L4cjAt46hxneJAzhfYP31hmj4qiCatv7v");
   transition: transform 0.7s;
   z-index: 0;
 }
@@ -264,14 +264,24 @@ html.dark .login-body .login-card {
 .hero-overlay-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #06230f, rgba(11, 56, 24, 0.75), rgba(5, 28, 12, 0.85));
+  background: linear-gradient(
+    to top,
+    #06230f,
+    rgba(11, 56, 24, 0.75),
+    rgba(5, 28, 12, 0.85)
+  );
   z-index: 0;
 }
 
 .hero-overlay-radial {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent, rgba(0, 0, 0, 0.4));
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.15),
+    transparent,
+    rgba(0, 0, 0, 0.4)
+  );
   z-index: 0;
 }
 
@@ -542,7 +552,6 @@ html.dark .login-body .login-card {
   color: rgba(255, 255, 255, 0.3);
   font-size: 26px;
 }
-
 
 /* --- Form Section (Right) --- */
 .auth-section {
@@ -1181,7 +1190,7 @@ html.dark .login-body .theme-icon {
 }
 
 .star-icon {
-  font-variation-settings: 'FILL' 1;
+  font-variation-settings: "FILL" 1;
 }
 
 .role-icon-inner {

@@ -1,18 +1,425 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Settings &amp; Operations | Agrismart Admin</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="css/admin.css"><link rel="stylesheet" href="css/admin-settings.css"></head>
-<body class="admin-page settings-page" data-admin-page="true">
-<style>.settings-demo-note{margin:-12px 0 -8px;color:#8a958d;font-size:9px}</style>
-<aside class="admin-sidebar" id="adminSidebar"><div class="admin-brand"><img src="assets/logo.svg" alt="Agrismart"><div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div></div><a class="live-store" href="index.html">▣ <span>View Live Store</span><b>↗</b></a><p class="side-label">OPERATIONS</p><nav class="admin-nav"><button data-section="overview">▦ <span>Overview</span></button><button data-section="orders">▣ <span>Orders &amp; Fulfillment</span><i>12</i></button><button data-section="inventory">♧ <span>Products &amp; Inventory</span></button><button data-section="categories">⊞ <span>Categories &amp; Rooms</span></button><button data-section="customers">▤ <span>Customers &amp; Reviews</span></button><button data-section="analytics">⌁ <span>Analytics &amp; Revenue</span></button><button class="active" data-section="settings">⚙ <span>Settings &amp; Operations</span></button></nav><div class="wiki-card"><strong>▣ Plant Care Wiki</strong><p>Nursery manuals, seasonal care logs, and propagation guides.</p><a href="ai-assistant.html">Explore docs →</a></div><div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div></aside>
-<div class="admin-main"><header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="admin-search">⌕<input id="settingsSearch" placeholder="Search settings, users, policies…"></div><div class="range-switch"><button>Today</button><button class="selected">Last 7 Days</button><button>This Month</button></div><div class="top-actions"><span class="online"><b></b> Online · Receiving Orders</span><button class="lang active">EN</button><button class="lang">AR</button><button class="notify" aria-label="Notifications">♧<i></i></button><button class="admin-profile"><span class="avatar">AF</span><span><strong>Alaa Frihat</strong><small>Operations Lead</small></span><b>⌄</b></button><button class="logout-button" data-admin-logout>Log out</button></div></header>
-<main class="admin-content settings-content"><section class="settings-heading"><div><p>⚙ HUB PREFERENCES <span>● Cluster Synchronized</span></p><h1>Nursery Operations &amp; Climate Logistics</h1><span>Configure greenhouse telemetry, botanical packaging standards, and operational fleet tolerances for the Amman regional logistics belt.</span></div><div class="settings-actions"><button id="discardChanges">Discard Changes</button><button class="save-policy" id="savePolicy">♧ &nbsp; Save &amp; Deploy Policy</button></div></section><p class="settings-demo-note">Prototype settings are saved in this browser; they are not yet connected to live greenhouse or payment services.</p>
-<nav class="settings-tabs" role="tablist" aria-label="Settings sections"><button class="active" data-settings-tab="general">General &amp; Store Profile</button><button data-settings-tab="nursery">♧ Nursery &amp; Greenhouses</button><button data-settings-tab="climate">☷ Climate Logistics</button><button data-settings-tab="payments">Payments &amp; Tax</button><button data-settings-tab="team">♙ Team &amp; Permissions <i>4</i></button></nav>
-<div class="settings-layout"><div class="settings-primary">
-<section class="settings-card" data-settings-panel="general"><header><div><b class="settings-icon">▣</b><span><h2>Store &amp; Nursery Identity</h2><p>Primary fulfillment node for consumer and commercial distribution</p></span></div><span class="master-badge">▤ Master Facility</span></header><div class="settings-fields"><label>Store Display Name<input value="Agrismart Amman Botanical Center"><small>Customer-facing checkout and automated receipt title</small></label><label>Operating Nursery Cluster<div class="input-with-action"><input value="Amman Regional Greenhouse Hub (South)"><button aria-label="Choose location">⌖</button></div><small>Coordinates: 31.9539° N, 35.8672° E</small></label><label>Daily Operational Dispatch Hours<div class="time-fields"><input value="10:00 AM"><span>to</span><input value="09:00 PM"></div><small>Applies to rapid 3-hour courier transit windows</small></label><label>On-Site Greenhouse Counter Pickups<div class="pickup-field"><span>Daily Live Pickups</span><b>Active (Mon – Sun)</b></div><small>Drive-up botanical bay bays 01 to 04</small></label></div></section>
-<section class="settings-card protocols-card" data-settings-panel="nursery"><header><div><b class="settings-icon leaf">♧</b><span><h2>Botanical Quality &amp; Packing Protocols</h2><p>Telemetry-driven thresholds applied at staging benches</p></span></div><span class="policy-version">Policy v4.1.2</span></header><div class="protocol-list"><article class="protocol-row"><b class="protocol-icon">♧</b><div><strong>Mandatory Root-Ball Moisture Verification</strong><p>Requires fulfillment technicians to probe soil capacitance prior to scanner release. Threshold locked at <b>40%–55% moisture saturation.</b></p></div><span class="status-label">Enforced</span><label class="switch"><input type="checkbox" checked><i></i></label></article><article class="protocol-row"><b class="protocol-icon">▣</b><div><strong>Biodegradable Pot Wrap &amp; Care Guide Insertion</strong><p>Automatically appends recycled coconut-coir stem wraps and personalized botanical care instructions to carton packing slips.</p></div><span class="status-label">Active</span><label class="switch"><input type="checkbox" checked><i></i></label></article><article class="protocol-row climate-row" data-settings-panel="climate"><b class="protocol-icon amber">♧</b><div class="protocol-wide"><strong>Transit Van Climate Guardianship (IoT Fleet Safe-Zone)</strong><p>Real-time BLE telemetry from Amman delivery fleet sensor arrays</p><div class="temperature-fields"><label>Minimum Threshold<input value="16.0°C"></label><span>Alerts on drop</span><label>Maximum Limit<input value="28.0°C"></label><span>Misting trigger</span></div><div class="temp-scale"><i><b></b></i><span>10°C (Root Chill Danger)</span><strong>Current Fleet Avg: 21.8°C</strong><span>35°C (Desiccation Risk)</span></div></div></article></div></section>
-<section class="settings-card team-card" data-settings-panel="team"><header><div><b class="settings-icon">♙</b><span><h2>Nursery Team &amp; Access Controls</h2><p>Active personnel managing horticultural inventory and dispatch validation</p></span></div><button class="invite-button" id="inviteMember">♙ &nbsp; + Invite New Team Member</button></header><div class="team-list" id="teamList"></div></section>
-<section class="settings-card payment-card" data-settings-panel="payments" hidden><header><div><b class="settings-icon">＄</b><span><h2>Payments &amp; Tax</h2><p>Store currency, invoice information, and tax preferences</p></span></div></header><div class="settings-fields"><label>Store currency<select><option>JOD — Jordanian Dinar</option><option>USD — US Dollar</option></select><small>Used for storefront prices and admin reports</small></label><label>Tax handling<select><option>Prices include applicable tax</option><option>Tax calculated at checkout</option></select><small>Tax setup shown as a local configuration preference</small></label><label>Invoice business name<input value="Agrismart Amman Botanical Center"></label><label>Tax registration number<input placeholder="Add registration number"></label></div></section>
-</div><aside class="settings-aside"><article class="settings-card trigger-card"><header><div><b class="settings-icon">♧</b><span><h2>Automated Nursery Triggers</h2></span></div><b class="online-dot">●</b></header><article class="trigger"><div><strong>Critical Stock Depletion Alert</strong><b>&lt; 10 Units</b></div><p>Broadcasts immediate push notification to Operations Lead when live plant inventory falls below 10 healthy pots.</p><footer>SMS &amp; Console Notification<label class="switch"><input type="checkbox" checked><i></i></label></footer></article><article class="trigger"><div><strong>Subterranean Misting Telemetry</strong><b class="mint">05:30 &amp; 18:00</b></div><p>Syncs nursery micro-nozzles with ambient vapor pressure deficit (VPD) curves automatically twice daily.</p><footer>Irrigation PLC Link: Green Bay 2<label class="switch"><input type="checkbox" checked><i></i></label></footer></article></article>
-<article class="settings-card sync-card"><header><div><b class="settings-icon">⌘</b><span><h2>Storefront Sync &amp; API</h2></span></div><b class="healthy-badge">Healthy</b></header><div class="sync-status"><b>●</b><span>Consumer Web &amp; Mobile App</span><strong>Live &amp; Connected</strong></div><div class="webhook"><span>Botanical Webhook Engine <b>99.98%</b><small>12,410 pings in last 24h</small></span></div><div class="deploy-note">Last cluster schema deployment <b>Today, 04:12 AM</b></div><label class="endpoint-label">COURIER WEBHOOK ENDPOINT<button id="copyEndpoint" aria-label="Copy endpoint">▢</button><code>https://api.agrismart.io/v2/fleet/telemetry/amman-hub</code></label></article>
-<article class="climate-alert"><h2>ϟ Winter Microclimate Alert</h2><p>Amman plateau temperatures are projected to drop to 9°C tonight. Automated root-zone heating pads in Sweifieh Nursery (Section C) have been primed.</p><footer>Greenhouse Section C · Status Normal <b>›</b></footer></article></aside></div></main></div>
-<div class="toast" id="settingsToast" role="status" aria-live="polite"></div><dialog class="invite-dialog" id="inviteDialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><h2>Invite a team member</h2><p>Add a teammate to the nursery operations roster.</p><label>Full name<input id="inviteName" required placeholder="e.g. Lina Haddad"></label><label>Email address<input id="inviteEmail" type="email" required placeholder="name@agrismart.jo"></label><label>Role<select id="inviteRole"><option>Fulfillment Specialist</option><option>Nursery Lead</option><option>Botanist / QA</option><option>Operations Lead</option></select></label><button class="save-policy" id="sendInvite" value="invite">Send invitation</button></form></dialog>
-<script src="js/language.js"></script><script src="js/admin-auth.js"></script><script src="js/admin-settings.js"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Settings &amp; Operations | Agrismart Admin</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/admin-settings.css" />
+  </head>
+  <body class="admin-page settings-page" data-admin-page="true">
+    <style>
+      .settings-demo-note {
+        margin: -12px 0 -8px;
+        color: #8a958d;
+        font-size: 9px;
+      }
+    </style>
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-brand">
+        <img src="assets/logo.svg" alt="Agrismart" />
+        <div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div>
+      </div>
+      <a class="live-store" href="index.html"
+        >▣ <span>View Live Store</span><b>↗</b></a
+      >
+      <p class="side-label">OPERATIONS</p>
+      <nav class="admin-nav">
+        <button data-section="overview">▦ <span>Overview</span></button
+        ><button data-section="orders">
+          ▣ <span>Orders &amp; Fulfillment</span><i>12</i></button
+        ><button data-section="inventory">
+          ♧ <span>Products &amp; Inventory</span></button
+        ><button data-section="categories">
+          ⊞ <span>Categories &amp; Rooms</span></button
+        ><button data-section="customers">
+          ▤ <span>Customers &amp; Reviews</span></button
+        ><button data-section="analytics">
+          ⌁ <span>Analytics &amp; Revenue</span></button
+        ><button class="active" data-section="settings">
+          ⚙ <span>Settings &amp; Operations</span>
+        </button>
+      </nav>
+      <div class="wiki-card">
+        <strong>▣ Plant Care Wiki</strong>
+        <p>Nursery manuals, seasonal care logs, and propagation guides.</p>
+        <a href="ai-assistant.html">Explore docs →</a>
+      </div>
+      <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+          ☰
+        </button>
+        <div class="admin-search">
+          ⌕<input
+            id="settingsSearch"
+            placeholder="Search settings, users, policies…"
+          />
+        </div>
+        <div class="range-switch">
+          <button>Today</button><button class="selected">Last 7 Days</button
+          ><button>This Month</button>
+        </div>
+        <div class="top-actions">
+          <span class="online"><b></b> Online · Receiving Orders</span
+          ><button class="lang active">EN</button
+          ><button class="lang">AR</button
+          ><button class="notify" aria-label="Notifications">♧<i></i></button
+          ><button class="admin-profile">
+            <span class="avatar">AF</span
+            ><span
+              ><strong>Alaa Frihat</strong><small>Operations Lead</small></span
+            ><b>⌄</b></button
+          ><button class="logout-button" data-admin-logout>Log out</button>
+        </div>
+      </header>
+      <main class="admin-content settings-content">
+        <section class="settings-heading">
+          <div>
+            <p>⚙ HUB PREFERENCES <span>● Cluster Synchronized</span></p>
+            <h1>Nursery Operations &amp; Climate Logistics</h1>
+            <span
+              >Configure greenhouse telemetry, botanical packaging standards,
+              and operational fleet tolerances for the Amman regional logistics
+              belt.</span
+            >
+          </div>
+          <div class="settings-actions">
+            <button id="discardChanges">Discard Changes</button
+            ><button class="save-policy" id="savePolicy">
+              ♧ &nbsp; Save &amp; Deploy Policy
+            </button>
+          </div>
+        </section>
+        <p class="settings-demo-note">
+          Prototype settings are saved in this browser; they are not yet
+          connected to live greenhouse or payment services.
+        </p>
+        <nav
+          class="settings-tabs"
+          role="tablist"
+          aria-label="Settings sections"
+        >
+          <button class="active" data-settings-tab="general">
+            General &amp; Store Profile</button
+          ><button data-settings-tab="nursery">
+            ♧ Nursery &amp; Greenhouses</button
+          ><button data-settings-tab="climate">☷ Climate Logistics</button
+          ><button data-settings-tab="payments">Payments &amp; Tax</button
+          ><button data-settings-tab="team">
+            ♙ Team &amp; Permissions <i>4</i>
+          </button>
+        </nav>
+        <div class="settings-layout">
+          <div class="settings-primary">
+            <section class="settings-card" data-settings-panel="general">
+              <header>
+                <div>
+                  <b class="settings-icon">▣</b
+                  ><span
+                    ><h2>Store &amp; Nursery Identity</h2>
+                    <p>
+                      Primary fulfillment node for consumer and commercial
+                      distribution
+                    </p></span
+                  >
+                </div>
+                <span class="master-badge">▤ Master Facility</span>
+              </header>
+              <div class="settings-fields">
+                <label
+                  >Store Display Name<input
+                    value="Agrismart Amman Botanical Center"
+                  /><small
+                    >Customer-facing checkout and automated receipt title</small
+                  ></label
+                ><label
+                  >Operating Nursery Cluster
+                  <div class="input-with-action">
+                    <input
+                      value="Amman Regional Greenhouse Hub (South)"
+                    /><button aria-label="Choose location">⌖</button>
+                  </div>
+                  <small>Coordinates: 31.9539° N, 35.8672° E</small></label
+                ><label
+                  >Daily Operational Dispatch Hours
+                  <div class="time-fields">
+                    <input value="10:00 AM" /><span>to</span
+                    ><input value="09:00 PM" />
+                  </div>
+                  <small
+                    >Applies to rapid 3-hour courier transit windows</small
+                  ></label
+                ><label
+                  >On-Site Greenhouse Counter Pickups
+                  <div class="pickup-field">
+                    <span>Daily Live Pickups</span><b>Active (Mon – Sun)</b>
+                  </div>
+                  <small>Drive-up botanical bay bays 01 to 04</small></label
+                >
+              </div>
+            </section>
+            <section
+              class="settings-card protocols-card"
+              data-settings-panel="nursery"
+            >
+              <header>
+                <div>
+                  <b class="settings-icon leaf">♧</b
+                  ><span
+                    ><h2>Botanical Quality &amp; Packing Protocols</h2>
+                    <p>
+                      Telemetry-driven thresholds applied at staging benches
+                    </p></span
+                  >
+                </div>
+                <span class="policy-version">Policy v4.1.2</span>
+              </header>
+              <div class="protocol-list">
+                <article class="protocol-row">
+                  <b class="protocol-icon">♧</b>
+                  <div>
+                    <strong>Mandatory Root-Ball Moisture Verification</strong>
+                    <p>
+                      Requires fulfillment technicians to probe soil capacitance
+                      prior to scanner release. Threshold locked at
+                      <b>40%–55% moisture saturation.</b>
+                    </p>
+                  </div>
+                  <span class="status-label">Enforced</span
+                  ><label class="switch"
+                    ><input type="checkbox" checked /><i></i
+                  ></label>
+                </article>
+                <article class="protocol-row">
+                  <b class="protocol-icon">▣</b>
+                  <div>
+                    <strong
+                      >Biodegradable Pot Wrap &amp; Care Guide Insertion</strong
+                    >
+                    <p>
+                      Automatically appends recycled coconut-coir stem wraps and
+                      personalized botanical care instructions to carton packing
+                      slips.
+                    </p>
+                  </div>
+                  <span class="status-label">Active</span
+                  ><label class="switch"
+                    ><input type="checkbox" checked /><i></i
+                  ></label>
+                </article>
+                <article
+                  class="protocol-row climate-row"
+                  data-settings-panel="climate"
+                >
+                  <b class="protocol-icon amber">♧</b>
+                  <div class="protocol-wide">
+                    <strong
+                      >Transit Van Climate Guardianship (IoT Fleet
+                      Safe-Zone)</strong
+                    >
+                    <p>
+                      Real-time BLE telemetry from Amman delivery fleet sensor
+                      arrays
+                    </p>
+                    <div class="temperature-fields">
+                      <label>Minimum Threshold<input value="16.0°C" /></label
+                      ><span>Alerts on drop</span
+                      ><label>Maximum Limit<input value="28.0°C" /></label
+                      ><span>Misting trigger</span>
+                    </div>
+                    <div class="temp-scale">
+                      <i><b></b></i><span>10°C (Root Chill Danger)</span
+                      ><strong>Current Fleet Avg: 21.8°C</strong
+                      ><span>35°C (Desiccation Risk)</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="settings-card team-card" data-settings-panel="team">
+              <header>
+                <div>
+                  <b class="settings-icon">♙</b
+                  ><span
+                    ><h2>Nursery Team &amp; Access Controls</h2>
+                    <p>
+                      Active personnel managing horticultural inventory and
+                      dispatch validation
+                    </p></span
+                  >
+                </div>
+                <button class="invite-button" id="inviteMember">
+                  ♙ &nbsp; + Invite New Team Member
+                </button>
+              </header>
+              <div class="team-list" id="teamList"></div>
+            </section>
+            <section
+              class="settings-card payment-card"
+              data-settings-panel="payments"
+              hidden
+            >
+              <header>
+                <div>
+                  <b class="settings-icon">＄</b
+                  ><span
+                    ><h2>Payments &amp; Tax</h2>
+                    <p>
+                      Store currency, invoice information, and tax preferences
+                    </p></span
+                  >
+                </div>
+              </header>
+              <div class="settings-fields">
+                <label
+                  >Store currency<select>
+                    <option>JOD — Jordanian Dinar</option>
+                    <option>USD — US Dollar</option></select
+                  ><small
+                    >Used for storefront prices and admin reports</small
+                  ></label
+                ><label
+                  >Tax handling<select>
+                    <option>Prices include applicable tax</option>
+                    <option>Tax calculated at checkout</option></select
+                  ><small
+                    >Tax setup shown as a local configuration preference</small
+                  ></label
+                ><label
+                  >Invoice business name<input
+                    value="Agrismart Amman Botanical Center" /></label
+                ><label
+                  >Tax registration number<input
+                    placeholder="Add registration number"
+                /></label>
+              </div>
+            </section>
+          </div>
+          <aside class="settings-aside">
+            <article class="settings-card trigger-card">
+              <header>
+                <div>
+                  <b class="settings-icon">♧</b
+                  ><span><h2>Automated Nursery Triggers</h2></span>
+                </div>
+                <b class="online-dot">●</b>
+              </header>
+              <article class="trigger">
+                <div>
+                  <strong>Critical Stock Depletion Alert</strong
+                  ><b>&lt; 10 Units</b>
+                </div>
+                <p>
+                  Broadcasts immediate push notification to Operations Lead when
+                  live plant inventory falls below 10 healthy pots.
+                </p>
+                <footer>
+                  SMS &amp; Console Notification<label class="switch"
+                    ><input type="checkbox" checked /><i></i
+                  ></label>
+                </footer>
+              </article>
+              <article class="trigger">
+                <div>
+                  <strong>Subterranean Misting Telemetry</strong
+                  ><b class="mint">05:30 &amp; 18:00</b>
+                </div>
+                <p>
+                  Syncs nursery micro-nozzles with ambient vapor pressure
+                  deficit (VPD) curves automatically twice daily.
+                </p>
+                <footer>
+                  Irrigation PLC Link: Green Bay 2<label class="switch"
+                    ><input type="checkbox" checked /><i></i
+                  ></label>
+                </footer>
+              </article>
+            </article>
+            <article class="settings-card sync-card">
+              <header>
+                <div>
+                  <b class="settings-icon">⌘</b
+                  ><span><h2>Storefront Sync &amp; API</h2></span>
+                </div>
+                <b class="healthy-badge">Healthy</b>
+              </header>
+              <div class="sync-status">
+                <b>●</b><span>Consumer Web &amp; Mobile App</span
+                ><strong>Live &amp; Connected</strong>
+              </div>
+              <div class="webhook">
+                <span
+                  >Botanical Webhook Engine <b>99.98%</b
+                  ><small>12,410 pings in last 24h</small></span
+                >
+              </div>
+              <div class="deploy-note">
+                Last cluster schema deployment <b>Today, 04:12 AM</b>
+              </div>
+              <label class="endpoint-label"
+                >COURIER WEBHOOK ENDPOINT<button
+                  id="copyEndpoint"
+                  aria-label="Copy endpoint"
+                >
+                  ▢</button
+                ><code
+                  >https://api.agrismart.io/v2/fleet/telemetry/amman-hub</code
+                ></label
+              >
+            </article>
+            <article class="climate-alert">
+              <h2>ϟ Winter Microclimate Alert</h2>
+              <p>
+                Amman plateau temperatures are projected to drop to 9°C tonight.
+                Automated root-zone heating pads in Sweifieh Nursery (Section C)
+                have been primed.
+              </p>
+              <footer>Greenhouse Section C · Status Normal <b>›</b></footer>
+            </article>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <div
+      class="toast"
+      id="settingsToast"
+      role="status"
+      aria-live="polite"
+    ></div>
+    <dialog class="invite-dialog" id="inviteDialog">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Close">×</button>
+        <h2>Invite a team member</h2>
+        <p>Add a teammate to the nursery operations roster.</p>
+        <label
+          >Full name<input
+            id="inviteName"
+            required
+            placeholder="e.g. Lina Haddad" /></label
+        ><label
+          >Email address<input
+            id="inviteEmail"
+            type="email"
+            required
+            placeholder="name@agrismart.jo" /></label
+        ><label
+          >Role<select id="inviteRole">
+            <option>Fulfillment Specialist</option>
+            <option>Nursery Lead</option>
+            <option>Botanist / QA</option>
+            <option>Operations Lead</option>
+          </select></label
+        ><button class="save-policy" id="sendInvite" value="invite">
+          Send invitation
+        </button>
+      </form>
+    </dialog>
+    <script src="js/language.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-settings.js"></script>
+  </body>
+</html>

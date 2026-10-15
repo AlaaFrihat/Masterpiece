@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 :root {
   --green: #176b28;
@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.55;
   color: var(--ink);
@@ -66,18 +66,18 @@ button {
   height: 90px;
   object-fit: contain;
   flex-shrink: 0;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .admin-brand strong {
   display: inline-block;
-  font: 600 19px 'Plus Jakarta Sans';
+  font: 600 19px "Plus Jakarta Sans";
   color: #143a1b;
 }
 
 .admin-brand small {
   font-size: 12px;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   color: #5a685f;
   font-weight: 700;
 }
@@ -110,7 +110,7 @@ button {
   font-size: 12px;
   font-weight: 700;
   color: #78817b;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   margin: 18px 9px 6px;
 }
 
@@ -390,7 +390,7 @@ button {
 }
 
 .welcome-banner:after {
-  content: '◒';
+  content: "◒";
   position: absolute;
   right: 6%;
   bottom: -50px;
@@ -410,9 +410,9 @@ button {
 }
 
 .welcome-banner h1 {
-  font: 700 34px 'Plus Jakarta Sans';
+  font: 700 34px "Plus Jakarta Sans";
   margin: 13px 0 5px;
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
 }
 
 .welcome-banner h1 span {
@@ -489,9 +489,9 @@ button {
 
 .metric strong {
   display: block;
-  font: 700 32px 'Plus Jakarta Sans';
+  font: 700 32px "Plus Jakarta Sans";
   margin-top: 7px;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 
 .metric strong em {
@@ -581,7 +581,7 @@ button {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(280px, .75fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.75fr);
   gap: 16px;
 }
 
@@ -608,8 +608,8 @@ button {
 
 .panel h2 {
   margin: 0;
-  font: 600 19px 'Plus Jakarta Sans';
-  letter-spacing: -.03em;
+  font: 600 19px "Plus Jakarta Sans";
+  letter-spacing: -0.03em;
 }
 
 .panel p {
@@ -1021,7 +1021,7 @@ button {
 }
 
 .empty-section h1 {
-  font: 700 32px 'Plus Jakarta Sans';
+  font: 700 32px "Plus Jakarta Sans";
   margin: 20px 0 6px;
 }
 
@@ -1052,7 +1052,7 @@ button {
   border-radius: 8px;
   padding: 12px 18px;
   font-size: 13px;
-  transition: .25s;
+  transition: 0.25s;
   z-index: 50;
 }
 
@@ -1086,7 +1086,7 @@ button {
 
 .modal-card h2 {
   margin: 0;
-  font: 700 22px 'Plus Jakarta Sans';
+  font: 700 22px "Plus Jakarta Sans";
 }
 
 .modal-card p {
@@ -1178,15 +1178,15 @@ button {
 .admin-eyebrow {
   display: block;
   color: #8cf0a0;
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
   font-weight: 700;
   font-size: 12px;
 }
 
 .admin-login-visual h1 {
-  font: 700 42px 'Plus Jakarta Sans';
+  font: 700 42px "Plus Jakarta Sans";
   line-height: 1.1;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   margin: 16px 0;
 }
 
@@ -1214,7 +1214,7 @@ button {
   place-items: center;
   font-size: 150px;
   color: #a1f3a2;
-  opacity: .22;
+  opacity: 0.22;
 }
 
 .admin-login-card {
@@ -1245,7 +1245,7 @@ button {
 }
 
 .admin-login-card h2 {
-  font: 700 32px 'Plus Jakarta Sans';
+  font: 700 32px "Plus Jakarta Sans";
   margin: 16px 0 5px;
 }
 
@@ -1338,7 +1338,14 @@ button {
 }
 
 [dir="rtl"] {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
   line-height: 1.6;
 }
 
@@ -1349,7 +1356,14 @@ button {
 [dir="rtl"] button,
 [dir="rtl"] input,
 [dir="rtl"] select {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
 }
 
 @media (max-width: 1200px) {
@@ -1367,7 +1381,7 @@ button {
 @media (max-width: 900px) {
   .admin-sidebar {
     transform: translateX(-100%);
-    transition: .2s;
+    transition: 0.2s;
   }
   .admin-sidebar.open {
     transform: translateX(0);
@@ -1669,7 +1683,9 @@ button {
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background .2s ease, color .2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .notify:hover {
@@ -1686,7 +1702,9 @@ button {
   border-radius: 50%;
   top: 6px;
   right: 6px;
-  transition: opacity .2s, transform .2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .notify i.read {
@@ -1702,7 +1720,7 @@ button {
   padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 }
 
 .admin-profile:hover {
@@ -1723,7 +1741,10 @@ button {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
   pointer-events: none;
   overflow: hidden;
   text-align: left;
@@ -1784,7 +1805,7 @@ button {
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 6px;
-  transition: background .15s;
+  transition: background 0.15s;
 }
 
 .dropdown-action-btn:hover {
@@ -1803,7 +1824,7 @@ button {
   padding: 12px 16px;
   border-bottom: 1px solid #f3f5f3;
   cursor: pointer;
-  transition: background .15s;
+  transition: background 0.15s;
   position: relative;
 }
 
@@ -1919,7 +1940,10 @@ button {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
   pointer-events: none;
   overflow: hidden;
   text-align: left;
@@ -2024,7 +2048,9 @@ button {
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
-  transition: background .15s, color .15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   box-sizing: border-box;
   text-align: left;
 }
@@ -2063,7 +2089,9 @@ button {
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: background .15s, color .15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .profile-logout-btn:hover {

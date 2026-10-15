@@ -1,489 +1,888 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merchant Profile &amp; Account Settings | Agrismart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/merchant-dashboard.css" />
+    <link rel="stylesheet" href="css/merchant-account.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merchant Profile &amp; Account Settings | Agrismart</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/merchant-dashboard.css" />
-  <link rel="stylesheet" href="css/merchant-account.css" />
-</head>
+  <body data-requires-auth="true">
+    <!-- Shared SVG Sprite from index.html -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="svg-sprite-container"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol
+        id="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </symbol>
+      <symbol
+        id="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </symbol>
+      <symbol
+        id="icon-search"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol
+        id="icon-heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        />
+      </symbol>
+      <symbol
+        id="icon-user"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol
+        id="icon-cart"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+        />
+      </symbol>
+    </svg>
 
-<body data-requires-auth="true">
-  <!-- Shared SVG Sprite from index.html -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite-container" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></symbol>
-    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></symbol>
-    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></symbol>
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
-    <symbol id="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" /></symbol>
-  </svg>
-
-  <!-- Distinct Merchant Top Strip -->
-  <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
-    <div class="merchant-top-strip__inner">
-      <div class="merchant-top-strip__badge">
-        <span class="merchant-pulse-dot"></span>
-        <span>🏪 Agrismart Nursery Portal · <span id="topStripStoreName">Al-Rawabi Botanical Nursery</span></span>
-      </div>
-      <div class="merchant-top-strip__actions">
-        <a href="merchant-store.html">👁️ Public Storefront</a>
-        <a href="shop.html">🛒 Consumer Shop</a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Navigation (Source of Truth: index.html - Merchant Cycle) -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="merchant-dashboard.html" class="nav__logo logo-container" aria-label="Agrismart Merchant Hub">
-        <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
-        <span class="nav-merchant-tag">Nursery Hub</span>
-      </a>
-
-      <ul class="nav__links" id="navLinks">
-        <li><a href="merchant-dashboard.html">Dashboard</a></li>
-        <li><a href="merchant-profile.html">Store Profile</a></li>
-        <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
-        <li><a href="merchant-analytics.html">Analytics</a></li>
-        <li><a href="merchant-store.html">Public Store</a></li>
-        <li><a href="merchant-contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" id="lang-en" type="button">EN</button>
-          <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+    <!-- Distinct Merchant Top Strip -->
+    <aside class="merchant-top-strip" aria-label="Merchant Mode Indicator">
+      <div class="merchant-top-strip__inner">
+        <div class="merchant-top-strip__badge">
+          <span class="merchant-pulse-dot"></span>
+          <span
+            >🏪 Agrismart Nursery Portal ·
+            <span id="topStripStoreName"
+              >Al-Rawabi Botanical Nursery</span
+            ></span
+          >
         </div>
-        <!-- Theme Toggle -->
-        <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme">
-          <svg id="themeIconLight" class="hidden-icon"><use href="#icon-sun"></use></svg>
-          <svg id="themeIconDark"><use href="#icon-moon"></use></svg>
-        </button>
-        <!-- Merchant Profile / Account Icon -->
-        <a href="merchant-account.html" id="loginPageButton" class="btn-icon is-active active" aria-label="Merchant Profile" title="Merchant Profile" data-auth-control style="border-color:var(--m-primary); background:var(--m-primary-light);">
-          <svg><use href="#icon-user"></use></svg>
+        <div class="merchant-top-strip__actions">
+          <a href="merchant-store.html">👁️ Public Storefront</a>
+          <a href="shop.html">🛒 Consumer Shop</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Navigation (Source of Truth: index.html - Merchant Cycle) -->
+    <nav class="nav">
+      <div class="container nav__inner">
+        <a
+          href="merchant-dashboard.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Merchant Hub"
+        >
+          <img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" />
+          <span class="nav-merchant-tag">Nursery Hub</span>
         </a>
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
+
+        <ul class="nav__links" id="navLinks">
+          <li><a href="merchant-dashboard.html">Dashboard</a></li>
+          <li><a href="merchant-profile.html">Store Profile</a></li>
+          <li><a href="merchant-wallet.html">Wallet &amp; Payouts</a></li>
+          <li><a href="merchant-analytics.html">Analytics</a></li>
+          <li><a href="merchant-store.html">Public Store</a></li>
+          <li><a href="merchant-contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN
+            </button>
+            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+          </div>
+          <!-- Theme Toggle -->
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg id="themeIconDark"><use href="#icon-moon"></use></svg>
+          </button>
+          <!-- Merchant Profile / Account Icon -->
+          <a
+            href="merchant-account.html"
+            id="loginPageButton"
+            class="btn-icon is-active active"
+            aria-label="Merchant Profile"
+            title="Merchant Profile"
+            data-auth-control
+            style="
+              border-color: var(--m-primary);
+              background: var(--m-primary-light);
+            "
+          >
+            <svg><use href="#icon-user"></use></svg>
+          </a>
+          <!-- Hamburger -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Main Merchant Account Layout -->
-  <main class="merchant-main">
-    <div class="merchant-container">
+    <!-- Main Merchant Account Layout -->
+    <main class="merchant-main">
+      <div class="merchant-container">
+        <!-- Breadcrumbs -->
+        <nav
+          aria-label="Breadcrumb"
+          style="
+            font-size: 0.88rem;
+            color: var(--m-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+          "
+        >
+          <a
+            href="merchant-dashboard.html"
+            style="color: inherit; text-decoration: none"
+            >Nursery Hub</a
+          >
+          <span>/</span>
+          <span style="color: var(--m-text); font-weight: 600"
+            >Merchant Profile &amp; Account Settings</span
+          >
+        </nav>
 
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" style="font-size:0.88rem; color:var(--m-text-muted); display:flex; align-items:center; gap:0.5rem; margin-bottom: 0.25rem;">
-        <a href="merchant-dashboard.html" style="color:inherit; text-decoration:none;">Nursery Hub</a>
-        <span>/</span>
-        <span style="color:var(--m-text); font-weight:600;">Merchant Profile &amp; Account Settings</span>
-      </nav>
-
-      <!-- ── Hero Banner ── -->
-      <section class="merchant-hero">
-        <div class="merchant-identity">
-          <div class="merchant-avatar" id="heroInitial">T</div>
-          <div class="merchant-meta">
-            <div class="merchant-title-row">
-              <h1 class="merchant-title">Merchant Profile &amp; Account Settings</h1>
-              <span class="merchant-badge">✓ Verified Partner Account</span>
+        <!-- ── Hero Banner ── -->
+        <section class="merchant-hero">
+          <div class="merchant-identity">
+            <div class="merchant-avatar" id="heroInitial">T</div>
+            <div class="merchant-meta">
+              <div class="merchant-title-row">
+                <h1 class="merchant-title">
+                  Merchant Profile &amp; Account Settings
+                </h1>
+                <span class="merchant-badge">✓ Verified Partner Account</span>
+              </div>
+              <div class="merchant-chips">
+                <span class="merchant-chip">👤 Nursery Principal Account</span>
+                <span class="merchant-chip"
+                  >🔒 Encrypted Business Credentials</span
+                >
+                <span class="merchant-chip">📍 Amman, Jordan</span>
+              </div>
             </div>
-            <div class="merchant-chips">
-              <span class="merchant-chip">👤 Nursery Principal Account</span>
-              <span class="merchant-chip">🔒 Encrypted Business Credentials</span>
-              <span class="merchant-chip">📍 Amman, Jordan</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="merchant-actions">
-          <a class="btn-merchant btn-merchant--outline" href="merchant-profile.html" title="Customize Nursery Public Store">
-            🎨 Edit Storefront View
-          </a>
-          <a class="btn-merchant btn-merchant--primary" href="merchant-dashboard.html" title="Back to Dashboard">
-            📊 Nursery Dashboard
-          </a>
-        </div>
-      </section>
-
-      <!-- ── 2-Column Account Settings Layout ── -->
-      <div class="merchant-account-layout">
-
-        <!-- ════════ COLUMN 1: SIDEBAR PROFILE CARD ════════ -->
-        <aside class="account-sidebar-card">
-          <div class="account-avatar-wrapper">
-            <span id="sidebarAvatarInitial">T</span>
-            <button class="account-avatar-upload-btn" type="button" onclick="alert('Photo upload connected! In production, choose a JPG/PNG avatar.')">
-              📷 Change
-            </button>
           </div>
 
-          <div class="account-sidebar-meta">
-            <h3 id="sidebarManagerName">Eng. Tariq Al-Rawabi</h3>
-            <p id="sidebarStoreName">Al-Rawabi Botanical Nursery</p>
-            <span class="account-role-badge">🌿 Lead Horticulturist &amp; Owner</span>
-          </div>
-
-          <nav class="account-nav-tabs" aria-label="Account Settings Sections">
-            <button type="button" class="account-nav-btn is-active" data-tab="personal">
-              <span class="tab-icon">👤</span>
-              <span>Personal Details</span>
-            </button>
-            <button type="button" class="account-nav-btn" data-tab="business">
-              <span class="tab-icon">🏪</span>
-              <span>Nursery Credentials</span>
-            </button>
-            <button type="button" class="account-nav-btn" data-tab="security">
-              <span class="tab-icon">🔒</span>
-              <span>Security &amp; Password</span>
-            </button>
-            <button type="button" class="account-nav-btn" data-tab="payout">
-              <span class="tab-icon">💳</span>
-              <span>Payout &amp; CliQ</span>
-            </button>
-            <button type="button" class="account-nav-btn" data-tab="notifications">
-              <span class="tab-icon">🔔</span>
-              <span>Notifications &amp; Dispatch</span>
-            </button>
-          </nav>
-
-          <div style="width:100%; border-top:1px solid var(--m-border); padding-top:1rem; margin-top:0.5rem; text-align:start;">
-            <a href="merchant-profile.html" style="font-size:0.85rem; color:var(--m-primary); text-decoration:none; font-weight:600; display:flex; align-items:center; gap:0.4rem;">
-              <span>🏪 Edit Public Store Page</span>
-              <span>→</span>
+          <div class="merchant-actions">
+            <a
+              class="btn-merchant btn-merchant--outline"
+              href="merchant-profile.html"
+              title="Customize Nursery Public Store"
+            >
+              🎨 Edit Storefront View
+            </a>
+            <a
+              class="btn-merchant btn-merchant--primary"
+              href="merchant-dashboard.html"
+              title="Back to Dashboard"
+            >
+              📊 Nursery Dashboard
             </a>
           </div>
-        </aside>
+        </section>
 
-        <!-- ════════ COLUMN 2: ACTIVE CONTENT PANELS ════════ -->
-        <div class="account-content-card">
-
-          <!-- ── PANEL 1: PERSONAL INFORMATION ── -->
-          <section class="account-panel is-active" id="panel-personal">
-            <div class="panel-title-group">
-              <h2>👤 Personal &amp; Manager Information</h2>
-              <p>Update your personal identity, contact manager phone, and Agrismart account name.</p>
+        <!-- ── 2-Column Account Settings Layout ── -->
+        <div class="merchant-account-layout">
+          <!-- ════════ COLUMN 1: SIDEBAR PROFILE CARD ════════ -->
+          <aside class="account-sidebar-card">
+            <div class="account-avatar-wrapper">
+              <span id="sidebarAvatarInitial">T</span>
+              <button
+                class="account-avatar-upload-btn"
+                type="button"
+                onclick="
+                  alert(
+                    'Photo upload connected! In production, choose a JPG/PNG avatar.',
+                  )
+                "
+              >
+                📷 Change
+              </button>
             </div>
 
-            <form id="merchantPersonalForm">
-              <div class="form-grid-2">
-                <div class="form-field">
-                  <label for="merchantFirstName">First Name *</label>
-                  <input type="text" id="merchantFirstName" required placeholder="Tariq">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantLastName">Last Name *</label>
-                  <input type="text" id="merchantLastName" required placeholder="Al-Rawabi">
-                </div>
-
-                <div class="form-field span-full">
-                  <label for="merchantEmail">
-                    <span>Account Email *</span>
-                    <small style="color:#10b951; font-weight:700;">✓ Verified Business Email</small>
-                  </label>
-                  <input type="email" id="merchantEmail" readonly value="tareq@alrawabi.jo">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantPhone">Direct Contact Phone *</label>
-                  <input type="tel" id="merchantPhone" required placeholder="+962 7 9811 2233">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantWhatsapp">WhatsApp Operations Number *</label>
-                  <input type="tel" id="merchantWhatsapp" required placeholder="+962 7 9811 2233">
-                </div>
-
-                <div class="form-field span-full">
-                  <label for="merchantRole">Professional Role / Title</label>
-                  <input type="text" id="merchantRole" placeholder="e.g. Lead Horticulturist & Owner">
-                </div>
-              </div>
-
-              <div class="account-actions-bar">
-                <button type="submit" class="btn-merchant btn-merchant--primary">
-                  💾 Save Personal Details
-                </button>
-              </div>
-            </form>
-          </section>
-
-          <!-- ── PANEL 2: NURSERY CREDENTIALS ── -->
-          <section class="account-panel" id="panel-business">
-            <div class="panel-title-group">
-              <h2>🏪 Nursery Business Credentials</h2>
-              <p>Registered agricultural company name, Ministry of Agriculture accreditation, and facility scale.</p>
+            <div class="account-sidebar-meta">
+              <h3 id="sidebarManagerName">Eng. Tariq Al-Rawabi</h3>
+              <p id="sidebarStoreName">Al-Rawabi Botanical Nursery</p>
+              <span class="account-role-badge"
+                >🌿 Lead Horticulturist &amp; Owner</span
+              >
             </div>
 
-            <form id="merchantBusinessForm">
-              <div class="form-grid-2">
-                <div class="form-field">
-                  <label for="merchantStoreName">Registered Store Name (English) *</label>
-                  <input type="text" id="merchantStoreName" required placeholder="Al-Rawabi Botanical Nursery">
-                </div>
+            <nav
+              class="account-nav-tabs"
+              aria-label="Account Settings Sections"
+            >
+              <button
+                type="button"
+                class="account-nav-btn is-active"
+                data-tab="personal"
+              >
+                <span class="tab-icon">👤</span>
+                <span>Personal Details</span>
+              </button>
+              <button type="button" class="account-nav-btn" data-tab="business">
+                <span class="tab-icon">🏪</span>
+                <span>Nursery Credentials</span>
+              </button>
+              <button type="button" class="account-nav-btn" data-tab="security">
+                <span class="tab-icon">🔒</span>
+                <span>Security &amp; Password</span>
+              </button>
+              <button type="button" class="account-nav-btn" data-tab="payout">
+                <span class="tab-icon">💳</span>
+                <span>Payout &amp; CliQ</span>
+              </button>
+              <button
+                type="button"
+                class="account-nav-btn"
+                data-tab="notifications"
+              >
+                <span class="tab-icon">🔔</span>
+                <span>Notifications &amp; Dispatch</span>
+              </button>
+            </nav>
 
-                <div class="form-field">
-                  <label for="merchantStoreNameAr">اسم المتجر / المشتل (بالعربية) *</label>
-                  <input type="text" id="merchantStoreNameAr" dir="rtl" required placeholder="مشتل الروابي النباتي">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantCrNumber">Commercial Registration # *</label>
-                  <input type="text" id="merchantCrNumber" required placeholder="CR-98214-AMN">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantFacilitySize">Greenhouse Scale / Area</label>
-                  <input type="text" id="merchantFacilitySize" placeholder="e.g. 4.5 Hectares / 45 Dunams">
-                </div>
-
-                <div class="form-field span-full">
-                  <div style="background:var(--m-surface-alt); border:1px dashed var(--m-primary); padding:1rem 1.25rem; border-radius:12px; display:flex; align-items:center; gap:0.75rem;">
-                    <span style="font-size:1.5rem;">📜</span>
-                    <div>
-                      <strong style="color:var(--m-text); font-size:0.92rem; display:block;">Ministry of Agriculture Partner License</strong>
-                      <span style="font-size:0.82rem; color:var(--m-text-muted);">Verified Agrismart Tier-1 Horticultural Supplier status active through 2026.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="account-actions-bar">
-                <button type="submit" class="btn-merchant btn-merchant--primary">
-                  💾 Save Business Credentials
-                </button>
-              </div>
-            </form>
-          </section>
-
-          <!-- ── PANEL 3: SECURITY & PASSWORD ── -->
-          <section class="account-panel" id="panel-security">
-            <div class="panel-title-group">
-              <h2>🔒 Account Security &amp; Password</h2>
-              <p>Manage your login credentials, two-factor authentication, and portal session security.</p>
+            <div
+              style="
+                width: 100%;
+                border-top: 1px solid var(--m-border);
+                padding-top: 1rem;
+                margin-top: 0.5rem;
+                text-align: start;
+              "
+            >
+              <a
+                href="merchant-profile.html"
+                style="
+                  font-size: 0.85rem;
+                  color: var(--m-primary);
+                  text-decoration: none;
+                  font-weight: 600;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.4rem;
+                "
+              >
+                <span>🏪 Edit Public Store Page</span>
+                <span>→</span>
+              </a>
             </div>
+          </aside>
 
-            <form id="merchantSecurityForm">
-              <div class="form-grid-2">
-                <div class="form-field span-full">
-                  <label for="currentPassword">Current Password</label>
-                  <input type="password" id="currentPassword" placeholder="••••••••••••">
-                </div>
-
-                <div class="form-field">
-                  <label for="newPassword">New Password</label>
-                  <input type="password" id="newPassword" placeholder="At least 8 characters">
-                </div>
-
-                <div class="form-field">
-                  <label for="confirmPassword">Confirm New Password</label>
-                  <input type="password" id="confirmPassword" placeholder="Re-type new password">
-                </div>
-              </div>
-
-              <!-- 2FA Box -->
-              <div class="security-card" style="margin-top:1.5rem;">
-                <div class="security-card__info">
-                  <h4>🔐 Two-Factor Authentication (2FA)</h4>
-                  <p>Require a one-time verification SMS to your registered phone when logging in from new devices.</p>
-                </div>
-                <label class="switch-toggle" aria-label="Toggle 2FA">
-                  <input type="checkbox" checked id="twoFactorToggle">
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-
-              <!-- Active Sessions Card -->
-              <div class="security-card" style="margin-top:1rem;">
-                <div class="security-card__info">
-                  <h4>💻 Active Portal Session</h4>
-                  <p>Current device: Windows PC · Chrome Browser · Amman, Jordan (Active Now)</p>
-                </div>
-                <span style="font-size:0.8rem; color:#10b951; font-weight:700;">● Online</span>
-              </div>
-
-              <div class="account-actions-bar">
-                <button type="submit" class="btn-merchant btn-merchant--primary">
-                  🔒 Update Password &amp; Security
-                </button>
-              </div>
-            </form>
-          </section>
-
-          <!-- ── PANEL 4: PAYOUT & CLIQ ── -->
-          <section class="account-panel" id="panel-payout">
-            <div class="panel-title-group">
-              <h2>💳 Payout &amp; CliQ Preferences</h2>
-              <p>Set up your bank account and CliQ settlement alias for direct horticultural payouts.</p>
-            </div>
-
-            <form id="merchantPayoutForm">
-              <div class="form-grid-2">
-                <div class="form-field">
-                  <label for="merchantCliqAlias">CliQ Alias / Mobile Number *</label>
-                  <input type="text" id="merchantCliqAlias" required placeholder="RAWABI-PLANTS">
-                </div>
-
-                <div class="form-field">
-                  <label for="merchantBankName">Beneficiary Bank *</label>
-                  <input type="text" id="merchantBankName" required placeholder="Arab Bank (البنك العربي)">
-                </div>
-
-                <div class="form-field span-full">
-                  <label for="merchantIban">Jordan IBAN (28 Alphanumeric Characters) *</label>
-                  <input type="text" id="merchantIban" required placeholder="JO94 ARAB 1200 0000 0012 3456 7890 01">
-                </div>
-              </div>
-
-              <div style="background:rgba(16,185,81,0.06); border:1px solid #10b951; padding:1.25rem; border-radius:12px; margin-top:1.5rem;">
-                <strong style="color:#047857; display:block; margin-bottom:0.25rem;">⚡ Instant Subsidized CliQ Settlement</strong>
-                <p style="margin:0; font-size:0.86rem; color:var(--m-text-muted);">
-                  Agrismart covers all Central Bank of Jordan CliQ transaction fees for verified nursery partners. Withdrawals requested on your <a href="merchant-wallet.html" style="color:var(--m-primary); font-weight:700;">Wallet page</a> are settled instantly.
+          <!-- ════════ COLUMN 2: ACTIVE CONTENT PANELS ════════ -->
+          <div class="account-content-card">
+            <!-- ── PANEL 1: PERSONAL INFORMATION ── -->
+            <section class="account-panel is-active" id="panel-personal">
+              <div class="panel-title-group">
+                <h2>👤 Personal &amp; Manager Information</h2>
+                <p>
+                  Update your personal identity, contact manager phone, and
+                  Agrismart account name.
                 </p>
               </div>
 
+              <form id="merchantPersonalForm">
+                <div class="form-grid-2">
+                  <div class="form-field">
+                    <label for="merchantFirstName">First Name *</label>
+                    <input
+                      type="text"
+                      id="merchantFirstName"
+                      required
+                      placeholder="Tariq"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantLastName">Last Name *</label>
+                    <input
+                      type="text"
+                      id="merchantLastName"
+                      required
+                      placeholder="Al-Rawabi"
+                    />
+                  </div>
+
+                  <div class="form-field span-full">
+                    <label for="merchantEmail">
+                      <span>Account Email *</span>
+                      <small style="color: #10b951; font-weight: 700"
+                        >✓ Verified Business Email</small
+                      >
+                    </label>
+                    <input
+                      type="email"
+                      id="merchantEmail"
+                      readonly
+                      value="tareq@alrawabi.jo"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantPhone">Direct Contact Phone *</label>
+                    <input
+                      type="tel"
+                      id="merchantPhone"
+                      required
+                      placeholder="+962 7 9811 2233"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantWhatsapp"
+                      >WhatsApp Operations Number *</label
+                    >
+                    <input
+                      type="tel"
+                      id="merchantWhatsapp"
+                      required
+                      placeholder="+962 7 9811 2233"
+                    />
+                  </div>
+
+                  <div class="form-field span-full">
+                    <label for="merchantRole">Professional Role / Title</label>
+                    <input
+                      type="text"
+                      id="merchantRole"
+                      placeholder="e.g. Lead Horticulturist & Owner"
+                    />
+                  </div>
+                </div>
+
+                <div class="account-actions-bar">
+                  <button
+                    type="submit"
+                    class="btn-merchant btn-merchant--primary"
+                  >
+                    💾 Save Personal Details
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <!-- ── PANEL 2: NURSERY CREDENTIALS ── -->
+            <section class="account-panel" id="panel-business">
+              <div class="panel-title-group">
+                <h2>🏪 Nursery Business Credentials</h2>
+                <p>
+                  Registered agricultural company name, Ministry of Agriculture
+                  accreditation, and facility scale.
+                </p>
+              </div>
+
+              <form id="merchantBusinessForm">
+                <div class="form-grid-2">
+                  <div class="form-field">
+                    <label for="merchantStoreName"
+                      >Registered Store Name (English) *</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantStoreName"
+                      required
+                      placeholder="Al-Rawabi Botanical Nursery"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantStoreNameAr"
+                      >اسم المتجر / المشتل (بالعربية) *</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantStoreNameAr"
+                      dir="rtl"
+                      required
+                      placeholder="مشتل الروابي النباتي"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantCrNumber"
+                      >Commercial Registration # *</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantCrNumber"
+                      required
+                      placeholder="CR-98214-AMN"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantFacilitySize"
+                      >Greenhouse Scale / Area</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantFacilitySize"
+                      placeholder="e.g. 4.5 Hectares / 45 Dunams"
+                    />
+                  </div>
+
+                  <div class="form-field span-full">
+                    <div
+                      style="
+                        background: var(--m-surface-alt);
+                        border: 1px dashed var(--m-primary);
+                        padding: 1rem 1.25rem;
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                      "
+                    >
+                      <span style="font-size: 1.5rem">📜</span>
+                      <div>
+                        <strong
+                          style="
+                            color: var(--m-text);
+                            font-size: 0.92rem;
+                            display: block;
+                          "
+                          >Ministry of Agriculture Partner License</strong
+                        >
+                        <span
+                          style="font-size: 0.82rem; color: var(--m-text-muted)"
+                          >Verified Agrismart Tier-1 Horticultural Supplier
+                          status active through 2026.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="account-actions-bar">
+                  <button
+                    type="submit"
+                    class="btn-merchant btn-merchant--primary"
+                  >
+                    💾 Save Business Credentials
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <!-- ── PANEL 3: SECURITY & PASSWORD ── -->
+            <section class="account-panel" id="panel-security">
+              <div class="panel-title-group">
+                <h2>🔒 Account Security &amp; Password</h2>
+                <p>
+                  Manage your login credentials, two-factor authentication, and
+                  portal session security.
+                </p>
+              </div>
+
+              <form id="merchantSecurityForm">
+                <div class="form-grid-2">
+                  <div class="form-field span-full">
+                    <label for="currentPassword">Current Password</label>
+                    <input
+                      type="password"
+                      id="currentPassword"
+                      placeholder="••••••••••••"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="newPassword">New Password</label>
+                    <input
+                      type="password"
+                      id="newPassword"
+                      placeholder="At least 8 characters"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      placeholder="Re-type new password"
+                    />
+                  </div>
+                </div>
+
+                <!-- 2FA Box -->
+                <div class="security-card" style="margin-top: 1.5rem">
+                  <div class="security-card__info">
+                    <h4>🔐 Two-Factor Authentication (2FA)</h4>
+                    <p>
+                      Require a one-time verification SMS to your registered
+                      phone when logging in from new devices.
+                    </p>
+                  </div>
+                  <label class="switch-toggle" aria-label="Toggle 2FA">
+                    <input type="checkbox" checked id="twoFactorToggle" />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- Active Sessions Card -->
+                <div class="security-card" style="margin-top: 1rem">
+                  <div class="security-card__info">
+                    <h4>💻 Active Portal Session</h4>
+                    <p>
+                      Current device: Windows PC · Chrome Browser · Amman,
+                      Jordan (Active Now)
+                    </p>
+                  </div>
+                  <span
+                    style="font-size: 0.8rem; color: #10b951; font-weight: 700"
+                    >● Online</span
+                  >
+                </div>
+
+                <div class="account-actions-bar">
+                  <button
+                    type="submit"
+                    class="btn-merchant btn-merchant--primary"
+                  >
+                    🔒 Update Password &amp; Security
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <!-- ── PANEL 4: PAYOUT & CLIQ ── -->
+            <section class="account-panel" id="panel-payout">
+              <div class="panel-title-group">
+                <h2>💳 Payout &amp; CliQ Preferences</h2>
+                <p>
+                  Set up your bank account and CliQ settlement alias for direct
+                  horticultural payouts.
+                </p>
+              </div>
+
+              <form id="merchantPayoutForm">
+                <div class="form-grid-2">
+                  <div class="form-field">
+                    <label for="merchantCliqAlias"
+                      >CliQ Alias / Mobile Number *</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantCliqAlias"
+                      required
+                      placeholder="RAWABI-PLANTS"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="merchantBankName">Beneficiary Bank *</label>
+                    <input
+                      type="text"
+                      id="merchantBankName"
+                      required
+                      placeholder="Arab Bank (البنك العربي)"
+                    />
+                  </div>
+
+                  <div class="form-field span-full">
+                    <label for="merchantIban"
+                      >Jordan IBAN (28 Alphanumeric Characters) *</label
+                    >
+                    <input
+                      type="text"
+                      id="merchantIban"
+                      required
+                      placeholder="JO94 ARAB 1200 0000 0012 3456 7890 01"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    background: rgba(16, 185, 81, 0.06);
+                    border: 1px solid #10b951;
+                    padding: 1.25rem;
+                    border-radius: 12px;
+                    margin-top: 1.5rem;
+                  "
+                >
+                  <strong
+                    style="
+                      color: #047857;
+                      display: block;
+                      margin-bottom: 0.25rem;
+                    "
+                    >⚡ Instant Subsidized CliQ Settlement</strong
+                  >
+                  <p
+                    style="
+                      margin: 0;
+                      font-size: 0.86rem;
+                      color: var(--m-text-muted);
+                    "
+                  >
+                    Agrismart covers all Central Bank of Jordan CliQ transaction
+                    fees for verified nursery partners. Withdrawals requested on
+                    your
+                    <a
+                      href="merchant-wallet.html"
+                      style="color: var(--m-primary); font-weight: 700"
+                      >Wallet page</a
+                    >
+                    are settled instantly.
+                  </p>
+                </div>
+
+                <div class="account-actions-bar">
+                  <button
+                    type="submit"
+                    class="btn-merchant btn-merchant--primary"
+                  >
+                    💳 Save Payout Settings
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <!-- ── PANEL 5: NOTIFICATIONS & DISPATCH ── -->
+            <section class="account-panel" id="panel-notifications">
+              <div class="panel-title-group">
+                <h2>🔔 Notification &amp; Dispatch Alerts</h2>
+                <p>
+                  Choose how and when you receive order alerts, driver updates,
+                  and payout summaries.
+                </p>
+              </div>
+
+              <div class="notification-settings-list">
+                <div class="notification-item">
+                  <div class="notification-item__text">
+                    <h4>📦 Instant Customer Order Notifications</h4>
+                    <p>
+                      Sound alarm in nursery portal and immediate SMS when a
+                      customer places an order.
+                    </p>
+                  </div>
+                  <label
+                    class="switch-toggle"
+                    aria-label="Toggle New Order Alerts"
+                  >
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="notification-item">
+                  <div class="notification-item__text">
+                    <h4>🚚 Courier Driver Proximity Alerts</h4>
+                    <p>
+                      Receive a WhatsApp ping when an Agrismart delivery driver
+                      is 10 minutes from your greenhouse.
+                    </p>
+                  </div>
+                  <label
+                    class="switch-toggle"
+                    aria-label="Toggle Driver Proximity Alerts"
+                  >
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="notification-item">
+                  <div class="notification-item__text">
+                    <h4>🌿 Low Botanical Inventory Warnings</h4>
+                    <p>
+                      Daily report when specimen stock levels fall below 3 units
+                      in your catalog.
+                    </p>
+                  </div>
+                  <label
+                    class="switch-toggle"
+                    aria-label="Toggle Inventory Warnings"
+                  >
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="notification-item">
+                  <div class="notification-item__text">
+                    <h4>📄 Monthly Official Tax &amp; Commission Statements</h4>
+                    <p>
+                      Receive an automated PDF tax declaration directly to your
+                      official email on the 1st of every month.
+                    </p>
+                  </div>
+                  <label
+                    class="switch-toggle"
+                    aria-label="Toggle Monthly Statements"
+                  >
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+
               <div class="account-actions-bar">
-                <button type="submit" class="btn-merchant btn-merchant--primary">
-                  💳 Save Payout Settings
+                <button
+                  type="button"
+                  class="btn-merchant btn-merchant--primary"
+                  onclick="alert('Notification preferences saved!')"
+                >
+                  🔔 Save Preferences
                 </button>
               </div>
-            </form>
-          </section>
-
-          <!-- ── PANEL 5: NOTIFICATIONS & DISPATCH ── -->
-          <section class="account-panel" id="panel-notifications">
-            <div class="panel-title-group">
-              <h2>🔔 Notification &amp; Dispatch Alerts</h2>
-              <p>Choose how and when you receive order alerts, driver updates, and payout summaries.</p>
-            </div>
-
-            <div class="notification-settings-list">
-              <div class="notification-item">
-                <div class="notification-item__text">
-                  <h4>📦 Instant Customer Order Notifications</h4>
-                  <p>Sound alarm in nursery portal and immediate SMS when a customer places an order.</p>
-                </div>
-                <label class="switch-toggle" aria-label="Toggle New Order Alerts">
-                  <input type="checkbox" checked>
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-
-              <div class="notification-item">
-                <div class="notification-item__text">
-                  <h4>🚚 Courier Driver Proximity Alerts</h4>
-                  <p>Receive a WhatsApp ping when an Agrismart delivery driver is 10 minutes from your greenhouse.</p>
-                </div>
-                <label class="switch-toggle" aria-label="Toggle Driver Proximity Alerts">
-                  <input type="checkbox" checked>
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-
-              <div class="notification-item">
-                <div class="notification-item__text">
-                  <h4>🌿 Low Botanical Inventory Warnings</h4>
-                  <p>Daily report when specimen stock levels fall below 3 units in your catalog.</p>
-                </div>
-                <label class="switch-toggle" aria-label="Toggle Inventory Warnings">
-                  <input type="checkbox" checked>
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-
-              <div class="notification-item">
-                <div class="notification-item__text">
-                  <h4>📄 Monthly Official Tax &amp; Commission Statements</h4>
-                  <p>Receive an automated PDF tax declaration directly to your official email on the 1st of every month.</p>
-                </div>
-                <label class="switch-toggle" aria-label="Toggle Monthly Statements">
-                  <input type="checkbox" checked>
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-            </div>
-
-            <div class="account-actions-bar">
-              <button type="button" class="btn-merchant btn-merchant--primary" onclick="alert('Notification preferences saved!')">
-                🔔 Save Preferences
-              </button>
-            </div>
-          </section>
-
-        </div>
-
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Shared Footer (Source of Truth: index.html - Merchant Cycle) -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo flex items-center">
-            <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
-          </div>
-          <div class="footer__desc">
-            Empowering plant growers, verified nurseries, and botanical enthusiasts nationwide.
+            </section>
           </div>
         </div>
-        <div>
-          <div class="footer__heading">Merchant Hub</div>
-          <ul class="footer__links">
-            <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
-            <li><a href="merchant-profile.html">Store Profile &amp; Editor</a></li>
-            <li><a href="merchant-account.html">Merchant Profile &amp; Account</a></li>
-            <li><a href="merchant-store.html">Public Marketplace Store</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Support &amp; Logistics</div>
-          <ul class="footer__links">
-            <li><a href="track-order.html">Track Shipments</a></li>
-            <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
-            <li><a href="about.html">About Agrismart</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Headquarters</div>
-          <ul class="footer__links">
-            <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
-            <li><span>📞 +962 7 9811 2233</span></li>
-            <li><a href="mailto:wholesale@agrismart.com">✉️ wholesale@agrismart.com</a></li>
-          </ul>
+      </div>
+    </main>
+
+    <!-- Shared Footer (Source of Truth: index.html - Merchant Cycle) -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Empowering plant growers, verified nurseries, and botanical
+              enthusiasts nationwide.
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Merchant Hub</div>
+            <ul class="footer__links">
+              <li><a href="merchant-dashboard.html">Nursery Dashboard</a></li>
+              <li>
+                <a href="merchant-profile.html">Store Profile &amp; Editor</a>
+              </li>
+              <li>
+                <a href="merchant-account.html"
+                  >Merchant Profile &amp; Account</a
+                >
+              </li>
+              <li>
+                <a href="merchant-store.html">Public Marketplace Store</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Support &amp; Logistics</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track Shipments</a></li>
+              <li><a href="merchant-contact.html">Merchant Support Desk</a></li>
+              <li><a href="about.html">About Agrismart</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Headquarters</div>
+            <ul class="footer__links">
+              <li><span>📍 Wasfi Al-Tal St, Amman, Jordan</span></li>
+              <li><span>📞 +962 7 9811 2233</span></li>
+              <li>
+                <a href="mailto:wholesale@agrismart.com"
+                  >✉️ wholesale@agrismart.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Notification Toast Element -->
-  <div class="merchant-account-toast" id="accountToast"></div>
+    <!-- Notification Toast Element -->
+    <div class="merchant-account-toast" id="accountToast"></div>
 
-  <!-- Scripts: Exact sequence as requested in AGENTS.md -->
-  <script src="js/cart.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/merchant-account.js"></script>
-</body>
-
+    <!-- Scripts: Exact sequence as requested in AGENTS.md -->
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/merchant-account.js"></script>
+  </body>
 </html>

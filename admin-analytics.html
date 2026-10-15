@@ -1,54 +1,316 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Analytics &amp; Revenue | Agrismart Admin</title>
-  <link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="css/admin.css"><link rel="stylesheet" href="css/admin-analytics.css">
-</head>
-<body class="admin-page analytics-page" data-admin-page="true">
-  <aside class="admin-sidebar" id="adminSidebar">
-    <div class="admin-brand"><img src="assets/logo.svg" alt="Agrismart"><div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div></div>
-    <a class="live-store" href="index.html">▣ <span>View Live Store</span><b>↗</b></a><p class="side-label">OPERATIONS</p>
-    <nav class="admin-nav">
-      <button data-section="overview">▦ <span>Overview</span></button><button data-section="orders">▣ <span>Orders &amp; Fulfillment</span><i>12</i></button>
-      <button data-section="inventory">♧ <span>Products &amp; Inventory</span></button><button data-section="categories">⊞ <span>Categories &amp; Rooms</span></button>
-      <button data-section="customers">▤ <span>Customers &amp; Reviews</span></button><button class="active" data-section="analytics">⌁ <span>Analytics &amp; Revenue</span></button><button data-section="settings">⚙ <span>Settings</span></button>
-    </nav>
-    <div class="wiki-card"><strong>▣ Plant Care Wiki</strong><p>Nursery manuals, seasonal care logs, and propagation guides.</p><a href="ai-assistant.html">Explore docs →</a></div><div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
-  </aside>
-  <div class="admin-main">
-    <header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="admin-search">⌕<input id="adminSearch" placeholder="Search orders, plants, SKU, customers…"></div>
-      <div class="range-switch"><button>Today</button><button class="selected">Last 7 Days</button><button>This Month</button></div>
-      <div class="top-actions"><span class="online"><b></b> Online · Receiving Orders</span><button class="lang active">EN</button><button class="lang">AR</button><button class="notify" aria-label="Notifications">♧<i></i></button><button class="admin-profile"><span class="avatar">AF</span><span><strong>Alaa Frihat</strong><small>Operations Lead</small></span><b>⌄</b></button><button class="logout-button" data-admin-logout>Log out</button></div>
-    </header>
-    <main class="admin-content analytics-content">
-      <section class="analytics-heading"><div><p class="analytics-kicker">⌁ INTELLIGENCE HUB</p><h1>Analytics &amp; Revenue</h1><span>Understand botanical sales, room performance, and customer value across your nursery.</span></div>
-        <div class="analytics-heading-tools"><div class="analytics-period" role="group" aria-label="Analytics date range"><button data-period="7 Days">7 Days</button><button class="active" data-period="Last 30 Days">Last 30 Days</button><button data-period="This Quarter">This Quarter</button><button data-period="YTD">YTD</button><button data-period="Custom">▦ Custom</button></div><label class="forecast-toggle"><span>✦ Forecast AI</span><input type="checkbox" id="forecastToggle" checked><i></i></label><button class="analytics-export" id="exportAnalytics">⇩ Export Dossier⌄</button></div>
-      </section>
-      <p class="demo-note">Sample dashboard figures for the selected period</p>
-      <section class="analytics-metrics" aria-label="Revenue metrics">
-        <article class="analytics-metric sales"><header><small>GROSS PLANT SALES</small><b>♧</b></header><strong>$148,250.00</strong><footer><span class="growth">↗ +22.4%</span><small>vs prior 30 days</small><div>Live Run-rate <b>$4.94k/day</b></div></footer></article>
-        <article class="analytics-metric"><header><small>AVERAGE ORDER VALUE</small><b class="amber-icon">⌑</b></header><strong>$58.40</strong><footer><span class="growth">↗ +$6.20</span><small>Bundle Attach 41%</small><div>Top Pair <b>Pot &amp; Perlite Soil</b></div></footer></article>
-        <article class="analytics-metric"><header><small>FULFILLMENT MARGIN</small><b>▣</b></header><strong>34.2%</strong><footer><span class="growth">♧ +3.8%</span><small>Eco-Packaging Savings</small><div>Cold-Chain Route <b>Optimal (98.4%)</b></div></footer></article>
-        <article class="analytics-metric"><header><small>RETURN / DAMAGED RATE</small><b>♧</b></header><strong class="healthy">0.6%</strong><footer><span class="growth">↓ −0.4%</span><small>Moss hydro-wrap</small><div>Industry Benchmark <b>3.8% avg</b></div></footer></article>
-      </section>
-      <section class="analytics-panel trajectory-panel">
-        <div class="trajectory-heading"><div><h2>Revenue &amp; Seasonal Botanical Trajectory</h2><p>Aggregated daily revenue comparing the current period against the previous period.</p></div><div class="series-tabs" role="tablist"><button class="active" data-series="revenue">Total Revenue</button><button data-series="margin">Gross Margin ($)</button><button data-series="units">Plant Units (Vol)</button><button data-series="rooms">Room Breakdown</button></div></div>
-        <div class="chart-legend"><span><i class="legend-current"></i> Current 30 Days ($148,250)</span><span><i class="legend-prior"></i> Prior Period ($121,100)</span><span><i class="legend-forecast"></i> Forecast Arc</span><b>♧ Peak 1: Autumn Promo Deal (Oct 12)</b><b class="peak-blue">▣ Peak 2: Weekend Repotting Surge</b></div>
-        <div class="chart-wrap"><div class="chart-callout first">Oct 12: Autumn Promo Deal<br><small>$7,820 sales at 142 plants</small></div><div class="chart-callout second">Oct 24: Repotting Surge<br><small>$9,410 sales &amp; high pot attachment</small></div>
-          <svg class="revenue-chart" viewBox="0 0 1000 300" preserveAspectRatio="none" role="img" aria-label="Revenue grows through the month with two seasonal peaks"><defs><linearGradient id="revenueFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c7a32" stop-opacity=".34"/><stop offset="1" stop-color="#1c7a32" stop-opacity="0"/></linearGradient></defs><path class="grid-line" d="M0 70H1000M0 145H1000M0 220H1000M0 295H1000"/><path class="prior-line" d="M0 272 C100 255 135 245 205 228 S330 200 410 207 S535 201 610 190 S742 171 815 160 S925 145 1000 138"/><path class="area-fill" d="M0 250 C65 239 95 208 150 199 S230 174 280 152 S340 110 390 126 S465 167 520 145 S605 104 660 72 S715 55 760 83 S823 111 870 91 S943 52 1000 37 L1000 300 L0 300Z"/><path class="current-line" d="M0 250 C65 239 95 208 150 199 S230 174 280 152 S340 110 390 126 S465 167 520 145 S605 104 660 72 S715 55 760 83 S823 111 870 91 S943 52 1000 37"/><path class="forecast-line" d="M1000 37 C1035 29 1060 20 1090 12"/><path class="peak-guide" d="M345 110V300M660 72V300"/><circle class="peak-dot" cx="345" cy="110" r="6"/><circle class="peak-dot" cx="660" cy="72" r="6"/><circle class="peak-dot" cx="815" cy="111" r="6"/></svg>
-          <div class="chart-axis"><span>Day 1 (Oct 01)</span><span>Day 6</span><span>Day 12 (Autumn Launch)</span><span>Day 18</span><span>Day 24 (Weekend Surge)</span><span>Day 30 (Today)</span><b>Forecast (+7d)</b></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Analytics &amp; Revenue | Agrismart Admin</title>
+    <link rel="icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/admin-analytics.css" />
+  </head>
+  <body class="admin-page analytics-page" data-admin-page="true">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-brand">
+        <img src="assets/logo.svg" alt="Agrismart" />
+        <div><strong>Agrismart</strong><small>ADMIN CONSOLE</small></div>
+      </div>
+      <a class="live-store" href="index.html"
+        >▣ <span>View Live Store</span><b>↗</b></a
+      >
+      <p class="side-label">OPERATIONS</p>
+      <nav class="admin-nav">
+        <button data-section="overview">▦ <span>Overview</span></button
+        ><button data-section="orders">
+          ▣ <span>Orders &amp; Fulfillment</span><i>12</i>
+        </button>
+        <button data-section="inventory">
+          ♧ <span>Products &amp; Inventory</span></button
+        ><button data-section="categories">
+          ⊞ <span>Categories &amp; Rooms</span>
+        </button>
+        <button data-section="customers">
+          ▤ <span>Customers &amp; Reviews</span></button
+        ><button class="active" data-section="analytics">
+          ⌁ <span>Analytics &amp; Revenue</span></button
+        ><button data-section="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="wiki-card">
+        <strong>▣ Plant Care Wiki</strong>
+        <p>Nursery manuals, seasonal care logs, and propagation guides.</p>
+        <a href="ai-assistant.html">Explore docs →</a>
+      </div>
+      <div class="side-footer">Agrismart Suite v2.4 <span>● Sync OK</span></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+          ☰
+        </button>
+        <div class="admin-search">
+          ⌕<input
+            id="adminSearch"
+            placeholder="Search orders, plants, SKU, customers…"
+          />
         </div>
-      </section>
-      <section class="analytics-panel room-panel"><div class="analytics-panel-head"><div><h2>⌂ Revenue by Shop Room Taxonomy</h2><p>Storefront customer navigation rooms cross-referenced with sales velocity and botanical margins.</p></div><div class="room-tools"><span>Total Room Sales: <b>$148,250</b></span><select aria-label="Sort room revenue"><option>Sort: Revenue</option><option>Sort: Conversion</option><option>Sort: AOV</option></select></div></div>
-        <div class="room-table-wrap"><table class="room-table"><thead><tr><th>Room Taxonomy</th><th>Gross Revenue</th><th>Share of Sales</th><th>Conversion Rate</th><th>Top Botanical Specimen</th><th>AOV Impact</th></tr></thead><tbody id="roomRows"></tbody></table></div>
-      </section>
-      <section class="analytics-bottom">
-        <article class="analytics-panel varieties-panel"><div class="analytics-panel-head"><div><h2>Top Earning Botanical Varieties</h2><p>Top revenue drivers ranked by GMV, volume sold, and nursery turnover.</p></div><a href="admin-inventory.html">Full Catalog →</a></div><div id="varietyRows" class="variety-list"></div><footer>Turnover benchmark across 62 botanical live SKUs: <b>87.4% Avg Active Velocity</b></footer></article>
-        <article class="analytics-panel roi-panel"><div class="analytics-panel-head"><div><h2>Acquisition &amp; Channel ROI</h2><p>Marketing efficiency and cohort economics.</p></div><b class="roi-icon">⌁</b></div><div class="ltv-card"><span>ESTIMATED LTV<strong>$210.00</strong><small>3.6 Repeat Orders/yr</small></span><span>BLENDED CAC<strong>$18.50</strong><small>LTV:CAC = 11.3×</small></span></div><div id="channelRows" class="channel-list"></div><div class="referral-strip">♧ Referral organic lift at record peak <b>Boost Rewards</b></div></article>
-      </section>
-    </main>
-  </div>
-  <div class="toast" id="analyticsToast" role="status" aria-live="polite"></div>
-  <script src="js/language.js"></script><script src="js/admin-auth.js"></script><script src="js/admin-analytics.js"></script>
-</body></html>
+        <div class="range-switch">
+          <button>Today</button><button class="selected">Last 7 Days</button
+          ><button>This Month</button>
+        </div>
+        <div class="top-actions">
+          <span class="online"><b></b> Online · Receiving Orders</span
+          ><button class="lang active">EN</button
+          ><button class="lang">AR</button
+          ><button class="notify" aria-label="Notifications">♧<i></i></button
+          ><button class="admin-profile">
+            <span class="avatar">AF</span
+            ><span
+              ><strong>Alaa Frihat</strong><small>Operations Lead</small></span
+            ><b>⌄</b></button
+          ><button class="logout-button" data-admin-logout>Log out</button>
+        </div>
+      </header>
+      <main class="admin-content analytics-content">
+        <section class="analytics-heading">
+          <div>
+            <p class="analytics-kicker">⌁ INTELLIGENCE HUB</p>
+            <h1>Analytics &amp; Revenue</h1>
+            <span
+              >Understand botanical sales, room performance, and customer value
+              across your nursery.</span
+            >
+          </div>
+          <div class="analytics-heading-tools">
+            <div
+              class="analytics-period"
+              role="group"
+              aria-label="Analytics date range"
+            >
+              <button data-period="7 Days">7 Days</button
+              ><button class="active" data-period="Last 30 Days">
+                Last 30 Days</button
+              ><button data-period="This Quarter">This Quarter</button
+              ><button data-period="YTD">YTD</button
+              ><button data-period="Custom">▦ Custom</button>
+            </div>
+            <label class="forecast-toggle"
+              ><span>✦ Forecast AI</span
+              ><input
+                type="checkbox"
+                id="forecastToggle"
+                checked /><i></i></label
+            ><button class="analytics-export" id="exportAnalytics">
+              ⇩ Export Dossier⌄
+            </button>
+          </div>
+        </section>
+        <p class="demo-note">
+          Sample dashboard figures for the selected period
+        </p>
+        <section class="analytics-metrics" aria-label="Revenue metrics">
+          <article class="analytics-metric sales">
+            <header><small>GROSS PLANT SALES</small><b>♧</b></header>
+            <strong>$148,250.00</strong>
+            <footer>
+              <span class="growth">↗ +22.4%</span
+              ><small>vs prior 30 days</small>
+              <div>Live Run-rate <b>$4.94k/day</b></div>
+            </footer>
+          </article>
+          <article class="analytics-metric">
+            <header>
+              <small>AVERAGE ORDER VALUE</small><b class="amber-icon">⌑</b>
+            </header>
+            <strong>$58.40</strong>
+            <footer>
+              <span class="growth">↗ +$6.20</span
+              ><small>Bundle Attach 41%</small>
+              <div>Top Pair <b>Pot &amp; Perlite Soil</b></div>
+            </footer>
+          </article>
+          <article class="analytics-metric">
+            <header><small>FULFILLMENT MARGIN</small><b>▣</b></header>
+            <strong>34.2%</strong>
+            <footer>
+              <span class="growth">♧ +3.8%</span
+              ><small>Eco-Packaging Savings</small>
+              <div>Cold-Chain Route <b>Optimal (98.4%)</b></div>
+            </footer>
+          </article>
+          <article class="analytics-metric">
+            <header><small>RETURN / DAMAGED RATE</small><b>♧</b></header>
+            <strong class="healthy">0.6%</strong>
+            <footer>
+              <span class="growth">↓ −0.4%</span><small>Moss hydro-wrap</small>
+              <div>Industry Benchmark <b>3.8% avg</b></div>
+            </footer>
+          </article>
+        </section>
+        <section class="analytics-panel trajectory-panel">
+          <div class="trajectory-heading">
+            <div>
+              <h2>Revenue &amp; Seasonal Botanical Trajectory</h2>
+              <p>
+                Aggregated daily revenue comparing the current period against
+                the previous period.
+              </p>
+            </div>
+            <div class="series-tabs" role="tablist">
+              <button class="active" data-series="revenue">Total Revenue</button
+              ><button data-series="margin">Gross Margin ($)</button
+              ><button data-series="units">Plant Units (Vol)</button
+              ><button data-series="rooms">Room Breakdown</button>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <span
+              ><i class="legend-current"></i> Current 30 Days ($148,250)</span
+            ><span><i class="legend-prior"></i> Prior Period ($121,100)</span
+            ><span><i class="legend-forecast"></i> Forecast Arc</span
+            ><b>♧ Peak 1: Autumn Promo Deal (Oct 12)</b
+            ><b class="peak-blue">▣ Peak 2: Weekend Repotting Surge</b>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-callout first">
+              Oct 12: Autumn Promo Deal<br /><small
+                >$7,820 sales at 142 plants</small
+              >
+            </div>
+            <div class="chart-callout second">
+              Oct 24: Repotting Surge<br /><small
+                >$9,410 sales &amp; high pot attachment</small
+              >
+            </div>
+            <svg
+              class="revenue-chart"
+              viewBox="0 0 1000 300"
+              preserveAspectRatio="none"
+              role="img"
+              aria-label="Revenue grows through the month with two seasonal peaks"
+            >
+              <defs>
+                <linearGradient id="revenueFill" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#1c7a32" stop-opacity=".34" />
+                  <stop offset="1" stop-color="#1c7a32" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                class="grid-line"
+                d="M0 70H1000M0 145H1000M0 220H1000M0 295H1000"
+              />
+              <path
+                class="prior-line"
+                d="M0 272 C100 255 135 245 205 228 S330 200 410 207 S535 201 610 190 S742 171 815 160 S925 145 1000 138"
+              />
+              <path
+                class="area-fill"
+                d="M0 250 C65 239 95 208 150 199 S230 174 280 152 S340 110 390 126 S465 167 520 145 S605 104 660 72 S715 55 760 83 S823 111 870 91 S943 52 1000 37 L1000 300 L0 300Z"
+              />
+              <path
+                class="current-line"
+                d="M0 250 C65 239 95 208 150 199 S230 174 280 152 S340 110 390 126 S465 167 520 145 S605 104 660 72 S715 55 760 83 S823 111 870 91 S943 52 1000 37"
+              />
+              <path
+                class="forecast-line"
+                d="M1000 37 C1035 29 1060 20 1090 12"
+              />
+              <path class="peak-guide" d="M345 110V300M660 72V300" />
+              <circle class="peak-dot" cx="345" cy="110" r="6" />
+              <circle class="peak-dot" cx="660" cy="72" r="6" />
+              <circle class="peak-dot" cx="815" cy="111" r="6" />
+            </svg>
+            <div class="chart-axis">
+              <span>Day 1 (Oct 01)</span><span>Day 6</span
+              ><span>Day 12 (Autumn Launch)</span><span>Day 18</span
+              ><span>Day 24 (Weekend Surge)</span><span>Day 30 (Today)</span
+              ><b>Forecast (+7d)</b>
+            </div>
+          </div>
+        </section>
+        <section class="analytics-panel room-panel">
+          <div class="analytics-panel-head">
+            <div>
+              <h2>⌂ Revenue by Shop Room Taxonomy</h2>
+              <p>
+                Storefront customer navigation rooms cross-referenced with sales
+                velocity and botanical margins.
+              </p>
+            </div>
+            <div class="room-tools">
+              <span>Total Room Sales: <b>$148,250</b></span
+              ><select aria-label="Sort room revenue">
+                <option>Sort: Revenue</option>
+                <option>Sort: Conversion</option>
+                <option>Sort: AOV</option>
+              </select>
+            </div>
+          </div>
+          <div class="room-table-wrap">
+            <table class="room-table">
+              <thead>
+                <tr>
+                  <th>Room Taxonomy</th>
+                  <th>Gross Revenue</th>
+                  <th>Share of Sales</th>
+                  <th>Conversion Rate</th>
+                  <th>Top Botanical Specimen</th>
+                  <th>AOV Impact</th>
+                </tr>
+              </thead>
+              <tbody id="roomRows"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="analytics-bottom">
+          <article class="analytics-panel varieties-panel">
+            <div class="analytics-panel-head">
+              <div>
+                <h2>Top Earning Botanical Varieties</h2>
+                <p>
+                  Top revenue drivers ranked by GMV, volume sold, and nursery
+                  turnover.
+                </p>
+              </div>
+              <a href="admin-inventory.html">Full Catalog →</a>
+            </div>
+            <div id="varietyRows" class="variety-list"></div>
+            <footer>
+              Turnover benchmark across 62 botanical live SKUs:
+              <b>87.4% Avg Active Velocity</b>
+            </footer>
+          </article>
+          <article class="analytics-panel roi-panel">
+            <div class="analytics-panel-head">
+              <div>
+                <h2>Acquisition &amp; Channel ROI</h2>
+                <p>Marketing efficiency and cohort economics.</p>
+              </div>
+              <b class="roi-icon">⌁</b>
+            </div>
+            <div class="ltv-card">
+              <span
+                >ESTIMATED LTV<strong>$210.00</strong
+                ><small>3.6 Repeat Orders/yr</small></span
+              ><span
+                >BLENDED CAC<strong>$18.50</strong
+                ><small>LTV:CAC = 11.3×</small></span
+              >
+            </div>
+            <div id="channelRows" class="channel-list"></div>
+            <div class="referral-strip">
+              ♧ Referral organic lift at record peak <b>Boost Rewards</b>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <div
+      class="toast"
+      id="analyticsToast"
+      role="status"
+      aria-live="polite"
+    ></div>
+    <script src="js/language.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-analytics.js"></script>
+  </body>
+</html>

@@ -1,27 +1,213 @@
-document.addEventListener('DOMContentLoaded',()=>{
-  const people=[
-    ['Sarah Mansour','sarah.mansour@agrismart.jo','Primary Contact','Nursery Lead','SM','2FA Enabled'],
-    ['Alaa Frihat','alaa.frihat@agrismart.jo','Current Session','Operations Lead','AF','2FA Enabled'],
-    ['Nour Haddad','nour.h@agrismart.jo','','Fulfillment Specialist','NH','2FA Enabled'],
-    ['Dr. Kareem Al-Husseini','kareem.botanics@agrismart.jo','','Chief Botanist / QA','KA','SMS 2FA Pending']
+document.addEventListener("DOMContentLoaded", () => {
+  const people = [
+    [
+      "Sarah Mansour",
+      "sarah.mansour@agrismart.jo",
+      "Primary Contact",
+      "Nursery Lead",
+      "SM",
+      "2FA Enabled",
+    ],
+    [
+      "Alaa Frihat",
+      "alaa.frihat@agrismart.jo",
+      "Current Session",
+      "Operations Lead",
+      "AF",
+      "2FA Enabled",
+    ],
+    [
+      "Nour Haddad",
+      "nour.h@agrismart.jo",
+      "",
+      "Fulfillment Specialist",
+      "NH",
+      "2FA Enabled",
+    ],
+    [
+      "Dr. Kareem Al-Husseini",
+      "kareem.botanics@agrismart.jo",
+      "",
+      "Chief Botanist / QA",
+      "KA",
+      "SMS 2FA Pending",
+    ],
   ];
-  const list=document.getElementById('teamList');
-  const drawPeople=()=>{list.innerHTML=people.map(p=>`<div class="team-row"><span class="team-avatar">${p[4]}</span><span class="team-person"><strong>${p[0]} ${p[2]?`<em>${p[2]}</em>`:''}</strong><small>${p[1]}</small></span><span class="team-security">♢ ${p[5]}</span><span class="team-role">${p[3]}</span><button class="team-menu" aria-label="Team member options">⋮</button></div>`).join('');};drawPeople();
-  const toast=text=>{const el=document.getElementById('settingsToast');el.textContent=text;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400);};
-  const controlNodes=()=>[...document.querySelectorAll('.settings-fields input,.settings-fields select,.settings-card .switch input')];
-  const snapshot=()=>controlNodes().map(input=>input.type==='checkbox'?input.checked:input.value);
-  const applySnapshot=values=>controlNodes().forEach((input,index)=>{if(values?.[index]===undefined)return;if(input.type==='checkbox')input.checked=Boolean(values[index]);else input.value=values[index];});
-  const savedSettings=()=>{try{return JSON.parse(localStorage.getItem('agrismartAdminSettings')||'null');}catch{return null;}};
-  const initialValues=snapshot();applySnapshot(savedSettings());
-  document.getElementById('mobileMenu')?.addEventListener('click',()=>document.getElementById('adminSidebar')?.classList.toggle('open'));
-  const tabButtons=[...document.querySelectorAll('[data-settings-tab]')], panels=[...document.querySelectorAll('[data-settings-panel]')];
-  tabButtons.forEach(button=>button.addEventListener('click',()=>{tabButtons.forEach(item=>item.classList.toggle('active',item===button));const tab=button.dataset.settingsTab;panels.forEach(panel=>{panel.hidden=panel.dataset.settingsPanel!==tab&&!(tab==='general'&&panel.dataset.settingsPanel==='nursery');});if(tab==='general'){document.querySelector('.protocols-card').hidden=false;document.querySelector('.team-card').hidden=false;}if(tab==='nursery'){document.querySelector('.protocols-card').hidden=false;document.querySelector('.settings-card[data-settings-panel="general"]').hidden=false;document.querySelector('.team-card').hidden=false;}if(tab==='climate'){document.querySelector('.settings-card[data-settings-panel="general"]').hidden=true;document.querySelector('.protocols-card').hidden=false;document.querySelector('.team-card').hidden=true;document.querySelector('.climate-row').scrollIntoView({block:'center',behavior:'smooth'});}if(tab==='team'){document.querySelector('.settings-card[data-settings-panel="general"]').hidden=true;document.querySelector('.protocols-card').hidden=true;document.querySelector('.team-card').hidden=false;}if(tab==='payments'){document.querySelector('.settings-card[data-settings-panel="general"]').hidden=true;document.querySelector('.protocols-card').hidden=true;document.querySelector('.team-card').hidden=true;}}));
-  document.getElementById('savePolicy')?.addEventListener('click',()=>{localStorage.setItem('agrismartAdminSettings',JSON.stringify(snapshot()));localStorage.setItem('agrismartAdminSettingsSavedAt',new Date().toISOString());toast('Settings saved in this browser');});
-  document.getElementById('discardChanges')?.addEventListener('click',()=>{applySnapshot(savedSettings()||initialValues);toast('Unsaved changes discarded');});
-  document.getElementById('inviteMember')?.addEventListener('click',()=>document.getElementById('inviteDialog').showModal());
-  document.getElementById('sendInvite')?.addEventListener('click',event=>{const name=document.getElementById('inviteName').value.trim(),email=document.getElementById('inviteEmail').value.trim();if(!name||!email){event.preventDefault();toast('Enter a name and valid email first');return;}people.push([name,email,'',''+document.getElementById('inviteRole').value,name.split(/\s+/).map(part=>part[0]).join('').slice(0,2).toUpperCase(),'Invitation pending']);drawPeople();setTimeout(()=>toast(`Invitation prepared for ${email}`),0);});
-  document.getElementById('copyEndpoint')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('https://api.agrismart.io/v2/fleet/telemetry/amman-hub');toast('Webhook endpoint copied');}catch{toast('Endpoint: api.agrismart.io/v2/fleet/telemetry/amman-hub');}});
-  document.querySelectorAll('.settings-tabs button').forEach(button=>button.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const delta=event.key==='ArrowRight'?1:-1;tabButtons[(tabButtons.indexOf(button)+delta+tabButtons.length)%tabButtons.length].focus();}}));
-  document.getElementById('settingsSearch')?.addEventListener('keydown',event=>{if(event.key==='Enter'){const query=event.target.value.toLowerCase();const match=tabButtons.find(button=>button.textContent.toLowerCase().includes(query));if(match)match.click();else toast('No matching setting section');}});
-  window.addEventListener('agrismart:languagechange', () => { drawPeople(); });
+  const list = document.getElementById("teamList");
+  const drawPeople = () => {
+    list.innerHTML = people
+      .map(
+        (p) =>
+          `<div class="team-row"><span class="team-avatar">${p[4]}</span><span class="team-person"><strong>${p[0]} ${p[2] ? `<em>${p[2]}</em>` : ""}</strong><small>${p[1]}</small></span><span class="team-security">♢ ${p[5]}</span><span class="team-role">${p[3]}</span><button class="team-menu" aria-label="Team member options">⋮</button></div>`,
+      )
+      .join("");
+  };
+  drawPeople();
+  const toast = (text) => {
+    const el = document.getElementById("settingsToast");
+    el.textContent = text;
+    el.classList.add("show");
+    setTimeout(() => el.classList.remove("show"), 2400);
+  };
+  const controlNodes = () => [
+    ...document.querySelectorAll(
+      ".settings-fields input,.settings-fields select,.settings-card .switch input",
+    ),
+  ];
+  const snapshot = () =>
+    controlNodes().map((input) =>
+      input.type === "checkbox" ? input.checked : input.value,
+    );
+  const applySnapshot = (values) =>
+    controlNodes().forEach((input, index) => {
+      if (values?.[index] === undefined) return;
+      if (input.type === "checkbox") input.checked = Boolean(values[index]);
+      else input.value = values[index];
+    });
+  const savedSettings = () => {
+    try {
+      return JSON.parse(
+        localStorage.getItem("agrismartAdminSettings") || "null",
+      );
+    } catch {
+      return null;
+    }
+  };
+  const initialValues = snapshot();
+  applySnapshot(savedSettings());
+  document
+    .getElementById("mobileMenu")
+    ?.addEventListener("click", () =>
+      document.getElementById("adminSidebar")?.classList.toggle("open"),
+    );
+  const tabButtons = [...document.querySelectorAll("[data-settings-tab]")],
+    panels = [...document.querySelectorAll("[data-settings-panel]")];
+  tabButtons.forEach((button) =>
+    button.addEventListener("click", () => {
+      tabButtons.forEach((item) =>
+        item.classList.toggle("active", item === button),
+      );
+      const tab = button.dataset.settingsTab;
+      panels.forEach((panel) => {
+        panel.hidden =
+          panel.dataset.settingsPanel !== tab &&
+          !(tab === "general" && panel.dataset.settingsPanel === "nursery");
+      });
+      if (tab === "general") {
+        document.querySelector(".protocols-card").hidden = false;
+        document.querySelector(".team-card").hidden = false;
+      }
+      if (tab === "nursery") {
+        document.querySelector(".protocols-card").hidden = false;
+        document.querySelector(
+          '.settings-card[data-settings-panel="general"]',
+        ).hidden = false;
+        document.querySelector(".team-card").hidden = false;
+      }
+      if (tab === "climate") {
+        document.querySelector(
+          '.settings-card[data-settings-panel="general"]',
+        ).hidden = true;
+        document.querySelector(".protocols-card").hidden = false;
+        document.querySelector(".team-card").hidden = true;
+        document
+          .querySelector(".climate-row")
+          .scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+      if (tab === "team") {
+        document.querySelector(
+          '.settings-card[data-settings-panel="general"]',
+        ).hidden = true;
+        document.querySelector(".protocols-card").hidden = true;
+        document.querySelector(".team-card").hidden = false;
+      }
+      if (tab === "payments") {
+        document.querySelector(
+          '.settings-card[data-settings-panel="general"]',
+        ).hidden = true;
+        document.querySelector(".protocols-card").hidden = true;
+        document.querySelector(".team-card").hidden = true;
+      }
+    }),
+  );
+  document.getElementById("savePolicy")?.addEventListener("click", () => {
+    localStorage.setItem("agrismartAdminSettings", JSON.stringify(snapshot()));
+    localStorage.setItem(
+      "agrismartAdminSettingsSavedAt",
+      new Date().toISOString(),
+    );
+    toast("Settings saved in this browser");
+  });
+  document.getElementById("discardChanges")?.addEventListener("click", () => {
+    applySnapshot(savedSettings() || initialValues);
+    toast("Unsaved changes discarded");
+  });
+  document
+    .getElementById("inviteMember")
+    ?.addEventListener("click", () =>
+      document.getElementById("inviteDialog").showModal(),
+    );
+  document.getElementById("sendInvite")?.addEventListener("click", (event) => {
+    const name = document.getElementById("inviteName").value.trim(),
+      email = document.getElementById("inviteEmail").value.trim();
+    if (!name || !email) {
+      event.preventDefault();
+      toast("Enter a name and valid email first");
+      return;
+    }
+    people.push([
+      name,
+      email,
+      "",
+      "" + document.getElementById("inviteRole").value,
+      name
+        .split(/\s+/)
+        .map((part) => part[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase(),
+      "Invitation pending",
+    ]);
+    drawPeople();
+    setTimeout(() => toast(`Invitation prepared for ${email}`), 0);
+  });
+  document
+    .getElementById("copyEndpoint")
+    ?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(
+          "https://api.agrismart.io/v2/fleet/telemetry/amman-hub",
+        );
+        toast("Webhook endpoint copied");
+      } catch {
+        toast("Endpoint: api.agrismart.io/v2/fleet/telemetry/amman-hub");
+      }
+    });
+  document.querySelectorAll(".settings-tabs button").forEach((button) =>
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        event.preventDefault();
+        const delta = event.key === "ArrowRight" ? 1 : -1;
+        tabButtons[
+          (tabButtons.indexOf(button) + delta + tabButtons.length) %
+            tabButtons.length
+        ].focus();
+      }
+    }),
+  );
+  document
+    .getElementById("settingsSearch")
+    ?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const query = event.target.value.toLowerCase();
+        const match = tabButtons.find((button) =>
+          button.textContent.toLowerCase().includes(query),
+        );
+        if (match) match.click();
+        else toast("No matching setting section");
+      }
+    });
+  window.addEventListener("agrismart:languagechange", () => {
+    drawPeople();
+  });
 });

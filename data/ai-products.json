@@ -1,27 +1,227 @@
 [
-  {"id":"shop_0","name":"Fiddle Leaf Fig","price":28.99,"category":"Plants","traits":"bright light statement upright","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuA_L4cTO3ar9Qc7G98PzFmzbuGdY6qTgulnq3k7CDjmFsmgD_DaJIe6dNINqe8vDZ-G0qfc0pJdxNny4bkz0E4HaF7lk5yIdZQs9NojIEQ9swpJF6dzpp5ctCQmpO6CkByYxiThWF_1BBnXFAtayAh4RS9y5v5QF3pJkrZ7uZSHmm_nBUUrGUT96GCSh58kqHau4NJZlxoiZrCkQHvh28Kas-_XPbfJLAiglezWvBU"},
-  {"id":"shop_1","name":"Peace Lily","price":18.5,"category":"Plants","traits":"indirect light flowering humidity","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuBiCLRIwpBaf_oISx8JvwjGS7rsX8bbq3oGKo8bdAVZ4HECVQtpqfyFy85E1C-HOSUoJYcuZZV5_dIH4TNjDapNax6yUsM5xsUqJRI0u1rIfK9yfveeA1ITl8_-RTq2OxQIvN2EXrkMpm-szPvji1eUfprAZ6mNbb7JJZo0d9u1ncJd3SXEYYOGeLNoS6U5GDcIxtEG59PZ5SdWH8njLIRcWLP0IRgR9SfBQ1Qpr4o"},
-  {"id":"shop_2","name":"Monstera Deliciosa","price":25.99,"category":"Plants","traits":"indirect light tropical large leaves","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuAPrqRJnPE-vWiyezGmEus-FJNFeh_i3YPmHkJyLgFe_JdatXW4ZVJQqIoXblsfSxx6PlDpQGmVZqQkPtES8nAUHNaMCRaDfxPjucvWW5pvcp8WaMPneTFUH66M9LuaGdsRrInbMS3ZwPOK_weL2S57aiAEy7hhrBkK7d0UM512QQ2xoMSnqoj4H_gaAU0NWzXYv3EVqtw77x6mB4a0U3aCCbvpTwRFp9jaMP4bOwI"},
-  {"id":"shop_3","name":"Snake Plant","price":22.5,"category":"Plants","traits":"easy care low light drought tolerant hardy","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuCKXARjf0gVPNC3kU-dNNyitZsSwFE7cRhw9nNsf6oYq4zRl76DCai_5R86v_aQqsNBN3hrYMVt66QFzoAEBuaEWJP-QVXHPTAItuuk-GInXfIcVZL_UwbAi7djHZKLB4_MMmEgzCf-CTGzXrSDGbv8HUbzamORDbTueRoXuZZqOi8GYQcLJN_1vRRVh_d_go-ZBjP4lB0WzV6dLea0LPjqEFiCh5VK_qWiR1cKgkE"},
-  {"id":"shop_4","name":"ZZ Plant","price":24,"category":"Plants","traits":"easy care low light drought tolerant hardy","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuDQO_VZuU8JeP2Bt1xnA4bChtzC7yJFh8-g_cK0cVQDv3-H7QefXz9cCfwX2gvehi_4N1C5eYlYVvjq9IsQsBWJeV2UsM15Im_LZLtZ1ylYGRD1fUGjS5DWtWRpW8pCHveLVayVWgI5K8K8QlbgEuXGiTQtpEb8sLqfIajY_eaxccJd2bCUTwRUgwhV9zHGdVMmUij5axqj-sVbff2qS-W5PBb_U_nHTES_5wpWHVg"},
-  {"id":"shop_5","name":"Spider Plant","price":15,"category":"Plants","traits":"easy care indirect light beginner pet friendly","url":"shop.html","image":"https://lh3.googleusercontent.com/aida-public/AB6AXuBdSaXdq9RUMt9Hk-R16fHUq_JLYN8QpvLlAYubwD-1e65fJ8hhKNSHcaSndOGVv_C9flReALihHWmtFi8shg2G8fz7KDZh4NC--e23Bbd3C7Icl85TmTQKmZA5aZ6WCykwXvHdzmmloi_9jfCI9c3B5lxx8bOM8pNHd9F3K1M9dsrCAq5IysVNbV9tXpbAl07R30uGsL7T2_SueDnoSFjvvSVwzYGSTQl2L2qpdJQ"},
-  {"id":"shop_7","name":"Lavender","price":15,"category":"Plants","traits":"sun outdoor fragrant flowering","url":"shop.html","image":"https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=720&q=85"},
-  {"id":"shop_9","name":"Bamboo","price":22,"category":"Plants","traits":"indirect light easy care calm","url":"shop.html","image":"https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=720&q=85"},
-  {"id":"pots-ceramic-planter","name":"Ceramic Planter","price":24.5,"category":"Pots & Accessories","traits":"pot ceramic planter indoor drainage","url":"pots-accessories.html","image":"https://images.unsplash.com/photo-1599067900192-1e0ecf2ce134?auto=format&fit=crop&w=720&q=85"},
-  {"id":"pots-green-plastic-planter","name":"Green Plastic Planter","price":12,"category":"Pots & Accessories","traits":"pot planter plastic lightweight green","url":"pots-accessories.html","image":"https://images.unsplash.com/photo-1545239705-1564e58b9e4a?auto=format&fit=crop&w=720&q=85"},
-  {"id":"pots-garden-care-kit","name":"Garden Care Kit","price":16,"category":"Pots & Accessories","traits":"care tools watering gardening kit","url":"pots-accessories.html","image":"https://images.unsplash.com/photo-1783149173467-74e30fc23434?auto=format&fit=crop&w=720&q=85"},
-  {"id":"seed-cherry-tomato-seeds","name":"Cherry Tomato Seeds","price":3.5,"category":"Seeds","traits":"seed vegetable edible beginner garden","url":"seeds.html","image":"assets/logo.svg"},
-  {"id":"seed-sweet-basil-seeds","name":"Sweet Basil Seeds","price":2.95,"category":"Seeds","traits":"seed herb edible kitchen garden","url":"seeds.html","image":"assets/logo.svg"},
-  {"id":"seed-sunflower-seeds","name":"Sunflower Seeds","price":3.25,"category":"Seeds","traits":"seed flower outdoor sunny garden","url":"seeds.html","image":"assets/logo.svg"},
-  {"id":"seed-coriander-seeds","name":"Coriander Seeds","price":2.25,"category":"Seeds","traits":"seed herb edible kitchen garden","url":"seeds.html","image":"assets/logo.svg"},
-  {"id":"fertilizer-organic-plant-food","name":"Organic Plant Food Concentrate","price":10.5,"category":"Fertilizers","traits":"fertilizer organic liquid plant food indoor outdoor","url":"seeds.html","image":"assets/fertilizers/organic-plant-food.svg"},
-  {"id":"fertilizer-balanced-indoor-feed","name":"Balanced Indoor Plant Fertilizer","price":8.75,"category":"Fertilizers","traits":"fertilizer balanced indoor houseplant feed beginner","url":"seeds.html","image":"assets/fertilizers/indoor-balanced-feed.svg"},
-  {"id":"fertilizer-seaweed-extract","name":"Seaweed Plant Tonic","price":12.5,"category":"Fertilizers","traits":"fertilizer seaweed organic garden tonic","url":"seeds.html","image":"assets/fertilizers/seaweed-tonic.svg"},
-  {"id":"fertilizer-cactus-succulent-feed","name":"Cactus & Succulent Feed","price":7.5,"category":"Fertilizers","traits":"fertilizer cactus succulent feed low maintenance","url":"seeds.html","image":"assets/fertilizers/cactus-feed.svg"},
-  {"id":"fertilizer-slow-release-pellets","name":"Slow-Release Plant Food Pellets","price":9.25,"category":"Fertilizers","traits":"fertilizer slow release pellets granules indoor outdoor steady feeding","url":"seeds.html","image":"assets/fertilizers/slow-release-pellets.svg"},
-  {"id":"fertilizer-orchid-bloom-feed","name":"Orchid Bloom Fertilizer","price":8.5,"category":"Fertilizers","traits":"fertilizer orchid flowering bloom liquid feed","url":"seeds.html","image":"assets/fertilizers/orchid-bloom-feed.svg"},
-  {"id":"fertilizer-tomato-vegetable-feed","name":"Tomato & Vegetable Fertilizer","price":11.75,"category":"Fertilizers","traits":"fertilizer tomato vegetable fruiting garden organic","url":"seeds.html","image":"assets/fertilizers/tomato-vegetable-feed.svg"},
-  {"id":"fertilizer-root-growth-starter","name":"Root Growth Starter","price":9.75,"category":"Fertilizers","traits":"fertilizer root growth transplant starter powder planting","url":"seeds.html","image":"assets/fertilizers/root-growth-starter.svg"},
-  {"id":"fertilizer-premium-worm-castings","name":"Premium Worm Castings","price":13.5,"category":"Fertilizers","traits":"fertilizer worm castings organic soil amendment compost garden","url":"seeds.html","image":"assets/fertilizers/worm-castings.svg"},
-  {"id":"fertilizer-citrus-plant-feed","name":"Citrus Plant Fertilizer","price":10.25,"category":"Fertilizers","traits":"fertilizer citrus lemon fruit tree liquid feed organic","url":"seeds.html","image":"assets/fertilizers/citrus-plant-feed.svg"}
+  {
+    "id": "shop_0",
+    "name": "Fiddle Leaf Fig",
+    "price": 28.99,
+    "category": "Plants",
+    "traits": "bright light statement upright",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA_L4cTO3ar9Qc7G98PzFmzbuGdY6qTgulnq3k7CDjmFsmgD_DaJIe6dNINqe8vDZ-G0qfc0pJdxNny4bkz0E4HaF7lk5yIdZQs9NojIEQ9swpJF6dzpp5ctCQmpO6CkByYxiThWF_1BBnXFAtayAh4RS9y5v5QF3pJkrZ7uZSHmm_nBUUrGUT96GCSh58kqHau4NJZlxoiZrCkQHvh28Kas-_XPbfJLAiglezWvBU"
+  },
+  {
+    "id": "shop_1",
+    "name": "Peace Lily",
+    "price": 18.5,
+    "category": "Plants",
+    "traits": "indirect light flowering humidity",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBiCLRIwpBaf_oISx8JvwjGS7rsX8bbq3oGKo8bdAVZ4HECVQtpqfyFy85E1C-HOSUoJYcuZZV5_dIH4TNjDapNax6yUsM5xsUqJRI0u1rIfK9yfveeA1ITl8_-RTq2OxQIvN2EXrkMpm-szPvji1eUfprAZ6mNbb7JJZo0d9u1ncJd3SXEYYOGeLNoS6U5GDcIxtEG59PZ5SdWH8njLIRcWLP0IRgR9SfBQ1Qpr4o"
+  },
+  {
+    "id": "shop_2",
+    "name": "Monstera Deliciosa",
+    "price": 25.99,
+    "category": "Plants",
+    "traits": "indirect light tropical large leaves",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAPrqRJnPE-vWiyezGmEus-FJNFeh_i3YPmHkJyLgFe_JdatXW4ZVJQqIoXblsfSxx6PlDpQGmVZqQkPtES8nAUHNaMCRaDfxPjucvWW5pvcp8WaMPneTFUH66M9LuaGdsRrInbMS3ZwPOK_weL2S57aiAEy7hhrBkK7d0UM512QQ2xoMSnqoj4H_gaAU0NWzXYv3EVqtw77x6mB4a0U3aCCbvpTwRFp9jaMP4bOwI"
+  },
+  {
+    "id": "shop_3",
+    "name": "Snake Plant",
+    "price": 22.5,
+    "category": "Plants",
+    "traits": "easy care low light drought tolerant hardy",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCKXARjf0gVPNC3kU-dNNyitZsSwFE7cRhw9nNsf6oYq4zRl76DCai_5R86v_aQqsNBN3hrYMVt66QFzoAEBuaEWJP-QVXHPTAItuuk-GInXfIcVZL_UwbAi7djHZKLB4_MMmEgzCf-CTGzXrSDGbv8HUbzamORDbTueRoXuZZqOi8GYQcLJN_1vRRVh_d_go-ZBjP4lB0WzV6dLea0LPjqEFiCh5VK_qWiR1cKgkE"
+  },
+  {
+    "id": "shop_4",
+    "name": "ZZ Plant",
+    "price": 24,
+    "category": "Plants",
+    "traits": "easy care low light drought tolerant hardy",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQO_VZuU8JeP2Bt1xnA4bChtzC7yJFh8-g_cK0cVQDv3-H7QefXz9cCfwX2gvehi_4N1C5eYlYVvjq9IsQsBWJeV2UsM15Im_LZLtZ1ylYGRD1fUGjS5DWtWRpW8pCHveLVayVWgI5K8K8QlbgEuXGiTQtpEb8sLqfIajY_eaxccJd2bCUTwRUgwhV9zHGdVMmUij5axqj-sVbff2qS-W5PBb_U_nHTES_5wpWHVg"
+  },
+  {
+    "id": "shop_5",
+    "name": "Spider Plant",
+    "price": 15,
+    "category": "Plants",
+    "traits": "easy care indirect light beginner pet friendly",
+    "url": "shop.html",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBdSaXdq9RUMt9Hk-R16fHUq_JLYN8QpvLlAYubwD-1e65fJ8hhKNSHcaSndOGVv_C9flReALihHWmtFi8shg2G8fz7KDZh4NC--e23Bbd3C7Icl85TmTQKmZA5aZ6WCykwXvHdzmmloi_9jfCI9c3B5lxx8bOM8pNHd9F3K1M9dsrCAq5IysVNbV9tXpbAl07R30uGsL7T2_SueDnoSFjvvSVwzYGSTQl2L2qpdJQ"
+  },
+  {
+    "id": "shop_7",
+    "name": "Lavender",
+    "price": 15,
+    "category": "Plants",
+    "traits": "sun outdoor fragrant flowering",
+    "url": "shop.html",
+    "image": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=720&q=85"
+  },
+  {
+    "id": "shop_9",
+    "name": "Bamboo",
+    "price": 22,
+    "category": "Plants",
+    "traits": "indirect light easy care calm",
+    "url": "shop.html",
+    "image": "https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=720&q=85"
+  },
+  {
+    "id": "pots-ceramic-planter",
+    "name": "Ceramic Planter",
+    "price": 24.5,
+    "category": "Pots & Accessories",
+    "traits": "pot ceramic planter indoor drainage",
+    "url": "pots-accessories.html",
+    "image": "https://images.unsplash.com/photo-1599067900192-1e0ecf2ce134?auto=format&fit=crop&w=720&q=85"
+  },
+  {
+    "id": "pots-green-plastic-planter",
+    "name": "Green Plastic Planter",
+    "price": 12,
+    "category": "Pots & Accessories",
+    "traits": "pot planter plastic lightweight green",
+    "url": "pots-accessories.html",
+    "image": "https://images.unsplash.com/photo-1545239705-1564e58b9e4a?auto=format&fit=crop&w=720&q=85"
+  },
+  {
+    "id": "pots-garden-care-kit",
+    "name": "Garden Care Kit",
+    "price": 16,
+    "category": "Pots & Accessories",
+    "traits": "care tools watering gardening kit",
+    "url": "pots-accessories.html",
+    "image": "https://images.unsplash.com/photo-1783149173467-74e30fc23434?auto=format&fit=crop&w=720&q=85"
+  },
+  {
+    "id": "seed-cherry-tomato-seeds",
+    "name": "Cherry Tomato Seeds",
+    "price": 3.5,
+    "category": "Seeds",
+    "traits": "seed vegetable edible beginner garden",
+    "url": "seeds.html",
+    "image": "assets/logo.svg"
+  },
+  {
+    "id": "seed-sweet-basil-seeds",
+    "name": "Sweet Basil Seeds",
+    "price": 2.95,
+    "category": "Seeds",
+    "traits": "seed herb edible kitchen garden",
+    "url": "seeds.html",
+    "image": "assets/logo.svg"
+  },
+  {
+    "id": "seed-sunflower-seeds",
+    "name": "Sunflower Seeds",
+    "price": 3.25,
+    "category": "Seeds",
+    "traits": "seed flower outdoor sunny garden",
+    "url": "seeds.html",
+    "image": "assets/logo.svg"
+  },
+  {
+    "id": "seed-coriander-seeds",
+    "name": "Coriander Seeds",
+    "price": 2.25,
+    "category": "Seeds",
+    "traits": "seed herb edible kitchen garden",
+    "url": "seeds.html",
+    "image": "assets/logo.svg"
+  },
+  {
+    "id": "fertilizer-organic-plant-food",
+    "name": "Organic Plant Food Concentrate",
+    "price": 10.5,
+    "category": "Fertilizers",
+    "traits": "fertilizer organic liquid plant food indoor outdoor",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/organic-plant-food.svg"
+  },
+  {
+    "id": "fertilizer-balanced-indoor-feed",
+    "name": "Balanced Indoor Plant Fertilizer",
+    "price": 8.75,
+    "category": "Fertilizers",
+    "traits": "fertilizer balanced indoor houseplant feed beginner",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/indoor-balanced-feed.svg"
+  },
+  {
+    "id": "fertilizer-seaweed-extract",
+    "name": "Seaweed Plant Tonic",
+    "price": 12.5,
+    "category": "Fertilizers",
+    "traits": "fertilizer seaweed organic garden tonic",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/seaweed-tonic.svg"
+  },
+  {
+    "id": "fertilizer-cactus-succulent-feed",
+    "name": "Cactus & Succulent Feed",
+    "price": 7.5,
+    "category": "Fertilizers",
+    "traits": "fertilizer cactus succulent feed low maintenance",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/cactus-feed.svg"
+  },
+  {
+    "id": "fertilizer-slow-release-pellets",
+    "name": "Slow-Release Plant Food Pellets",
+    "price": 9.25,
+    "category": "Fertilizers",
+    "traits": "fertilizer slow release pellets granules indoor outdoor steady feeding",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/slow-release-pellets.svg"
+  },
+  {
+    "id": "fertilizer-orchid-bloom-feed",
+    "name": "Orchid Bloom Fertilizer",
+    "price": 8.5,
+    "category": "Fertilizers",
+    "traits": "fertilizer orchid flowering bloom liquid feed",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/orchid-bloom-feed.svg"
+  },
+  {
+    "id": "fertilizer-tomato-vegetable-feed",
+    "name": "Tomato & Vegetable Fertilizer",
+    "price": 11.75,
+    "category": "Fertilizers",
+    "traits": "fertilizer tomato vegetable fruiting garden organic",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/tomato-vegetable-feed.svg"
+  },
+  {
+    "id": "fertilizer-root-growth-starter",
+    "name": "Root Growth Starter",
+    "price": 9.75,
+    "category": "Fertilizers",
+    "traits": "fertilizer root growth transplant starter powder planting",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/root-growth-starter.svg"
+  },
+  {
+    "id": "fertilizer-premium-worm-castings",
+    "name": "Premium Worm Castings",
+    "price": 13.5,
+    "category": "Fertilizers",
+    "traits": "fertilizer worm castings organic soil amendment compost garden",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/worm-castings.svg"
+  },
+  {
+    "id": "fertilizer-citrus-plant-feed",
+    "name": "Citrus Plant Fertilizer",
+    "price": 10.25,
+    "category": "Fertilizers",
+    "traits": "fertilizer citrus lemon fruit tree liquid feed organic",
+    "url": "seeds.html",
+    "image": "assets/fertilizers/citrus-plant-feed.svg"
+  }
 ]

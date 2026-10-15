@@ -30,7 +30,7 @@ html[data-theme="dark"] {
   background-color: var(--stores-surface-alt);
   padding: 2rem 1rem 5rem;
   color: var(--stores-text);
-  font-family: 'Plus Jakarta Sans', Inter, Poppins, system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", Inter, Poppins, system-ui, sans-serif;
 }
 
 .stores-shell {
@@ -53,7 +53,7 @@ html[data-theme="dark"] {
 }
 
 .stores-hero::after {
-  content: '🌿';
+  content: "🌿";
   position: absolute;
   font-size: 14rem;
   right: -2rem;
@@ -270,7 +270,10 @@ html[dir="rtl"] .stores-search-input {
   box-shadow: var(--stores-shadow);
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   position: relative;
 }
 
@@ -310,7 +313,7 @@ html[dir="rtl"] .stores-search-input {
   font-weight: 700;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   gap: 0.25rem;

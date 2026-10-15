@@ -1,559 +1,1038 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Order Complete - Agrismart</title>
-<!-- Google Fonts: Inter & Playfair Display / Outfit -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS CDN with forms plugin -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Configuration -->
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#ecfdf3',
-              100: '#d1fae1',
-              500: '#10b951',
-              600: '#00a63e',
-              700: '#028532',
-              800: '#036526',
-              dark: '#1e293b'
-            }
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Order Complete - Agrismart</title>
+    <!-- Google Fonts: Inter & Playfair Display / Outfit -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS CDN with forms plugin -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#ecfdf3",
+                100: "#d1fae1",
+                500: "#10b951",
+                600: "#00a63e",
+                700: "#028532",
+                800: "#036526",
+                dark: "#1e293b",
+              },
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
           },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            serif: ['Playfair Display', 'serif']
-          }
-        }
+        },
+      };
+    </script>
+    <!-- Custom Styles -->
+    <style data-purpose="base-styling">
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #334155;
+        background-color: #ffffff;
+        overflow-x: hidden;
       }
-    }
-  </script>
-<!-- Custom Styles -->
-<style data-purpose="base-styling">
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #334155;
-      background-color: #ffffff;
-      overflow-x: hidden;
-    }
-    .subtle-botanical-bg {
-      background-color: #fbfdfc;
-      background-image: radial-gradient(#d1fae5 0.75px, transparent 0.75px), radial-gradient(#e2e8f0 0.75px, #fbfdfc 0.75px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
-    }
-    /* Custom radio styling for exact match */
-    input[type="radio"]:checked {
-      background-color: #00a63e;
-      border-color: #00a63e;
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/checkout.css" />
-  <link rel="stylesheet" href="css/order-complete.css" />
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/app-promo.css" />
-</head>
-<body class="antialiased selection:bg-brand-500 selection:text-white" data-requires-auth="true">
-<nav class="nav" aria-label="Main navigation">
-  <div class="container nav__inner">
-    <a href="index.html" class="nav__logo logo-container" aria-label="Agrismart Home"><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img" /></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Plants</a></li>
-      <li><a href="stores.html">Nurseries</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <div class="lang-switcher"><button class="lang-btn active" id="lang-en" type="button">EN</button><button class="lang-btn" id="lang-ar" type="button">العربية</button></div>
-      <button class="btn-icon theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle Theme"><svg id="themeIconLight" class="hidden-icon"><use href="assets/header-icons.svg#icon-sun"></use></svg><svg id="themeIconDark"><use href="assets/header-icons.svg#icon-moon"></use></svg></button>
-      <a href="login.html" id="loginPageButton" class="btn-icon" aria-label="Login" title="Login" data-auth-control><svg><use href="assets/header-icons.svg#icon-user"></use></svg></a>
-      <button class="hamburger" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-<!-- BEGIN: MainCheckoutLayout -->
-<main id="orderCompleteMain">
-  <section class="order-success-hero subtle-botanical-bg px-4 py-9 sm:py-12 text-center">
-    <div class="mx-auto max-w-4xl">
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Order Complete</h1>
-      <nav class="mt-2 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-gray-500" aria-label="Breadcrumb">
-        <a href="index.html" class="hover:text-green-700">Home</a><span>/</span><span class="text-green-700">Order Complete</span>
-      </nav>
-      <div class="mt-7 flex flex-col items-center">
-        <span class="order-success-icon" aria-hidden="true">✓</span>
-        <h2 id="orderGreeting" class="mt-4 text-xl sm:text-2xl font-bold text-gray-900">Your order has been received!</h2>
-        <p id="orderSubheading" class="mt-1.5 max-w-xl text-xs sm:text-sm leading-relaxed text-gray-500">Your order details are saved in this browser.</p>
+      .subtle-botanical-bg {
+        background-color: #fbfdfc;
+        background-image:
+          radial-gradient(#d1fae5 0.75px, transparent 0.75px),
+          radial-gradient(#e2e8f0 0.75px, #fbfdfc 0.75px);
+        background-size: 30px 30px;
+        background-position:
+          0 0,
+          15px 15px;
+      }
+      /* Custom radio styling for exact match */
+      input[type="radio"]:checked {
+        background-color: #00a63e;
+        border-color: #00a63e;
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/order-complete.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/app-promo.css" />
+  </head>
+  <body
+    class="antialiased selection:bg-brand-500 selection:text-white"
+    data-requires-auth="true"
+  >
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav__inner">
+        <a
+          href="index.html"
+          class="nav__logo logo-container"
+          aria-label="Agrismart Home"
+          ><img src="assets/logo.svg" alt="Agrismart Logo" class="logo-img"
+        /></a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Plants</a></li>
+          <li><a href="stores.html">Nurseries</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" id="lang-en" type="button">
+              EN</button
+            ><button class="lang-btn" id="lang-ar" type="button">
+              العربية
+            </button>
+          </div>
+          <button
+            class="btn-icon theme-toggle-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle Theme"
+          >
+            <svg id="themeIconLight" class="hidden-icon">
+              <use href="assets/header-icons.svg#icon-sun"></use></svg
+            ><svg id="themeIconDark">
+              <use href="assets/header-icons.svg#icon-moon"></use>
+            </svg>
+          </button>
+          <a
+            href="login.html"
+            id="loginPageButton"
+            class="btn-icon"
+            aria-label="Login"
+            title="Login"
+            data-auth-control
+            ><svg><use href="assets/header-icons.svg#icon-user"></use></svg
+          ></a>
+          <button
+            class="hamburger"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <section class="mx-auto max-w-5xl px-4 pb-8 pt-6 sm:px-6 sm:pt-8">
-    <div class="order-meta-strip" id="orderMetaStrip">
-      <div><span class="order-meta-label">Order ID</span><strong class="order-meta-value" id="orderId">—</strong></div>
-      <div><span class="order-meta-label">Payment Method</span><strong class="order-meta-value" id="orderPaymentMethod">—</strong></div>
-      <div><span class="order-meta-label">Order Reference</span><strong class="order-meta-value" id="orderReference">—</strong></div>
-      <div><span class="order-meta-label">Estimated Delivery Date</span><strong class="order-meta-value" id="orderDeliveryDate">—</strong></div>
-    </div>
+    <!-- BEGIN: MainCheckoutLayout -->
+    <main id="orderCompleteMain">
+      <section
+        class="order-success-hero subtle-botanical-bg px-4 py-9 sm:py-12 text-center"
+      >
+        <div class="mx-auto max-w-4xl">
+          <h1
+            class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900"
+          >
+            Order Complete
+          </h1>
+          <nav
+            class="mt-2 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-gray-500"
+            aria-label="Breadcrumb"
+          >
+            <a href="index.html" class="hover:text-green-700">Home</a
+            ><span>/</span><span class="text-green-700">Order Complete</span>
+          </nav>
+          <div class="mt-7 flex flex-col items-center">
+            <span class="order-success-icon" aria-hidden="true">✓</span>
+            <h2
+              id="orderGreeting"
+              class="mt-4 text-xl sm:text-2xl font-bold text-gray-900"
+            >
+              Your order has been received!
+            </h2>
+            <p
+              id="orderSubheading"
+              class="mt-1.5 max-w-xl text-xs sm:text-sm leading-relaxed text-gray-500"
+            >
+              Your order details are saved in this browser.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <section class="order-receipt mt-5 sm:mt-7" id="orderReceipt" aria-labelledby="order-details-title">
-      <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <h2 class="text-lg font-bold text-gray-900" id="order-details-title">Order Details</h2>
-        <button class="order-invoice-button" id="downloadInvoiceButton" type="button"><span aria-hidden="true">↓</span><span>Download Invoice</span></button>
+      <section class="mx-auto max-w-5xl px-4 pb-8 pt-6 sm:px-6 sm:pt-8">
+        <div class="order-meta-strip" id="orderMetaStrip">
+          <div>
+            <span class="order-meta-label">Order ID</span
+            ><strong class="order-meta-value" id="orderId">—</strong>
+          </div>
+          <div>
+            <span class="order-meta-label">Payment Method</span
+            ><strong class="order-meta-value" id="orderPaymentMethod">—</strong>
+          </div>
+          <div>
+            <span class="order-meta-label">Order Reference</span
+            ><strong class="order-meta-value" id="orderReference">—</strong>
+          </div>
+          <div>
+            <span class="order-meta-label">Estimated Delivery Date</span
+            ><strong class="order-meta-value" id="orderDeliveryDate">—</strong>
+          </div>
+        </div>
+
+        <section
+          class="order-receipt mt-5 sm:mt-7"
+          id="orderReceipt"
+          aria-labelledby="order-details-title"
+        >
+          <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <h2
+              class="text-lg font-bold text-gray-900"
+              id="order-details-title"
+            >
+              Order Details
+            </h2>
+            <button
+              class="order-invoice-button"
+              id="downloadInvoiceButton"
+              type="button"
+            >
+              <span aria-hidden="true">↓</span><span>Download Invoice</span>
+            </button>
+          </div>
+          <div class="order-table-head">
+            <span>Product</span><span>Subtotal</span>
+          </div>
+          <div id="orderItems"></div>
+          <div class="order-costs">
+            <div class="order-cost-row">
+              <span>Shipping</span><strong id="orderShipping">$0.00</strong>
+            </div>
+            <div class="order-cost-row">
+              <span>Taxes</span><strong id="orderTaxes">$0.00</strong>
+            </div>
+            <div class="order-cost-row">
+              <span>Coupon Discount</span
+              ><strong id="orderDiscount">-$0.00</strong>
+            </div>
+            <div class="order-total-row">
+              <span>Total</span><strong id="orderTotal">$0.00</strong>
+            </div>
+          </div>
+        </section>
+
+        <p class="order-prototype-note" id="orderPrototypeNote">
+          This is a local order confirmation preview. Online payment processing
+          and order dispatch are not connected, so no card or wallet payment was
+          charged and no delivery request was sent.
+        </p>
+        <div class="mt-5 flex flex-wrap justify-center gap-3">
+          <a
+            class="rounded-lg bg-[#03ab1f] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#008518]"
+            href="shop.html"
+            >Continue Shopping</a
+          >
+          <a
+            class="rounded-lg border border-green-700/20 bg-white px-5 py-3 text-center text-sm font-bold text-green-800 transition hover:bg-green-50"
+            href="index.html"
+            >Back to Home</a
+          >
+        </div>
+      </section>
+    </main>
+    <!-- END: MainCheckoutLayout -->
+    <!-- BEGIN: ExploreOtherProductsSection -->
+    <section class="max-w-7xl mx-auto px-4 py-12">
+      <div class="text-center mb-8">
+        <p class="text-xs font-semibold text-gray-400 tracking-wider">
+          Our Other Product
+        </p>
+        <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mt-1">
+          Explore Our <span class="text-[#03ab1f]">Other Product</span>
+        </h3>
       </div>
-      <div class="order-table-head"><span>Product</span><span>Subtotal</span></div>
-      <div id="orderItems"></div>
-      <div class="order-costs">
-        <div class="order-cost-row"><span>Shipping</span><strong id="orderShipping">$0.00</strong></div>
-        <div class="order-cost-row"><span>Taxes</span><strong id="orderTaxes">$0.00</strong></div>
-        <div class="order-cost-row"><span>Coupon Discount</span><strong id="orderDiscount">-$0.00</strong></div>
-        <div class="order-total-row"><span>Total</span><strong id="orderTotal">$0.00</strong></div>
+      <!-- Product Cards Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Card 1: Fiddle Leaf Fig -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded"
+                >Indoor</span
+              >
+              <button
+                aria-label="Add to wishlist"
+                class="text-gray-400 hover:text-red-500 transition"
+              >
+                ♡
+              </button>
+            </div>
+            <div class="w-full h-32 flex items-center justify-center p-2 mb-2">
+              <img
+                alt="Fiddle Leaf Fig"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL8pNZmIeSg5PaV2LtC7irEAihQAohKOel1BKh9rQLApbOicyE6NDXo-3cXYDziooWmL2bsLJluVelrERa2V6TD8SxtpXpuQ82fnTzYnTD45dNecjG57wxwttpt9RGVH3YAIxnxARhOsCfVIqUj2WJyUxhMqmLCIlCeD_uzVusacshRTLZlBgmNHP5kquWXSDqdbnI6NEaqSc0Fn5bIsF__ohfw9kagfbLK9szm1JMgHINE1K926FY"
+              />
+            </div>
+            <h4 class="text-xs font-bold text-gray-900">Fiddle Leaf Fig</h4>
+            <div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
+              <span class="text-amber-500">★</span>
+              <span class="font-semibold text-gray-800">4.9</span>
+              <span>(155)</span>
+              <span>·</span>
+              <span>520 sold</span>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center gap-1.5 flex-wrap">
+            <span
+              class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded"
+              >20%</span
+            >
+            <span class="text-xs font-extrabold text-gray-900">JD28,99</span>
+            <span class="text-[10px] text-gray-400 line-through">JD35.99</span>
+          </div>
+        </div>
+        <!-- Card 2: Snake Plant -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded"
+                >Indoor</span
+              >
+              <button
+                aria-label="Add to wishlist"
+                class="text-gray-400 hover:text-red-500 transition"
+              >
+                ♡
+              </button>
+            </div>
+            <div class="w-full h-32 flex items-center justify-center p-2 mb-2">
+              <img
+                alt="Snake Plant"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOXXLkqR0HpAgMOZAFzjgXrHd8OtSA-06MsHlU70bpmxBlbp1UvG5Q5kZpNuMksAfuDVY0ba_vkGqHPzJCRW2L9feG80GQGY3Wba0y7pMdpRjIqo-Ag3QxOTpJqzgfHm6ciNnZhSsxpcT3HMi3zsh9dSOPm3SWuOBOtyByIqhNOjJEgdvxFZcx1dIDYAotsHQHqnmmQvHZ2maCAvBUtdMlEanrFrWsJqYwHzY_Q02Sy_1N8rXNk95G"
+              />
+            </div>
+            <h4 class="text-xs font-bold text-gray-900">Snake Plant</h4>
+            <div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
+              <span class="text-amber-500">★</span>
+              <span class="font-semibold text-gray-800">4.8</span>
+              <span>(112)</span>
+              <span>·</span>
+              <span>400 sold</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-extrabold text-gray-900">JD22,50</span>
+          </div>
+        </div>
+        <!-- Card 3: Lavender -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded"
+                >Outdoor</span
+              >
+              <button
+                aria-label="Add to wishlist"
+                class="text-gray-400 hover:text-red-500 transition"
+              >
+                ♡
+              </button>
+            </div>
+            <div class="w-full h-32 flex items-center justify-center p-2 mb-2">
+              <img
+                alt="Lavender"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1JknxfrYecKk-9yn8VpDjwXEAclTkEO5DjZePxqCBJNmMAQHQWQ2_pMeIC36NZoPStNr8h-9wxc273p1U7kprCW-4bVCC-LsQbqYvmdS14g2DgmPi2gucBh9hfakmXVe_6TY30bQwQ2QXeUd794NVz4VMCNs2VBnwIqm8QnBvZh5paDEMIcAZKXN4WOyW7B72ZPC7-1HywpMoBdcmv1M8RmbQuzOEy9jSklZo64xHzPp_4pXxMO3t"
+              />
+            </div>
+            <h4 class="text-xs font-bold text-gray-900">Lavender</h4>
+            <div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
+              <span class="text-amber-500">★</span>
+              <span class="font-semibold text-gray-800">4.8</span>
+              <span>(105)</span>
+              <span>·</span>
+              <span>300 sold</span>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center gap-1.5 flex-wrap">
+            <span
+              class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded"
+              >16%</span
+            >
+            <span class="text-xs font-extrabold text-gray-900">JD15,00</span>
+            <span class="text-[10px] text-gray-400 line-through">JD18.00</span>
+          </div>
+        </div>
+        <!-- Card 4: ZZ Plant -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded"
+                >Indoor</span
+              >
+              <button
+                aria-label="Add to wishlist"
+                class="text-gray-400 hover:text-red-500 transition"
+              >
+                ♡
+              </button>
+            </div>
+            <div class="w-full h-32 flex items-center justify-center p-2 mb-2">
+              <img
+                alt="ZZ Plant"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQmjnXnEoKes2kDMnaK-uqEucyWInUkfWq33JSIUSoORhdp_6V0dHaYDLaGsJmgaP8qhYhyfqt2fQ8YpXbcxE-kzRUyX1e6af_pjHnpdhGl6lsuoXCyEnJRWZDzgHQxWhBR2C1zaBTI7K7cQfzwgr2-eE3xzlCj1_NfFRjSl_EezWisuDvyB8MV_EsQh2HSdewmQp2C_fVIH8xi0GfiuWhBqIqsSiK6u6Xi2wLCu7tQbHjo37qgnUd"
+              />
+            </div>
+            <h4 class="text-xs font-bold text-gray-900">ZZ Plant</h4>
+            <div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
+              <span class="text-amber-500">★</span>
+              <span class="font-semibold text-gray-800">4.7</span>
+              <span>(95)</span>
+              <span>·</span>
+              <span>350 sold</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-extrabold text-gray-900">JD24,00</span>
+          </div>
+        </div>
+        <!-- Card 5: Monstera Deliciosa -->
+        <div
+          class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded"
+                >Indoor</span
+              >
+              <button
+                aria-label="Add to wishlist"
+                class="text-gray-400 hover:text-red-500 transition"
+              >
+                ♡
+              </button>
+            </div>
+            <div class="w-full h-32 flex items-center justify-center p-2 mb-2">
+              <img
+                alt="Monstera Deliciosa"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVtySn880iMGazANR0PhLtNkR4koHbJWvffs7GzLRBHskDajuIcNV_ALHCVJoIS4kRcA13BX0_ifVtPNQ7eYH5qFZJPKAm7o75NYYALBBZe_pYWsIgtZpvOr2vteyrvPhxskjwm3yxKmC7GltSmIifdONhRdVqPot5h82k_EGuntUDEmAgYrbsSfjHWO-tz63QZnqjCt_Sk28IAJbvCnnKq1xWRPwkoKRPZK7-PSN2sDBDxLYe_qtK"
+              />
+            </div>
+            <h4 class="text-xs font-bold text-gray-900">Monstera Deliciosa</h4>
+            <div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
+              <span class="text-amber-500">★</span>
+              <span class="font-semibold text-gray-800">4.9</span>
+              <span>(125)</span>
+              <span>·</span>
+              <span>450 sold</span>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center gap-1.5 flex-wrap">
+            <span
+              class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded"
+              >20%</span
+            >
+            <span class="text-xs font-extrabold text-gray-900">JD25,99</span>
+            <span class="text-[10px] text-gray-400 line-through">JD30.99</span>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Pagination Buttons -->
+      <div class="flex justify-end gap-2 mt-6">
+        <button
+          class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#03ab1f] hover:text-[#03ab1f] transition"
+        >
+          ‹
+        </button>
+        <button
+          class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#03ab1f] hover:text-[#03ab1f] transition"
+        >
+          ›
+        </button>
       </div>
     </section>
-
-    <p class="order-prototype-note" id="orderPrototypeNote">This is a local order confirmation preview. Online payment processing and order dispatch are not connected, so no card or wallet payment was charged and no delivery request was sent.</p>
-    <div class="mt-5 flex flex-wrap justify-center gap-3">
-      <a class="rounded-lg bg-[#03ab1f] px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-[#008518]" href="shop.html">Continue Shopping</a>
-      <a class="rounded-lg border border-green-700/20 bg-white px-5 py-3 text-center text-sm font-bold text-green-800 transition hover:bg-green-50" href="index.html">Back to Home</a>
-    </div>
-  </section>
-</main>
-<!-- END: MainCheckoutLayout -->
-<!-- BEGIN: ExploreOtherProductsSection -->
-<section class="max-w-7xl mx-auto px-4 py-12">
-<div class="text-center mb-8">
-<p class="text-xs font-semibold text-gray-400 tracking-wider">Our Other Product</p>
-<h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mt-1">
-          Explore Our <span class="text-[#03ab1f]">Other Product</span>
-</h3>
-</div>
-<!-- Product Cards Grid -->
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-<!-- Card 1: Fiddle Leaf Fig -->
-<div class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition">
-<div>
-<div class="flex items-center justify-between mb-2">
-<span class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded">Indoor</span>
-<button aria-label="Add to wishlist" class="text-gray-400 hover:text-red-500 transition">♡</button>
-</div>
-<div class="w-full h-32 flex items-center justify-center p-2 mb-2">
-<img alt="Fiddle Leaf Fig" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL8pNZmIeSg5PaV2LtC7irEAihQAohKOel1BKh9rQLApbOicyE6NDXo-3cXYDziooWmL2bsLJluVelrERa2V6TD8SxtpXpuQ82fnTzYnTD45dNecjG57wxwttpt9RGVH3YAIxnxARhOsCfVIqUj2WJyUxhMqmLCIlCeD_uzVusacshRTLZlBgmNHP5kquWXSDqdbnI6NEaqSc0Fn5bIsF__ohfw9kagfbLK9szm1JMgHINE1K926FY"/>
-</div>
-<h4 class="text-xs font-bold text-gray-900">Fiddle Leaf Fig</h4>
-<div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
-<span class="text-amber-500">★</span>
-<span class="font-semibold text-gray-800">4.9</span>
-<span>(155)</span>
-<span>·</span>
-<span>520 sold</span>
-</div>
-</div>
-<div class="mt-3 flex items-center gap-1.5 flex-wrap">
-<span class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded">20%</span>
-<span class="text-xs font-extrabold text-gray-900">JD28,99</span>
-<span class="text-[10px] text-gray-400 line-through">JD35.99</span>
-</div>
-</div>
-<!-- Card 2: Snake Plant -->
-<div class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition">
-<div>
-<div class="flex items-center justify-between mb-2">
-<span class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded">Indoor</span>
-<button aria-label="Add to wishlist" class="text-gray-400 hover:text-red-500 transition">♡</button>
-</div>
-<div class="w-full h-32 flex items-center justify-center p-2 mb-2">
-<img alt="Snake Plant" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOXXLkqR0HpAgMOZAFzjgXrHd8OtSA-06MsHlU70bpmxBlbp1UvG5Q5kZpNuMksAfuDVY0ba_vkGqHPzJCRW2L9feG80GQGY3Wba0y7pMdpRjIqo-Ag3QxOTpJqzgfHm6ciNnZhSsxpcT3HMi3zsh9dSOPm3SWuOBOtyByIqhNOjJEgdvxFZcx1dIDYAotsHQHqnmmQvHZ2maCAvBUtdMlEanrFrWsJqYwHzY_Q02Sy_1N8rXNk95G"/>
-</div>
-<h4 class="text-xs font-bold text-gray-900">Snake Plant</h4>
-<div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
-<span class="text-amber-500">★</span>
-<span class="font-semibold text-gray-800">4.8</span>
-<span>(112)</span>
-<span>·</span>
-<span>400 sold</span>
-</div>
-</div>
-<div class="mt-3">
-<span class="text-xs font-extrabold text-gray-900">JD22,50</span>
-</div>
-</div>
-<!-- Card 3: Lavender -->
-<div class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition">
-<div>
-<div class="flex items-center justify-between mb-2">
-<span class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded">Outdoor</span>
-<button aria-label="Add to wishlist" class="text-gray-400 hover:text-red-500 transition">♡</button>
-</div>
-<div class="w-full h-32 flex items-center justify-center p-2 mb-2">
-<img alt="Lavender" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1JknxfrYecKk-9yn8VpDjwXEAclTkEO5DjZePxqCBJNmMAQHQWQ2_pMeIC36NZoPStNr8h-9wxc273p1U7kprCW-4bVCC-LsQbqYvmdS14g2DgmPi2gucBh9hfakmXVe_6TY30bQwQ2QXeUd794NVz4VMCNs2VBnwIqm8QnBvZh5paDEMIcAZKXN4WOyW7B72ZPC7-1HywpMoBdcmv1M8RmbQuzOEy9jSklZo64xHzPp_4pXxMO3t"/>
-</div>
-<h4 class="text-xs font-bold text-gray-900">Lavender</h4>
-<div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
-<span class="text-amber-500">★</span>
-<span class="font-semibold text-gray-800">4.8</span>
-<span>(105)</span>
-<span>·</span>
-<span>300 sold</span>
-</div>
-</div>
-<div class="mt-3 flex items-center gap-1.5 flex-wrap">
-<span class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded">16%</span>
-<span class="text-xs font-extrabold text-gray-900">JD15,00</span>
-<span class="text-[10px] text-gray-400 line-through">JD18.00</span>
-</div>
-</div>
-<!-- Card 4: ZZ Plant -->
-<div class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition">
-<div>
-<div class="flex items-center justify-between mb-2">
-<span class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded">Indoor</span>
-<button aria-label="Add to wishlist" class="text-gray-400 hover:text-red-500 transition">♡</button>
-</div>
-<div class="w-full h-32 flex items-center justify-center p-2 mb-2">
-<img alt="ZZ Plant" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQmjnXnEoKes2kDMnaK-uqEucyWInUkfWq33JSIUSoORhdp_6V0dHaYDLaGsJmgaP8qhYhyfqt2fQ8YpXbcxE-kzRUyX1e6af_pjHnpdhGl6lsuoXCyEnJRWZDzgHQxWhBR2C1zaBTI7K7cQfzwgr2-eE3xzlCj1_NfFRjSl_EezWisuDvyB8MV_EsQh2HSdewmQp2C_fVIH8xi0GfiuWhBqIqsSiK6u6Xi2wLCu7tQbHjo37qgnUd"/>
-</div>
-<h4 class="text-xs font-bold text-gray-900">ZZ Plant</h4>
-<div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
-<span class="text-amber-500">★</span>
-<span class="font-semibold text-gray-800">4.7</span>
-<span>(95)</span>
-<span>·</span>
-<span>350 sold</span>
-</div>
-</div>
-<div class="mt-3">
-<span class="text-xs font-extrabold text-gray-900">JD24,00</span>
-</div>
-</div>
-<!-- Card 5: Monstera Deliciosa -->
-<div class="bg-white rounded-xl border border-gray-100 p-3 flex flex-col justify-between hover:shadow-md transition">
-<div>
-<div class="flex items-center justify-between mb-2">
-<span class="text-[10px] uppercase font-semibold px-2 py-0.5 bg-gray-100 text-gray-500 rounded">Indoor</span>
-<button aria-label="Add to wishlist" class="text-gray-400 hover:text-red-500 transition">♡</button>
-</div>
-<div class="w-full h-32 flex items-center justify-center p-2 mb-2">
-<img alt="Monstera Deliciosa" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVtySn880iMGazANR0PhLtNkR4koHbJWvffs7GzLRBHskDajuIcNV_ALHCVJoIS4kRcA13BX0_ifVtPNQ7eYH5qFZJPKAm7o75NYYALBBZe_pYWsIgtZpvOr2vteyrvPhxskjwm3yxKmC7GltSmIifdONhRdVqPot5h82k_EGuntUDEmAgYrbsSfjHWO-tz63QZnqjCt_Sk28IAJbvCnnKq1xWRPwkoKRPZK7-PSN2sDBDxLYe_qtK"/>
-</div>
-<h4 class="text-xs font-bold text-gray-900">Monstera Deliciosa</h4>
-<div class="flex items-center gap-1 text-[10px] text-gray-500 mt-1">
-<span class="text-amber-500">★</span>
-<span class="font-semibold text-gray-800">4.9</span>
-<span>(125)</span>
-<span>·</span>
-<span>450 sold</span>
-</div>
-</div>
-<div class="mt-3 flex items-center gap-1.5 flex-wrap">
-<span class="text-[9px] bg-red-100 text-red-600 font-bold px-1.5 py-0.5 rounded">20%</span>
-<span class="text-xs font-extrabold text-gray-900">JD25,99</span>
-<span class="text-[10px] text-gray-400 line-through">JD30.99</span>
-</div>
-</div>
-</div>
-<!-- Carousel Pagination Buttons -->
-<div class="flex justify-end gap-2 mt-6">
-<button class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#03ab1f] hover:text-[#03ab1f] transition">
-‹
-</button>
-<button class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#03ab1f] hover:text-[#03ab1f] transition">
-›
-</button>
-</div>
-</section>
-<!-- END: ExploreOtherProductsSection -->
-<!-- BEGIN: WhyChooseSection -->
-<section class="max-w-7xl mx-auto px-4 sm:px-8 py-16" data-purpose="features-section">
-<div class="text-center mb-10">
-<h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
-        Why choose <span class="text-[#00a63e]">Agrismart?</span>
-</h2>
-</div>
-<!-- 4 Cards Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-<!-- Feature 1: Fast Shipping -->
-<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
-<img alt="Free Shipping" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8AayiJBM62DpQkwlWONuUFqy-j7QMlADkmBm08yzbvbiqrhjjzv_1bMv5MPaefXL5SicQJRt4jJ-2Q6LjWdzTbbs8ZCIOljlaqAL4RcgoLQPqfipLN0bE1MNp7ygc8NWfRxe29XNYERkmudHs-wBQ_BqrTYiFreCxbv1kxt20YfbdeY1_B_OpB6usLitzsCj3sqGJ9GMERND7Bbsup9LUuY14sA06nLssXRWWdd0bzq8jrNcTtJY"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-<div class="relative z-10 space-y-2">
-<h3 class="text-base font-bold leading-tight">Free Shipping &amp; Delivery Fast</h3>
-<p class="text-xs text-gray-200 leading-snug">Super Fast Delivery, Items Arrive Without Delay!</p>
-<div class="pt-2">
-<button class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
-              Shop Now
-            </button>
-</div>
-</div>
-</article>
-<!-- Feature 2: Discounts -->
-<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
-<img alt="Exclusive Discounts" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVqAPPJDG4UDrGeZ_88CzCbYKVu_oaf_w94NEco_UTzB2x8eGwaXbCe27-fyH65vpV1ouRrTf2Q1QZ_7CMTHhEfDgHGxtzVfKARdNDoglo0gNMj8vX1snd3ge3KLxKyd8PAX8j3mTr0VKCMrpQzzHoYUpboSIhHD7hXbHvkZ9aUtXTKNYVbdTTbHH7_Dc3Uuqpi0IbZGKjso2m3rJJcM9LHUgDkhZK_IERQ2KtxwDu803URQMACjMl"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-<div class="relative z-10 space-y-2">
-<h3 class="text-base font-bold leading-tight">Exclusive Discounts Await</h3>
-<p class="text-xs text-gray-200 leading-snug">Unlock Special Offers Just for You!</p>
-<div class="pt-2">
-<button class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
-              Claim Your Discount
-            </button>
-</div>
-</div>
-</article>
-<!-- Feature 3: Quality Assurance -->
-<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
-<img alt="Quality Assurance" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwSThkuCAwfsVacMF7pAPiUyTC1rMckx6lEcCQvBJGTt5V5XATulruYmns0IDeUAc_t5yd4T0StiSUeNd5SKO__LwsAnMJ9qO6qTqjvB3Cp5EjVVuyQWT9qcHczvQ9iGYRY3AcL8j0EUO-yFyeKhkS2uSoaTGRf12luNfN3-Gv8YiniPySQjCcX-l32E2CkWRPbq4ZQZHCYWWzH3G3x3UJ0B-GF6zqe0jrURI5Cc7reNVaYmO8_LoH"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-<div class="relative z-10 space-y-2">
-<h3 class="text-base font-bold leading-tight">Quality Assurance Guaranteed</h3>
-<p class="text-xs text-gray-200 leading-snug">Satisfaction Guaranteed on Every Purchase!</p>
-<div class="pt-2">
-<button class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
-              Browse Our Collection
-            </button>
-</div>
-</div>
-</article>
-<!-- Feature 4: 24/7 Support -->
-<article class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900">
-<img alt="Customer Support" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD45Dfmrplvon_pT1dXPKH7Bp9Lb6TJjtA1ztkQXyPIbjq3GHPcGzRFSUkgjEYyXntW-XmbpzOutcAqn5dnn2qNOeSElCmVAVhvm5la1lZn35LerM4I1r-XGBdw5t6d62MWVIyYWmMPoQOxl4c_xjezCpy-CJKXvPsY0BvaB6Or_Z0h9J96laXaAb4nBuyx65bvlXH2tGnuAECtq7hylD0SPcw7TAD9QIL_I2JpjJIsGRdkzypC9h_k"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-<div class="relative z-10 space-y-2">
-<h3 class="text-base font-bold leading-tight">24/7 Customer Support</h3>
-<p class="text-xs text-gray-200 leading-snug">We're Here to Help You Anytime, Day or Night!</p>
-<div class="pt-2">
-<button class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm">
-              Contact Us Anytime
-            </button>
-</div>
-</div>
-</article>
-</div>
-<!-- Navigation arrows below cards -->
-<div class="flex justify-end items-center space-x-2 mt-4 pr-1">
-<button aria-label="Previous slide" class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button aria-label="Next slide" class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-</div>
-</section>
-<!-- END: WhyChooseSection -->
-<!-- BEGIN: InstagramGridSection -->
-<section class="max-w-7xl mx-auto px-4 sm:px-8 py-14" data-purpose="instagram-feed">
-<div class="text-center mb-8">
-<p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Follow Us</p>
-<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
-        Follow Us On <span class="text-[#00a63e]">Instagram</span>
-</h2>
-</div>
-<!-- Gallery Bento Grid Matching Reference -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[180px]">
-<!-- Image 1 (left-top) -->
-<div class="rounded-2xl overflow-hidden shadow-sm group">
-<img alt="Greenhouse plants" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVoWbybw51wNt8Ja6VIAmxX9VFEW5wjRMRe-iloO6UwB0es-u4DFrWI0iBd1hmN3aq3j1POhGVbZXAOp8Tfb-mMxCeT_RmlN_ZT9zNnMcgk8TB44nPLFcTG0qbTGDMLKOESe8VOhyORhnu-8oBZX2wLMDMGctA8lb35QUixfjxtBFL1dGj5oLZeFESql3kW_75o2kAWStWCgsr6LWxFxJbsQrNqc6mI_VVv_ULCYoI2K2M5Mo-fmFT"/>
-</div>
-<!-- Image 2 (tall vertical) -->
-<div class="rounded-2xl overflow-hidden shadow-sm md:row-span-2 group">
-<img alt="Young man with plant" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3LcQVqIUdAjQ0f4bHFYyY1QFMQoqlN2wbFS4Yo4nxLTvX7oRek-A74myuPbT0Tr7L3wRSagW6Ci-uyFjypL71-RW6zwTnR3yiVI_P7Y8Mna-YtYQxVe3vMe_25DfPf6t3wTLPDZQ3WTkMZkQdrjzZK9Q0mVdK8AQZisBRVYY_Ps9DOkCJI3ovRiaPhEvU3fCke0tUOy7O0HquEvMyYWDlrKGjiwqNpXabfsQYLsHPeD52-EmadtFK"/>
-</div>
-<!-- Image 3 (tall center vertical) -->
-<div class="rounded-2xl overflow-hidden shadow-sm md:row-span-2 group">
-<img alt="Plant enthusiast in greenhouse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArouXBuFeAz5_SCrm-LSEHgBm-_c7ulHRe9KApICNqC54Dec_TiNRO0ElwyHX-cUnWsqlJJ5U0cVghNWJVjpmzZoMlo1DRtVjvInF6uC4WnsGHHESksFdo2ZPRs_qC8krINHRRxuyFwiNocmvGO0r0DaVIQOQ8-FonEjP1BvYtfrcv8CFbEfGxed5NIooQPdYw98GT-AU4KQjglbNPTwAYttm2sFshlcgsEAEU6hrKs5Fi2M4Rl6Bc"/>
-</div>
-<!-- Image 4 (top right wide) -->
-<div class="rounded-2xl overflow-hidden shadow-sm group">
-<img alt="Botanical balcony" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi8x00fhX_QlXXON9BmP8IXkqQKYTCFTdE5s3zW7oDYaZATL3GnbI-pO33Ewemab4837o0G9JzeemIvlOHtlu7uGTf5iqd8gPwIrdpe7WFr8igoroHSevrY7pTxBo8UrIL4jEV0lvOqD-u373wA3ixfUptXETkT-OeG9BCSUNR--8EJRKECxxbMdJOlFMaMF1lzT20lfobdwcuFP9yRtIKum7zEFmhN1zmlbWz5Gzu7qTfPgtI2nBA"/>
-</div>
-<!-- Image 5 (bottom left potting) -->
-<div class="rounded-2xl overflow-hidden shadow-sm group">
-<img alt="Hands potting soil" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJY20F9uGptmLbeUe-BhKnB2xY-IZMM1zIas0tkV74fE1ZmpM5eio_-62U4iOaaJ9iRcAGyppYEWtm32ZhHJ-yI3vc-NWRfo9UcMev1yRpPsfmM4mfV7UgnW5Yff6U9sV-KnQ_L_tDN7rnXCB95f8gnVIA2V9Viekb2_AIXXa3sbx4GjYbvTbUVoyS6V5sVOqiumy9fA5XYubjSSDPfR7XNheRHcaeOR5YiArtGIZfRmJxQDvMpQx3"/>
-</div>
-<!-- Image 6 (bottom right smiling boy) -->
-<div class="rounded-2xl overflow-hidden shadow-sm group">
-<img alt="Smiling gardener" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ppdVCo4QI206GTDqfT0R2WYaVL42sZlkbt7Cx_BmYMgiCT7fQBanfJa8awGIslceCyVTZS5B9Lr058gpALrZ3Gu0mL2XRLkmThJbTv951PJ5Eib-E_EdA1wm65Z12Km3jvbj1VSYFYrlWHLamkpK2P0jbFF8Io0hpTyIMDoxuTYY3w9EBPSz3RnLdR8WmYe0YI-p4n47hTgmwYW3SmQSW1eljFXyO7ZYj_syKL0zomTCKjFV3Stz"/>
-</div>
-</div>
-</section>
-<!-- END: InstagramGridSection -->
-<!-- BEGIN: FaqSection -->
-<section class="max-w-7xl mx-auto px-4 sm:px-8 py-14" data-purpose="faq-section">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-<!-- FAQ Left Image -->
-<div class="lg:col-span-5 h-[420px] rounded-3xl overflow-hidden shadow-md">
-<img alt="Cozy living room interior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5rlTg6HeOFRLultm10YsuRdJ6natX94Ms_0duo2_V30YKZoHDYF16CrvETin98IUJaxOUEQiF-h6fb1_qC_Ph9yI2uuTrx1Ck8Xza8deZuleeTrVUoVss7SQ0GC5_qKoa0lXarbltKW-3e9E6UZdP7RtydgTHbkHeoSaJjEbSH0ONhfaVDmyKY6a2sp5w9E4qvNpvF9xLiNUvzcSzKj6Q7L7lUzk1YHTJudHTcojgoujV1lV7ySYv"/>
-</div>
-<!-- FAQ Accordions Right -->
-<div class="lg:col-span-7 space-y-4">
-<div>
-<h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900">Questions About Agrismart</h2>
-<p class="text-xs sm:text-sm text-gray-500 mt-1">Questions About MyFurnish We Answer Here:</p>
-</div>
-<!-- Accordion Items -->
-<div class="space-y-3 pt-2">
-<!-- Item 1 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 open:shadow-xs transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>1. Where can I get complete information?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              You can find complete information regarding all our botanical species, watering guides, and shipping policies on our Knowledge Base and product spec pages.
-            </p>
-</details>
-<!-- Item 2 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>2. Where can I track my order?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              Once your package leaves our greenhouse facility, tracking numbers are dispatched via SMS and registered email with direct carrier links.
-            </p>
-</details>
-<!-- Item 3 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>3. How can I get promotions?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              Subscribe to our weekly botanical newsletter below or join our Plantify rewards loyalty program for member-exclusive coupons.
-            </p>
-</details>
-<!-- Item 4 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>4. What is your return policy?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              We offer a 14-day Happy Plant Guarantee. If your plant arrives damaged or unhealthy, we will replace it immediately free of charge.
-            </p>
-</details>
-<!-- Item 5 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>5. How do I contact customer support?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              Contact us via WhatsApp, call (+962)776135123, or drop an email to alaafrihat52@gmail.com available daily until 9:00 PM.
-            </p>
-</details>
-<!-- Item 6 -->
-<details class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200">
-<summary class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none">
-<span>6. What payment methods do you accept?</span>
-<svg class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</summary>
-<p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
-              We accept Cash on Delivery (COD), Visa, MasterCard, CliQ instant transfers, and Apple Pay across Jordan and GCC countries.
-            </p>
-</details>
-</div>
-</div>
-</div>
-</section>
-<!-- END: FaqSection -->
-
-<!-- BEGIN: NewsletterTropicalBanner -->
-<section class="max-w-7xl mx-auto px-4 sm:px-8 py-8" data-purpose="newsletter-section">
-<div class="relative rounded-3xl overflow-hidden min-h-[300px] flex items-center p-8 sm:p-14 shadow-xl">
-<!-- Background Image using https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ -->
-<img alt="Tropical foliage rainforest backdrop" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ"/>
-<div class="absolute inset-0 bg-black/40"></div>
-<!-- Content -->
-<div class="relative z-10 max-w-xl text-white space-y-3">
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-wide leading-tight">
-          Bring The Serenity Of Nature Into Your Home.
+    <!-- END: ExploreOtherProductsSection -->
+    <!-- BEGIN: WhyChooseSection -->
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-8 py-16"
+      data-purpose="features-section"
+    >
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+          Why choose <span class="text-[#00a63e]">Agrismart?</span>
         </h2>
-<p class="text-xs sm:text-sm text-gray-200">
-          Discover The Perfect Plants To Transform Your Living Space.
+      </div>
+      <!-- 4 Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Feature 1: Fast Shipping -->
+        <article
+          class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900"
+        >
+          <img
+            alt="Free Shipping"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8AayiJBM62DpQkwlWONuUFqy-j7QMlADkmBm08yzbvbiqrhjjzv_1bMv5MPaefXL5SicQJRt4jJ-2Q6LjWdzTbbs8ZCIOljlaqAL4RcgoLQPqfipLN0bE1MNp7ygc8NWfRxe29XNYERkmudHs-wBQ_BqrTYiFreCxbv1kxt20YfbdeY1_B_OpB6usLitzsCj3sqGJ9GMERND7Bbsup9LUuY14sA06nLssXRWWdd0bzq8jrNcTtJY"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          ></div>
+          <div class="relative z-10 space-y-2">
+            <h3 class="text-base font-bold leading-tight">
+              Free Shipping &amp; Delivery Fast
+            </h3>
+            <p class="text-xs text-gray-200 leading-snug">
+              Super Fast Delivery, Items Arrive Without Delay!
+            </p>
+            <div class="pt-2">
+              <button
+                class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm"
+              >
+                Shop Now
+              </button>
+            </div>
+          </div>
+        </article>
+        <!-- Feature 2: Discounts -->
+        <article
+          class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900"
+        >
+          <img
+            alt="Exclusive Discounts"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVqAPPJDG4UDrGeZ_88CzCbYKVu_oaf_w94NEco_UTzB2x8eGwaXbCe27-fyH65vpV1ouRrTf2Q1QZ_7CMTHhEfDgHGxtzVfKARdNDoglo0gNMj8vX1snd3ge3KLxKyd8PAX8j3mTr0VKCMrpQzzHoYUpboSIhHD7hXbHvkZ9aUtXTKNYVbdTTbHH7_Dc3Uuqpi0IbZGKjso2m3rJJcM9LHUgDkhZK_IERQ2KtxwDu803URQMACjMl"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          ></div>
+          <div class="relative z-10 space-y-2">
+            <h3 class="text-base font-bold leading-tight">
+              Exclusive Discounts Await
+            </h3>
+            <p class="text-xs text-gray-200 leading-snug">
+              Unlock Special Offers Just for You!
+            </p>
+            <div class="pt-2">
+              <button
+                class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm"
+              >
+                Claim Your Discount
+              </button>
+            </div>
+          </div>
+        </article>
+        <!-- Feature 3: Quality Assurance -->
+        <article
+          class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900"
+        >
+          <img
+            alt="Quality Assurance"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwSThkuCAwfsVacMF7pAPiUyTC1rMckx6lEcCQvBJGTt5V5XATulruYmns0IDeUAc_t5yd4T0StiSUeNd5SKO__LwsAnMJ9qO6qTqjvB3Cp5EjVVuyQWT9qcHczvQ9iGYRY3AcL8j0EUO-yFyeKhkS2uSoaTGRf12luNfN3-Gv8YiniPySQjCcX-l32E2CkWRPbq4ZQZHCYWWzH3G3x3UJ0B-GF6zqe0jrURI5Cc7reNVaYmO8_LoH"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          ></div>
+          <div class="relative z-10 space-y-2">
+            <h3 class="text-base font-bold leading-tight">
+              Quality Assurance Guaranteed
+            </h3>
+            <p class="text-xs text-gray-200 leading-snug">
+              Satisfaction Guaranteed on Every Purchase!
+            </p>
+            <div class="pt-2">
+              <button
+                class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm"
+              >
+                Browse Our Collection
+              </button>
+            </div>
+          </div>
+        </article>
+        <!-- Feature 4: 24/7 Support -->
+        <article
+          class="group relative h-[360px] rounded-2xl overflow-hidden shadow-sm flex flex-col justify-end p-5 text-white bg-slate-900"
+        >
+          <img
+            alt="Customer Support"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD45Dfmrplvon_pT1dXPKH7Bp9Lb6TJjtA1ztkQXyPIbjq3GHPcGzRFSUkgjEYyXntW-XmbpzOutcAqn5dnn2qNOeSElCmVAVhvm5la1lZn35LerM4I1r-XGBdw5t6d62MWVIyYWmMPoQOxl4c_xjezCpy-CJKXvPsY0BvaB6Or_Z0h9J96laXaAb4nBuyx65bvlXH2tGnuAECtq7hylD0SPcw7TAD9QIL_I2JpjJIsGRdkzypC9h_k"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          ></div>
+          <div class="relative z-10 space-y-2">
+            <h3 class="text-base font-bold leading-tight">
+              24/7 Customer Support
+            </h3>
+            <p class="text-xs text-gray-200 leading-snug">
+              We're Here to Help You Anytime, Day or Night!
+            </p>
+            <div class="pt-2">
+              <button
+                class="px-4 py-1.5 rounded-full bg-white text-gray-900 text-xs font-semibold hover:bg-gray-100 transition shadow-sm"
+              >
+                Contact Us Anytime
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- Navigation arrows below cards -->
+      <div class="flex justify-end items-center space-x-2 mt-4 pr-1">
+        <button
+          aria-label="Previous slide"
+          class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition"
+        >
+          <svg
+            class="w-3.5 h-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewbox="0 0 24 24"
+          >
+            <path
+              d="M15 19l-7-7 7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </button>
+        <button
+          aria-label="Next slide"
+          class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-gray-800 hover:text-gray-800 transition"
+        >
+          <svg
+            class="w-3.5 h-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewbox="0 0 24 24"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <!-- END: WhyChooseSection -->
+    <!-- BEGIN: InstagramGridSection -->
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-8 py-14"
+      data-purpose="instagram-feed"
+    >
+      <div class="text-center mb-8">
+        <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">
+          Follow Us
         </p>
-<!-- Newsletter Input Pill -->
-<form id="checkoutNewsletterForm" class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md">
-<input class="w-full px-4 py-2.5 rounded-full bg-black/50 text-white placeholder-gray-300 border border-white/30 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#00a63e] backdrop-blur-sm" placeholder="Enter Email For Subcribe New Product" required="" type="email"/>
-<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white text-gray-900 font-semibold text-xs sm:text-sm hover:bg-gray-100 transition shadow-sm" type="submit">
-            Submit
-          </button>
-</form>
-</div>
-</div>
-</section>
-<!-- END: NewsletterTropicalBanner -->
-<footer class="footer" id="contact">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo flex items-center">
-          <img src="assets/logo.svg" alt="Agrismart Logo" class="footer-logo-img" />
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
+          Follow Us On <span class="text-[#00a63e]">Instagram</span>
+        </h2>
+      </div>
+      <!-- Gallery Bento Grid Matching Reference -->
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[180px]"
+      >
+        <!-- Image 1 (left-top) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm group">
+          <img
+            alt="Greenhouse plants"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVoWbybw51wNt8Ja6VIAmxX9VFEW5wjRMRe-iloO6UwB0es-u4DFrWI0iBd1hmN3aq3j1POhGVbZXAOp8Tfb-mMxCeT_RmlN_ZT9zNnMcgk8TB44nPLFcTG0qbTGDMLKOESe8VOhyORhnu-8oBZX2wLMDMGctA8lb35QUixfjxtBFL1dGj5oLZeFESql3kW_75o2kAWStWCgsr6LWxFxJbsQrNqc6mI_VVv_ULCYoI2K2M5Mo-fmFT"
+          />
         </div>
-        <div class="footer__desc">Bringing the beauty and joy of plants into homes and workplaces across the country. Every plant, a story.</div>
-        <div class="footer__socials">
-          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
-          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
-          <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
-          <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+        <!-- Image 2 (tall vertical) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm md:row-span-2 group">
+          <img
+            alt="Young man with plant"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3LcQVqIUdAjQ0f4bHFYyY1QFMQoqlN2wbFS4Yo4nxLTvX7oRek-A74myuPbT0Tr7L3wRSagW6Ci-uyFjypL71-RW6zwTnR3yiVI_P7Y8Mna-YtYQxVe3vMe_25DfPf6t3wTLPDZQ3WTkMZkQdrjzZK9Q0mVdK8AQZisBRVYY_Ps9DOkCJI3ovRiaPhEvU3fCke0tUOy7O0HquEvMyYWDlrKGjiwqNpXabfsQYLsHPeD52-EmadtFK"
+          />
+        </div>
+        <!-- Image 3 (tall center vertical) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm md:row-span-2 group">
+          <img
+            alt="Plant enthusiast in greenhouse"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuArouXBuFeAz5_SCrm-LSEHgBm-_c7ulHRe9KApICNqC54Dec_TiNRO0ElwyHX-cUnWsqlJJ5U0cVghNWJVjpmzZoMlo1DRtVjvInF6uC4WnsGHHESksFdo2ZPRs_qC8krINHRRxuyFwiNocmvGO0r0DaVIQOQ8-FonEjP1BvYtfrcv8CFbEfGxed5NIooQPdYw98GT-AU4KQjglbNPTwAYttm2sFshlcgsEAEU6hrKs5Fi2M4Rl6Bc"
+          />
+        </div>
+        <!-- Image 4 (top right wide) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm group">
+          <img
+            alt="Botanical balcony"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi8x00fhX_QlXXON9BmP8IXkqQKYTCFTdE5s3zW7oDYaZATL3GnbI-pO33Ewemab4837o0G9JzeemIvlOHtlu7uGTf5iqd8gPwIrdpe7WFr8igoroHSevrY7pTxBo8UrIL4jEV0lvOqD-u373wA3ixfUptXETkT-OeG9BCSUNR--8EJRKECxxbMdJOlFMaMF1lzT20lfobdwcuFP9yRtIKum7zEFmhN1zmlbWz5Gzu7qTfPgtI2nBA"
+          />
+        </div>
+        <!-- Image 5 (bottom left potting) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm group">
+          <img
+            alt="Hands potting soil"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJY20F9uGptmLbeUe-BhKnB2xY-IZMM1zIas0tkV74fE1ZmpM5eio_-62U4iOaaJ9iRcAGyppYEWtm32ZhHJ-yI3vc-NWRfo9UcMev1yRpPsfmM4mfV7UgnW5Yff6U9sV-KnQ_L_tDN7rnXCB95f8gnVIA2V9Viekb2_AIXXa3sbx4GjYbvTbUVoyS6V5sVOqiumy9fA5XYubjSSDPfR7XNheRHcaeOR5YiArtGIZfRmJxQDvMpQx3"
+          />
+        </div>
+        <!-- Image 6 (bottom right smiling boy) -->
+        <div class="rounded-2xl overflow-hidden shadow-sm group">
+          <img
+            alt="Smiling gardener"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ppdVCo4QI206GTDqfT0R2WYaVL42sZlkbt7Cx_BmYMgiCT7fQBanfJa8awGIslceCyVTZS5B9Lr058gpALrZ3Gu0mL2XRLkmThJbTv951PJ5Eib-E_EdA1wm65Z12Km3jvbj1VSYFYrlWHLamkpK2P0jbFF8Io0hpTyIMDoxuTYY3w9EBPSz3RnLdR8WmYe0YI-p4n47hTgmwYW3SmQSW1eljFXyO7ZYj_syKL0zomTCKjFV3Stz"
+          />
         </div>
       </div>
-      <div>
-        <div class="footer__heading">Shop</div>
-        <ul class="footer__links">
-          <li><a href="#">Indoor Plants</a></li>
-          <li><a href="#">Outdoor Plants</a></li>
-          <li><a href="#">Succulents</a></li>
-          <li><a href="#">Flowering Plants</a></li>
-          <li><a href="#">Bonsai Trees</a></li>
-          <li><a href="pots-accessories.html">Plant Pots</a></li>
-        </ul>
+    </section>
+    <!-- END: InstagramGridSection -->
+    <!-- BEGIN: FaqSection -->
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-8 py-14"
+      data-purpose="faq-section"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- FAQ Left Image -->
+        <div
+          class="lg:col-span-5 h-[420px] rounded-3xl overflow-hidden shadow-md"
+        >
+          <img
+            alt="Cozy living room interior"
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5rlTg6HeOFRLultm10YsuRdJ6natX94Ms_0duo2_V30YKZoHDYF16CrvETin98IUJaxOUEQiF-h6fb1_qC_Ph9yI2uuTrx1Ck8Xza8deZuleeTrVUoVss7SQ0GC5_qKoa0lXarbltKW-3e9E6UZdP7RtydgTHbkHeoSaJjEbSH0ONhfaVDmyKY6a2sp5w9E4qvNpvF9xLiNUvzcSzKj6Q7L7lUzk1YHTJudHTcojgoujV1lV7ySYv"
+          />
+        </div>
+        <!-- FAQ Accordions Right -->
+        <div class="lg:col-span-7 space-y-4">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900">
+              Questions About Agrismart
+            </h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1">
+              Questions About MyFurnish We Answer Here:
+            </p>
+          </div>
+          <!-- Accordion Items -->
+          <div class="space-y-3 pt-2">
+            <!-- Item 1 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 open:shadow-xs transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>1. Where can I get complete information?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                You can find complete information regarding all our botanical
+                species, watering guides, and shipping policies on our Knowledge
+                Base and product spec pages.
+              </p>
+            </details>
+            <!-- Item 2 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>2. Where can I track my order?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                Once your package leaves our greenhouse facility, tracking
+                numbers are dispatched via SMS and registered email with direct
+                carrier links.
+              </p>
+            </details>
+            <!-- Item 3 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>3. How can I get promotions?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                Subscribe to our weekly botanical newsletter below or join our
+                Plantify rewards loyalty program for member-exclusive coupons.
+              </p>
+            </details>
+            <!-- Item 4 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>4. What is your return policy?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                We offer a 14-day Happy Plant Guarantee. If your plant arrives
+                damaged or unhealthy, we will replace it immediately free of
+                charge.
+              </p>
+            </details>
+            <!-- Item 5 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>5. How do I contact customer support?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                Contact us via WhatsApp, call (+962)776135123, or drop an email
+                to alaafrihat52@gmail.com available daily until 9:00 PM.
+              </p>
+            </details>
+            <!-- Item 6 -->
+            <details
+              class="group bg-white rounded-xl border border-gray-100 p-4 transition duration-200"
+            >
+              <summary
+                class="flex justify-between items-center font-medium text-xs sm:text-sm text-gray-800 cursor-pointer list-none"
+              >
+                <span>6. What payment methods do you accept?</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </summary>
+              <p class="text-xs text-gray-500 mt-2.5 leading-relaxed">
+                We accept Cash on Delivery (COD), Visa, MasterCard, CliQ instant
+                transfers, and Apple Pay across Jordan and GCC countries.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="footer__heading">Help</div>
-        <ul class="footer__links">
-          <li><a href="track-order.html">Track My Order</a></li>
-          <li><a href="#">Shipping Policy</a></li>
-          <li><a href="#">Returns &amp; Refunds</a></li>
-          <li><a href="#">Plant Care FAQs</a></li>
-          <li><a href="contact.html">Contact Support</a></li>
-        </ul>
+    </section>
+    <!-- END: FaqSection -->
+
+    <!-- BEGIN: NewsletterTropicalBanner -->
+    <section
+      class="max-w-7xl mx-auto px-4 sm:px-8 py-8"
+      data-purpose="newsletter-section"
+    >
+      <div
+        class="relative rounded-3xl overflow-hidden min-h-[300px] flex items-center p-8 sm:p-14 shadow-xl"
+      >
+        <!-- Background Image using https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ -->
+        <img
+          alt="Tropical foliage rainforest backdrop"
+          class="absolute inset-0 w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida/AEtjO1VNXBUj4rH1dI0DDl1zk3v9D0e2I7JwRHpFJjVKp_WmaGngim8K1wUA1B7WRFJWut06yP-tXrYqdwQjZe65IbHPmDzvIK0fxvAun4B3qrMX9mami7OTSLxZkseW_GsjThaaL5M6LDXW8xKlWyBaCbiUdaV2PCn04ZJYspQcb6i-EqKIyNqZCzKemL7eEAoBVT0qLz7bjsTP8DneOwVJW6PxZp6MIr6ZDU4ZroCkHOr4uCh8DwZKXCFEsQ"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Content -->
+        <div class="relative z-10 max-w-xl text-white space-y-3">
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-wide leading-tight"
+          >
+            Bring The Serenity Of Nature Into Your Home.
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-200">
+            Discover The Perfect Plants To Transform Your Living Space.
+          </p>
+          <!-- Newsletter Input Pill -->
+          <form
+            id="checkoutNewsletterForm"
+            class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md"
+          >
+            <input
+              class="w-full px-4 py-2.5 rounded-full bg-black/50 text-white placeholder-gray-300 border border-white/30 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#00a63e] backdrop-blur-sm"
+              placeholder="Enter Email For Subcribe New Product"
+              required=""
+              type="email"
+            />
+            <button
+              class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white text-gray-900 font-semibold text-xs sm:text-sm hover:bg-gray-100 transition shadow-sm"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-      <div>
-        <div class="footer__heading">Contact</div>
-        <ul class="footer__links">
-          <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
-          <li><a href="#">📞 +962776135123</a></li>
-          <li><a href="mailto:alaafrihat52@gmail.com">✉️ alaafrihat52@gmail.com</a></li>
-          <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
-        </ul>
+    </section>
+    <!-- END: NewsletterTropicalBanner -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo flex items-center">
+              <img
+                src="assets/logo.svg"
+                alt="Agrismart Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <div class="footer__desc">
+              Bringing the beauty and joy of plants into homes and workplaces
+              across the country. Every plant, a story.
+            </div>
+            <div class="footer__socials">
+              <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+              <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+              <a href="#" class="footer__social" aria-label="Twitter">🐦</a>
+              <a href="#" class="footer__social" aria-label="Pinterest">📌</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer__heading">Shop</div>
+            <ul class="footer__links">
+              <li><a href="#">Indoor Plants</a></li>
+              <li><a href="#">Outdoor Plants</a></li>
+              <li><a href="#">Succulents</a></li>
+              <li><a href="#">Flowering Plants</a></li>
+              <li><a href="#">Bonsai Trees</a></li>
+              <li><a href="pots-accessories.html">Plant Pots</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Help</div>
+            <ul class="footer__links">
+              <li><a href="track-order.html">Track My Order</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Plant Care FAQs</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer__heading">Contact</div>
+            <ul class="footer__links">
+              <li><a href="#">📍 Ajlun, Amman, Jordan</a></li>
+              <li><a href="#">📞 +962776135123</a></li>
+              <li>
+                <a href="mailto:alaafrihat52@gmail.com"
+                  >✉️ alaafrihat52@gmail.com</a
+                >
+              </li>
+              <li><a href="#">⏰ Mon-Fri, 9am-6pm</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>&copy; 2025 Agrismart. All rights reserved.</span>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <span>&copy; 2025 Agrismart. All rights reserved.</span>
-      <div class="footer__bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
-  <script src="js/cart.js"></script>
-  <script src="js/header.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <script src="js/order-complete.js"></script>
-  <script src="js/app-promo.js"></script>
-</body></html>
+    </footer>
+    <script src="js/cart.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/order-complete.js"></script>
+    <script src="js/app-promo.js"></script>
+  </body>
+</html>
