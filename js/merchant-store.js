@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return `
         <article class="storefront-card">
-          <img class="storefront-card__img" src="${item.image}" alt="${itemName}" loading="lazy">
+          <img class="storefront-card__img" src="${item.image}" alt="${itemName}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80';">
           <div class="storefront-card__body">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span class="category-tag">${item.category}</span>

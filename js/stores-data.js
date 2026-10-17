@@ -283,7 +283,7 @@
         price: 6.5,
         stock: 60,
         image:
-          "https://images.unsplash.com/photo-1592417817098-8f3d6910609f?w=500&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80",
         traits: "Non-GMO · 94% Germination · Heavy Producer",
         traitsAr: "غير معدلة وراثياً · نسبة إنبات ٩٤٪ · إنتاج وفير",
       },

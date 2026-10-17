@@ -88,6 +88,31 @@
         if (pwdField) pwdField.value = "Trader123!";
       }
     });
+
+    // Default pre-fill for customer role on load if empty
+    if (emailField && !emailField.value) {
+      emailField.value = "demo@agrismart.com";
+      if (pwdField && !pwdField.value) pwdField.value = "Demo123!";
+    }
+
+    // Clickable demo hint accounts
+    document.querySelectorAll(".demo-login-hint span").forEach((span) => {
+      span.style.cursor = "pointer";
+      span.title = "Click to auto-fill credentials";
+      span.addEventListener("click", () => {
+        const text = span.textContent;
+        if (text.includes("trader@agrismart.com")) {
+          roleBusiness.click();
+        } else if (text.includes("admin@agrismart.com")) {
+          if (emailField) emailField.value = "admin@agrismart.com";
+          if (pwdField) pwdField.value = "Admin123!";
+        } else if (text.includes("demo@agrismart.com")) {
+          roleIndividual.click();
+          if (emailField) emailField.value = "demo@agrismart.com";
+          if (pwdField) pwdField.value = "Demo123!";
+        }
+      });
+    });
   }
   // Theme Switcher for Login
   const loginThemeToggle = document.getElementById("loginThemeToggle");

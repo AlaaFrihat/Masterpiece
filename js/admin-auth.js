@@ -22,7 +22,7 @@
   const session = () => read(SESSION_KEY);
   const logout = () => {
     localStorage.removeItem(SESSION_KEY);
-    location.href = "admin-login.html";
+    location.href = "index.html";
   };
   const isSignedIn = () => session()?.role === "admin";
 
@@ -136,6 +136,9 @@
     // Logout triggers
     document.querySelectorAll("[data-admin-logout]").forEach((button) => {
       button.addEventListener("click", logout);
+      if (!button.querySelector("span")) {
+        button.innerHTML = `<span>${button.textContent.trim()}</span>`;
+      }
     });
 
     // Dynamic session sync for UI elements across all admin pages

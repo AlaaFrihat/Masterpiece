@@ -357,10 +357,109 @@ button {
   color: #7e8782;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   Admin Logout ShinyButton Component
+   ══════════════════════════════════════════════════════════════ */
 .logout-button {
-  color: #168438;
-  font-size: 13px;
-  font-weight: 600;
+  --gleam-base-1: #f43f5e;
+  --gleam-base-2: #e11d48;
+  --gleam-inset: rgba(255, 255, 255, 0.25);
+  --gleam-label: #ffffff;
+  --gleam-accent: #fda4af;
+  --gleam-accent-soft: #fecdd3;
+  --duration: 3s;
+  --shadow-size: 2px;
+  --transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  --gradient-percent: 8%;
+  --gradient-angle-offset: 0deg;
+  --gradient-shine: #ffffff;
+
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1.5px solid transparent;
+  border-radius: 9999px;
+  color: var(--gleam-label) !important;
+  background:
+    linear-gradient(135deg, var(--gleam-base-1), var(--gleam-base-2)) padding-box,
+    conic-gradient(
+      from calc(var(--gradient-angle, 0deg) - var(--gradient-angle-offset, 0deg)),
+      transparent,
+      var(--gleam-accent) var(--gradient-percent, 8%),
+      var(--gradient-shine, white) calc(var(--gradient-percent, 8%) * 2),
+      var(--gleam-accent) calc(var(--gradient-percent, 8%) * 3),
+      transparent calc(var(--gradient-percent, 8%) * 4)
+    ) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 4px 14px rgba(244, 63, 94, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.35s ease;
+  animation: gradient-angle-anim var(--duration) linear infinite;
+}
+
+.logout-button::before,
+.logout-button::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.logout-button::after {
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.75s ease, opacity 0.4s ease;
+}
+
+.logout-button:hover::after {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.logout-button span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.logout-button:is(:hover, :focus-visible) {
+  --gradient-percent: 22%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--gleam-accent-soft);
+  transform: translateY(-1.5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(244, 63, 94, 0.46),
+    0 0 18px rgba(253, 164, 175, 0.42);
+}
+
+.logout-button:active {
+  transform: translateY(1px) scale(0.97);
 }
 
 .mobile-menu {

@@ -69,7 +69,7 @@
       stock: 60,
       status: "in-stock",
       image:
-        "https://images.unsplash.com/photo-1592417817098-8f3d6910609f?w=500&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80",
       traits: "Non-GMO · High Germination",
       traitsAr: "غير معدلة وراثياً · نسبة إنبات 95%",
       sold: 82,

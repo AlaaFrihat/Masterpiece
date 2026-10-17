@@ -223,6 +223,7 @@
         control.classList.remove(isSiteNav ? "site-nav__icon" : "btn-icon");
         control.classList.add(
           isSiteNav ? "site-nav__auth-link" : "btn-auth-link",
+          "shiny-btn",
         );
         control.dataset.authSplit = "true";
       }
@@ -235,6 +236,7 @@
         accountIcon.href = targetPage;
         accountIcon.setAttribute("aria-label", accountLabel);
         accountIcon.title = accountLabel;
+        accountIcon.style.display = user ? "inline-flex" : "none";
       }
       control.setAttribute("aria-label", label);
       control.setAttribute(
@@ -242,8 +244,16 @@
         user ? `${label} (${user.name || user.email})` : label,
       );
       control.dataset.authState = user ? "signed-in" : "signed-out";
+      control.classList.add("shiny-btn");
+      if (user) {
+        control.classList.add("shiny-btn--logout");
+        control.classList.remove("shiny-btn--login");
+      } else {
+        control.classList.add("shiny-btn--login");
+        control.classList.remove("shiny-btn--logout");
+      }
       if (control.tagName === "A") control.href = user ? "#" : "login.html";
-      control.textContent = label;
+      control.innerHTML = `<span>${label}</span>`;
     });
   }
 
@@ -343,11 +353,11 @@
         } catch {
           /* Ignore unavailable storage. */
         }
-        if (!returnTo) {
+        if (!returnTo || returnTo === "my-account.html") {
           returnTo =
             user.accountType === "business"
               ? "merchant-dashboard.html"
-              : "my-account.html";
+              : "index.html";
         }
         location.href = returnTo;
       });
@@ -450,11 +460,11 @@
         } catch {
           /* Ignore unavailable storage. */
         }
-        if (!returnTo) {
+        if (!returnTo || returnTo === "my-account.html") {
           returnTo =
             accountType === "business"
               ? "merchant-dashboard.html"
-              : "my-account.html";
+              : "index.html";
         }
         location.href = returnTo;
       });

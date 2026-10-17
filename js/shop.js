@@ -9,9 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Prepend merchant listed products if available
   const merchantProducts = (() => {
     try {
-      return JSON.parse(
+      const list = JSON.parse(
         localStorage.getItem("agrismartMerchantProducts") || "[]",
       );
+      let changed = false;
+      list.forEach((p) => {
+        if (p.id === "merch_4" && (p.image?.includes("photo-1592417817098") || !p.image)) {
+          p.image = "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80";
+          changed = true;
+        }
+      });
+      if (changed) {
+        try { localStorage.setItem("agrismartMerchantProducts", JSON.stringify(list)); } catch (_) {}
+      }
+      return list;
     } catch {
       return [];
     }
@@ -29,11 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.potSize = "medium";
       card.dataset.availability = mp.status || "in-stock";
       card.dataset.originalOrder = String(-10 - i);
+      const imgSrc = (mp.id === "merch_4" && mp.image?.includes("photo-1592417817098"))
+        ? "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80"
+        : (mp.image || "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80");
       card.innerHTML = `
         <div class="shop-card__img-wrap">
           <a href="store.html" class="shop-card__tag" style="background:#10b951;color:#fff;text-decoration:none;z-index:2;" title="View Nursery Storefront">🏪 Al-Rawabi Nursery</a>
           <button class="shop-card__wish"><i data-lucide="heart"></i></button>
-          <img class="shop-card__img" alt="${mp.name}" src="${mp.image}" />
+          <img class="shop-card__img" alt="${mp.name}" src="${imgSrc}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=500&auto=format&fit=crop&q=80';" />
         </div>
         <div class="shop-card__header">
           <h4 class="shop-card__name">${mp.name}</h4>

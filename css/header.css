@@ -93,9 +93,10 @@ html[dir="rtl"] .nav .container.nav__inner {
 .logo-img,
 .site-nav__logo img {
   display: block;
-  height: clamp(80px, 6.2vw, 98px);
+  height: 48px;
+  max-height: 48px;
   width: auto;
-  max-width: 290px;
+  max-width: 200px;
   object-fit: contain;
   transition:
     height 0.2s ease,
@@ -282,31 +283,195 @@ html[dir="rtl"] .nav .container.nav__inner {
   stroke-linejoin: round;
 }
 
-/* Auth text link */
+/* ══════════════════════════════════════════════════════════════
+   ShinyButton Component (Gleam Edge Border & Shimmer)
+   Converted from TypeScript/React to Pure CSS
+   ══════════════════════════════════════════════════════════════ */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --gradient-angle-offset {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --gradient-percent {
+  syntax: "<percentage>";
+  initial-value: 6%;
+  inherits: false;
+}
+@property --gradient-shine {
+  syntax: "<color>";
+  initial-value: white;
+  inherits: false;
+}
+
+.shiny-btn,
 .btn-auth-link,
 .site-nav__auth-link {
+  --gleam-base-1: #16c846;
+  --gleam-base-2: #0da834;
+  --gleam-inset: rgba(255, 255, 255, 0.25);
+  --gleam-label: #ffffff;
+  --gleam-accent: #6ee7b7;
+  --gleam-accent-soft: #a7f3d0;
+  --duration: 3s;
+  --shadow-size: 2px;
+  --transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  --gradient-percent: 8%;
+  --gradient-angle-offset: 0deg;
+  --gradient-shine: #ffffff;
+
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 36px;
-  padding: 0 16px;
-  background: var(--green, #09ad2a);
-  color: #ffffff !important;
-  border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 0 18px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 3px 12px rgba(9, 173, 42, 0.28);
-  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+  border-radius: 9999px;
+  color: var(--gleam-label) !important;
+  background:
+    linear-gradient(135deg, var(--gleam-base-1), var(--gleam-base-2)) padding-box,
+    conic-gradient(
+      from calc(var(--gradient-angle, 0deg) - var(--gradient-angle-offset, 0deg)),
+      transparent,
+      var(--gleam-accent) var(--gradient-percent, 8%),
+      var(--gradient-shine, white) calc(var(--gradient-percent, 8%) * 2),
+      var(--gleam-accent) calc(var(--gradient-percent, 8%) * 3),
+      transparent calc(var(--gradient-percent, 8%) * 4)
+    ) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 4px 16px rgba(13, 168, 52, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.35s ease;
+  animation: gradient-angle-anim var(--duration) linear infinite;
 }
 
-.btn-auth-link:hover,
-.site-nav__auth-link:hover {
-  background: #08762c;
-  transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(9, 173, 42, 0.38);
+/* Logout State: Ruby / Coral Gleam */
+.shiny-btn--logout,
+.btn-auth-link[data-auth-state="signed-in"],
+.site-nav__auth-link[data-auth-state="signed-in"] {
+  --gleam-base-1: #f43f5e;
+  --gleam-base-2: #e11d48;
+  --gleam-inset: rgba(255, 255, 255, 0.25);
+  --gleam-accent: #fda4af;
+  --gleam-accent-soft: #fecdd3;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 4px 16px rgba(244, 63, 94, 0.35);
+}
+
+/* Pseudo overlays: Full pill coverage (No black cut-offs!) */
+.shiny-btn::before,
+.shiny-btn::after,
+.btn-auth-link::before,
+.btn-auth-link::after,
+.site-nav__auth-link::before,
+.site-nav__auth-link::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Subtle Shimmer Sheen across entire button */
+.shiny-btn::after,
+.btn-auth-link::after,
+.site-nav__auth-link::after {
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.75s ease, opacity 0.4s ease;
+}
+
+.shiny-btn:hover::after,
+.btn-auth-link:hover::after,
+.site-nav__auth-link:hover::after {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+/* Label Text */
+.shiny-btn span,
+.btn-auth-link span,
+.site-nav__auth-link span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover & Focus state */
+.shiny-btn:is(:hover, :focus-visible),
+.btn-auth-link:is(:hover, :focus-visible),
+.site-nav__auth-link:is(:hover, :focus-visible) {
+  --gradient-percent: 22%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--gleam-accent-soft);
+  transform: translateY(-1.5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(13, 168, 52, 0.46),
+    0 0 18px rgba(110, 231, 183, 0.42);
+}
+
+.shiny-btn--logout:is(:hover, :focus-visible),
+.btn-auth-link[data-auth-state="signed-in"]:is(:hover, :focus-visible),
+.site-nav__auth-link[data-auth-state="signed-in"]:is(:hover, :focus-visible) {
+  --gradient-percent: 22%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--gleam-accent-soft);
+  transform: translateY(-1.5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(244, 63, 94, 0.46),
+    0 0 18px rgba(253, 164, 175, 0.42);
+}
+
+.shiny-btn:active,
+.btn-auth-link:active,
+.site-nav__auth-link:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+@keyframes gradient-angle-anim {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny-btn,
+  .btn-auth-link,
+  .site-nav__auth-link,
+  .shiny-btn::before,
+  .shiny-btn::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Hamburger button */
@@ -385,7 +550,8 @@ html[dir="rtl"] .nav .container.nav__inner {
   }
   .nav__logo .logo-img,
   .site-nav__logo img {
-    height: 60px;
+    height: 46px;
+    max-height: 46px;
   }
   .nav__links,
   .site-nav__links {
