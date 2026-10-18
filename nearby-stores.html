@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -90,17 +90,36 @@
         />
       </symbol>
 
-      <symbol
+            <symbol
         id="icon-user"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
+        stroke-width="1.8"
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
+        <path
+          d="M5.5 20C5.5 16.5 8.5 14.5 12 14.5C15.5 14.5 18.5 16.5 18.5 20"
+          fill="rgba(16, 185, 129, 0.22)"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+        <circle
+          cx="12"
+          cy="9"
+          r="4"
+          fill="rgba(16, 185, 129, 0.28)"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <path
+          d="M12 17.5C13.2 16.5 14 15 13.8 14.2C13 14 11.5 14.8 11.2 16"
+          fill="#10b981"
+          stroke="#059669"
+          stroke-width="0.5"
+        />
       </symbol>
 
       <symbol
@@ -163,26 +182,66 @@
         </ul>
 
         <div class="nav__actions">
-          <!-- Language Switcher -->
-          <div class="lang-switcher">
-            <button class="lang-btn active" id="lang-en" type="button">
-              EN
+          <!-- Language Switcher (Liquid Botanical Glider) -->
+          <div class="lang-switcher lang-glider" data-lang="en">
+            <div class="lang-glider__thumb"></div>
+            <button class="lang-btn lang-glider__btn active" id="lang-en" type="button" data-lang="en" aria-label="Switch to English">
+              <span class="lang-glider__icon">🌱</span> EN
             </button>
-            <button class="lang-btn" id="lang-ar" type="button">العربية</button>
+            <button class="lang-btn lang-glider__btn" id="lang-ar" type="button" data-lang="ar" aria-label="التحويل إلى العربية">
+              العربية <span class="lang-glider__icon">🌿</span>
+            </button>
           </div>
-          <!-- Theme Toggle -->
-          <button
-            class="btn-icon theme-toggle-btn"
-            id="themeToggle"
-            aria-label="Toggle Theme"
-          >
-            <svg id="themeIconLight" class="hidden-icon">
-              <use href="#icon-sun"></use>
-            </svg>
-            <svg id="themeIconDark">
-              <use href="#icon-moon"></use>
-            </svg>
-          </button>
+          <!-- Theme Toggle (Honeybee & Firefly) -->
+          <label class="agri-toggle theme-bee" id="themeToggle" aria-label="Toggle Theme" title="Toggle Theme">
+            <input class="agri-toggle__checkbox" id="bee-theme-checkbox" type="checkbox" aria-label="Toggle Theme" />
+            <div class="agri-toggle__track">
+              <div class="agri-toggle__night-sky"></div>
+              <div class="agri-clouds">
+                <div class="agri-sun"></div>
+                <div class="agri-cloud agri-cloud--1"></div>
+                <div class="agri-cloud agri-cloud--2"></div>
+              </div>
+              <div class="agri-stars">
+                <div class="agri-star agri-star--1"></div>
+                <div class="agri-star agri-star--2"></div>
+                <div class="agri-star agri-star--3"></div>
+                <div class="agri-star agri-star--4"></div>
+                <div class="agri-firefly agri-firefly--1"></div>
+                <div class="agri-firefly agri-firefly--2"></div>
+                <div class="agri-firefly agri-firefly--3"></div>
+              </div>
+              <div class="agri-hill-back"></div>
+              <div class="agri-hill-front"></div>
+              <div class="agri-toggle__knob">
+                <div class="knob-day">
+                  <svg class="knob-svg" viewBox="0 0 100 100">
+                    <ellipse class="bee-wing-l" cx="42" cy="30" rx="11" ry="16" fill="rgba(224,242,254,0.92)" stroke="#38bdf8" stroke-width="2" transform="rotate(-20 42 30)"/>
+                    <ellipse class="bee-wing-r" cx="58" cy="30" rx="11" ry="16" fill="rgba(224,242,254,0.92)" stroke="#38bdf8" stroke-width="2" transform="rotate(20 58 30)"/>
+                    <ellipse cx="50" cy="56" rx="24" ry="18" fill="#facc15" stroke="#1e293b" stroke-width="3"/>
+                    <path d="M40 39 V73 M52 38 V74 M63 42 V70" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="33" cy="52" r="3.2" fill="#1e293b"/>
+                    <circle cx="32" cy="51" r="1.1" fill="#ffffff"/>
+                    <path d="M29 44 Q24 35 19 37" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="19" cy="37" r="2" fill="#1e293b"/>
+                    <path d="M74 56 L81 56" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="knob-night">
+                  <svg class="knob-svg" viewBox="0 0 100 100">
+                    <circle class="firefly-glow" cx="50" cy="60" r="25" fill="rgba(190,242,100,0.32)"/>
+                    <ellipse cx="40" cy="40" rx="9" ry="15" fill="rgba(167,243,208,0.48)" transform="rotate(-28 40 40)"/>
+                    <ellipse cx="60" cy="40" rx="9" ry="15" fill="rgba(167,243,208,0.48)" transform="rotate(28 60 40)"/>
+                    <ellipse cx="50" cy="48" rx="9" ry="11" fill="#334155"/>
+                    <ellipse class="firefly-glow" cx="50" cy="64" rx="12" ry="13" fill="#bef264" stroke="#84cc16" stroke-width="2"/>
+                    <circle cx="45" cy="44" r="2.2" fill="#fef08a"/>
+                    <circle cx="55" cy="44" r="2.2" fill="#fef08a"/>
+                    <path d="M46 38 Q42 30 37 32 M54 38 Q58 30 63 32" fill="none" stroke="#bef264" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </label>
           <!-- Login / User -->
           <a
             href="./login.html"

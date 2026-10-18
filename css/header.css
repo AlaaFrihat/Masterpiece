@@ -204,43 +204,136 @@ html[dir="rtl"] .nav .container.nav__inner {
   }
 }
 
-/* Language Switcher */
+/* Language Switcher: Liquid Botanical Glider (الكبسولة النباتية الانسيابية) */
 .lang-switcher,
-.site-nav__language {
-  display: flex;
+.site-nav__language,
+.lang-glider {
+  --glider-h: 34px;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 1px 2px;
-  border: 1px solid #d9e8dc;
+  background: rgba(240, 253, 244, 0.85);
+  border: 1.5px solid rgba(16, 185, 129, 0.28);
   border-radius: 999px;
-  background: #f7fbf8;
+  padding: 3px;
+  height: var(--glider-h);
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(16, 185, 129, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  direction: ltr; /* strict LTR geometry so sliding direction is consistent */
+  vertical-align: middle;
   flex-shrink: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lang-glider__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  transition: transform 0.42s cubic-bezier(0.34, 1.45, 0.64, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* If Arabic is active, thumb slides to the right slot */
+.lang-switcher[data-lang="ar"] .lang-glider__thumb,
+.lang-glider[data-lang="ar"] .lang-glider__thumb,
+.lang-switcher:has(#lang-ar.active) .lang-glider__thumb,
+.lang-glider:has(#lang-ar.active) .lang-glider__thumb {
+  transform: translateX(100%);
 }
 
 .lang-btn,
-.site-nav__lang {
+.site-nav__lang,
+.lang-glider__btn {
+  position: relative;
+  z-index: 2;
   border: 0;
-  background: transparent;
-  color: #536057;
-  border-radius: 999px;
-  padding: 3px 8px;
+  background: transparent !important;
+  padding: 0 11px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #3f5548;
   cursor: pointer;
-  font: inherit;
-  font-size: 0.73rem;
-  font-weight: 600;
-  line-height: 1.2;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+  border-radius: 999px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+.lang-btn:hover:not(.active):not(.is-active) {
+  color: #059669;
 }
 
 .lang-btn.active,
 .lang-btn.is-active,
 .site-nav__lang.active,
-.site-nav__lang.is-active {
-  color: #ffffff;
-  background: #087d3b;
+.site-nav__lang.is-active,
+.lang-glider__btn.active {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   font-weight: 700;
+}
+
+.lang-glider__icon {
+  font-size: 0.85rem;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.lang-btn.active .lang-glider__icon,
+.lang-glider__btn.active .lang-glider__icon {
+  transform: scale(1.18);
+}
+
+@media (max-width: 768px) {
+  .lang-switcher,
+  .site-nav__language,
+  .lang-glider {
+    --glider-h: 30px;
+    padding: 2px;
+  }
+  .lang-glider__thumb {
+    top: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    height: calc(100% - 4px);
+  }
+  .lang-btn,
+  .site-nav__lang,
+  .lang-glider__btn {
+    padding: 0 8px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .lang-switcher,
+  .site-nav__language,
+  .lang-glider {
+    --glider-h: 28px;
+  }
+  .lang-btn,
+  .site-nav__lang,
+  .lang-glider__btn {
+    padding: 0 6px;
+    font-size: 0.68rem;
+  }
 }
 
 /* Icon Buttons */
@@ -281,6 +374,44 @@ html[dir="rtl"] .nav .container.nav__inner {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* Account / Profile Icon Enhancement */
+[data-account-icon],
+.btn-icon--account,
+a.btn-icon[href*="account"],
+a.site-nav__icon[href*="account"] {
+  border: 1.5px solid rgba(16, 185, 129, 0.25);
+  background: rgba(240, 253, 244, 0.85);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+  transition: all 0.25s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+[data-account-icon]:hover,
+.btn-icon--account:hover,
+a.btn-icon[href*="account"]:hover,
+a.site-nav__icon[href*="account"]:hover {
+  border-color: var(--green, #09ad2a);
+  transform: translateY(-1px) scale(1.06);
+  box-shadow: 0 0 14px rgba(9, 173, 42, 0.35);
+}
+
+html[data-theme="dark"] [data-account-icon],
+html[data-theme="dark"] .btn-icon--account,
+html[data-theme="dark"] a.btn-icon[href*="account"],
+html[data-theme="dark"] a.site-nav__icon[href*="account"] {
+  background: rgba(18, 30, 23, 0.85);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #ecfdf5;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+}
+
+html[data-theme="dark"] [data-account-icon]:hover,
+html[data-theme="dark"] .btn-icon--account:hover,
+html[data-theme="dark"] a.btn-icon[href*="account"]:hover,
+html[data-theme="dark"] a.site-nav__icon[href*="account"]:hover {
+  border-color: #22c55e;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.45);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -791,22 +922,36 @@ html[data-theme="dark"] .site-nav__links {
 }
 
 html[data-theme="dark"] .lang-switcher,
-html[data-theme="dark"] .site-nav__language {
-  border-color: #34483a;
-  background: #1c2b21;
+html[data-theme="dark"] .site-nav__language,
+html[data-theme="dark"] .lang-glider {
+  background: rgba(15, 28, 20, 0.85);
+  border-color: rgba(34, 197, 94, 0.35);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 12px rgba(34, 197, 94, 0.12);
 }
 
 html[data-theme="dark"] .lang-btn,
-html[data-theme="dark"] .site-nav__lang {
-  color: #c5d3c9;
+html[data-theme="dark"] .site-nav__lang,
+html[data-theme="dark"] .lang-glider__btn {
+  color: #9bb1a3;
+}
+
+html[data-theme="dark"] .lang-btn:hover:not(.active):not(.is-active) {
+  color: #86efac;
 }
 
 html[data-theme="dark"] .lang-btn.active,
 html[data-theme="dark"] .lang-btn.is-active,
 html[data-theme="dark"] .site-nav__lang.active,
-html[data-theme="dark"] .site-nav__lang.is-active {
-  color: #ffffff;
-  background: #168a3e;
+html[data-theme="dark"] .site-nav__lang.is-active,
+html[data-theme="dark"] .lang-glider__btn.active {
+  color: #ffffff !important;
+  background: transparent !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .lang-glider__thumb {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  box-shadow: 0 2px 12px rgba(34, 197, 94, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35);
 }
 
 html[data-theme="dark"] .btn-icon:hover,
@@ -1095,3 +1240,325 @@ html[data-theme="dark"] .shop-dept-pill.active {
     font-size: 0.82rem;
   }
 }
+
+/* =================================================
+   AgriSmart Theme Toggle: Honeybee & Glowing Firefly
+   (نحلة العسل واليرقة المضيئة)
+   ================================================= */
+.agri-toggle {
+  --toggle-size: 6.8px;
+  font-size: var(--toggle-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.5em;
+  height: 5em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  direction: ltr;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+@media (max-width: 768px) {
+  .agri-toggle {
+    --toggle-size: 5.8px;
+    margin: 0 2px;
+  }
+}
+
+@media (max-width: 420px) {
+  .agri-toggle {
+    --toggle-size: 5.2px;
+  }
+}
+
+.agri-toggle *,
+.agri-toggle *::before,
+.agri-toggle *::after {
+  box-sizing: border-box;
+}
+
+.agri-toggle__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  margin: 0;
+}
+
+.agri-toggle:focus-within {
+  outline: 2px solid #22c55e;
+  outline-offset: 3px;
+  border-radius: 99em;
+}
+
+.agri-toggle:focus:not(:focus-visible),
+.agri-toggle:focus-within:not(:focus-visible) {
+  outline: none;
+}
+
+.agri-toggle__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 99em;
+  overflow: hidden;
+  background: linear-gradient(180deg, #38bdf8 0%, #bae6fd 62%, #fef08a 100%);
+  box-shadow:
+    inset 0 0.2em 0.5em rgba(0, 0, 0, 0.16),
+    0 0.3em 0.9em rgba(21, 128, 61, 0.18),
+    0 0 0 0.18em rgba(255, 255, 255, 0.85);
+  transition: background 0.55s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.55s ease;
+}
+
+.agri-toggle__night-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #03120b 0%, #09291b 62%, #134e35 100%);
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track {
+  box-shadow:
+    inset 0 0.25em 0.6em rgba(0, 0, 0, 0.6),
+    0 0.25em 1.1em rgba(132, 204, 22, 0.28),
+    0 0 0 0.18em rgba(190, 242, 100, 0.38);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-toggle__night-sky {
+  opacity: 1;
+}
+
+.agri-hill-back,
+.agri-hill-front {
+  position: absolute;
+  bottom: -0.35em;
+  border-radius: 50%;
+  transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.agri-hill-back {
+  width: 7.5em;
+  height: 2.6em;
+  right: -0.8em;
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+}
+
+.agri-hill-front {
+  width: 8em;
+  height: 2.3em;
+  left: -1em;
+  background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-hill-back {
+  background: linear-gradient(180deg, #14532d 0%, #052e16 100%);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-hill-front {
+  background: linear-gradient(180deg, #166534 0%, #064e3b 100%);
+}
+
+.agri-clouds {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease;
+}
+
+.agri-sun {
+  position: absolute;
+  width: 1.35em;
+  height: 1.35em;
+  top: 0.65em;
+  right: 1.15em;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fef08a 30%, #facc15 100%);
+  box-shadow: 0 0 0.7em #fde047, 0 0 1.3em rgba(245, 158, 11, 0.6);
+}
+
+.agri-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 99em;
+}
+
+.agri-cloud--1 {
+  width: 1.75em;
+  height: 0.58em;
+  top: 1.1em;
+  right: 2.9em;
+  box-shadow: -0.3em 0.14em 0 -0.05em rgba(255, 255, 255, 0.85), 0.35em 0.12em 0 -0.08em rgba(255, 255, 255, 0.85);
+}
+
+.agri-cloud--2 {
+  width: 1.25em;
+  height: 0.42em;
+  top: 2.15em;
+  right: 4.3em;
+  opacity: 0.82;
+  box-shadow: -0.25em 0.1em 0 -0.04em rgba(255, 255, 255, 0.8);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-clouds {
+  transform: translateY(2.5em);
+  opacity: 0;
+}
+
+.agri-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translateY(-2em);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease;
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-stars {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.agri-star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0.3em #ffffff;
+  animation: twinkle 2.2s infinite ease-in-out alternate;
+}
+
+.agri-star--1 { width: 0.16em; height: 0.16em; top: 0.85em; left: 1.4em; }
+.agri-star--2 { width: 0.12em; height: 0.12em; top: 1.6em; left: 2.7em; animation-delay: 0.5s; }
+.agri-star--3 { width: 0.18em; height: 0.18em; top: 0.7em; left: 4.0em; animation-delay: 1s; }
+.agri-star--4 { width: 0.11em; height: 0.11em; top: 2.1em; left: 1.1em; animation-delay: 1.4s; }
+
+.agri-firefly {
+  position: absolute;
+  width: 0.28em;
+  height: 0.28em;
+  border-radius: 50%;
+  background: #bef264;
+  box-shadow: 0 0 0.5em #84cc16, 0 0 0.9em #fde047;
+  animation: fireflyFloat 2.8s infinite ease-in-out alternate;
+}
+
+.agri-firefly--1 { bottom: 1.1em; left: 2.0em; }
+.agri-firefly--2 { bottom: 1.6em; left: 3.6em; animation-delay: 1.1s; }
+.agri-firefly--3 { bottom: 0.9em; left: 4.6em; animation-delay: 0.6s; }
+
+.agri-toggle__knob {
+  position: absolute;
+  top: 0.42em;
+  left: 0.45em;
+  width: 4.16em;
+  height: 4.16em;
+  border-radius: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #fef9c3 65%, #fde047 100%);
+  box-shadow:
+    0 0.2em 0.6em rgba(202, 138, 4, 0.38),
+    0 0 0 0.12em rgba(254, 249, 195, 0.85);
+  transition:
+    transform 0.58s cubic-bezier(0.34, 1.45, 0.64, 1),
+    background 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .agri-toggle__knob {
+  transform: translateX(5.44em);
+  background: radial-gradient(circle at 35% 35%, #1a2e05, #0f1f04 82%);
+  box-shadow:
+    0 0 1.25em #84cc16,
+    0 0 0.45em #bef264,
+    inset 0 0 0.45em rgba(190, 242, 100, 0.42);
+}
+
+.knob-svg {
+  width: 88%;
+  height: 88%;
+  overflow: visible;
+  display: block;
+}
+
+.knob-day,
+.knob-night {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease;
+}
+
+.knob-day {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.knob-night {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .knob-day {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+
+.agri-toggle__checkbox:checked + .agri-toggle__track .knob-night {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.bee-wing-l,
+.bee-wing-r {
+  transform-origin: 50px 42px;
+  animation: wingFlutter 0.25s ease-in-out infinite alternate;
+}
+
+.firefly-glow {
+  transform-origin: 50px 60px;
+  animation: pulseGlow 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes wingFlutter {
+  from { transform: scaleY(1) rotate(-4deg); }
+  to { transform: scaleY(0.7) rotate(6deg); }
+}
+
+@keyframes pulseGlow {
+  from { opacity: 0.65; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1.12); }
+}
+
+@keyframes twinkle {
+  from { opacity: 0.35; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fireflyFloat {
+  from { transform: translate(0, 0); }
+  to { transform: translate(0.35em, -0.3em); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agri-toggle *,
+  .agri-toggle *::before,
+  .agri-toggle *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

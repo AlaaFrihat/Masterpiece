@@ -3420,6 +3420,11 @@
           button.classList.toggle("is-active", active);
           button.setAttribute("aria-pressed", String(active));
         });
+      document
+        .querySelectorAll(".lang-switcher, .lang-glider")
+        .forEach((container) => {
+          container.setAttribute("data-lang", currentLanguage);
+        });
       document.title =
         currentLanguage === "ar"
           ? translations[originalTitle] || originalTitle
@@ -3444,7 +3449,7 @@
 
   document.addEventListener("click", (event) => {
     const button = event.target.closest(
-      "#lang-en, #lang-ar, .lang-btn, .site-nav__lang, [data-lang]",
+      "#lang-en, #lang-ar, .lang-btn, .site-nav__lang",
     );
     if (button) {
       event.preventDefault();
@@ -3453,6 +3458,12 @@
         button.dataset.lang === "ar" ||
         button.textContent.trim().includes("عرب");
       applyLanguage(isAr ? "ar" : "en");
+      return;
+    }
+    const container = event.target.closest(".lang-switcher, .lang-glider");
+    if (container) {
+      event.preventDefault();
+      applyLanguage(currentLanguage === "ar" ? "en" : "ar");
     }
   });
 
